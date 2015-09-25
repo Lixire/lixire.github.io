@@ -1,0 +1,29 @@
+<!-- Javascript Functions -->
+<script>
+    function getPhrase(){
+        var part1 = ["Sorry, I have to leave,","Oh shit,","I g2g now,","Catch you later,","Oh, snap,","Sorry but","Oh...my...gosh,","Whoops, I'm late,","Gotta run,"]
+        var part2 = ["my cat's on fire.","I left my brain at the bus stop.","there's a serial killer right behind me.","my house is being vandalized.","my prize dog just imploded.","a narwal just asked for a cup of sugar.","my complier finally finished.","the NSA is after me.","my coffee grinder is trying to eat my roommate.","the French revolution is depending on me!","I just saw Benedict Cumberbatch"]
+        var num1 = Math.floor(Math.random()*part1.length);
+        console.log(part1.length)
+        var num2 =Math.floor(Math.random()*part2.length);
+        var out = part1[num1]+" " +part2[num2];
+        console.log(out);
+        document.getElementById("phras").value=out
+    }
+</script>
+<html>
+    <head>
+        <title>Convender</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="generator">
+                <h1 id="test"> Convo Ender </h1>
+                <p id = "eh">Generate a phrase</p>
+                <button id="jbutton" class="btn btn-warning btn-lg" type="button" onclick="getPhrase()">Press me!</button>
+                <textarea cols="30" rows="5" wrap="soft" id ="phras" value="Generate a message">
+                </textarea>
+            </div>
+        </div>
+    </body>
+</html>
