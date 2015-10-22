@@ -1,0 +1,10 @@
+body{
+    background-color: lightblue;
+}
+h1 {
+    <br>
+    text-indent:-9999px;<br>
+    background:url("title.jpg") no-repeat;<br>
+    width:100px;<br>
+    height:50px;<br>
+}
