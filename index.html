@@ -1,31 +1,174 @@
-<!-- Javascript Functions -->
-<script>
-    function getPhrase(){
-        var part1 = ["Sorry, I have to leave,","Oh shit,","I g2g now,","Catch you later,","Oh, snap,","Sorry but","Oh...my...gosh,","Whoops, I'm late,","Gotta run,","Brb,"]
-        var part2 = ["my cat's on fire.","I left my brain at the bus stop.","there's a serial killer right behind me.","my house is being vandalized.","my prize dog just imploded.","a narwal just asked for a cup of sugar.","my complier finally finished.","the NSA is after me.","my coffee grinder is trying to eat my roommate.","the French revolution is depending on me!","I just saw Benedict Cumberbatch","my fish is drowning."]
-        var num1 = Math.floor(Math.random()*part1.length);
-        console.log(part1.length)
-        var num2 =Math.floor(Math.random()*part2.length);
-        var out = part1[num1]+" " +part2[num2];
-        console.log(out);
-        document.getElementById("phras").value=out
-    }
-</script>
-<html>
-    <head>
-        <title>Convender</title>
-        <link rel="stylesheet" type="text/css" href="index.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Amy Qiu</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="generator">
-                <h1 id="test"> Convo Ender </h1>
-                <p id = "eh">Generate a phrase</p>
-                <button id="jbutton" class="btn btn-warning btn-lg" type="button" onclick="getPhrase()">Press me!</button>
-                <textarea cols="30" rows="5" wrap="soft" id ="phras" value="Generate a message">
-                </textarea>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">Home</span> Page
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Resume</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#notes">Notes</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Welcome</h1>
+                        <p class="intro-text">I am Amy Qiu, a first year computer science student at the University of Waterloo. Currently, I am interested in developing android and website apps.<br>I am also running for MathSoc first year rep so vote for me!</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </body>
-    <a href=servers.html> hey click to go to servers.html </a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About Me</h2>
+                <p>From a young age, I was always fascinated by technology because I needed to know how and why things worked from the inside-out. This led to me disasembling (and sometimes failing to reassemble) things such as e-readers in order to work out the circuitry. As I grew older, I became more interested in software development. Right now I'm working on learning Javascript and CSS for a few side projects. I also have started an art blog which you can find <a href="http://cyphereous.deviantart.com/">here</a> I enjoy reading, visual arts, and gaming when I'm not drowning in homework. While sports isn't really my thing, I do enjoy watching the FIFA World Cup and a good game in the Premier League/Bundesliga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Resume</h2>
+                    <p>Current as of October 1st 2015.</p>
+                    <a href="Resume_Amy_Qiu_2015.Web.pdf">Visit resume page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact Me</h2>
+                <p>Feel free to get in contact if you want to chat.</p>
+                <!--<a href="more.html"> click here</a> -->
+                <p><a href="mailto:publishedhere@gmail.com">Email Me</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://github.com/Lixire" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/u/1/108418623669726145079/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Notes Section -->
+    </section>
+        <section id="notes" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>University Notes</h2>
+                <p>Math 137.</p>
+                <a href="calc/Dec04_2015.pdf">Final Exam Review Questions</a> </br>
+                <a href="calc/Dec06_2015.pdf">Final Exam Concepts</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Amy Qiu 2015</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN27zwV67Xic1NgdmQShsUv1w4jIlTCA4"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+</body>
+
 </html>

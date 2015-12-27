@@ -1,0 +1,17 @@
+<html>
+<title> Resilient </title>
+<header align="right"><p style="color: white"> This is a crayfishy website devoted to the great cray gods</p> </header>
+<body bgcolor="#A9D0F5">
+<nav align="center">
+About me | 
+Resume | 
+Crayfish
+</nav>
+<h1 align="center"> Hello World! </h1>
+<div align="center" style = "height:100px; width:250px; border:25px solid navy; padding:10px; margin:10px; display:block; margin-left:auto; margin-right:auto">
+	This is where stuff goes... maybe. This should wrap the text though right? Maybe? Only when you ask politely? I dunno. How do you align this box in the center?
+</div align="center">
+<iframe style="display:block; margin-left:auto; margin-right:auto" width="560" height="315" src="https://www.youtube.com/embed/o0u4M6vppCI"frameborder="0" allowfullscreen></iframe>
+<p align="center"> How do I do css? Halp halp halp.</p>
+</body>
+</html>
