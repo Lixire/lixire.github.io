@@ -1,0 +1,70 @@
+html{
+    height: 100%;
+}
+textarea{
+    resize: none;
+    background-color: rgba(0,0,0, 0.4);
+    color: white;
+    border: none;
+    text-align: center;
+    font-family: "calibri", sans-serif;
+    font-size: 2em;
+    min-width: 100%;
+}
+#summary{
+    font-family: "calibri", fantasy;
+    font-size: 1.5em;
+    text-align: center;
+    color: #FFF;
+}
+#logo{
+    text-align: center;
+    display:block;
+    font-family: "Oswald", fantasy;
+    font-size: 5em;
+    color: #FFF;
+}
+#blurb{
+    text-align: center;
+    font-family: "Oswald", fantasy;
+    font-size: small;
+    color: #FFF;
+}
+body{
+    background-image: url(banner.jpg);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: center bottom;
+    min-height: 100%;
+    min-width: 100%;
+}
+header{
+    background: rgba(75,0,0,0.4);
+    padding: 20px;
+}
+div{
+    text-align: center;
+}
+#generate{
+    font-family: "Oswald", sans-serif;
+    padding: 10px 15px;
+    background: #FFF;
+    color: black;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+#generate:hover, #generate:focus {
+    background: #d3d3d3;
+    text-decoration: none;
+}
+#generate:active{
+    background: gray;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    font-family: "Oswald", sans-serif;
+    color: white;
+}
