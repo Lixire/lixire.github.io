@@ -27,7 +27,8 @@
 <ul>
 <li><a href="#math-136-january-4-2016-lecture-1">Math 136 - January 4 2016 - Lecture 1</a><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#introduction-to-vectors-and-the-vector-space-rn">Introduction to Vectors and The Vector-Space <script type="math/tex" id="MathJax-Element-821">R^n</script></a></li>
+<li><a href="#introduction-to-vectors-and-the-vector-space-mathbbrn">Introduction to Vectors and The Vector-Space <script type="math/tex" id="MathJax-Element-25">\mathbb{R}^n</script></a></li>
+<li><a href="#properties">Properties</a></li>
 <li><a href="#geometric-interpretation">Geometric Interpretation</a></li>
 </ul>
 </li>
@@ -46,76 +47,76 @@
 
 <hr>
 
-<h2 id="introduction-to-vectors-and-the-vector-space-mathbbrn">Introduction to Vectors and The Vector-Space <strong><script type="math/tex" id="MathJax-Element-7856">\mathbb{R}^n</script></strong></h2>
+
+
+<h2 id="introduction-to-vectors-and-the-vector-space-mathbbrn">Introduction to Vectors and The Vector-Space <strong><script type="math/tex" id="MathJax-Element-26">\mathbb{R}^n</script></strong></h2>
 
 <blockquote>
   <p>A <strong>vector</strong> is a geometric object with a magnitude/length and a direction. A vector is represented by a line segment, connecting an initial point and a terminal point.</p>
 </blockquote>
 
-<p>Mathematically, we denote a vector as <script type="math/tex" id="MathJax-Element-7857">\vec{v}</script>, <script type="math/tex" id="MathJax-Element-7858">\veebar</script>, <strong>v</strong> or <script type="math/tex" id="MathJax-Element-7859">\overline{v}</script></p>
+<p>Mathematically, we denote a vector as <script type="math/tex" id="MathJax-Element-27">\vec{v}</script>, <script type="math/tex" id="MathJax-Element-28">\veebar</script>, <strong>v</strong> or <script type="math/tex" id="MathJax-Element-29">\overline{v}</script></p>
 
 <blockquote>
-  <p>/ terminal point  <script type="math/tex" id="MathJax-Element-7860">\ \ \ \vec{v} = \vec{AB}</script> <br>
-   / <br>
-   v initial point <br>
+  <p><script type="math/tex" id="MathJax-Element-30">\vec{v} = \vec{AB}</script> <br>
    A vector (or column vector) is written as: <br>
-  change to v.  varrow <script type="math/tex; mode=display" id="MathJax-Element-7861">\begin{bmatrix} 
+  <script type="math/tex; mode=display" id="MathJax-Element-31">\begin{bmatrix} 
     V_1 \\
     V_2 \\
-    ... \\
+    \vdots \\
     V_n
 \end{bmatrix}</script> <br>
-  where <script type="math/tex" id="MathJax-Element-7862">\vec{V}_n \ belongs \ to \ \mathbb{F}^n (\mathbb{R}^n or \ \mathbb{C}^n)</script></p>
+  where <script type="math/tex" id="MathJax-Element-32">\vec{V}_n \ belongs \ to \ \mathbb{F}^n (\mathbb{R}^n or \ \mathbb{C}^n)</script></p>
 </blockquote>
 
-<p>where <script type="math/tex" id="MathJax-Element-7863">\vec{v}</script> is an n-dim vector and <script type="math/tex" id="MathJax-Element-7864">v_1, v_2</script> .. , <script type="math/tex" id="MathJax-Element-7865">v_n</script> <script type="math/tex" id="MathJax-Element-7866">\epsilon</script> (scalars)</p>
+<p>where <script type="math/tex" id="MathJax-Element-33">\vec{v}</script> is an n-dim vector and <script type="math/tex" id="MathJax-Element-34">v_1, v_2</script> .. , <script type="math/tex" id="MathJax-Element-35">v_n</script> <script type="math/tex" id="MathJax-Element-36">\epsilon</script> (scalars)</p>
 
-<p>Example: Draw <script type="math/tex; mode=display" id="MathJax-Element-7867">\begin{equation} \vec{v} = \begin{bmatrix}
+<p>Example: Draw <script type="math/tex; mode=display" id="MathJax-Element-37">\begin{equation} \vec{v} = \begin{bmatrix}
 2 \\ 1
 \end{bmatrix}
 \end{equation}</script> <br>
 Note: the set of all 2-dim real vectors is denoted as: <br>
-<script type="math/tex" id="MathJax-Element-7868">\mathbb{R}^2</script> := (defined as) <script type="math/tex" id="MathJax-Element-7869"> \{ \begin{bmatrix} x \\ y \end{bmatrix} \} where \ x, y \ \epsilon \ \mathbb{R}</script></p>
+<script type="math/tex" id="MathJax-Element-38">\mathbb{R}^2</script> := (defined as) <script type="math/tex" id="MathJax-Element-39"> \{ \begin{bmatrix} x \\ y \end{bmatrix} \} where \ x, y \ \epsilon \ \mathbb{R}</script></p>
+
+
 
 <h2 id="properties">Properties</h2>
 
 <p></p><ol> <br>
 <li>Two vectors are equal <strong>iff</strong> they have the same dimension and corresponding entries</li>
-<li>The sum of 2 vectors <script type="math/tex" id="MathJax-Element-7870">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-7871">\vec{v}</script> is denoted (<script type="math/tex" id="MathJax-Element-7872">\vec{u}</script> + <script type="math/tex" id="MathJax-Element-7873">\vec{v}</script>) and is obtained by adding corresponding entries in the matrix</li>
-<li>The scalar multiple of a vector <script type="math/tex" id="MathJax-Element-7874">\vec{u}</script> and c <script type="math/tex" id="MathJax-Element-7875">\epsilon  \ \mathbb{R}</script> is denoted by (<script type="math/tex" id="MathJax-Element-7876">c*\vec{u}</script>) and is obtained by multiplying each entry by c.  <br></li></ol><p></p>
+<li>The sum of 2 vectors <script type="math/tex" id="MathJax-Element-40">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-41">\vec{v}</script> is denoted (<script type="math/tex" id="MathJax-Element-42">\vec{u}</script> + <script type="math/tex" id="MathJax-Element-43">\vec{v}</script>) and is obtained by adding corresponding entries in the matrix</li>
+<li>The scalar multiple of a vector <script type="math/tex" id="MathJax-Element-44">\vec{u}</script> and c <script type="math/tex" id="MathJax-Element-45">\epsilon  \ \mathbb{R}</script> is denoted by (<script type="math/tex" id="MathJax-Element-46">c*\vec{u}</script>) and is obtained by multiplying each entry by c.  <br></li></ol><p></p>
 
 <blockquote>
   <p>Example: which of the vectors are equal? <br>
-  <script type="math/tex" id="MathJax-Element-7877">\vec{u}_1 = \begin{bmatrix} 3 \\ 1\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7878">\vec{u}_2 = \begin{bmatrix} 1 \\ 3\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7879">\vec{u}_3 = \begin{bmatrix} 3 \\ 1 \\ 0\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7880">\vec{u}_4 = \begin{bmatrix} 3 \\ -1\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7881">\vec{u}_5 = \begin{bmatrix} 3 \\ 1 \end{bmatrix}</script> <br>
-  Answer: <script type="math/tex" id="MathJax-Element-7882">\vec{u}_1 \ and \ \vec{u}_5</script> <br>
-  <script type="math/tex" id="MathJax-Element-7883">\\</script>
+  <script type="math/tex" id="MathJax-Element-47">\vec{u}_1 = \begin{bmatrix} 3 \\ 1\end{bmatrix}</script>   <script type="math/tex" id="MathJax-Element-48">\vec{u}_2 = \begin{bmatrix} 1 \\ 3\end{bmatrix}</script>   <script type="math/tex" id="MathJax-Element-49">\vec{u}_3 = \begin{bmatrix} 3 \\ 1 \\ 0\end{bmatrix}</script>   <script type="math/tex" id="MathJax-Element-50">\vec{u}_4 = \begin{bmatrix} 3 \\ -1\end{bmatrix}</script>  <script type="math/tex" id="MathJax-Element-51">\vec{u}_5 = \begin{bmatrix} 3 \\ 1 \end{bmatrix}</script> <br>
+  Answer: <script type="math/tex" id="MathJax-Element-52">\vec{u}_1 \ and \ \vec{u}_5</script> <br>
+  <script type="math/tex" id="MathJax-Element-53">\\</script>
    <br>
    Find the sum of the following vectors: <br>
-  <script type="math/tex; mode=display" id="MathJax-Element-7884">\begin{equation}
-  \vec{x} = \begin{bmatrix} 1 \\ 2 \\ 3\end{bmatrix} \\
- \vec{y} = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix} \\
-  \vec{z} = \begin{bmatrix} 8 \\ 20 \\ 7\end{bmatrix} \\
+  <script type="math/tex; mode=display" id="MathJax-Element-54">\begin{equation}
+  \vec{x} = \begin{bmatrix} 1 \\ 2 \\ 3\end{bmatrix} \
+ \vec{y} = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix} \
+  \vec{z} = \begin{bmatrix} 8 \\ 20 \\ 7\end{bmatrix} \
    \vec{x }+ \vec{y} + \vec{z} = \begin{bmatrix} 9 \\ 22 \\ 11\end{bmatrix}
    \end{equation}</script> <br>
-     <script type="math/tex; mode=display" id="MathJax-Element-7885">\begin{equation}
+     <script type="math/tex; mode=display" id="MathJax-Element-55">\begin{equation}
   \text{Simplify} \ c\vec{u} \  where \ c = 7 \ and \ \vec{u} = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \\
    c\vec{u} = \begin{bmatrix} 7 \\ 0 \\ 7 \end{bmatrix}   
    \end{equation}</script></p>
 </blockquote>
 
+
+
 <h2 id="geometric-interpretation">Geometric Interpretation</h2>
 
-<p><script type="math/tex" id="MathJax-Element-7826">\mathbb{R}^2</script> : We can identify a geometric point (a,b) with a column vector <script type="math/tex; mode=display" id="MathJax-Element-7827">\begin{bmatrix} a \\ b \end{bmatrix}</script> So we think of <script type="math/tex" id="MathJax-Element-7828">\mathbb{R}^2</script> as the set of all points on the xy-plane</p>
+<p><script type="math/tex" id="MathJax-Element-56">\mathbb{R}^2</script> : We can identify a geometric point (a,b) with a column vector <script type="math/tex; mode=display" id="MathJax-Element-57">\begin{bmatrix} a \\ b \end{bmatrix}</script> So we think of <script type="math/tex" id="MathJax-Element-58">\mathbb{R}^2</script> as the set of all points on the xy-plane</p>
 
-<p>If we add <script type="math/tex" id="MathJax-Element-7829">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-7830">\vec{v}</script> in <script type="math/tex" id="MathJax-Element-7831">\mathbb{R}^2</script>, the new vector (<script type="math/tex" id="MathJax-Element-7832">\vec{u}+\vec{v}</script>) correspponds to the 4th vertex of a parallelogram</p>
+<p>If we add <script type="math/tex" id="MathJax-Element-59">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-60">\vec{v}</script> in <script type="math/tex" id="MathJax-Element-61">\mathbb{R}^2</script>, the new vector (<script type="math/tex" id="MathJax-Element-62">\vec{u}+\vec{v}</script>) correspponds to the 4th vertex of a parallelogram</p>
 
-<p><script type="math/tex" id="MathJax-Element-7833">\mathbb{R}^3</script> : A general vector in <script type="math/tex" id="MathJax-Element-7834">\mathbb{R}^3</script> is written as <script type="math/tex; mode=display" id="MathJax-Element-7835">\begin{equation} \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \end{equation}</script> is geometrically represented by a point on the 3D coordinate grid.</p>
+<p><script type="math/tex" id="MathJax-Element-63">\mathbb{R}^3</script> : A general vector in <script type="math/tex" id="MathJax-Element-64">\mathbb{R}^3</script> is written as <script type="math/tex; mode=display" id="MathJax-Element-65">\begin{equation} \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \end{equation}</script> is geometrically represented by a point on the 3D coordinate grid.</p>
 
-<p><script type="math/tex" id="MathJax-Element-7836">\mathbb{R}^n</script> : If <script type="math/tex" id="MathJax-Element-7837">n \ \epsilon \ \mathbb{Z}^+</script> , then <script type="math/tex" id="MathJax-Element-7838">\mathbb{R}^n</script> denotes the set of all lists of n scalars. So a vector  <script type="math/tex" id="MathJax-Element-7839">\vec{v} \ \epsilon \ \mathbb{R}^n</script> geometrically represents a point on a coordinate grid with n-axes.</p></body>
+<p><script type="math/tex" id="MathJax-Element-66">\mathbb{R}^n</script> : If <script type="math/tex" id="MathJax-Element-67">n \ \epsilon \ \mathbb{Z}^+</script> , then <script type="math/tex" id="MathJax-Element-68">\mathbb{R}^n</script> denotes the set of all lists of n scalars. So a vector  <script type="math/tex" id="MathJax-Element-69">\vec{v} \ \epsilon \ \mathbb{R}^n</script> geometrically represents a point on a coordinate grid with n-axes.</p></body>
 </html>
 
 <!--
@@ -144,7 +145,8 @@ Note: the set of all 2-dim real vectors is denoted as: <br>
 <ul>
 <li><a href="#math-136-january-4-2016-lecture-1">Math 136 - January 4 2016 - Lecture 1</a><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#introduction-to-vectors-and-the-vector-space-rn">Introduction to Vectors and The Vector-Space <script type="math/tex" id="MathJax-Element-821">R^n</script></a></li>
+<li><a href="#introduction-to-vectors-and-the-vector-space-mathbbrn">Introduction to Vectors and The Vector-Space <script type="math/tex" id="MathJax-Element-25">\mathbb{R}^n</script></a></li>
+<li><a href="#properties">Properties</a></li>
 <li><a href="#geometric-interpretation">Geometric Interpretation</a></li>
 </ul>
 </li>
@@ -163,75 +165,75 @@ Note: the set of all 2-dim real vectors is denoted as: <br>
 
 <hr>
 
-<h2 id="introduction-to-vectors-and-the-vector-space-mathbbrn">Introduction to Vectors and The Vector-Space <strong><script type="math/tex" id="MathJax-Element-7856">\mathbb{R}^n</script></strong></h2>
+
+
+<h2 id="introduction-to-vectors-and-the-vector-space-mathbbrn">Introduction to Vectors and The Vector-Space <strong><script type="math/tex" id="MathJax-Element-26">\mathbb{R}^n</script></strong></h2>
 
 <blockquote>
   <p>A <strong>vector</strong> is a geometric object with a magnitude/length and a direction. A vector is represented by a line segment, connecting an initial point and a terminal point.</p>
 </blockquote>
 
-<p>Mathematically, we denote a vector as <script type="math/tex" id="MathJax-Element-7857">\vec{v}</script>, <script type="math/tex" id="MathJax-Element-7858">\veebar</script>, <strong>v</strong> or <script type="math/tex" id="MathJax-Element-7859">\overline{v}</script></p>
+<p>Mathematically, we denote a vector as <script type="math/tex" id="MathJax-Element-27">\vec{v}</script>, <script type="math/tex" id="MathJax-Element-28">\veebar</script>, <strong>v</strong> or <script type="math/tex" id="MathJax-Element-29">\overline{v}</script></p>
 
 <blockquote>
-  <p>/ terminal point  <script type="math/tex" id="MathJax-Element-7860">\ \ \ \vec{v} = \vec{AB}</script> <br>
-   / <br>
-   v initial point <br>
+  <p><script type="math/tex" id="MathJax-Element-30">\vec{v} = \vec{AB}</script> <br>
    A vector (or column vector) is written as: <br>
-  change to v.  varrow <script type="math/tex; mode=display" id="MathJax-Element-7861">\begin{bmatrix} 
+  <script type="math/tex; mode=display" id="MathJax-Element-31">\begin{bmatrix} 
     V_1 \\
     V_2 \\
-    ... \\
+    \vdots \\
     V_n
 \end{bmatrix}</script> <br>
-  where <script type="math/tex" id="MathJax-Element-7862">\vec{V}_n \ belongs \ to \ \mathbb{F}^n (\mathbb{R}^n or \ \mathbb{C}^n)</script></p>
+  where <script type="math/tex" id="MathJax-Element-32">\vec{V}_n \ belongs \ to \ \mathbb{F}^n (\mathbb{R}^n or \ \mathbb{C}^n)</script></p>
 </blockquote>
 
-<p>where <script type="math/tex" id="MathJax-Element-7863">\vec{v}</script> is an n-dim vector and <script type="math/tex" id="MathJax-Element-7864">v_1, v_2</script> .. , <script type="math/tex" id="MathJax-Element-7865">v_n</script> <script type="math/tex" id="MathJax-Element-7866">\epsilon</script> (scalars)</p>
+<p>where <script type="math/tex" id="MathJax-Element-33">\vec{v}</script> is an n-dim vector and <script type="math/tex" id="MathJax-Element-34">v_1, v_2</script> .. , <script type="math/tex" id="MathJax-Element-35">v_n</script> <script type="math/tex" id="MathJax-Element-36">\epsilon</script> (scalars)</p>
 
-<p>Example: Draw <script type="math/tex; mode=display" id="MathJax-Element-7867">\begin{equation} \vec{v} = \begin{bmatrix}
+<p>Example: Draw <script type="math/tex; mode=display" id="MathJax-Element-37">\begin{equation} \vec{v} = \begin{bmatrix}
 2 \\ 1
 \end{bmatrix}
 \end{equation}</script> <br>
 Note: the set of all 2-dim real vectors is denoted as: <br>
-<script type="math/tex" id="MathJax-Element-7868">\mathbb{R}^2</script> := (defined as) <script type="math/tex" id="MathJax-Element-7869"> \{ \begin{bmatrix} x \\ y \end{bmatrix} \} where \ x, y \ \epsilon \ \mathbb{R}</script></p>
+<script type="math/tex" id="MathJax-Element-38">\mathbb{R}^2</script> := (defined as) <script type="math/tex" id="MathJax-Element-39"> \{ \begin{bmatrix} x \\ y \end{bmatrix} \} where \ x, y \ \epsilon \ \mathbb{R}</script></p>
+
+
 
 <h2 id="properties">Properties</h2>
 
 <p></p><ol> <br>
 <li>Two vectors are equal <strong>iff</strong> they have the same dimension and corresponding entries</li>
-<li>The sum of 2 vectors <script type="math/tex" id="MathJax-Element-7870">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-7871">\vec{v}</script> is denoted (<script type="math/tex" id="MathJax-Element-7872">\vec{u}</script> + <script type="math/tex" id="MathJax-Element-7873">\vec{v}</script>) and is obtained by adding corresponding entries in the matrix</li>
-<li>The scalar multiple of a vector <script type="math/tex" id="MathJax-Element-7874">\vec{u}</script> and c <script type="math/tex" id="MathJax-Element-7875">\epsilon  \ \mathbb{R}</script> is denoted by (<script type="math/tex" id="MathJax-Element-7876">c*\vec{u}</script>) and is obtained by multiplying each entry by c.  <br></li></ol><p></p>
+<li>The sum of 2 vectors <script type="math/tex" id="MathJax-Element-40">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-41">\vec{v}</script> is denoted (<script type="math/tex" id="MathJax-Element-42">\vec{u}</script> + <script type="math/tex" id="MathJax-Element-43">\vec{v}</script>) and is obtained by adding corresponding entries in the matrix</li>
+<li>The scalar multiple of a vector <script type="math/tex" id="MathJax-Element-44">\vec{u}</script> and c <script type="math/tex" id="MathJax-Element-45">\epsilon  \ \mathbb{R}</script> is denoted by (<script type="math/tex" id="MathJax-Element-46">c*\vec{u}</script>) and is obtained by multiplying each entry by c.  <br></li></ol><p></p>
 
 <blockquote>
   <p>Example: which of the vectors are equal? <br>
-  <script type="math/tex" id="MathJax-Element-7877">\vec{u}_1 = \begin{bmatrix} 3 \\ 1\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7878">\vec{u}_2 = \begin{bmatrix} 1 \\ 3\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7879">\vec{u}_3 = \begin{bmatrix} 3 \\ 1 \\ 0\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7880">\vec{u}_4 = \begin{bmatrix} 3 \\ -1\end{bmatrix}</script> <br>
-  <script type="math/tex" id="MathJax-Element-7881">\vec{u}_5 = \begin{bmatrix} 3 \\ 1 \end{bmatrix}</script> <br>
-  Answer: <script type="math/tex" id="MathJax-Element-7882">\vec{u}_1 \ and \ \vec{u}_5</script> <br>
-  <script type="math/tex" id="MathJax-Element-7883">\\</script>
+  <script type="math/tex" id="MathJax-Element-47">\vec{u}_1 = \begin{bmatrix} 3 \\ 1\end{bmatrix}</script>   <script type="math/tex" id="MathJax-Element-48">\vec{u}_2 = \begin{bmatrix} 1 \\ 3\end{bmatrix}</script>   <script type="math/tex" id="MathJax-Element-49">\vec{u}_3 = \begin{bmatrix} 3 \\ 1 \\ 0\end{bmatrix}</script>   <script type="math/tex" id="MathJax-Element-50">\vec{u}_4 = \begin{bmatrix} 3 \\ -1\end{bmatrix}</script>  <script type="math/tex" id="MathJax-Element-51">\vec{u}_5 = \begin{bmatrix} 3 \\ 1 \end{bmatrix}</script> <br>
+  Answer: <script type="math/tex" id="MathJax-Element-52">\vec{u}_1 \ and \ \vec{u}_5</script> <br>
+  <script type="math/tex" id="MathJax-Element-53">\\</script>
    <br>
    Find the sum of the following vectors: <br>
-  <script type="math/tex; mode=display" id="MathJax-Element-7884">\begin{equation}
-  \vec{x} = \begin{bmatrix} 1 \\ 2 \\ 3\end{bmatrix} \\
- \vec{y} = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix} \\
-  \vec{z} = \begin{bmatrix} 8 \\ 20 \\ 7\end{bmatrix} \\
+  <script type="math/tex; mode=display" id="MathJax-Element-54">\begin{equation}
+  \vec{x} = \begin{bmatrix} 1 \\ 2 \\ 3\end{bmatrix} \
+ \vec{y} = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix} \
+  \vec{z} = \begin{bmatrix} 8 \\ 20 \\ 7\end{bmatrix} \
    \vec{x }+ \vec{y} + \vec{z} = \begin{bmatrix} 9 \\ 22 \\ 11\end{bmatrix}
    \end{equation}</script> <br>
-     <script type="math/tex; mode=display" id="MathJax-Element-7885">\begin{equation}
+     <script type="math/tex; mode=display" id="MathJax-Element-55">\begin{equation}
   \text{Simplify} \ c\vec{u} \  where \ c = 7 \ and \ \vec{u} = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \\
    c\vec{u} = \begin{bmatrix} 7 \\ 0 \\ 7 \end{bmatrix}   
    \end{equation}</script></p>
 </blockquote>
 
+
+
 <h2 id="geometric-interpretation">Geometric Interpretation</h2>
 
-<p><script type="math/tex" id="MathJax-Element-7826">\mathbb{R}^2</script> : We can identify a geometric point (a,b) with a column vector <script type="math/tex; mode=display" id="MathJax-Element-7827">\begin{bmatrix} a \\ b \end{bmatrix}</script> So we think of <script type="math/tex" id="MathJax-Element-7828">\mathbb{R}^2</script> as the set of all points on the xy-plane</p>
+<p><script type="math/tex" id="MathJax-Element-56">\mathbb{R}^2</script> : We can identify a geometric point (a,b) with a column vector <script type="math/tex; mode=display" id="MathJax-Element-57">\begin{bmatrix} a \\ b \end{bmatrix}</script> So we think of <script type="math/tex" id="MathJax-Element-58">\mathbb{R}^2</script> as the set of all points on the xy-plane</p>
 
-<p>If we add <script type="math/tex" id="MathJax-Element-7829">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-7830">\vec{v}</script> in <script type="math/tex" id="MathJax-Element-7831">\mathbb{R}^2</script>, the new vector (<script type="math/tex" id="MathJax-Element-7832">\vec{u}+\vec{v}</script>) correspponds to the 4th vertex of a parallelogram</p>
+<p>If we add <script type="math/tex" id="MathJax-Element-59">\vec{u}</script>, <script type="math/tex" id="MathJax-Element-60">\vec{v}</script> in <script type="math/tex" id="MathJax-Element-61">\mathbb{R}^2</script>, the new vector (<script type="math/tex" id="MathJax-Element-62">\vec{u}+\vec{v}</script>) correspponds to the 4th vertex of a parallelogram</p>
 
-<p><script type="math/tex" id="MathJax-Element-7833">\mathbb{R}^3</script> : A general vector in <script type="math/tex" id="MathJax-Element-7834">\mathbb{R}^3</script> is written as <script type="math/tex; mode=display" id="MathJax-Element-7835">\begin{equation} \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \end{equation}</script> is geometrically represented by a point on the 3D coordinate grid.</p>
+<p><script type="math/tex" id="MathJax-Element-63">\mathbb{R}^3</script> : A general vector in <script type="math/tex" id="MathJax-Element-64">\mathbb{R}^3</script> is written as <script type="math/tex; mode=display" id="MathJax-Element-65">\begin{equation} \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \end{equation}</script> is geometrically represented by a point on the 3D coordinate grid.</p>
 
-<p><script type="math/tex" id="MathJax-Element-7836">\mathbb{R}^n</script> : If <script type="math/tex" id="MathJax-Element-7837">n \ \epsilon \ \mathbb{Z}^+</script> , then <script type="math/tex" id="MathJax-Element-7838">\mathbb{R}^n</script> denotes the set of all lists of n scalars. So a vector  <script type="math/tex" id="MathJax-Element-7839">\vec{v} \ \epsilon \ \mathbb{R}^n</script> geometrically represents a point on a coordinate grid with n-axes.</p></body>
+<p><script type="math/tex" id="MathJax-Element-66">\mathbb{R}^n</script> : If <script type="math/tex" id="MathJax-Element-67">n \ \epsilon \ \mathbb{Z}^+</script> , then <script type="math/tex" id="MathJax-Element-68">\mathbb{R}^n</script> denotes the set of all lists of n scalars. So a vector  <script type="math/tex" id="MathJax-Element-69">\vec{v} \ \epsilon \ \mathbb{R}^n</script> geometrically represents a point on a coordinate grid with n-axes.</p></body>
 </html>
 -->
