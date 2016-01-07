@@ -1,0 +1,327 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Math 136 - Dan W.</title>
+
+<link rel="stylesheet" type="text/css" href="http://amyqiu.me/notestyle.css">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="math-136-january-4-2016-lecture-1">Math 136 - January 4 2016 - Lecture 1</h1>
+
+<blockquote>
+  <p><strong>Prof</strong>: Dan Wolczuk <br>
+  <strong>Office Hours</strong>: T -&gt; 11:30 - 12:20 am , 1:30 - 3:30 pm ; Th -&gt; 11:30 - 12:20 am ; 3:00 - 5:30 pm <br>
+  <strong>Office</strong>: <br>
+  <strong>Email</strong>: <br>
+  <strong>Text Book</strong>: Linear Algebra Course Notes 3.0 by Wolczuk. Edition 2.1 is fine. <br>
+  <strong>Grades</strong>: Final Exam: 65% ; Midterm: 25% ; Assignments: 10% <br>
+  <strong>Tests</strong>: Midterm: Monday Feb 8th, 7:00 - 8:50 pm ; Final: TBA <br>
+  Assignments are due Wednesdays by 3:00pm in MC 4066</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#math-136-january-4-2016-lecture-1">Math 136 - January 4 2016 - Lecture 1</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#vectors-in-mathbbrn"> Vectors in Rn\mathbb{R}^n</a><ul>
+<li><a href="#theorem-111">Theorem 1.1.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#math-136-jan-6-2016-lecture-2">Math 136 - Jan 6 2016 - Lecture 2</a><ul>
+<li><a href="#spanning">Spanning</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Objectives for this course:</p>
+
+<ul>
+<li>To give you a solid understanding of many of the fundamental concepts in linear algebra</li>
+<li>To show you the importance of understanding definitions, theorems, and proofs</li>
+<li>To improve your ability to read and write proofs</li>
+</ul>
+
+<blockquote>
+  <p>30% of the marks on the tests will be for proofs, the rest are for computations.</p>
+</blockquote>
+
+
+
+<h2 id="vectors-in-mathbbrn"> Vectors in <strong><em><script type="math/tex" id="MathJax-Element-125">\mathbb{R}^n</script></em></strong></h2>
+
+<p>You should be familiar with 2 and 3 dimensional Euclidean spaces, often denoted <script type="math/tex" id="MathJax-Element-126">\mathbb{R}^2</script> and <script type="math/tex" id="MathJax-Element-127">\mathbb{R}^3</script> . <script type="math/tex" id="MathJax-Element-128">\mathbb{R}^2</script> is the set of all points of the form (x,y) where x, y <script type="math/tex" id="MathJax-Element-129">\epsilon \ \mathbb{R}</script> and <script type="math/tex" id="MathJax-Element-130">\mathbb{R}^3</script> is the set of all points (x, y, z), where x, y, z <script type="math/tex" id="MathJax-Element-131">\epsilon \ \mathbb{R}</script> </p>
+
+<p>We will now view them as a set of vectors.</p>
+
+<blockquote>
+  <p>Definition: <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-132">\begin{equation}
+\{ \mathbb{R}^n =
+\begin{bmatrix}
+x_1\\
+\vdots \\
+x_n 
+\end{bmatrix} | x_1 , ... , x_n \epsilon \  \mathbb{R} \}
+\end{equation}</script></p>
+</blockquote>
+
+<p>For example, the vector <script type="math/tex" id="MathJax-Element-133">\vec{x}</script> =  <br>
+<script type="math/tex; mode=display" id="MathJax-Element-134">\begin{bmatrix} 1 \\ 2 \end{bmatrix}</script> can be thought of as the point (1,2) <br>
+Remark: All vectors in this course start at the origin</p>
+
+<p>The set of all vectors of the form <script type="math/tex" id="MathJax-Element-135">\vec{x}</script> = <script type="math/tex; mode=display" id="MathJax-Element-136">\begin{bmatrix} s \\ t \\ 0\end{bmatrix}</script> , s ,t <script type="math/tex" id="MathJax-Element-137">\epsilon \ \mathbb{R}^3</script> can be thought of as the set of all points of form (s,t,0). This represents the xy plane in <script type="math/tex" id="MathJax-Element-138">\mathbb{R}^3</script></p>
+
+<blockquote>
+  <p>Definition <script type="math/tex; mode=display" id="MathJax-Element-139">\begin{equation}
+\begin{aligned} Let \ \vec{x} & = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \\ \ \vec{y} & = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \\
+\end{aligned}
+ \end{equation}</script> <br>
+  We say that <script type="math/tex" id="MathJax-Element-140">\vec{x}</script> and <script type="math/tex" id="MathJax-Element-141">\vec{y}</script> are <strong>equal</strong> and write <script type="math/tex" id="MathJax-Element-142">\vec{x} = \vec{y}</script> if <script type="math/tex" id="MathJax-Element-143">x_i = y_i</script> for all  1 <script type="math/tex" id="MathJax-Element-144">\leq</script> i <script type="math/tex" id="MathJax-Element-145">\leq</script> n</p>
+  
+  <p>We define <strong>addition</strong> by <script type="math/tex" id="MathJax-Element-146">\vec{x} + \vec{y} =</script> <script type="math/tex; mode=display" id="MathJax-Element-147">\begin{bmatrix} x_1 + y_1 \\ \vdots \\ x_n + y_n\end{bmatrix}</script>  <br>
+  for any real scalar <script type="math/tex" id="MathJax-Element-148">t \ \epsilon \ \mathbb{R}</script> we define <strong>scalar multiplication</strong> by <br>
+  <script type="math/tex" id="MathJax-Element-149">t\vec{x} = </script> <script type="math/tex; mode=display" id="MathJax-Element-150">\begin{bmatrix} tx_1 \\ \vdots \\ tx_n \end{bmatrix}</script></p>
+</blockquote>
+
+<p>We need to define equality first as it is used in to define addition and scalar multiplication. </p>
+
+<hr>
+
+<p>We can only add vectors with the same dimensions.</p>
+
+<blockquote>
+  <p>Definition <br>
+  Let <script type="math/tex">\vec{v}_1 ...\vec{v}_k</script> be vectors in <script type="math/tex">\mathbb{R}^n</script>, we call a sum of scalar multples of their vectors a <strong>linear combination</strong>. That is, linear combinations of <script type="math/tex">\vec{v}_1 ... \vec{v}_k</script> is: <br>
+  <script type="math/tex; mode=display">\begin{equation} 
+t_1 \vec{v}_1 + t_2\vec{v}_2 + ... + t_k\vec{v}_k
+\end{equation}</script> where <script type="math/tex">t_1, t_2 ... t_k</script> are real constants</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <h3 id="theorem-111">Theorem 1.1.1</h3>
+  
+  <p>If x , y , w <script type="math/tex">\epsilon \ \mathbb{R}^n</script> and c,d <script type="math/tex">\epsilon  \ \mathbb{R}</script>. then : <br>
+  V1 <script type="math/tex">\vec{x} + \vec{y} \ \epsilon \ \vec{R}^n</script> <br>
+  V2 <script type="math/tex">(\vec{x} + \vec{y}) + \vec{w} = \vec{x} + (\vec{y} + \vec{w})</script> <br>
+  V3 <script type="math/tex">\vec{x} + \vec{y} = \vec{y} + \vec{x}</script> <br>
+  V4 <script type="math/tex">\exists \ \vec{0} \ \epsilon \ \mathbb{R}^n</script> | <script type="math/tex">\vec{x} + \vec{0} = \vec{x}  \ \forall \ \vec{x} \ \epsilon \ \mathbb{R}^n</script> <br>
+  V5 <script type="math/tex">\forall</script> x in <script type="math/tex">\mathbb{R}^n \ \exists</script> a vector (<script type="math/tex">\vec{-x}</script>) <script type="math/tex">\exists \ \mathbb{R}^n</script> | <script type="math/tex">\vec{x} + \vec{-x} = \vec{0}</script> <br>
+  V6 c<script type="math/tex">\vec{x} \ \exists \ \mathbb{R}^n</script> <br>
+  V7 c(d <script type="math/tex">\vec{x}</script>) = cd(<script type="math/tex">\vec{x}</script>) <br>
+  V8 (c+d)<script type="math/tex">\vec{x}</script> = c<script type="math/tex">\vec{x}</script> + d<script type="math/tex">\vec{x}</script> <br>
+  v9 c(<script type="math/tex">\vec{x}</script> + <script type="math/tex">\vec{y}</script>) = c<script type="math/tex">\vec{x}</script> + c<script type="math/tex">\vec{y}</script> <br>
+  v10 1<script type="math/tex">\vec{x}</script> = <script type="math/tex">\vec{x}</script></p>
+</blockquote>
+
+<hr>
+
+<h1 id="math-136-jan-6-2016-lecture-2">Math 136 - Jan 6 2016 - Lecture 2</h1>
+
+
+
+<h2 id="spanning">Spanning</h2>
+
+<pre><code>There are 3 kinds of mathematicians, those who can count, and those who can't
+</code></pre>
+
+<p>In linear algebra, sets of all possible linear combinations of a set of vectors <script type="math/tex" id="MathJax-Element-57">\mathcal{B} = \{ \vec{v_1} ... \vec{v_k} \}</script> in <script type="math/tex" id="MathJax-Element-58">\mathbb{R}^n</script> is called the <strong>span</strong> of the set <script type="math/tex" id="MathJax-Element-59">\mathcal{B}</script> and we write:</p>
+
+<blockquote>
+  <p>S <script type="math/tex" id="MathJax-Element-60">=</script> Span <script type="math/tex" id="MathJax-Element-61">\mathcal{B} =</script> Span <script type="math/tex" id="MathJax-Element-62">\{ \vec{v_1} ... \vec{v_k} \}</script> <br>
+   <script type="math/tex" id="MathJax-Element-63">= \{t_1\vec{v_1} + ... + t_k\vec{v_k}\}</script></p>
+</blockquote>
+
+<p>We also say that S is <strong>spanned</strong> by <script type="math/tex" id="MathJax-Element-64">\mathcal{B}</script> and that <script type="math/tex" id="MathJax-Element-65">\mathcal{B}</script> is a <strong>spanning set</strong> for S.</p>
+
+<hr>
+
+<p>We will sometimes want to write a set differently. For a set: <br>
+<script type="math/tex; mode=display" id="MathJax-Element-66">\begin{equation} \{ t_1\vec{v_1} + ... + t_k\vec{v_k} | t_1 , .. , t_k \epsilon \mathbb{R} \} \end{equation}</script></p>
+
+<p>We will just write: <br>
+<script type="math/tex; mode=display" id="MathJax-Element-67">\begin{equation} \vec{x} = \{ t_1\vec{v_1} + ... + t_k\vec{v_k} + \vec{b} \} ,  \ t_1, ... , t_k \epsilon \ \mathbb{R} \end{equation}</script>  <br>
+and call this a vector equation of the set.</p>
+
+<p>Notice that the vector equation gives us the general form of any vector in the set</p>
+
+<p>Insert a whole bunch of examples here. Aka read the textbook for those.</p></body>
+</html>
+
+<!--
+2: Using highlight.js
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Math 136 - Dan W.</title>
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+</head>
+<body><h1 id="math-136-january-4-2016-lecture-1">Math 136 - January 4 2016 - Lecture 1</h1>
+
+<blockquote>
+  <p><strong>Prof</strong>: Dan Wolczuk <br>
+  <strong>Office Hours</strong>: T -&gt; 11:30 - 12:20 am , 1:30 - 3:30 pm ; Th -&gt; 11:30 - 12:20 am ; 3:00 - 5:30 pm <br>
+  <strong>Office</strong>: <br>
+  <strong>Email</strong>: <br>
+  <strong>Text Book</strong>: Linear Algebra Course Notes 3.0 by Wolczuk. Edition 2.1 is fine. <br>
+  <strong>Grades</strong>: Final Exam: 65% ; Midterm: 25% ; Assignments: 10% <br>
+  <strong>Tests</strong>: Midterm: Monday Feb 8th, 7:00 - 8:50 pm ; Final: TBA <br>
+  Assignments are due Wednesdays by 3:00pm in MC 4066</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#math-136-january-4-2016-lecture-1">Math 136 - January 4 2016 - Lecture 1</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#vectors-in-mathbbrn"> Vectors in Rn\mathbb{R}^n</a><ul>
+<li><a href="#theorem-111">Theorem 1.1.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#math-136-jan-6-2016-lecture-2">Math 136 - Jan 6 2016 - Lecture 2</a><ul>
+<li><a href="#spanning">Spanning</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Objectives for this course:</p>
+
+<ul>
+<li>To give you a solid understanding of many of the fundamental concepts in linear algebra</li>
+<li>To show you the importance of understanding definitions, theorems, and proofs</li>
+<li>To improve your ability to read and write proofs</li>
+</ul>
+
+<blockquote>
+  <p>30% of the marks on the tests will be for proofs, the rest are for computations.</p>
+</blockquote>
+
+
+
+<h2 id="vectors-in-mathbbrn"> Vectors in <strong><em><script type="math/tex" id="MathJax-Element-125">\mathbb{R}^n</script></em></strong></h2>
+
+<p>You should be familiar with 2 and 3 dimensional Euclidean spaces, often denoted <script type="math/tex" id="MathJax-Element-126">\mathbb{R}^2</script> and <script type="math/tex" id="MathJax-Element-127">\mathbb{R}^3</script> . <script type="math/tex" id="MathJax-Element-128">\mathbb{R}^2</script> is the set of all points of the form (x,y) where x, y <script type="math/tex" id="MathJax-Element-129">\epsilon \ \mathbb{R}</script> and <script type="math/tex" id="MathJax-Element-130">\mathbb{R}^3</script> is the set of all points (x, y, z), where x, y, z <script type="math/tex" id="MathJax-Element-131">\epsilon \ \mathbb{R}</script> </p>
+
+<p>We will now view them as a set of vectors.</p>
+
+<blockquote>
+  <p>Definition: <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-132">\begin{equation}
+\{ \mathbb{R}^n =
+\begin{bmatrix}
+x_1\\
+\vdots \\
+x_n 
+\end{bmatrix} | x_1 , ... , x_n \epsilon \  \mathbb{R} \}
+\end{equation}</script></p>
+</blockquote>
+
+<p>For example, the vector <script type="math/tex" id="MathJax-Element-133">\vec{x}</script> =  <br>
+<script type="math/tex; mode=display" id="MathJax-Element-134">\begin{bmatrix} 1 \\ 2 \end{bmatrix}</script> can be thought of as the point (1,2) <br>
+Remark: All vectors in this course start at the origin</p>
+
+<p>The set of all vectors of the form <script type="math/tex" id="MathJax-Element-135">\vec{x}</script> = <script type="math/tex; mode=display" id="MathJax-Element-136">\begin{bmatrix} s \\ t \\ 0\end{bmatrix}</script> , s ,t <script type="math/tex" id="MathJax-Element-137">\epsilon \ \mathbb{R}^3</script> can be thought of as the set of all points of form (s,t,0). This represents the xy plane in <script type="math/tex" id="MathJax-Element-138">\mathbb{R}^3</script></p>
+
+<blockquote>
+  <p>Definition <script type="math/tex; mode=display" id="MathJax-Element-139">\begin{equation}
+\begin{aligned} Let \ \vec{x} & = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \\ \ \vec{y} & = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \\
+\end{aligned}
+ \end{equation}</script> <br>
+  We say that <script type="math/tex" id="MathJax-Element-140">\vec{x}</script> and <script type="math/tex" id="MathJax-Element-141">\vec{y}</script> are <strong>equal</strong> and write <script type="math/tex" id="MathJax-Element-142">\vec{x} = \vec{y}</script> if <script type="math/tex" id="MathJax-Element-143">x_i = y_i</script> for all  1 <script type="math/tex" id="MathJax-Element-144">\leq</script> i <script type="math/tex" id="MathJax-Element-145">\leq</script> n</p>
+  
+  <p>We define <strong>addition</strong> by <script type="math/tex" id="MathJax-Element-146">\vec{x} + \vec{y} =</script> <script type="math/tex; mode=display" id="MathJax-Element-147">\begin{bmatrix} x_1 + y_1 \\ \vdots \\ x_n + y_n\end{bmatrix}</script>  <br>
+  for any real scalar <script type="math/tex" id="MathJax-Element-148">t \ \epsilon \ \mathbb{R}</script> we define <strong>scalar multiplication</strong> by <br>
+  <script type="math/tex" id="MathJax-Element-149">t\vec{x} = </script> <script type="math/tex; mode=display" id="MathJax-Element-150">\begin{bmatrix} tx_1 \\ \vdots \\ tx_n \end{bmatrix}</script></p>
+</blockquote>
+
+<p>We need to define equality first as it is used in to define addition and scalar multiplication. </p>
+
+<hr>
+
+<p>We can only add vectors with the same dimensions.</p>
+
+<blockquote>
+  <p>Definition <br>
+  Let <script type="math/tex">\vec{v}_1 ...\vec{v}_k</script> be vectors in <script type="math/tex">\mathbb{R}^n</script>, we call a sum of scalar multples of their vectors a <strong>linear combination</strong>. That is, linear combinations of <script type="math/tex">\vec{v}_1 ... \vec{v}_k</script> is: <br>
+  <script type="math/tex; mode=display">\begin{equation} 
+t_1 \vec{v}_1 + t_2\vec{v}_2 + ... + t_k\vec{v}_k
+\end{equation}</script> where <script type="math/tex">t_1, t_2 ... t_k</script> are real constants</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <h3 id="theorem-111">Theorem 1.1.1</h3>
+  
+  <p>If x , y , w <script type="math/tex">\epsilon \ \mathbb{R}^n</script> and c,d <script type="math/tex">\epsilon  \ \mathbb{R}</script>. then : <br>
+  V1 <script type="math/tex">\vec{x} + \vec{y} \ \epsilon \ \vec{R}^n</script> <br>
+  V2 <script type="math/tex">(\vec{x} + \vec{y}) + \vec{w} = \vec{x} + (\vec{y} + \vec{w})</script> <br>
+  V3 <script type="math/tex">\vec{x} + \vec{y} = \vec{y} + \vec{x}</script> <br>
+  V4 <script type="math/tex">\exists \ \vec{0} \ \epsilon \ \mathbb{R}^n</script> | <script type="math/tex">\vec{x} + \vec{0} = \vec{x}  \ \forall \ \vec{x} \ \epsilon \ \mathbb{R}^n</script> <br>
+  V5 <script type="math/tex">\forall</script> x in <script type="math/tex">\mathbb{R}^n \ \exists</script> a vector (<script type="math/tex">\vec{-x}</script>) <script type="math/tex">\exists \ \mathbb{R}^n</script> | <script type="math/tex">\vec{x} + \vec{-x} = \vec{0}</script> <br>
+  V6 c<script type="math/tex">\vec{x} \ \exists \ \mathbb{R}^n</script> <br>
+  V7 c(d <script type="math/tex">\vec{x}</script>) = cd(<script type="math/tex">\vec{x}</script>) <br>
+  V8 (c+d)<script type="math/tex">\vec{x}</script> = c<script type="math/tex">\vec{x}</script> + d<script type="math/tex">\vec{x}</script> <br>
+  v9 c(<script type="math/tex">\vec{x}</script> + <script type="math/tex">\vec{y}</script>) = c<script type="math/tex">\vec{x}</script> + c<script type="math/tex">\vec{y}</script> <br>
+  v10 1<script type="math/tex">\vec{x}</script> = <script type="math/tex">\vec{x}</script></p>
+</blockquote>
+
+<hr>
+
+<h1 id="math-136-jan-6-2016-lecture-2">Math 136 - Jan 6 2016 - Lecture 2</h1>
+
+
+
+<h2 id="spanning">Spanning</h2>
+
+<pre><code>There are 3 kinds of mathematicians, those who can count, and those who can't
+</code></pre>
+
+<p>In linear algebra, sets of all possible linear combinations of a set of vectors <script type="math/tex" id="MathJax-Element-57">\mathcal{B} = \{ \vec{v_1} ... \vec{v_k} \}</script> in <script type="math/tex" id="MathJax-Element-58">\mathbb{R}^n</script> is called the <strong>span</strong> of the set <script type="math/tex" id="MathJax-Element-59">\mathcal{B}</script> and we write:</p>
+
+<blockquote>
+  <p>S <script type="math/tex" id="MathJax-Element-60">=</script> Span <script type="math/tex" id="MathJax-Element-61">\mathcal{B} =</script> Span <script type="math/tex" id="MathJax-Element-62">\{ \vec{v_1} ... \vec{v_k} \}</script> <br>
+   <script type="math/tex" id="MathJax-Element-63">= \{t_1\vec{v_1} + ... + t_k\vec{v_k}\}</script></p>
+</blockquote>
+
+<p>We also say that S is <strong>spanned</strong> by <script type="math/tex" id="MathJax-Element-64">\mathcal{B}</script> and that <script type="math/tex" id="MathJax-Element-65">\mathcal{B}</script> is a <strong>spanning set</strong> for S.</p>
+
+<hr>
+
+<p>We will sometimes want to write a set differently. For a set: <br>
+<script type="math/tex; mode=display" id="MathJax-Element-66">\begin{equation} \{ t_1\vec{v_1} + ... + t_k\vec{v_k} | t_1 , .. , t_k \epsilon \mathbb{R} \} \end{equation}</script></p>
+
+<p>We will just write: <br>
+<script type="math/tex; mode=display" id="MathJax-Element-67">\begin{equation} \vec{x} = \{ t_1\vec{v_1} + ... + t_k\vec{v_k} + \vec{b} \} ,  \ t_1, ... , t_k \epsilon \ \mathbb{R} \end{equation}</script>  <br>
+and call this a vector equation of the set.</p>
+
+<p>Notice that the vector equation gives us the general form of any vector in the set</p>
+
+<p>Insert a whole bunch of examples here. Aka read the textbook for those.</p></body>
+</html>
+-->

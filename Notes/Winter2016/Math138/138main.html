@@ -1,0 +1,497 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Math 138</title>
+
+<link rel="stylesheet" type="text/css" href="http://amyqiu.me/notestyle.css">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="math-138-january-4-2016-lecture-1">Math 138 - January 4, 2016 - Lecture 1</h1>
+
+<blockquote>
+  <p>Section 7 <br>
+  Prof. Park, MC 5022, bdpark@uwaterloo.ca , Ext. 37016 <br>
+   Office Hours: WF 3:30 - 4:30 pm <br>
+   Login to LEARN, read course outline <br>
+   1st assignment due on Friday Jan 15, 2pm</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#math-138-january-4-2016-lecture-1">Math 138 - January 4, 2016 - Lecture 1</a><ul>
+<li><a href="#notation">Notation</a></li>
+<li><a href="#product-rule">Product Rule</a></li>
+</ul>
+</li>
+<li><a href="#math-138-january-6-2016-lecture-2">Math 138 - January 6 2016 - Lecture 2</a><ul>
+<li><ul>
+<li><ul>
+<li><a href="#definite-integral-by-parts">Definite Integral by parts</a></li>
+<li><a href="#iterating-integration-by-parts">Iterating integration by parts</a></li>
+<li><a href="#trig-integrals-using-substitution-rule-sec-72">Trig Integrals using substitution rule (sec 7.2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="notation">Notation</h2>
+
+<p>If F’ = <script type="math/tex" id="MathJax-Element-7271">\frac{dF}{dy}</script>, then we write <script type="math/tex" id="MathJax-Element-7272">\int \frac{dF}{dy} dx = F + C</script> for an arbitrary constant C</p>
+
+<p>Cancel dx’s and obtain: <br>
+<script type="math/tex" id="MathJax-Element-7273">\int dF = F + C</script> <br>
+<strong>i.e. F = <script type="math/tex" id="MathJax-Element-7274">\int dF</script> (up to constant)</strong></p>
+
+
+
+<h2 id="product-rule">Product Rule</h2>
+
+<p>We know: <br>
+<script type="math/tex" id="MathJax-Element-7275">(fg)' = f'g + fg'</script></p>
+
+<p>Integrate both sides: <br>
+<script type="math/tex" id="MathJax-Element-7276">\int (fg)' dx = \int f'gdx + \int fg' dx</script> <br>
+<script type="math/tex" id="MathJax-Element-7277"> \int fg' dx =  \int (fg)' dx-  \int f'g dx</script> <br>
+Note: <script type="math/tex" id="MathJax-Element-7278">\int (fg)' dx = fg + C</script> so the Cs can be cancelled from the other integral</p>
+
+<blockquote>
+  <p>Integration By Parts Formula <br>
+   <script type="math/tex" id="MathJax-Element-7279">\int fg' dx = fg - \int gf' dx</script></p>
+</blockquote>
+
+<p>(At first, only g’ part gets integrated. See [section 7.1] for answers)</p>
+
+<p>Easier to remember this if we use differential notation. Let u = f(x) , v = g(x) <br>
+<script type="math/tex; mode=display" id="MathJax-Element-7280">\begin{equation}
+\frac{du}{dx} = f'(x) \\\frac{dv}{dx}= g'(x) \\
+\implies du = f'(x)dx , dv = g'(x)dx
+\end{equation}</script></p>
+
+<blockquote>
+  <p><strong><em>(IP)</em></strong> Memorize! <br>
+  <script type="math/tex" id="MathJax-Element-7281">\int u dv = uv - \int v dv</script> </p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-7282">\\</script></p>
+
+<blockquote>
+  <p>Ex. Compute:  I = <script type="math/tex" id="MathJax-Element-7283">\int x cosx \ dx</script> <br>
+  Sol’n. Express <script type="math/tex" id="MathJax-Element-7284">I = \int udv</script> <br>
+  Let  u = x and dv = cosxdx <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7285">\begin{equation}
+\begin{aligned}
+& ( \frac{du}{dx} = \frac{d}{dx}(x) = 1 \implies)\  du = dx  \\
+&v = \int dv  \\ &= \int cosxdx = sinx + C \\
+By \ (IP), \\
+I&  = uv - \int v du \\ 
+& = x (sinx + C) - \int (sinx + C) dx \\
+& = xsinx + Cx - (-cosx + Cx + D) \\
+& = xsinx + cosx + E  
+\end{aligned}
+\end{equation}</script> <br>
+  (where E = -D = constant)</p>
+</blockquote>
+
+<pre><code>Remark: C's will always cancel. RHS of (IP) looks like:
+</code></pre>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-7286">\begin{equation}
+\begin{aligned}
+& u(v + c) - \int (v + c) du \\
+& = uv + c - \int vdu - \int cdu (which \ is \ cu + D) \\
+& = uv + cu - \int vdu - cu - D \\
+& = uv + \int vdu - D = uv - \int vdu
+\end{aligned}
+\end{equation}</script></p>
+
+<blockquote>
+  <p>Theorem: <script type="math/tex" id="MathJax-Element-7287">\int lnx dx = x lnx - x + C </script> <br>
+  Proof: We can differentiate RHS and verify that it is lnx. Alternatively we can use (IP) <br>
+  Express: <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7288">\begin{equation}
+\begin{aligned}
+& \int lnx dx  = \int udv \\
+& Let \ u =lnx, \ dv = dx \\
+\frac{du}{dx}  & = \frac{d}{dx} (lnx) \\
+& = \frac{1}{x} \implies du = \frac{1}{x} dx \\
+v & = \int dv = \int dx = x (+ c) \\
+ \int fx & = uv - \int vdu \\
+&  = (lnx)x = \int x \frac{1}{x}dx \\
+& = xlnx - \int fx = xlnx - x + C \ \square
+\end{aligned}
+\end{equation}</script></p>
+</blockquote>
+
+<p><code>Strategy for picking u</code></p>
+
+
+
+<div class="flow-chart"><svg height="600.59375" version="1.1" width="311.40625" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: 0.265625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj34" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj35" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj36" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj37" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj38" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj39" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="99.140625" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,107.1328,4)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,107.1328,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Most Helpful</tspan></text><rect x="0" y="0" width="305.40625" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="op" transform="matrix(1,0,0,1,4,96.6563)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="opt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,96.6563)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Inverse trig ; sin-1x = arcsinx ; tan-1x = arctanx</tspan></text><rect x="0" y="0" width="99.609375" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="do" transform="matrix(1,0,0,1,106.8984,189.3125)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="dot" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,106.8984,189.3125)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125"> lnx ; xlog_a x</tspan></text><rect x="0" y="0" width="126.765625" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="mo" transform="matrix(1,0,0,1,93.3203,281.9688)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="mot" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,93.3203,281.9688)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">x, x^2, x^3, ... x^n</tspan></text><rect x="0" y="0" width="107.859375" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="qp" transform="matrix(1,0,0,1,102.7734,374.625)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="qpt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,102.7734,374.625)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">trig, sinx, cosx</tspan></text><rect x="0" y="0" width="73.203125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="fam" transform="matrix(1,0,0,1,120.1016,467.2813)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="famt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,120.1016,467.2813)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">e^x , a^x</tspan></text><rect x="0" y="0" width="102.515625" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,105.4453,559.9375)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,105.4453,559.9375)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Least Helpful</tspan></text><path fill="none" stroke="#000000" d="M156.703125,42.65625C156.703125,42.65625,156.703125,82.31034994125366,156.703125,93.65668908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj34)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,135.3125C156.703125,135.3125,156.703125,174.96659994125366,156.703125,186.31293908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj35)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,227.96875C156.703125,227.96875,156.703125,267.62284994125366,156.703125,278.96918908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj36)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,320.625C156.703125,320.625,156.703125,360.27909994125366,156.703125,371.62543908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj37)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,413.28125C156.703125,413.28125,156.703125,452.93534994125366,156.703125,464.28168908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj38)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,505.9375C156.703125,505.9375,156.703125,545.5915999412537,156.703125,556.9379390846007" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj39)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<blockquote>
+  <p>Ex. Compute <script type="math/tex" id="MathJax-Element-7289">I = \int x^2e^xdx</script> <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7290">\begin{equation}
+\begin{aligned}
+Solution:  Set & \ I = \int u dv, Let \ u = x^2, dv = e^x dx \\
+Then, & \frac{du}{dx}= 2x \implies du = 2xdx \\
+v & = \int dv = \int e^x dx = e^x \\
+I & = uv - \int vdu = x^2e^x - \int e^x 2xdx \\
+& = x^2e^x - 2 \int x e^xdx (<- \ we \ set \ to \ J) \\
+Apply \ (IP) &\ one \ more \ time! \\
+Set \ J & = \int udv. Let u = x, dv = e^xdx \\
+ J & = uv - \int v du  \\
+ & = xe^x - \int e^xdx (<- which \ is \ e^x + C) \\
+Thus, \ I & = x^2e^x - 2J \\ 
+&= x^2e^x-2(xe^x - e^x - C) \\
+ & = e^x (x^2 - 2x + x) + D
+\end{aligned}
+\end{equation}</script></p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-7291">\\</script></p>
+
+<blockquote>
+  <p>Ex. Compute: <script type="math/tex" id="MathJax-Element-7292">I = \int e^x cosx dx</script> <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7293">\begin{equation}
+ Solution: I = \int udv \\ 
+Let \ u = cosx,  \ dv = e^xdx \\
+ \frac{du}{dv} = \frac{d}{dx}cosx = -sinx \implies du = -sinx dx \\
+v = \int dv = \int e^x dx = e^x \\
+I = uv - \int vdu = e^x cosx - ( - \int e^x sinx dx) (<- J)
+\end{equation}</script> <br>
+  Apply (IP) once more! <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7294">\begin{equation}
+J = \int udv
+\\ Let \ u = sinx, dv = e^xdx \\
+du = cosx dx , v = e^x \\
+J = e^x sinx - \int e^x cosx dx (<- Which \ was \ I)
+\end{equation}</script></p>
+</blockquote>
+
+
+
+<h1 id="math-138-january-6-2016-lecture-2">Math 138 - January 6 2016 - Lecture 2</h1>
+
+<p>Continued from last lecture:</p>
+
+<blockquote>
+  <p><script type="math/tex; mode=display" id="MathJax-Element-7295">\begin{equation} I = e^xcosx + J = e^xcosx + e^xsinx - I \\  I = e^x (cosx + sinx) - I \\ 2I = e^x (cosx + sinx) \\ I = 1/2 e^x (cosx + sinx) + C \end{equation}</script> <br>
+  Remark: Add C at the end to get the most general derivative</p>
+</blockquote>
+
+<p>FTC (Part 2) says: <script type="math/tex; mode=display" id="MathJax-Element-7296">\begin{equation} \int_{a}{b} F'(x)dx = F(x) |a->b = F(b - F(a)\end{equation}</script></p>
+
+
+
+<h4 id="definite-integral-by-parts">Definite Integral by parts</h4>
+
+<p>Thm: <script type="math/tex" id="MathJax-Element-7297">\int_{a}{b} udv = uv|a->b - \int_{a}{b} vdu</script></p>
+
+<blockquote>
+  <p>Ex: Compute I = <script type="math/tex" id="MathJax-Element-7298">\int_{0}{1} sin^{-1}xdx = \int_{0}{1} arcsinxdx</script> <br>
+  Let u = arcsinx , dv = dx <script type="math/tex" id="MathJax-Element-7299">\implies</script> v = x <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7300">\begin{equation} \frac{du}{dx} = \frac{d}{dx} arcsinx = \frac{1}{\sqrt{1 - x^2}} \implies du = \frac{1}{\sqrt{1 - x^2}} dx \end{equation}</script> <br>
+  <script type="math/tex" id="MathJax-Element-7301">I = uv|0->1 - \int_{0}{1} vdu = (arcsinx)x|0->1 - \int_{0}{1} \frac{1}{\sqrt{1- x^2}}xdx</script> <br>
+  I = A - B <br>
+  A = arcsin(1) * 1 - arcsin(0) * 0 = arcsin(1) = <script type="math/tex" id="MathJax-Element-7302">\frac{\pi}{2}</script> <br>
+  To compute B, use substitution rule <br>
+  Let <script type="math/tex" id="MathJax-Element-7303"> t = 1-x^2 \ , \ \frac{dt}{dx}= \frac{d}{dx}(1-x^2) = -2x \  
+  \implies \ dt = -2xdx \implies xdx = -\frac{1}{2} dt</script> <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7304">\begin{matrix} x = 1 \implies t = 1- 1^2 = 0 \\ x = 0 \implies t = 1 - 0^2 = 1 \end{matrix}</script> <br>
+  <script type="math/tex" id="MathJax-Element-7305">B = \int_{1}{0} \frac{1}{sqrt{t}} (-\frac{1}{2}dt) = -\frac{1}{2} \ int{1}{0} t^{\frac{-1}{2}} dt \\ = -\frac{1}{2} \frac{t^{\frac{1}{2}}}{\frac{1}{2}} | 0->1 = - [t^{\frac{1}{2}}]0->1 = -(0 - 1) = 1</script> <br>
+  Hence, I = A - B = <script type="math/tex" id="MathJax-Element-7306">\frac{\pi}{2} - 1</script></p>
+</blockquote>
+
+
+
+<h4 id="iterating-integration-by-parts">Iterating integration by parts</h4>
+
+<p>Notation:  <br>
+<script type="math/tex; mode=display" id="MathJax-Element-7307">\begin{equation} f^{(o)} = f , f ^{(1)} = f^{'} ,  f ^{(2)} = f^{''} , ... \int^{(0)} f = f, \int^{(1)} f = \int f dx , \int^{(2)}f = \int (\int f dx )dx), ....\end{equation}</script></p>
+
+<blockquote>
+  <p>Theorem: <script type="math/tex; mode=display" id="MathJax-Element-7308">\begin{equation} \int f g dx = \Sigma{k = 0}{\inf} (-1)^{k} f^{(k)} \int^{(k+1)} g \\ = f \int^{(1)} g - f^{'} \int^{(2)} g + f ^{''} \int^{(3)} g - f ^{'''} \int^{(4)} g + ...\end{equation}</script> <br>
+  Remark: If f(x) is a polynomial of degree d, then <script type="math/tex" id="MathJax-Element-7309">f^{(d + 1)} = 0 </script> hence the sum <script type="math/tex" id="MathJax-Element-7310"> \Sigma{k=0}{\inf}</script> becomes finite!</p>
+  
+  <p>Ex: <script type="math/tex" id="MathJax-Element-7311">\int x^2 e^x dx = x^2 e^x - 2x e^x + 2 e^x - 0 e^ + c \\ = e^x ( x^2 -2x + 2) + c</script> <br>
+  Ex: <script type="math/tex" id="MathJax-Element-7312">\int x^2 sinx dx = x^x (-cosx) - 2x(-sinx) + 2(- -cosx) - 0 + c \\ (2 - x^2) cosx + 2xsinx + c</script></p>
+</blockquote>
+
+
+
+<h4 id="trig-integrals-using-substitution-rule-sec-72">Trig Integrals using substitution rule (sec 7.2)</h4>
+
+<blockquote>
+  <p>ex. Compute <script type="math/tex" id="MathJax-Element-7313">I = \int sin^{5}x cos^{2}xdx</script> <br>
+  <strong>Strategy</strong> If the power of sinx is odd, then save one factor of sinx and convert the rest into cosx using <strong><em><script type="math/tex" id="MathJax-Element-7314">sin^2x = 1 - cos^2 x</script></em></strong> . Then let u = cosx <br>
+  Solution: <script type="math/tex; mode=display" id="MathJax-Element-7315">\begin{equation} I = \int sin^4x \ cos^2x \ sinx dx  \\ Let u = cosx . \\ Then \ \frac{du}{dx}=\frac{d (cosx)}{x} = -sinx \\ \implies du = -sinxdx \implies sinxdx = -du \\ I = \int (sin^2x)^2 cos^2x(-du)\end{equation}</script> Set u = cosx . <script type="math/tex" id="MathJax-Element-7316"> = \int(1 -u^2)^2u^2(-du) \\ = -\int (1-2u^2 + u^4)u^2du = -\int(u^2-2u^4 + u^6)du \\ = - (\frac{u^3}{3} - 2 \frac{u^5}{5} + \frac{u^7}{7}) + c \\ = - \frac{1}{2}cos^3x + \frac{2}{5} cos^5x - \frac{1}{7}cos^7x + c</script> <br>
+  <strong>Remark</strong>: If you have odd powers of cosx, then use <script type="math/tex" id="MathJax-Element-7317">cos^2x = 1- sin^2x</script> and let u = sinx. See p. 481 for more details</p>
+  
+  <p>Ex. Compute <script type="math/tex" id="MathJax-Element-7318">I = \int_{0}^{\pi}sin^4xdx</script> <br>
+  <strong>strategy</strong> If the powers of sinx and cosx are both even, then  you use double angle formulae : <script type="math/tex; mode=display" id="MathJax-Element-7319">\begin{equation} cos(2x) = 2cos^2x - 1 = 1- 2sin^2x \end{equation}</script> <br>
+  Solution: From (DA) , <script type="math/tex" id="MathJax-Element-7320">cos^2x = \frac{1 + cos(2x)}{2} , sin^2x = \frac{1 - cos(2x)}{2}</script></p>
+</blockquote></body>
+</html>
+
+<!--
+2: Using highlight.js
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Math 138</title>
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+</head>
+<body><h1 id="math-138-january-4-2016-lecture-1">Math 138 - January 4, 2016 - Lecture 1</h1>
+
+<blockquote>
+  <p>Section 7 <br>
+  Prof. Park, MC 5022, bdpark@uwaterloo.ca , Ext. 37016 <br>
+   Office Hours: WF 3:30 - 4:30 pm <br>
+   Login to LEARN, read course outline <br>
+   1st assignment due on Friday Jan 15, 2pm</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#math-138-january-4-2016-lecture-1">Math 138 - January 4, 2016 - Lecture 1</a><ul>
+<li><a href="#notation">Notation</a></li>
+<li><a href="#product-rule">Product Rule</a></li>
+</ul>
+</li>
+<li><a href="#math-138-january-6-2016-lecture-2">Math 138 - January 6 2016 - Lecture 2</a><ul>
+<li><ul>
+<li><ul>
+<li><a href="#definite-integral-by-parts">Definite Integral by parts</a></li>
+<li><a href="#iterating-integration-by-parts">Iterating integration by parts</a></li>
+<li><a href="#trig-integrals-using-substitution-rule-sec-72">Trig Integrals using substitution rule (sec 7.2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="notation">Notation</h2>
+
+<p>If F’ = <script type="math/tex" id="MathJax-Element-7271">\frac{dF}{dy}</script>, then we write <script type="math/tex" id="MathJax-Element-7272">\int \frac{dF}{dy} dx = F + C</script> for an arbitrary constant C</p>
+
+<p>Cancel dx’s and obtain: <br>
+<script type="math/tex" id="MathJax-Element-7273">\int dF = F + C</script> <br>
+<strong>i.e. F = <script type="math/tex" id="MathJax-Element-7274">\int dF</script> (up to constant)</strong></p>
+
+
+
+<h2 id="product-rule">Product Rule</h2>
+
+<p>We know: <br>
+<script type="math/tex" id="MathJax-Element-7275">(fg)' = f'g + fg'</script></p>
+
+<p>Integrate both sides: <br>
+<script type="math/tex" id="MathJax-Element-7276">\int (fg)' dx = \int f'gdx + \int fg' dx</script> <br>
+<script type="math/tex" id="MathJax-Element-7277"> \int fg' dx =  \int (fg)' dx-  \int f'g dx</script> <br>
+Note: <script type="math/tex" id="MathJax-Element-7278">\int (fg)' dx = fg + C</script> so the Cs can be cancelled from the other integral</p>
+
+<blockquote>
+  <p>Integration By Parts Formula <br>
+   <script type="math/tex" id="MathJax-Element-7279">\int fg' dx = fg - \int gf' dx</script></p>
+</blockquote>
+
+<p>(At first, only g’ part gets integrated. See [section 7.1] for answers)</p>
+
+<p>Easier to remember this if we use differential notation. Let u = f(x) , v = g(x) <br>
+<script type="math/tex; mode=display" id="MathJax-Element-7280">\begin{equation}
+\frac{du}{dx} = f'(x) \\\frac{dv}{dx}= g'(x) \\
+\implies du = f'(x)dx , dv = g'(x)dx
+\end{equation}</script></p>
+
+<blockquote>
+  <p><strong><em>(IP)</em></strong> Memorize! <br>
+  <script type="math/tex" id="MathJax-Element-7281">\int u dv = uv - \int v dv</script> </p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-7282">\\</script></p>
+
+<blockquote>
+  <p>Ex. Compute:  I = <script type="math/tex" id="MathJax-Element-7283">\int x cosx \ dx</script> <br>
+  Sol’n. Express <script type="math/tex" id="MathJax-Element-7284">I = \int udv</script> <br>
+  Let  u = x and dv = cosxdx <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7285">\begin{equation}
+\begin{aligned}
+& ( \frac{du}{dx} = \frac{d}{dx}(x) = 1 \implies)\  du = dx  \\
+&v = \int dv  \\ &= \int cosxdx = sinx + C \\
+By \ (IP), \\
+I&  = uv - \int v du \\ 
+& = x (sinx + C) - \int (sinx + C) dx \\
+& = xsinx + Cx - (-cosx + Cx + D) \\
+& = xsinx + cosx + E  
+\end{aligned}
+\end{equation}</script> <br>
+  (where E = -D = constant)</p>
+</blockquote>
+
+<pre><code>Remark: C's will always cancel. RHS of (IP) looks like:
+</code></pre>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-7286">\begin{equation}
+\begin{aligned}
+& u(v + c) - \int (v + c) du \\
+& = uv + c - \int vdu - \int cdu (which \ is \ cu + D) \\
+& = uv + cu - \int vdu - cu - D \\
+& = uv + \int vdu - D = uv - \int vdu
+\end{aligned}
+\end{equation}</script></p>
+
+<blockquote>
+  <p>Theorem: <script type="math/tex" id="MathJax-Element-7287">\int lnx dx = x lnx - x + C </script> <br>
+  Proof: We can differentiate RHS and verify that it is lnx. Alternatively we can use (IP) <br>
+  Express: <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7288">\begin{equation}
+\begin{aligned}
+& \int lnx dx  = \int udv \\
+& Let \ u =lnx, \ dv = dx \\
+\frac{du}{dx}  & = \frac{d}{dx} (lnx) \\
+& = \frac{1}{x} \implies du = \frac{1}{x} dx \\
+v & = \int dv = \int dx = x (+ c) \\
+ \int fx & = uv - \int vdu \\
+&  = (lnx)x = \int x \frac{1}{x}dx \\
+& = xlnx - \int fx = xlnx - x + C \ \square
+\end{aligned}
+\end{equation}</script></p>
+</blockquote>
+
+<p><code>Strategy for picking u</code></p>
+
+
+
+<div class="flow-chart"><svg height="600.59375" version="1.1" width="311.40625" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: 0.265625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj34" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj35" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj36" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj37" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj38" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj39" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="99.140625" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,107.1328,4)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,107.1328,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Most Helpful</tspan></text><rect x="0" y="0" width="305.40625" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="op" transform="matrix(1,0,0,1,4,96.6563)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="opt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,96.6563)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Inverse trig ; sin-1x = arcsinx ; tan-1x = arctanx</tspan></text><rect x="0" y="0" width="99.609375" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="do" transform="matrix(1,0,0,1,106.8984,189.3125)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="dot" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,106.8984,189.3125)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125"> lnx ; xlog_a x</tspan></text><rect x="0" y="0" width="126.765625" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="mo" transform="matrix(1,0,0,1,93.3203,281.9688)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="mot" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,93.3203,281.9688)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">x, x^2, x^3, ... x^n</tspan></text><rect x="0" y="0" width="107.859375" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="qp" transform="matrix(1,0,0,1,102.7734,374.625)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="qpt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,102.7734,374.625)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">trig, sinx, cosx</tspan></text><rect x="0" y="0" width="73.203125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="fam" transform="matrix(1,0,0,1,120.1016,467.2813)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="famt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,120.1016,467.2813)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">e^x , a^x</tspan></text><rect x="0" y="0" width="102.515625" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,105.4453,559.9375)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,105.4453,559.9375)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Least Helpful</tspan></text><path fill="none" stroke="#000000" d="M156.703125,42.65625C156.703125,42.65625,156.703125,82.31034994125366,156.703125,93.65668908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj34)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,135.3125C156.703125,135.3125,156.703125,174.96659994125366,156.703125,186.31293908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj35)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,227.96875C156.703125,227.96875,156.703125,267.62284994125366,156.703125,278.96918908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj36)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,320.625C156.703125,320.625,156.703125,360.27909994125366,156.703125,371.62543908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj37)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,413.28125C156.703125,413.28125,156.703125,452.93534994125366,156.703125,464.28168908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj38)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M156.703125,505.9375C156.703125,505.9375,156.703125,545.5915999412537,156.703125,556.9379390846007" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj39)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<blockquote>
+  <p>Ex. Compute <script type="math/tex" id="MathJax-Element-7289">I = \int x^2e^xdx</script> <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7290">\begin{equation}
+\begin{aligned}
+Solution:  Set & \ I = \int u dv, Let \ u = x^2, dv = e^x dx \\
+Then, & \frac{du}{dx}= 2x \implies du = 2xdx \\
+v & = \int dv = \int e^x dx = e^x \\
+I & = uv - \int vdu = x^2e^x - \int e^x 2xdx \\
+& = x^2e^x - 2 \int x e^xdx (<- \ we \ set \ to \ J) \\
+Apply \ (IP) &\ one \ more \ time! \\
+Set \ J & = \int udv. Let u = x, dv = e^xdx \\
+ J & = uv - \int v du  \\
+ & = xe^x - \int e^xdx (<- which \ is \ e^x + C) \\
+Thus, \ I & = x^2e^x - 2J \\ 
+&= x^2e^x-2(xe^x - e^x - C) \\
+ & = e^x (x^2 - 2x + x) + D
+\end{aligned}
+\end{equation}</script></p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-7291">\\</script></p>
+
+<blockquote>
+  <p>Ex. Compute: <script type="math/tex" id="MathJax-Element-7292">I = \int e^x cosx dx</script> <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7293">\begin{equation}
+ Solution: I = \int udv \\ 
+Let \ u = cosx,  \ dv = e^xdx \\
+ \frac{du}{dv} = \frac{d}{dx}cosx = -sinx \implies du = -sinx dx \\
+v = \int dv = \int e^x dx = e^x \\
+I = uv - \int vdu = e^x cosx - ( - \int e^x sinx dx) (<- J)
+\end{equation}</script> <br>
+  Apply (IP) once more! <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7294">\begin{equation}
+J = \int udv
+\\ Let \ u = sinx, dv = e^xdx \\
+du = cosx dx , v = e^x \\
+J = e^x sinx - \int e^x cosx dx (<- Which \ was \ I)
+\end{equation}</script></p>
+</blockquote>
+
+
+
+<h1 id="math-138-january-6-2016-lecture-2">Math 138 - January 6 2016 - Lecture 2</h1>
+
+<p>Continued from last lecture:</p>
+
+<blockquote>
+  <p><script type="math/tex; mode=display" id="MathJax-Element-7295">\begin{equation} I = e^xcosx + J = e^xcosx + e^xsinx - I \\  I = e^x (cosx + sinx) - I \\ 2I = e^x (cosx + sinx) \\ I = 1/2 e^x (cosx + sinx) + C \end{equation}</script> <br>
+  Remark: Add C at the end to get the most general derivative</p>
+</blockquote>
+
+<p>FTC (Part 2) says: <script type="math/tex; mode=display" id="MathJax-Element-7296">\begin{equation} \int_{a}{b} F'(x)dx = F(x) |a->b = F(b - F(a)\end{equation}</script></p>
+
+
+
+<h4 id="definite-integral-by-parts">Definite Integral by parts</h4>
+
+<p>Thm: <script type="math/tex" id="MathJax-Element-7297">\int_{a}{b} udv = uv|a->b - \int_{a}{b} vdu</script></p>
+
+<blockquote>
+  <p>Ex: Compute I = <script type="math/tex" id="MathJax-Element-7298">\int_{0}{1} sin^{-1}xdx = \int_{0}{1} arcsinxdx</script> <br>
+  Let u = arcsinx , dv = dx <script type="math/tex" id="MathJax-Element-7299">\implies</script> v = x <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7300">\begin{equation} \frac{du}{dx} = \frac{d}{dx} arcsinx = \frac{1}{\sqrt{1 - x^2}} \implies du = \frac{1}{\sqrt{1 - x^2}} dx \end{equation}</script> <br>
+  <script type="math/tex" id="MathJax-Element-7301">I = uv|0->1 - \int_{0}{1} vdu = (arcsinx)x|0->1 - \int_{0}{1} \frac{1}{\sqrt{1- x^2}}xdx</script> <br>
+  I = A - B <br>
+  A = arcsin(1) * 1 - arcsin(0) * 0 = arcsin(1) = <script type="math/tex" id="MathJax-Element-7302">\frac{\pi}{2}</script> <br>
+  To compute B, use substitution rule <br>
+  Let <script type="math/tex" id="MathJax-Element-7303"> t = 1-x^2 \ , \ \frac{dt}{dx}= \frac{d}{dx}(1-x^2) = -2x \  
+  \implies \ dt = -2xdx \implies xdx = -\frac{1}{2} dt</script> <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-7304">\begin{matrix} x = 1 \implies t = 1- 1^2 = 0 \\ x = 0 \implies t = 1 - 0^2 = 1 \end{matrix}</script> <br>
+  <script type="math/tex" id="MathJax-Element-7305">B = \int_{1}{0} \frac{1}{sqrt{t}} (-\frac{1}{2}dt) = -\frac{1}{2} \ int{1}{0} t^{\frac{-1}{2}} dt \\ = -\frac{1}{2} \frac{t^{\frac{1}{2}}}{\frac{1}{2}} | 0->1 = - [t^{\frac{1}{2}}]0->1 = -(0 - 1) = 1</script> <br>
+  Hence, I = A - B = <script type="math/tex" id="MathJax-Element-7306">\frac{\pi}{2} - 1</script></p>
+</blockquote>
+
+
+
+<h4 id="iterating-integration-by-parts">Iterating integration by parts</h4>
+
+<p>Notation:  <br>
+<script type="math/tex; mode=display" id="MathJax-Element-7307">\begin{equation} f^{(o)} = f , f ^{(1)} = f^{'} ,  f ^{(2)} = f^{''} , ... \int^{(0)} f = f, \int^{(1)} f = \int f dx , \int^{(2)}f = \int (\int f dx )dx), ....\end{equation}</script></p>
+
+<blockquote>
+  <p>Theorem: <script type="math/tex; mode=display" id="MathJax-Element-7308">\begin{equation} \int f g dx = \Sigma{k = 0}{\inf} (-1)^{k} f^{(k)} \int^{(k+1)} g \\ = f \int^{(1)} g - f^{'} \int^{(2)} g + f ^{''} \int^{(3)} g - f ^{'''} \int^{(4)} g + ...\end{equation}</script> <br>
+  Remark: If f(x) is a polynomial of degree d, then <script type="math/tex" id="MathJax-Element-7309">f^{(d + 1)} = 0 </script> hence the sum <script type="math/tex" id="MathJax-Element-7310"> \Sigma{k=0}{\inf}</script> becomes finite!</p>
+  
+  <p>Ex: <script type="math/tex" id="MathJax-Element-7311">\int x^2 e^x dx = x^2 e^x - 2x e^x + 2 e^x - 0 e^ + c \\ = e^x ( x^2 -2x + 2) + c</script> <br>
+  Ex: <script type="math/tex" id="MathJax-Element-7312">\int x^2 sinx dx = x^x (-cosx) - 2x(-sinx) + 2(- -cosx) - 0 + c \\ (2 - x^2) cosx + 2xsinx + c</script></p>
+</blockquote>
+
+
+
+<h4 id="trig-integrals-using-substitution-rule-sec-72">Trig Integrals using substitution rule (sec 7.2)</h4>
+
+<blockquote>
+  <p>ex. Compute <script type="math/tex" id="MathJax-Element-7313">I = \int sin^{5}x cos^{2}xdx</script> <br>
+  <strong>Strategy</strong> If the power of sinx is odd, then save one factor of sinx and convert the rest into cosx using <strong><em><script type="math/tex" id="MathJax-Element-7314">sin^2x = 1 - cos^2 x</script></em></strong> . Then let u = cosx <br>
+  Solution: <script type="math/tex; mode=display" id="MathJax-Element-7315">\begin{equation} I = \int sin^4x \ cos^2x \ sinx dx  \\ Let u = cosx . \\ Then \ \frac{du}{dx}=\frac{d (cosx)}{x} = -sinx \\ \implies du = -sinxdx \implies sinxdx = -du \\ I = \int (sin^2x)^2 cos^2x(-du)\end{equation}</script> Set u = cosx . <script type="math/tex" id="MathJax-Element-7316"> = \int(1 -u^2)^2u^2(-du) \\ = -\int (1-2u^2 + u^4)u^2du = -\int(u^2-2u^4 + u^6)du \\ = - (\frac{u^3}{3} - 2 \frac{u^5}{5} + \frac{u^7}{7}) + c \\ = - \frac{1}{2}cos^3x + \frac{2}{5} cos^5x - \frac{1}{7}cos^7x + c</script> <br>
+  <strong>Remark</strong>: If you have odd powers of cosx, then use <script type="math/tex" id="MathJax-Element-7317">cos^2x = 1- sin^2x</script> and let u = sinx. See p. 481 for more details</p>
+  
+  <p>Ex. Compute <script type="math/tex" id="MathJax-Element-7318">I = \int_{0}^{\pi}sin^4xdx</script> <br>
+  <strong>strategy</strong> If the powers of sinx and cosx are both even, then  you use double angle formulae : <script type="math/tex; mode=display" id="MathJax-Element-7319">\begin{equation} cos(2x) = 2cos^2x - 1 = 1- 2sin^2x \end{equation}</script> <br>
+  Solution: From (DA) , <script type="math/tex" id="MathJax-Element-7320">cos^2x = \frac{1 + cos(2x)}{2} , sin^2x = \frac{1 - cos(2x)}{2}</script></p>
+</blockquote></body>
+</html>
+-->
