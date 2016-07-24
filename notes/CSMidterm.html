@@ -1,0 +1,751 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS Midterm</title>
+
+<link rel="stylesheet" type="text/css" href="http://amyqiu.me/notestyle.css">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="midterm-concept-review">Midterm Concept Review</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#midterm-concept-review">Midterm Concept Review</a><ul>
+<li><a href="#modules-02">Modules - 02</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="modules-02">Modules - 02</h2>
+
+<blockquote>
+  <p><strong>Module</strong> provides a collection of functions that share a common aspect or purpose</p>
+</blockquote>
+
+
+
+<div class="flow-chart"><svg height="322.625" version="1.1" width="278.875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: 0.4375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj472" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj473" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj474" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="120.578125" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,80.1484,4)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,80.1484,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Client (requires)</tspan></text><rect x="0" y="0" width="173.953125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,53.4609,96.6563)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,53.4609,96.6563)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Module (which provides)</tspan></text><rect x="0" y="0" width="222.53125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="d" transform="matrix(1,0,0,1,29.1719,189.3125)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="dt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,29.1719,189.3125)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">interface (provided to the client)</tspan></text><rect x="0" y="0" width="272.875" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="func" transform="matrix(1,0,0,1,4,281.9688)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="funct" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,281.9688)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">implementation (hidden from the client)</tspan></text><path fill="none" stroke="#000000" d="M140.4375,42.65625C140.4375,42.65625,140.4375,82.31034994125366,140.4375,93.65668908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj472)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M140.4375,135.3125C140.4375,135.3125,140.4375,174.96659994125366,140.4375,186.31293908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj473)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M140.4375,227.96875C140.4375,227.96875,140.4375,267.62284994125366,140.4375,278.96918908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj474)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<h3 id="why-use-modules">Why Use Modules?</h3>
+
+<dl>
+<dt>Re-usability</dt>
+<dd>A good module can be re-used by many clients. Once we have a “repository” of re-usable modules, we can construct large programs more easily.</dd>
+
+<dt>Maintainability</dt>
+<dd>It is much easier to test and debug a single module instead of a large program. If a bug is found, it is also much easier to fix that one module than the whole program. We can even replace the whole module with a more efficient implementation.</dd>
+
+<dt>Abstraction</dt>
+<dd>To use a module, the client only needs to understand <strong>what</strong> functionality it provides. Doesn’t need to understand <strong>how</strong> it is implemented.</dd>
+</dl>
+
+<p>Racket has two special forms that allow us to work with modules: <strong>provide</strong> and <strong>require</strong></p>
+
+
+
+<h3 id="scope">Scope</h3>
+
+<dl>
+<dt>Local Identifiers</dt>
+<dd>are only visible inside of the local region (or function body) where it is defined</dd>
+
+<dt>Global Identifiers</dt>
+<dd>are defined at the top level, and are visible to all code following the definition <br>
+can have either program or module scope
+
+<blockquote>
+  <strong>module identifiers</strong> <span class="MathJax_SVG" id="MathJax-Element-87-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace width=&quot;thickmathspace&quot; /><mo stretchy=&quot;false&quot;>&amp;#x27F9;</mo><mspace width=&quot;thickmathspace&quot; /></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.096ex" height="1.701ex" viewBox="0 -618.4 2194.1 732.5" role="img" focusable="false" style="vertical-align: -0.265ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-27F9" x="277" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace width="thickmathspace"></mspace><mo stretchy="false">⟹</mo><mspace width="thickmathspace"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-87">\implies</script> are only visible inside of the module (file) they are defined in <br>
+  <span class="MathJax_SVG" id="MathJax-Element-88-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace linebreak=&quot;newline&quot; /></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0.27ex" viewBox="0 -58 0 116.1" role="img" focusable="false" style="vertical-align: -0.135ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace linebreak="newline"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-88">\\</script> <br>
+  <strong>program identifiers</strong> <span class="MathJax_SVG" id="MathJax-Element-89-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace width=&quot;thickmathspace&quot; /><mo stretchy=&quot;false&quot;>&amp;#x27F9;</mo><mspace width=&quot;thickmathspace&quot; /></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.096ex" height="1.701ex" viewBox="0 -618.4 2194.1 732.5" role="img" focusable="false" style="vertical-align: -0.265ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-27F9" x="277" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace width="thickmathspace"></mspace><mo stretchy="false">⟹</mo><mspace width="thickmathspace"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-89">\implies</script> are visible outside of the module (file) they are defined in (i.e. they are provided)
+</blockquote></dd>
+</dl>
+
+
+
+<pre class="prettyprint"><code class="language-lisp hljs "><span class="hljs-comment">;; mymodule.rkt</span>
+<span class="hljs-list">(<span class="hljs-title">provide</span> pscope)</span>
+
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">pscope</span> x)</span> <span class="hljs-comment">;program scope (provided)</span>
+    ... )</span>
+
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">mscope</span> x)</span>  <span class="hljs-comment">;module scope (not provided)</span>
+    <span class="hljs-list">(<span class="hljs-title">define</span> lscope ...)</span> <span class="hljs-comment">;local scope (within a function)</span>
+    ... )</span></code></pre>
+
+<p>In addition, each parameter x has local scope</p>
+
+<h3 id="module-interface">Module Interface</h3>
+
+<dl>
+<dt>Interface</dt>
+<dd>is the list of the functions that the module provides</dd>
+
+<dt>Implementation</dt>
+<dd>the code of the module (function definitions)</dd>
+</dl>
+
+<blockquote>
+  <p>The interface is everything that a client would need to use the module. The client does not need to see the implementation.</p>
+</blockquote>
+
+
+
+<h3 id="interface-documentation">Interface documentation</h3>
+
+<p>Interface documentation includes:</p>
+
+<ul>
+<li>Overall description</li>
+<li>list of functions</li>
+<li>contract and purpose</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-lisp hljs "><span class="hljs-comment">;; A module for summing numbers [description of module]</span>
+<span class="hljs-list">(<span class="hljs-title">provide</span> sum-first sum-squares)</span> <span class="hljs-comment">;; [list of functions]</span>
+
+<span class="hljs-comment">;; (sum-first n) sums the integers 1..n</span>
+<span class="hljs-comment">;; sum-first: Int -&gt; Int</span>
+<span class="hljs-comment">;; requires: n &gt;= 1</span>
+
+<span class="hljs-comment">;; (sum-squares n) ...</span>
+
+<span class="hljs-comment">;;;;;;;;;; IMPLEMENTATION ;;;;;;;;;;</span>
+
+<span class="hljs-comment">;; see interface above [no further info required]</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">sum-first</span> n)</span> ...)</span>
+
+<span class="hljs-comment">;; see interface above [no further info required]</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">sum-squares</span> n)</span> ...)</span>
+
+<span class="hljs-comment">;; [purpose &amp; contract for private helper function]</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">private-helper</span> p)</span> ...)</span></code></pre>
+
+<dl>
+<dt>High cohesion</dt>
+<dd>all interface functions are related and working towards a “common goal”</dd>
+
+<dt>Low Coupling</dt>
+<dd>little interaction between modules.</dd>
+</dl>
+
+
+
+<h3 id="information-hiding">Information hiding</h3>
+
+<dl>
+<dt>Security</dt>
+<dd>prevent client from tampering with data by the module</dd>
+
+<dt>Flexibility</dt>
+<dd>change the implementation in the future because the client knows jack shit</dd>
+</dl>
+
+<p>In racket, functions are opaque by default. To change that, use #transparent</p>
+
+
+
+<h3 id="abstract-data-type-adt">Abstract Data Type (ADT)</h3>
+
+<dl>
+<dt>data structure</dt>
+<dd>access the data directly</dd>
+
+<dt>ADT</dt>
+<dd>only can access the data through provided functions (unknown structure)</dd>
+</dl>
+
+
+
+<h2 id="functional-c-03">Functional C - 03</h2>
+
+<dl>
+<dt>dynamic typing</dt>
+<dd>The type of an identifier is determined while the program is running</dd>
+
+<dt>Static typing</dt>
+<dd>the type of an identifier must be known before the program is run. It also can’t change</dd>
+</dl>
+
+<p>Constants must be initialized </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> my_number = <span class="hljs-number">42</span>;</code></pre>
+
+<p>The “= 42” portion of the above definition is called <strong><em>initialization</em></strong></p>
+
+<p>We call a function. A function is passed arguements and returns a value. (Racket -&gt; apply a function, consume arguments, produces a value)</p>
+
+<p>% -&gt; %% <br>
+5 -&gt; “%d”, 5 <br>
+a -&gt; “%c”, ‘a’ <br>
+0.044 -&gt; %f, 0.044</p>
+
+<p>%4d\n &lt;- padding</p>
+
+
+
+<h3 id="declaration-vs-definition">Declaration vs Definition</h3>
+
+<dl>
+<dt>declaration</dt>
+<dd>only specifies the type of an identifier</dd>
+
+<dt>definition</dt>
+<dd>instructs C to “create” the identifier</dd>
+</dl>
+
+<blockquote>
+  <p>a definition also includes a declaration <br>
+  An identifier can be declared multiple times, but only defined once</p>
+</blockquote>
+
+
+
+<h3 id="include"><span class="MathJax_SVG" id="MathJax-Element-143-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x0023;</mi><mi>i</mi><mi>n</mi><mi>c</mi><mi>l</mi><mi>u</mi><mi>d</mi><mi>e</mi></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.462ex" height="2.308ex" viewBox="0 -760.8 4074 993.8" role="img" focusable="false" style="vertical-align: -0.541ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-23" x="0" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-69" x="833" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-6E" x="1179" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-63" x="1779" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-6C" x="2213" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-75" x="2511" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-64" x="3084" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-65" x="3607" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">#</mi><mi>i</mi><mi>n</mi><mi>c</mi><mi>l</mi><mi>u</mi><mi>d</mi><mi>e</mi></math></span></span><script type="math/tex" id="MathJax-Element-143">\#include</script></h3>
+
+<p>.#include is what is known as a preprocessor directive. Directives can modify a source file just before it is run. #include inserts the contents of .h into the client source file.</p>
+
+<blockquote>
+  <p>static -&gt; private (module scope)</p>
+</blockquote>
+
+
+
+<h3 id="assert">Assert</h3>
+
+<p>/#include </p>
+
+<h3 id="structures">Structures</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs ">(<span class="hljs-keyword">struct</span> posn (x y) <span class="hljs-preprocessor">#:transparent)</span>
+
+(define p (posn <span class="hljs-number">3</span> <span class="hljs-number">4</span>))
+
+<span class="hljs-keyword">struct</span> posn {
+    <span class="hljs-keyword">int</span> x;
+    <span class="hljs-keyword">int</span> y;
+};
+
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> posn p = {<span class="hljs-number">3</span>,<span class="hljs-number">4</span>};
+or <span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> posn p = { .y = <span class="hljs-number">4</span>, .x = <span class="hljs-number">3</span>};</code></pre>
+
+
+
+<h2 id="imperative-c-04">Imperative C - 04</h2>
+
+<blockquote>
+  <p>Equality == does not work on structures</p>
+  
+  <p>In functional programming there are no side effects</p>
+  
+  <p>printf() returns the number of characters printed</p>
+</blockquote>
+
+<h2 id="c-model-05">C Model - 05</h2>
+
+<blockquote>
+  <p>One bit of storage has two possible <strong>states</strong>: 0 or 1 <br>
+  A byte is 8 bits of storage. Each byte in memory is in one of 256 possible states</p>
+  
+  <p>The size of an integer is 4 bytes (32 bits) <br>
+  Char is one byte <br>
+  float is 4 bytes <br>
+  double is 8 bytes</p>
+</blockquote>
+
+<h3 id="ascii">ASCII</h3>
+
+<p>A -&gt; 65 <br>
+Z -&gt; 90 <br>
+a -&gt; 97 <br>
+z -&gt; 122</p>
+
+
+
+<h3 id="selections-of-memory">Selections of memory</h3>
+
+
+
+<div class="flow-chart"><svg height="415.28125" version="1.1" width="118.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.171875px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock33-obj1275" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj1276" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj1277" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj1278" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="50.734375" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="s" transform="matrix(1,0,0,1,34.7578,4)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="st" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,34.7578,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">code</tspan></text><rect x="0" y="0" width="112.25" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="r" transform="matrix(1,0,0,1,4,96.6563)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="rt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,96.6563)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">read-only data</tspan></text><rect x="0" y="0" width="91.125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="g" transform="matrix(1,0,0,1,14.5625,189.3125)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="gt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,14.5625,189.3125)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">global data</tspan></text><rect x="0" y="0" width="51.59375" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="h" transform="matrix(1,0,0,1,34.3281,281.9688)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="ht" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,34.3281,281.9688)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">heap</tspan></text><rect x="0" y="0" width="55.015625" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,32.6172,374.625)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,32.6172,374.625)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Stack</tspan></text><path fill="none" stroke="#000000" d="M60.125,42.65625C60.125,42.65625,60.125,82.31034994125366,60.125,93.65668908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1275)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M60.125,135.3125C60.125,135.3125,60.125,174.96659994125366,60.125,186.31293908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1276)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M60.125,227.96875C60.125,227.96875,60.125,267.62284994125366,60.125,278.96918908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1277)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M60.125,320.625C60.125,320.625,60.125,360.27909994125366,60.125,371.62543908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1278)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<dl>
+<dt>Stack Frames</dt>
+<dd>Each function call creates a stack frame <br>
+it contains
+
+<blockquote>
+  arguement values <br>
+  any local vars in the function block <br>
+  return address
+</blockquote></dd>
+</dl>
+
+<blockquote>
+  <p>C makes a copy of each argument value and places the copy in the stack frame <br>
+  “Pass by value convention”</p>
+</blockquote>
+
+<p>Space for global vars are reserved before the program. Space for a local var is only reserved when the function is called.</p>
+
+<p>Stack frame ex.</p>
+
+<p>========================= <br>
+g: <br>
+y: 8 <br>
+c: 64 <br>
+return address: f:13</p>
+
+<p>========================= <br>
+f: <br>
+x: 2 <br>
+b: 5 <br>
+return address: main:17</p>
+
+<p>========================= <br>
+main: <br>
+a: ??? <br>
+return address: OS</p>
+
+<p>=========================</p>
+
+<blockquote>
+  <p>if the stack gets too large, it can cause stack overflow and collide with other sections of memory <br>
+  int i; -&gt; is 0 for glob vars</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-comment">// Counting up from 0 to n-1</span>
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; ++i) {...}
+<span class="hljs-comment">// Counting up from 1 to n</span>
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= n; ++i) {...}
+<span class="hljs-comment">// Counting down from n-1 to 0</span>
+<span class="hljs-keyword">for</span> (i = n-<span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; --i) {...}
+<span class="hljs-comment">// Counting down from n to 1</span>
+<span class="hljs-keyword">for</span> (i = n; i &gt; <span class="hljs-number">0</span>; --i) {...}</code></pre>
+
+
+
+<h2 id="pointers-06">Pointers - 06</h2>
+
+<dl>
+<dt>Address operator (&amp;)</dt>
+<dd>get the address of this box</dd>
+
+<dt>Indirection operator (*)</dt>
+<dd>follow the arrow to the next box</dd>
+</dl>
+
+<p>The size of a pointer is 8 bytes. Always.</p>
+
+
+
+<h3 id="making-function-pointers">Making Function Pointers</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> add1(<span class="hljs-keyword">int</span> i) { <span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>; }
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">void</span>) {
+    <span class="hljs-keyword">int</span> (*fp)(<span class="hljs-keyword">int</span>) = add1; <span class="hljs-comment">// OR = &amp;add1;</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"add1(3) = %d\n"</span>, fp(<span class="hljs-number">3</span>));
+}
+add1(<span class="hljs-number">3</span>) = <span class="hljs-number">4</span></code></pre>
+
+<p>The syntax to declare a function pointer with name fpname is:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs ">return_type (*fpname)(param1_type, param2_type, ...)</code></pre></body>
+</html>
+
+<!--
+2: Using highlight.js
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS Midterm</title>
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+</head>
+<body><h1 id="midterm-concept-review">Midterm Concept Review</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#midterm-concept-review">Midterm Concept Review</a><ul>
+<li><a href="#modules-02">Modules - 02</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="modules-02">Modules - 02</h2>
+
+<blockquote>
+  <p><strong>Module</strong> provides a collection of functions that share a common aspect or purpose</p>
+</blockquote>
+
+
+
+<div class="flow-chart"><svg height="322.625" version="1.1" width="278.875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: 0.4375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj472" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj473" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj474" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="120.578125" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,80.1484,4)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,80.1484,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Client (requires)</tspan></text><rect x="0" y="0" width="173.953125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,53.4609,96.6563)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,53.4609,96.6563)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Module (which provides)</tspan></text><rect x="0" y="0" width="222.53125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="d" transform="matrix(1,0,0,1,29.1719,189.3125)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="dt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,29.1719,189.3125)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">interface (provided to the client)</tspan></text><rect x="0" y="0" width="272.875" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="func" transform="matrix(1,0,0,1,4,281.9688)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="funct" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,281.9688)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">implementation (hidden from the client)</tspan></text><path fill="none" stroke="#000000" d="M140.4375,42.65625C140.4375,42.65625,140.4375,82.31034994125366,140.4375,93.65668908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj472)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M140.4375,135.3125C140.4375,135.3125,140.4375,174.96659994125366,140.4375,186.31293908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj473)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M140.4375,227.96875C140.4375,227.96875,140.4375,267.62284994125366,140.4375,278.96918908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj474)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<h3 id="why-use-modules">Why Use Modules?</h3>
+
+<dl>
+<dt>Re-usability</dt>
+<dd>A good module can be re-used by many clients. Once we have a “repository” of re-usable modules, we can construct large programs more easily.</dd>
+
+<dt>Maintainability</dt>
+<dd>It is much easier to test and debug a single module instead of a large program. If a bug is found, it is also much easier to fix that one module than the whole program. We can even replace the whole module with a more efficient implementation.</dd>
+
+<dt>Abstraction</dt>
+<dd>To use a module, the client only needs to understand <strong>what</strong> functionality it provides. Doesn’t need to understand <strong>how</strong> it is implemented.</dd>
+</dl>
+
+<p>Racket has two special forms that allow us to work with modules: <strong>provide</strong> and <strong>require</strong></p>
+
+
+
+<h3 id="scope">Scope</h3>
+
+<dl>
+<dt>Local Identifiers</dt>
+<dd>are only visible inside of the local region (or function body) where it is defined</dd>
+
+<dt>Global Identifiers</dt>
+<dd>are defined at the top level, and are visible to all code following the definition <br>
+can have either program or module scope
+
+<blockquote>
+  <strong>module identifiers</strong> <span class="MathJax_SVG" id="MathJax-Element-87-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace width=&quot;thickmathspace&quot; /><mo stretchy=&quot;false&quot;>&amp;#x27F9;</mo><mspace width=&quot;thickmathspace&quot; /></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.096ex" height="1.701ex" viewBox="0 -618.4 2194.1 732.5" role="img" focusable="false" style="vertical-align: -0.265ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-27F9" x="277" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace width="thickmathspace"></mspace><mo stretchy="false">⟹</mo><mspace width="thickmathspace"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-87">\implies</script> are only visible inside of the module (file) they are defined in <br>
+  <span class="MathJax_SVG" id="MathJax-Element-88-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace linebreak=&quot;newline&quot; /></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0.27ex" viewBox="0 -58 0 116.1" role="img" focusable="false" style="vertical-align: -0.135ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace linebreak="newline"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-88">\\</script> <br>
+  <strong>program identifiers</strong> <span class="MathJax_SVG" id="MathJax-Element-89-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace width=&quot;thickmathspace&quot; /><mo stretchy=&quot;false&quot;>&amp;#x27F9;</mo><mspace width=&quot;thickmathspace&quot; /></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.096ex" height="1.701ex" viewBox="0 -618.4 2194.1 732.5" role="img" focusable="false" style="vertical-align: -0.265ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-27F9" x="277" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace width="thickmathspace"></mspace><mo stretchy="false">⟹</mo><mspace width="thickmathspace"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-89">\implies</script> are visible outside of the module (file) they are defined in (i.e. they are provided)
+</blockquote></dd>
+</dl>
+
+
+
+<pre class="prettyprint"><code class="language-lisp hljs "><span class="hljs-comment">;; mymodule.rkt</span>
+<span class="hljs-list">(<span class="hljs-title">provide</span> pscope)</span>
+
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">pscope</span> x)</span> <span class="hljs-comment">;program scope (provided)</span>
+    ... )</span>
+
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">mscope</span> x)</span>  <span class="hljs-comment">;module scope (not provided)</span>
+    <span class="hljs-list">(<span class="hljs-title">define</span> lscope ...)</span> <span class="hljs-comment">;local scope (within a function)</span>
+    ... )</span></code></pre>
+
+<p>In addition, each parameter x has local scope</p>
+
+<h3 id="module-interface">Module Interface</h3>
+
+<dl>
+<dt>Interface</dt>
+<dd>is the list of the functions that the module provides</dd>
+
+<dt>Implementation</dt>
+<dd>the code of the module (function definitions)</dd>
+</dl>
+
+<blockquote>
+  <p>The interface is everything that a client would need to use the module. The client does not need to see the implementation.</p>
+</blockquote>
+
+
+
+<h3 id="interface-documentation">Interface documentation</h3>
+
+<p>Interface documentation includes:</p>
+
+<ul>
+<li>Overall description</li>
+<li>list of functions</li>
+<li>contract and purpose</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-lisp hljs "><span class="hljs-comment">;; A module for summing numbers [description of module]</span>
+<span class="hljs-list">(<span class="hljs-title">provide</span> sum-first sum-squares)</span> <span class="hljs-comment">;; [list of functions]</span>
+
+<span class="hljs-comment">;; (sum-first n) sums the integers 1..n</span>
+<span class="hljs-comment">;; sum-first: Int -&gt; Int</span>
+<span class="hljs-comment">;; requires: n &gt;= 1</span>
+
+<span class="hljs-comment">;; (sum-squares n) ...</span>
+
+<span class="hljs-comment">;;;;;;;;;; IMPLEMENTATION ;;;;;;;;;;</span>
+
+<span class="hljs-comment">;; see interface above [no further info required]</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">sum-first</span> n)</span> ...)</span>
+
+<span class="hljs-comment">;; see interface above [no further info required]</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">sum-squares</span> n)</span> ...)</span>
+
+<span class="hljs-comment">;; [purpose &amp; contract for private helper function]</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">private-helper</span> p)</span> ...)</span></code></pre>
+
+<dl>
+<dt>High cohesion</dt>
+<dd>all interface functions are related and working towards a “common goal”</dd>
+
+<dt>Low Coupling</dt>
+<dd>little interaction between modules.</dd>
+</dl>
+
+
+
+<h3 id="information-hiding">Information hiding</h3>
+
+<dl>
+<dt>Security</dt>
+<dd>prevent client from tampering with data by the module</dd>
+
+<dt>Flexibility</dt>
+<dd>change the implementation in the future because the client knows jack shit</dd>
+</dl>
+
+<p>In racket, functions are opaque by default. To change that, use #transparent</p>
+
+
+
+<h3 id="abstract-data-type-adt">Abstract Data Type (ADT)</h3>
+
+<dl>
+<dt>data structure</dt>
+<dd>access the data directly</dd>
+
+<dt>ADT</dt>
+<dd>only can access the data through provided functions (unknown structure)</dd>
+</dl>
+
+
+
+<h2 id="functional-c-03">Functional C - 03</h2>
+
+<dl>
+<dt>dynamic typing</dt>
+<dd>The type of an identifier is determined while the program is running</dd>
+
+<dt>Static typing</dt>
+<dd>the type of an identifier must be known before the program is run. It also can’t change</dd>
+</dl>
+
+<p>Constants must be initialized </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> my_number = <span class="hljs-number">42</span>;</code></pre>
+
+<p>The “= 42” portion of the above definition is called <strong><em>initialization</em></strong></p>
+
+<p>We call a function. A function is passed arguements and returns a value. (Racket -&gt; apply a function, consume arguments, produces a value)</p>
+
+<p>% -&gt; %% <br>
+5 -&gt; “%d”, 5 <br>
+a -&gt; “%c”, ‘a’ <br>
+0.044 -&gt; %f, 0.044</p>
+
+<p>%4d\n &lt;- padding</p>
+
+
+
+<h3 id="declaration-vs-definition">Declaration vs Definition</h3>
+
+<dl>
+<dt>declaration</dt>
+<dd>only specifies the type of an identifier</dd>
+
+<dt>definition</dt>
+<dd>instructs C to “create” the identifier</dd>
+</dl>
+
+<blockquote>
+  <p>a definition also includes a declaration <br>
+  An identifier can be declared multiple times, but only defined once</p>
+</blockquote>
+
+
+
+<h3 id="include"><span class="MathJax_SVG" id="MathJax-Element-143-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x0023;</mi><mi>i</mi><mi>n</mi><mi>c</mi><mi>l</mi><mi>u</mi><mi>d</mi><mi>e</mi></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.462ex" height="2.308ex" viewBox="0 -760.8 4074 993.8" role="img" focusable="false" style="vertical-align: -0.541ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-23" x="0" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-69" x="833" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-6E" x="1179" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-63" x="1779" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-6C" x="2213" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-75" x="2511" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-64" x="3084" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-65" x="3607" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">#</mi><mi>i</mi><mi>n</mi><mi>c</mi><mi>l</mi><mi>u</mi><mi>d</mi><mi>e</mi></math></span></span><script type="math/tex" id="MathJax-Element-143">\#include</script></h3>
+
+<p>.#include is what is known as a preprocessor directive. Directives can modify a source file just before it is run. #include inserts the contents of .h into the client source file.</p>
+
+<blockquote>
+  <p>static -&gt; private (module scope)</p>
+</blockquote>
+
+
+
+<h3 id="assert">Assert</h3>
+
+<p>/#include </p>
+
+<h3 id="structures">Structures</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs ">(<span class="hljs-keyword">struct</span> posn (x y) <span class="hljs-preprocessor">#:transparent)</span>
+
+(define p (posn <span class="hljs-number">3</span> <span class="hljs-number">4</span>))
+
+<span class="hljs-keyword">struct</span> posn {
+    <span class="hljs-keyword">int</span> x;
+    <span class="hljs-keyword">int</span> y;
+};
+
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> posn p = {<span class="hljs-number">3</span>,<span class="hljs-number">4</span>};
+or <span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> posn p = { .y = <span class="hljs-number">4</span>, .x = <span class="hljs-number">3</span>};</code></pre>
+
+
+
+<h2 id="imperative-c-04">Imperative C - 04</h2>
+
+<blockquote>
+  <p>Equality == does not work on structures</p>
+  
+  <p>In functional programming there are no side effects</p>
+  
+  <p>printf() returns the number of characters printed</p>
+</blockquote>
+
+<h2 id="c-model-05">C Model - 05</h2>
+
+<blockquote>
+  <p>One bit of storage has two possible <strong>states</strong>: 0 or 1 <br>
+  A byte is 8 bits of storage. Each byte in memory is in one of 256 possible states</p>
+  
+  <p>The size of an integer is 4 bytes (32 bits) <br>
+  Char is one byte <br>
+  float is 4 bytes <br>
+  double is 8 bytes</p>
+</blockquote>
+
+<h3 id="ascii">ASCII</h3>
+
+<p>A -&gt; 65 <br>
+Z -&gt; 90 <br>
+a -&gt; 97 <br>
+z -&gt; 122</p>
+
+
+
+<h3 id="selections-of-memory">Selections of memory</h3>
+
+
+
+<div class="flow-chart"><svg height="415.28125" version="1.1" width="118.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.171875px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock33-obj1275" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj1276" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj1277" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj1278" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="50.734375" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="s" transform="matrix(1,0,0,1,34.7578,4)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="st" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,34.7578,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">code</tspan></text><rect x="0" y="0" width="112.25" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="r" transform="matrix(1,0,0,1,4,96.6563)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="rt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,96.6563)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">read-only data</tspan></text><rect x="0" y="0" width="91.125" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="g" transform="matrix(1,0,0,1,14.5625,189.3125)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="gt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,14.5625,189.3125)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">global data</tspan></text><rect x="0" y="0" width="51.59375" height="38.65625" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="h" transform="matrix(1,0,0,1,34.3281,281.9688)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="ht" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,34.3281,281.9688)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">heap</tspan></text><rect x="0" y="0" width="55.015625" height="38.65625" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,32.6172,374.625)"></rect><text x="10" y="19.328125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,32.6172,374.625)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.328125">Stack</tspan></text><path fill="none" stroke="#000000" d="M60.125,42.65625C60.125,42.65625,60.125,82.31034994125366,60.125,93.65668908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1275)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M60.125,135.3125C60.125,135.3125,60.125,174.96659994125366,60.125,186.31293908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1276)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M60.125,227.96875C60.125,227.96875,60.125,267.62284994125366,60.125,278.96918908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1277)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M60.125,320.625C60.125,320.625,60.125,360.27909994125366,60.125,371.62543908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj1278)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<dl>
+<dt>Stack Frames</dt>
+<dd>Each function call creates a stack frame <br>
+it contains
+
+<blockquote>
+  arguement values <br>
+  any local vars in the function block <br>
+  return address
+</blockquote></dd>
+</dl>
+
+<blockquote>
+  <p>C makes a copy of each argument value and places the copy in the stack frame <br>
+  “Pass by value convention”</p>
+</blockquote>
+
+<p>Space for global vars are reserved before the program. Space for a local var is only reserved when the function is called.</p>
+
+<p>Stack frame ex.</p>
+
+<p>========================= <br>
+g: <br>
+y: 8 <br>
+c: 64 <br>
+return address: f:13</p>
+
+<p>========================= <br>
+f: <br>
+x: 2 <br>
+b: 5 <br>
+return address: main:17</p>
+
+<p>========================= <br>
+main: <br>
+a: ??? <br>
+return address: OS</p>
+
+<p>=========================</p>
+
+<blockquote>
+  <p>if the stack gets too large, it can cause stack overflow and collide with other sections of memory <br>
+  int i; -&gt; is 0 for glob vars</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-comment">// Counting up from 0 to n-1</span>
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; ++i) {...}
+<span class="hljs-comment">// Counting up from 1 to n</span>
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= n; ++i) {...}
+<span class="hljs-comment">// Counting down from n-1 to 0</span>
+<span class="hljs-keyword">for</span> (i = n-<span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; --i) {...}
+<span class="hljs-comment">// Counting down from n to 1</span>
+<span class="hljs-keyword">for</span> (i = n; i &gt; <span class="hljs-number">0</span>; --i) {...}</code></pre>
+
+
+
+<h2 id="pointers-06">Pointers - 06</h2>
+
+<dl>
+<dt>Address operator (&amp;)</dt>
+<dd>get the address of this box</dd>
+
+<dt>Indirection operator (*)</dt>
+<dd>follow the arrow to the next box</dd>
+</dl>
+
+<p>The size of a pointer is 8 bytes. Always.</p>
+
+
+
+<h3 id="making-function-pointers">Making Function Pointers</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> add1(<span class="hljs-keyword">int</span> i) { <span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>; }
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">void</span>) {
+    <span class="hljs-keyword">int</span> (*fp)(<span class="hljs-keyword">int</span>) = add1; <span class="hljs-comment">// OR = &amp;add1;</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"add1(3) = %d\n"</span>, fp(<span class="hljs-number">3</span>));
+}
+add1(<span class="hljs-number">3</span>) = <span class="hljs-number">4</span></code></pre>
+
+<p>The syntax to declare a function pointer with name fpname is:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs ">return_type (*fpname)(param1_type, param2_type, ...)</code></pre></body>
+</html>
+-->

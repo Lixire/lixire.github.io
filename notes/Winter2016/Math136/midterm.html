@@ -1,0 +1,551 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS 136</title>
+
+<link rel="stylesheet" type="text/css" href="http://amyqiu.me/notestyle.css">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="midterm-review">MIDTERM REVIEW</h1>
+
+<p>(Winter 2014)</p>
+
+
+
+<h4 id="list-three-key-advantages-to-modularization-and-briefly-explain-each-one-no-more-than-one-sentence-each">List three key advantages to modularization and briefly explain each one (no more than one sentence each)</h4>
+
+<blockquote>
+  <p><strong>Abstraction</strong>: to use the module the client needs to know how it works, but does not need to know how it is implemented</p>
+  
+  <p><strong>Re-usability</strong>: A good module can be used in many different programs</p>
+  
+  <p><strong>Maintainability</strong>: Easier to fix bugs or update within a module rather than a large program</p>
+</blockquote>
+
+
+
+<h4 id="briefly-explain-the-special-form-provide-in-racket-and-why-there-is-no-equivalent-in-c">Briefly explain the special form PROVIDE in Racket and why there is no equivalent in C.</h4>
+
+<blockquote>
+  <p><strong>provide</strong>: gives identifier “program scope” specifies the identifiers available in the module. <br>
+  In C, all functions and variables by default have program scope and this means they are available to other modules.</p>
+</blockquote>
+
+
+
+<h4 id="briefly-explain-the-purpose-of-requires-and-effects-function-documentation-in-c">Briefly explain the purpose of requires and effects function documentation in C</h4>
+
+<blockquote>
+  <p><strong>requires</strong>: identifies conditions that must be true before the function is called (eg. parameters) <br>
+  <strong>effects</strong>: section used to identify changes to the state of a program. Ex. mutating a variable, printing to screen, restrictions on what the function returns.</p>
+</blockquote>
+
+
+
+<h4 id="racket-uses-dynamic-typing-what-kind-of-typing-does-c-use-give-one-advantage-of-the-typing-c-uses-provide-a-brief-example-of-some-racket-code-that-demonstrates-dynamic-typing-that-would-not-be-possible-in-c">Racket uses dynamic typing. What kind of typing does C use? Give one advantage of the typing C uses. Provide a brief example of some Racket code that demonstrates dynamic typing that would not be possible in C.</h4>
+
+<blockquote>
+  <p>C uses static typing. <br>
+  Advantage: built-in contracts, detect errors before running (type errors), efficiency (No run-time type checking means it can theoretically run faster)</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-scheme hljs clojure"><span class="hljs-list">(<span class="hljs-title">define</span> x <span class="hljs-string">"Hello"</span>)</span>
+<span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">set!</span></span> x<span class="hljs-number"> 5</span>)</span></code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> main{
+    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+    x = <span class="hljs-string">"Hello"</span>; \\oh man, gonna freak
+}</code></pre>
+
+
+
+<h4 id="write-the-declaration-for-a-c-function-add-that-takes-two-ints-x-and-y-and-returns-an-int-x-y">Write the <strong><em>declaration</em></strong> for a C function add that takes two ints x, and y, and returns an int x + y</h4>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> add(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y);</code></pre>
+
+
+
+<h4 id="give-the-output-of-the-following-c-program-explain-your-answer">Give the output of the following C program. Explain your answer.</h4>
+
+<blockquote>
+  <p>NO OVERFLOW <br>
+  DONE <br>
+  <strong><em>Explanation</em></strong>: When you add 1 to <strong>INT_MAX</strong>, it caused overflow and becomes <strong>INT_MIN</strong> so we go to else.</p>
+</blockquote>
+
+
+
+<h4 id="for-positive-integers-the-c-modulo-operator-behaves-the-same-as-the-racket-quotient-function">For positive integers, the C modulo operator (%) behaves the same as the Racket quotient function</h4>
+
+<blockquote>
+  <p>False ; Would be true if quotient was remainder</p>
+</blockquote>
+
+
+
+<h4 id="every-c-module-must-have-a-main-function">Every C module must have a main function</h4>
+
+<blockquote>
+  <p>False</p>
+</blockquote>
+
+
+
+<h4 id="in-c-a0-ba-2-will-produce-and-error-if-a-is-0">In C. (a!=0) &amp;&amp; (b/a == 2) will produce and error if a is 0</h4>
+
+<blockquote>
+  <p>False; it short circuits</p>
+</blockquote>
+
+
+
+<h4 id="11010-in-binary-16-in-base-10-1a-in-hex">11010 (in binary) = 16 in base 10 = 1A in hex</h4>
+
+<blockquote>
+  <p>False</p>
+  
+  <p>In mathematics and computing, hexadecimal (also base 16, or hex) is a positional numeral system with a radix, or base, of 16. It uses sixteen distinct symbols, most often the symbols 0–9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.</p>
+</blockquote>
+
+
+
+<h4 id="printfhellon-is-a-c-expression-with-the-value-of-7">printf(“hello!\n”) is a C expression with the value of 7</h4>
+
+<blockquote>
+  <p>True <br>
+  printf(“%d”,192) -&gt; 3</p>
+</blockquote>
+
+
+
+<h4 id="in-the-following-c-code-bool-nisfive-n-5-the-assignment-operator-appears-only-once">In the following C code: bool nisfive = (n == 5); the assignment operator appears only once.</h4>
+
+<blockquote>
+  <p>False ; The = is initialization</p>
+</blockquote>
+
+
+
+<h4 id="3-is-debugging">3 is debugging</h4>
+
+<blockquote>
+  <p>11 , should be: }; <br>
+  19, cannot compare circle structs using ==. return c1.r == c2.r &amp;&amp; … <br>
+  0, <span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mtext>#include &amp;lt;stdbool.h&amp;gt;</mtext></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.686ex" height="2.326ex" viewBox="0 -750.1 9767.5 1001.4" role="img" focusable="false" style="vertical-align: -0.584ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-23"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-69" x="833" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6E" x="1112" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-63" x="1668" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6C" x="2113" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-75" x="2391" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-64" x="2948" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-65" x="3504" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-3C" x="4199" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-73" x="4977" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-74" x="5372" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-64" x="5761" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-62" x="6318" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6F" x="6874" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6F" x="7375" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6C" x="7875" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-2E" x="8154" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-68" x="8432" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-3E" x="8989" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>#include &lt;stdbool.h&gt;</mtext></math></span></span><script type="math/tex" id="MathJax-Element-1">\text{#include <stdbool.h>}</script> <br>
+  23, (*p1).x = (*p2).x <br>
+  27, const struct but modifies it; invalid. remove const <br>
+  39, can’t use an assignment operator with an already initialized struct. p2=p1 <br>
+  40, we cannot print bool value directly. printf(“%d\n”,function) <br>
+  37, call fail; pointers not welcome</p>
+</blockquote>
+
+
+
+<h4 id="write-a-c-function-countdigitsint-num-where-num-is-a-ve-integer-the-function-counts-how-many-times-each-of-the-digits-09-appears-in-num-and-prints-the-result">Write a C function count.digits(int num); where num is a +ve integer. The function counts how many times each of the digits 0…9 appears in num and prints the result</h4>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">void</span> count_digits(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> num){
+    <span class="hljs-comment">// the array will keep track of the number of occurrences of each digit</span>
+    <span class="hljs-keyword">int</span> counter[<span class="hljs-number">10</span>] = {<span class="hljs-number">0</span>};
+    <span class="hljs-keyword">int</span> x = num;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; x/<span class="hljs-number">10</span>; ++i){
+        ++counter[x%<span class="hljs-number">10</span>];
+        x /= <span class="hljs-number">10</span>;
+    }   
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span> ; ++j){
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The digit %d appeared %d time(s) in %d\n"</span>, j , counter[i], num);
+    }
+}</code></pre>
+
+
+
+<h4 id="5">5.</h4>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">void</span> pyramid(<span class="hljs-keyword">int</span> n){
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n/<span class="hljs-number">2</span> +<span class="hljs-number">1</span> ; ++i){
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; <span class="hljs-number">2</span>*i ; ++j){
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%3d"</span>,j);
+        }
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n/<span class="hljs-number">2</span>; i &gt; <span class="hljs-number">0</span>; --i){
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; <span class="hljs-number">2</span>*<span class="hljs-number">1</span>; ++j){
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%3d"</span>,j);
+        }
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+}</code></pre>
+
+
+
+<h4 id="6-consider-the-following-program-output-pls">6. consider the following program: output pls</h4>
+
+<blockquote>
+  <p>in main: a=5, b=7 <br>
+  In exchange: a=7, b=5 <br>
+  a=7, b=5</p>
+</blockquote>
+
+<hr>
+
+<p>exchange: <br>
+    pa: addr_1 <br>
+    pb: addr_2 <br>
+    temp: 5 <br>
+return address: main:11</p>
+
+<hr>
+
+<p>Main: <br>
+    a = 5 [address 1] <br>
+    b = 7 [address 2] <br>
+return address: 0S</p>
+
+<hr>
+
+
+
+<h4 id="write-a-racket-module-gamesrkt-etc">Write a Racket module games.rkt …. etc</h4>
+
+
+
+<pre class="prettyprint"><code class="language-scheme hljs clojure"><span class="hljs-list">(<span class="hljs-title">define</span> glst empty)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">reset-games</span>)</span>
+    <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">set!</span></span> glst empty)</span>)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">add-game</span> gm)</span>
+    <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">set!</span></span> glst <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span> gm glst)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">total-score</span> tname)</span>
+    <span class="hljs-comment">;; calc: game Nat -&gt; Nat</span>
+    <span class="hljs-comment">;; produces the total scored points by tname</span>
+    <span class="hljs-comment">;; by adding gm result into total</span>
+    <span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">calc</span> gm total)</span>
+        <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cond</span></span> <span class="hljs-collection">[<span class="hljs-list">(<span class="hljs-title">equal?</span> <span class="hljs-list">(<span class="hljs-title">game-home-team</span> gm)</span> tname)</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">+</span></span> <span class="hljs-list">(<span class="hljs-title">game-home-score</span> gm)</span> total)</span>]</span>
+        <span class="hljs-collection">[<span class="hljs-list">(<span class="hljs-title">equal?</span> <span class="hljs-list">(<span class="hljs-title">game-visiting-team</span> gm)</span> tname)</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">+</span></span> <span class="hljs-list">(<span class="hljs-title">game-visiting-score</span> gm)</span> total)</span>]</span>
+        <span class="hljs-collection">[else total]</span>)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">printf</span></span> <span class="hljs-string">"The total scored points for ~a is: ~a\n"</span> tname <span class="hljs-list">(<span class="hljs-title">foldr</span> calc<span class="hljs-number"> 0</span> glst)</span>)</span>)</span></code></pre>
+
+
+
+<h4 id="re-write-the-function-below-by-filling-the-empty-lines">Re-write the function below by filling the empty lines…</h4>
+
+<blockquote>
+  <p>void doit(int a, int len){ <br>
+  for (int *p=a; a &lt; a + len ; p ++) <br>
+  sum = sum + (p-a) * (*p)</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">void</span>){
+    <span class="hljs-keyword">char</span> letters[<span class="hljs-number">200</span>];
+    <span class="hljs-keyword">int</span> len = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">char</span> c;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%c"</span>,&amp;c) != <span class="hljs-number">1</span>){
+        <span class="hljs-keyword">if</span>(c &gt;= <span class="hljs-string">'a'</span> &amp;&amp; c &lt;= <span class="hljs-string">'z'</span>){
+            c = c + diff;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(c&gt;= <span class="hljs-string">'A'</span> &amp;&amp; c &lt;= <span class="hljs-string">'Z'</span>){
+            c = c - diff;
+        }
+        letters[len] = c;
+        len++;
+    }
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = len-<span class="hljs-number">1</span>;i &gt;= <span class="hljs-number">0</span> ; --i){
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%c"</span>,letters[i]);
+    }
+}</code></pre></body>
+</html>
+
+<!--
+2: Using highlight.js
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS 136</title>
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+</head>
+<body><h1 id="midterm-review">MIDTERM REVIEW</h1>
+
+<p>(Winter 2014)</p>
+
+
+
+<h4 id="list-three-key-advantages-to-modularization-and-briefly-explain-each-one-no-more-than-one-sentence-each">List three key advantages to modularization and briefly explain each one (no more than one sentence each)</h4>
+
+<blockquote>
+  <p><strong>Abstraction</strong>: to use the module the client needs to know how it works, but does not need to know how it is implemented</p>
+  
+  <p><strong>Re-usability</strong>: A good module can be used in many different programs</p>
+  
+  <p><strong>Maintainability</strong>: Easier to fix bugs or update within a module rather than a large program</p>
+</blockquote>
+
+
+
+<h4 id="briefly-explain-the-special-form-provide-in-racket-and-why-there-is-no-equivalent-in-c">Briefly explain the special form PROVIDE in Racket and why there is no equivalent in C.</h4>
+
+<blockquote>
+  <p><strong>provide</strong>: gives identifier “program scope” specifies the identifiers available in the module. <br>
+  In C, all functions and variables by default have program scope and this means they are available to other modules.</p>
+</blockquote>
+
+
+
+<h4 id="briefly-explain-the-purpose-of-requires-and-effects-function-documentation-in-c">Briefly explain the purpose of requires and effects function documentation in C</h4>
+
+<blockquote>
+  <p><strong>requires</strong>: identifies conditions that must be true before the function is called (eg. parameters) <br>
+  <strong>effects</strong>: section used to identify changes to the state of a program. Ex. mutating a variable, printing to screen, restrictions on what the function returns.</p>
+</blockquote>
+
+
+
+<h4 id="racket-uses-dynamic-typing-what-kind-of-typing-does-c-use-give-one-advantage-of-the-typing-c-uses-provide-a-brief-example-of-some-racket-code-that-demonstrates-dynamic-typing-that-would-not-be-possible-in-c">Racket uses dynamic typing. What kind of typing does C use? Give one advantage of the typing C uses. Provide a brief example of some Racket code that demonstrates dynamic typing that would not be possible in C.</h4>
+
+<blockquote>
+  <p>C uses static typing. <br>
+  Advantage: built-in contracts, detect errors before running (type errors), efficiency (No run-time type checking means it can theoretically run faster)</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-scheme hljs clojure"><span class="hljs-list">(<span class="hljs-title">define</span> x <span class="hljs-string">"Hello"</span>)</span>
+<span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">set!</span></span> x<span class="hljs-number"> 5</span>)</span></code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> main{
+    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+    x = <span class="hljs-string">"Hello"</span>; \\oh man, gonna freak
+}</code></pre>
+
+
+
+<h4 id="write-the-declaration-for-a-c-function-add-that-takes-two-ints-x-and-y-and-returns-an-int-x-y">Write the <strong><em>declaration</em></strong> for a C function add that takes two ints x, and y, and returns an int x + y</h4>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> add(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y);</code></pre>
+
+
+
+<h4 id="give-the-output-of-the-following-c-program-explain-your-answer">Give the output of the following C program. Explain your answer.</h4>
+
+<blockquote>
+  <p>NO OVERFLOW <br>
+  DONE <br>
+  <strong><em>Explanation</em></strong>: When you add 1 to <strong>INT_MAX</strong>, it caused overflow and becomes <strong>INT_MIN</strong> so we go to else.</p>
+</blockquote>
+
+
+
+<h4 id="for-positive-integers-the-c-modulo-operator-behaves-the-same-as-the-racket-quotient-function">For positive integers, the C modulo operator (%) behaves the same as the Racket quotient function</h4>
+
+<blockquote>
+  <p>False ; Would be true if quotient was remainder</p>
+</blockquote>
+
+
+
+<h4 id="every-c-module-must-have-a-main-function">Every C module must have a main function</h4>
+
+<blockquote>
+  <p>False</p>
+</blockquote>
+
+
+
+<h4 id="in-c-a0-ba-2-will-produce-and-error-if-a-is-0">In C. (a!=0) &amp;&amp; (b/a == 2) will produce and error if a is 0</h4>
+
+<blockquote>
+  <p>False; it short circuits</p>
+</blockquote>
+
+
+
+<h4 id="11010-in-binary-16-in-base-10-1a-in-hex">11010 (in binary) = 16 in base 10 = 1A in hex</h4>
+
+<blockquote>
+  <p>False</p>
+  
+  <p>In mathematics and computing, hexadecimal (also base 16, or hex) is a positional numeral system with a radix, or base, of 16. It uses sixteen distinct symbols, most often the symbols 0–9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.</p>
+</blockquote>
+
+
+
+<h4 id="printfhellon-is-a-c-expression-with-the-value-of-7">printf(“hello!\n”) is a C expression with the value of 7</h4>
+
+<blockquote>
+  <p>True <br>
+  printf(“%d”,192) -&gt; 3</p>
+</blockquote>
+
+
+
+<h4 id="in-the-following-c-code-bool-nisfive-n-5-the-assignment-operator-appears-only-once">In the following C code: bool nisfive = (n == 5); the assignment operator appears only once.</h4>
+
+<blockquote>
+  <p>False ; The = is initialization</p>
+</blockquote>
+
+
+
+<h4 id="3-is-debugging">3 is debugging</h4>
+
+<blockquote>
+  <p>11 , should be: }; <br>
+  19, cannot compare circle structs using ==. return c1.r == c2.r &amp;&amp; … <br>
+  0, <span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="0" style="font-size: 100%; display: inline-block; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mtext>#include &amp;lt;stdbool.h&amp;gt;</mtext></math>" role="presentation"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.686ex" height="2.326ex" viewBox="0 -750.1 9767.5 1001.4" role="img" focusable="false" style="vertical-align: -0.584ex;" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-23"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-69" x="833" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6E" x="1112" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-63" x="1668" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6C" x="2113" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-75" x="2391" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-64" x="2948" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-65" x="3504" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-3C" x="4199" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-73" x="4977" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-74" x="5372" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-64" x="5761" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-62" x="6318" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6F" x="6874" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6F" x="7375" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-6C" x="7875" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-2E" x="8154" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-68" x="8432" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-3E" x="8989" y="0"></use></g></svg><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>#include &lt;stdbool.h&gt;</mtext></math></span></span><script type="math/tex" id="MathJax-Element-1">\text{#include <stdbool.h>}</script> <br>
+  23, (*p1).x = (*p2).x <br>
+  27, const struct but modifies it; invalid. remove const <br>
+  39, can’t use an assignment operator with an already initialized struct. p2=p1 <br>
+  40, we cannot print bool value directly. printf(“%d\n”,function) <br>
+  37, call fail; pointers not welcome</p>
+</blockquote>
+
+
+
+<h4 id="write-a-c-function-countdigitsint-num-where-num-is-a-ve-integer-the-function-counts-how-many-times-each-of-the-digits-09-appears-in-num-and-prints-the-result">Write a C function count.digits(int num); where num is a +ve integer. The function counts how many times each of the digits 0…9 appears in num and prints the result</h4>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">void</span> count_digits(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> num){
+    <span class="hljs-comment">// the array will keep track of the number of occurrences of each digit</span>
+    <span class="hljs-keyword">int</span> counter[<span class="hljs-number">10</span>] = {<span class="hljs-number">0</span>};
+    <span class="hljs-keyword">int</span> x = num;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; x/<span class="hljs-number">10</span>; ++i){
+        ++counter[x%<span class="hljs-number">10</span>];
+        x /= <span class="hljs-number">10</span>;
+    }   
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span> ; ++j){
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The digit %d appeared %d time(s) in %d\n"</span>, j , counter[i], num);
+    }
+}</code></pre>
+
+
+
+<h4 id="5">5.</h4>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">void</span> pyramid(<span class="hljs-keyword">int</span> n){
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n/<span class="hljs-number">2</span> +<span class="hljs-number">1</span> ; ++i){
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; <span class="hljs-number">2</span>*i ; ++j){
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%3d"</span>,j);
+        }
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n/<span class="hljs-number">2</span>; i &gt; <span class="hljs-number">0</span>; --i){
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; <span class="hljs-number">2</span>*<span class="hljs-number">1</span>; ++j){
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%3d"</span>,j);
+        }
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+}</code></pre>
+
+
+
+<h4 id="6-consider-the-following-program-output-pls">6. consider the following program: output pls</h4>
+
+<blockquote>
+  <p>in main: a=5, b=7 <br>
+  In exchange: a=7, b=5 <br>
+  a=7, b=5</p>
+</blockquote>
+
+<hr>
+
+<p>exchange: <br>
+    pa: addr_1 <br>
+    pb: addr_2 <br>
+    temp: 5 <br>
+return address: main:11</p>
+
+<hr>
+
+<p>Main: <br>
+    a = 5 [address 1] <br>
+    b = 7 [address 2] <br>
+return address: 0S</p>
+
+<hr>
+
+
+
+<h4 id="write-a-racket-module-gamesrkt-etc">Write a Racket module games.rkt …. etc</h4>
+
+
+
+<pre class="prettyprint"><code class="language-scheme hljs clojure"><span class="hljs-list">(<span class="hljs-title">define</span> glst empty)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">reset-games</span>)</span>
+    <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">set!</span></span> glst empty)</span>)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">add-game</span> gm)</span>
+    <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">set!</span></span> glst <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span> gm glst)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">total-score</span> tname)</span>
+    <span class="hljs-comment">;; calc: game Nat -&gt; Nat</span>
+    <span class="hljs-comment">;; produces the total scored points by tname</span>
+    <span class="hljs-comment">;; by adding gm result into total</span>
+    <span class="hljs-list">(<span class="hljs-title">define</span> <span class="hljs-list">(<span class="hljs-title">calc</span> gm total)</span>
+        <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cond</span></span> <span class="hljs-collection">[<span class="hljs-list">(<span class="hljs-title">equal?</span> <span class="hljs-list">(<span class="hljs-title">game-home-team</span> gm)</span> tname)</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">+</span></span> <span class="hljs-list">(<span class="hljs-title">game-home-score</span> gm)</span> total)</span>]</span>
+        <span class="hljs-collection">[<span class="hljs-list">(<span class="hljs-title">equal?</span> <span class="hljs-list">(<span class="hljs-title">game-visiting-team</span> gm)</span> tname)</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">+</span></span> <span class="hljs-list">(<span class="hljs-title">game-visiting-score</span> gm)</span> total)</span>]</span>
+        <span class="hljs-collection">[else total]</span>)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">printf</span></span> <span class="hljs-string">"The total scored points for ~a is: ~a\n"</span> tname <span class="hljs-list">(<span class="hljs-title">foldr</span> calc<span class="hljs-number"> 0</span> glst)</span>)</span>)</span></code></pre>
+
+
+
+<h4 id="re-write-the-function-below-by-filling-the-empty-lines">Re-write the function below by filling the empty lines…</h4>
+
+<blockquote>
+  <p>void doit(int a, int len){ <br>
+  for (int *p=a; a &lt; a + len ; p ++) <br>
+  sum = sum + (p-a) * (*p)</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">void</span>){
+    <span class="hljs-keyword">char</span> letters[<span class="hljs-number">200</span>];
+    <span class="hljs-keyword">int</span> len = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">char</span> c;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%c"</span>,&amp;c) != <span class="hljs-number">1</span>){
+        <span class="hljs-keyword">if</span>(c &gt;= <span class="hljs-string">'a'</span> &amp;&amp; c &lt;= <span class="hljs-string">'z'</span>){
+            c = c + diff;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(c&gt;= <span class="hljs-string">'A'</span> &amp;&amp; c &lt;= <span class="hljs-string">'Z'</span>){
+            c = c - diff;
+        }
+        letters[len] = c;
+        len++;
+    }
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = len-<span class="hljs-number">1</span>;i &gt;= <span class="hljs-number">0</span> ; --i){
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%c"</span>,letters[i]);
+    }
+}</code></pre></body>
+</html>
+-->
