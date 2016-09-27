@@ -1,0 +1,799 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>STAT 230</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="stat-230-probability">STAT 230 - Probability</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#stat-230-probability">STAT 230 - Probability</a><ul>
+<li><a href="#lecture-1">Lecture - 1</a><ul>
+<li><a href="#the-3-definitions-of-probability">The 3 Definitions of Probability</a></li>
+<li><a href="#how-does-prob-relate-to-cs">How does prob relate to CS?</a></li>
+</ul>
+</li>
+<li><a href="#lecture-2-sept-12">Lecture 2 - Sept 12</a><ul>
+<li><a href="#definitions">Definitions</a></li>
+</ul>
+</li>
+<li><a href="#lecture-3">Lecture 3</a><ul>
+<li><a href="#counting-techniques">Counting Techniques</a></li>
+<li><a href="#sampling">Sampling</a></li>
+<li><a href="#permutations">Permutations</a></li>
+</ul>
+</li>
+<li><a href="#lecture-4">Lecture - 4</a><ul>
+<li><a href="#combinations">Combinations</a></li>
+<li><a href="#pascals-identity">Pascal’s Identity</a></li>
+</ul>
+</li>
+<li><a href="#lecture-5">Lecture - 5</a><ul>
+<li><a href="#arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</a></li>
+</ul>
+</li>
+<li><a href="#lecture-6">Lecture - 6</a><ul>
+<li><a href="#de-morgans-laws">De Morgan’s Laws</a></li>
+</ul>
+</li>
+<li><a href="#lecture-7">Lecture - 7</a><ul>
+<li><a href="#multiplication-rule">Multiplication Rule</a></li>
+</ul>
+</li>
+<li><a href="#lecture-8">Lecture - 8</a><ul>
+<li><a href="#product-rule-45">Product Rule (4.5)</a></li>
+<li><a href="#law-of-total-probability">Law of Total Probability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="lecture-1">Lecture - 1</h2>
+
+<blockquote>
+  <p>Lecturer: Diana Skrzydlo (Skryzlo) <br>
+   Office Hours: MF 3:30-5 in M3 3106 &amp; W 11:30-12:30 in M3 3144</p>
+</blockquote>
+
+<p>What is probability? <br>
+The likelihood of an event occuring</p>
+
+
+
+<h3 id="the-3-definitions-of-probability">The 3 Definitions of Probability</h3>
+
+<ol>
+<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-279">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
+<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-280">\infty</script> long) that the event occurs</li>
+<li>Subjective - Probability = how certain the person is that it will occur</li>
+</ol>
+
+
+
+<h3 id="how-does-prob-relate-to-cs">How does prob relate to CS?</h3>
+
+<ul>
+<li>optimizing runtime</li>
+<li>randomized algos</li>
+<li>confidence bounds on answers</li>
+<li>recommendation engine</li>
+<li>targeted ads</li>
+<li>machine learning</li>
+</ul>
+
+<p>Definitions to set up a probability model</p>
+
+
+
+<h2 id="lecture-2-sept-12">Lecture 2 - Sept 12</h2>
+
+<ul>
+<li>Definitions for probability models: experiment, trial, outcome, sample space</li>
+<li>events</li>
+<li>probability</li>
+<li>example: binary search trees</li>
+</ul>
+
+<p>Review Question:</p>
+
+<blockquote>
+  <p>What is essential to the classical definition of probability? <br>
+  Outcomes are equally likely</p>
+</blockquote>
+
+
+
+<h3 id="definitions">Definitions</h3>
+
+<dl>
+<dt>Experiment</dt>
+<dd>A process that can be repeated multiple times, with multiple results</dd>
+
+<dt>Trial</dt>
+<dd>One iteration of an experiment</dd>
+
+<dt>Outcome</dt>
+<dd>The result on one trial of an experiment</dd>
+
+<dt>Sample Space</dt>
+<dd>A set of all possible outcomes for a single trial of an experiment. Notes: S is a set. i.e. an unordered, unique element list. S must contain ALL possible outcomes. Two types: discrete (finite) -&gt; can list/count, continuous -&gt; uncountably many elements
+
+<blockquote>
+  Example <br>
+  Experiment: Roll a 6-sided die repeatedly <br>
+  Trial: One roll <br>
+  Outcomes: 1, 2, … , 5, 6 <br>
+  <script type="math/tex" id="MathJax-Element-281">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
+  <script type="math/tex" id="MathJax-Element-282">S_2</script> = {even, odd} (also works)
+</blockquote></dd>
+
+<dt>Event</dt>
+<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-283">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-284">S</script>
+
+<blockquote>
+  Example <br>
+  A = “a 1 is rolled” -&gt; A = {1} <br>
+  B = “the number is odd” -&gt; B = {1, 3, 5} <br>
+  <strong>Note:</strong> events consisting of one sample point are simple events, otherwise they are called compound events
+  
+  On any trial, if the outcome is in the event A, we say A has occurred. <br>
+  <strong>E.g.</strong> if a 1 is rolled -&gt; A occurs, B occurs <br>
+  3 is rolled -&gt; B occurs, A does not <br>
+  6 is rolled -&gt; neither occur
+</blockquote></dd>
+
+<dt>A Probability</dt>
+<dd>
+<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-285">Real</script> numbers such that </p>
+
+<ol>
+<li><script type="math/tex" id="MathJax-Element-286">0 \leq P(A) \leq 1</script> for any A <br>
+<ul><li><script type="math/tex" id="MathJax-Element-287">0 =</script> “impossible”</li>
+<li><script type="math/tex" id="MathJax-Element-288">1 =</script> “guaranteed”</li></ul></li>
+<li>If <script type="math/tex" id="MathJax-Element-289">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-290">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
+<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-291">A_i = \{a_i\}</script> </li>
+<li>Example: Roll a 6-sided die twice. S = {(1,1), (1,2), … , (1,6), … , (6, 1), … , (6,6)}</li>
+<li>Example: BST. A Binary Search Tree is degenerate if each node has at most one child</li>
+<li>Find the prob. that a tree with 3 elements is degenerate: </li>
+<li>We drew out all probs. 4/6 chance</li></ul></li>
+</ol>
+</dd>
+</dl>
+
+
+
+<h2 id="lecture-3">Lecture 3</h2>
+
+<p>Recall</p>
+
+<blockquote>
+  <p>P(A) is the probability that A occurs. A is a subset of S. If A is compound, its prob is the sum of the probs of the simple events that make up A.</p>
+</blockquote>
+
+
+
+<h3 id="counting-techniques">Counting Techniques</h3>
+
+<p>Two basic counting rules:</p>
+
+<ol>
+<li>Addition rule <br>
+<ul><li>if you can do 1 task in p ways and task 2 in q ways. Then the number of ways to do task 1 XOR task 2 is just p + q.</li></ul></li>
+<li>Multiplication rule <br>
+<ul><li>If we can do task 1 in p ways and for each of those ways, we can do task 2 in q ways, then the total number of ways we can do task 1 AND 2 is pq.</li></ul></li>
+</ol>
+
+
+
+<h3 id="sampling">Sampling</h3>
+
+<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-292">m^k</script> choices. M spaces, k options.</p>
+
+
+
+<h3 id="permutations">Permutations</h3>
+
+<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-293">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-294">n(n-1)...(n-k+1)</script> <br>
+Also <script type="math/tex" id="MathJax-Element-295">\frac{n!}{(n-k)!}</script></p>
+
+<blockquote>
+  <p>Tip, if computing a certain permutation is hard, try 1 - opposite of what you want to find. Eg. Find P(of at least one repeat) turns into 1 - P(no repeats) which is easier.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-4">Lecture - 4</h2>
+
+
+
+<h3 id="combinations">Combinations</h3>
+
+<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-296">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
+
+<p>Some shit about pascal’s triangle that is super obvious</p>
+
+
+
+<h3 id="pascals-identity">Pascal’s Identity</h3>
+
+<blockquote>
+  <p>(n choose k) = (n-1 choose k-1) + (n-1 choose k) <br>
+  We won’t prove this mathematically since it’s messy to prove</p>
+</blockquote>
+
+<p>oh lool, we proved this in MATH 239.</p>
+
+
+
+<h2 id="lecture-5">Lecture - 5</h2>
+
+<p>Example: <br>
+A box of 10 computer chips containing 3 defective ones in the box. Four of the chips are tested. What is the probability that 1 is found defective? <br>
+Solution: <br>
+W/o rep &amp; don’t care about order.</p>
+
+<p><script type="math/tex" id="MathJax-Element-297">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
+
+<p>The whole time, we don’t care about order. (i.e. we don’t need to worry if the defective one is first, last or etc)</p>
+
+<blockquote>
+  <p>Note: “1 if found” means exactly 1. Not at least one.</p>
+</blockquote>
+
+
+
+<h3 id="arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</h3>
+
+<blockquote>
+  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-298">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-299">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-300">n_k</script> is number of type k.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-6">Lecture - 6</h2>
+
+<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-301">0 \leq P(A) \leq 1</script> <br>
+Rules for probabilities <br>
+If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-302">P(A) \leq P(B)</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-303">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-304">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-305">= P(A) + (\geq 0)</script> <br>
+thus, <script type="math/tex" id="MathJax-Element-306">P(A) \leq P(B)</script></p>
+
+<p>A_bar , A^c, A^’, -&gt; NOT A. Aunion B = or. A intersect B = and.</p>
+
+
+
+<h3 id="de-morgans-laws">De Morgan’s Laws</h3>
+
+<p>Bar{aunionB} = a_bar and b_bar <br>
+bar{aintersectB} = a_bar or b_bar</p>
+
+<p>P(a union B) = P(A) + P(B) - P(AB)</p>
+
+
+
+<h2 id="lecture-7">Lecture - 7</h2>
+
+
+
+<h3 id="multiplication-rule">Multiplication Rule</h3>
+
+<p>applies when events are independent of each other (don’t affect one another)</p>
+
+
+
+<h2 id="lecture-8">Lecture - 8</h2>
+
+<p>Recall: Independent: P(AB) = P(A)P(B) <br>
+Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-307">\frac{P(AB)}{P(B)}</script></p>
+
+<p>Last time we had <br>
+A = small = 3 <br>
+C = total = 8 <br>
+P(A|C) = 1/5 <br>
+P(A) = 1/6</p>
+
+<p>C occuring makes A more likely.</p>
+
+<p>P(C|A) = 1/6, P(C) = 5/36</p>
+
+<p>A occurring makes C more likely. Dependence is a two-way relationship</p>
+
+<p>Alternative defn of independence. P(A|B) = P(A) <br>
+knowing B occurred has no effect on the probability of A occurring. P(B|A) = P(B)</p>
+
+<p>Example:</p>
+
+<p>Diana has 2 kids. Each independently has 0.5 chance of having red hair. At least one has red hair. What is the probability the other does? Let A = at least one red</p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Kid 1</th>
+  <th>Kid 2</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td><code>red</code></td>
+  <td>0.25</td>
+  <td>0.25</td>
+</tr>
+<tr>
+  <td><code>not red</code></td>
+  <td>0.25</td>
+  <td>0.25</td>
+</tr>
+</tbody></table>
+
+
+<p>P(A) = 0.75</p>
+
+<p>P(both|A) = P(both and A) / P(A) = 0.25/0.75 = 1/3</p>
+
+
+
+<h3 id="product-rule-45">Product Rule (4.5)</h3>
+
+<p>If we rearrange the definition of conditional prob, we get: <br>
+P(AB) = P(B)P(A|B) <br>
+P(AB) = P(A)P(B|A)</p>
+
+<p>Intuitively, think of “checking” whether A occurred. If it did, “check” whether B occurred (knowing A did). (or you check B first, then A) Works for both dependent and independent events.</p>
+
+<p>Extends nicely to multiple events P(ABC) = P(B)P(C|B)P(A|BC) <br>
+The order doesn’t matter as long as each probability is conditional on what we know.</p>
+
+
+
+<h3 id="law-of-total-probability">Law of Total Probability</h3>
+
+<p>Let <script type="math/tex" id="MathJax-Element-308">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-309">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-310">A_1 \cup ... \cup A_k = S</script></p>
+
+<p>(break S up into k disjoint pieces) This is a partition of S <br>
+e.g. A and A_bar is a partition of size 2. <br>
+For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-311">\cup_{i=1}^{k} (BA_i)</script> <br>
+So P(B) = <script type="math/tex" id="MathJax-Element-312">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
+
+<p>Example: <br>
+Three people A,B,C are writing code together. A produces twice as much as B or C</p>
+
+<p>1% of A’s code has errors <br>
+2% of B’s <br>
+5% of C’s <br>
+What is the probability that a random line of code has errors?</p>
+
+<p>Let E = line has error <br>
+A = line written by A <br>
+B = line written by B <br>
+C = line written by C</p>
+
+<p>We want P(E)</p>
+
+<p>Using the partition {A, B, C}, P(A) = 0.5 , P(B) = P(C)  = 0.25 <br>
+We have P(E|A) = 0.01 <br>
+P(E|B) = 0.02 <br>
+P(E|C) = 0.05</p>
+
+<p>So <script type="math/tex" id="MathJax-Element-313">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p></body>
+</html>
+
+<!--
+2: Using highlight.js
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>STAT 230</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+
+</head>
+<body><h1 id="stat-230-probability">STAT 230 - Probability</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#stat-230-probability">STAT 230 - Probability</a><ul>
+<li><a href="#lecture-1">Lecture - 1</a><ul>
+<li><a href="#the-3-definitions-of-probability">The 3 Definitions of Probability</a></li>
+<li><a href="#how-does-prob-relate-to-cs">How does prob relate to CS?</a></li>
+</ul>
+</li>
+<li><a href="#lecture-2-sept-12">Lecture 2 - Sept 12</a><ul>
+<li><a href="#definitions">Definitions</a></li>
+</ul>
+</li>
+<li><a href="#lecture-3">Lecture 3</a><ul>
+<li><a href="#counting-techniques">Counting Techniques</a></li>
+<li><a href="#sampling">Sampling</a></li>
+<li><a href="#permutations">Permutations</a></li>
+</ul>
+</li>
+<li><a href="#lecture-4">Lecture - 4</a><ul>
+<li><a href="#combinations">Combinations</a></li>
+<li><a href="#pascals-identity">Pascal’s Identity</a></li>
+</ul>
+</li>
+<li><a href="#lecture-5">Lecture - 5</a><ul>
+<li><a href="#arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</a></li>
+</ul>
+</li>
+<li><a href="#lecture-6">Lecture - 6</a><ul>
+<li><a href="#de-morgans-laws">De Morgan’s Laws</a></li>
+</ul>
+</li>
+<li><a href="#lecture-7">Lecture - 7</a><ul>
+<li><a href="#multiplication-rule">Multiplication Rule</a></li>
+</ul>
+</li>
+<li><a href="#lecture-8">Lecture - 8</a><ul>
+<li><a href="#product-rule-45">Product Rule (4.5)</a></li>
+<li><a href="#law-of-total-probability">Law of Total Probability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="lecture-1">Lecture - 1</h2>
+
+<blockquote>
+  <p>Lecturer: Diana Skrzydlo (Skryzlo) <br>
+   Office Hours: MF 3:30-5 in M3 3106 &amp; W 11:30-12:30 in M3 3144</p>
+</blockquote>
+
+<p>What is probability? <br>
+The likelihood of an event occuring</p>
+
+
+
+<h3 id="the-3-definitions-of-probability">The 3 Definitions of Probability</h3>
+
+<ol>
+<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-279">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
+<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-280">\infty</script> long) that the event occurs</li>
+<li>Subjective - Probability = how certain the person is that it will occur</li>
+</ol>
+
+
+
+<h3 id="how-does-prob-relate-to-cs">How does prob relate to CS?</h3>
+
+<ul>
+<li>optimizing runtime</li>
+<li>randomized algos</li>
+<li>confidence bounds on answers</li>
+<li>recommendation engine</li>
+<li>targeted ads</li>
+<li>machine learning</li>
+</ul>
+
+<p>Definitions to set up a probability model</p>
+
+
+
+<h2 id="lecture-2-sept-12">Lecture 2 - Sept 12</h2>
+
+<ul>
+<li>Definitions for probability models: experiment, trial, outcome, sample space</li>
+<li>events</li>
+<li>probability</li>
+<li>example: binary search trees</li>
+</ul>
+
+<p>Review Question:</p>
+
+<blockquote>
+  <p>What is essential to the classical definition of probability? <br>
+  Outcomes are equally likely</p>
+</blockquote>
+
+
+
+<h3 id="definitions">Definitions</h3>
+
+<dl>
+<dt>Experiment</dt>
+<dd>A process that can be repeated multiple times, with multiple results</dd>
+
+<dt>Trial</dt>
+<dd>One iteration of an experiment</dd>
+
+<dt>Outcome</dt>
+<dd>The result on one trial of an experiment</dd>
+
+<dt>Sample Space</dt>
+<dd>A set of all possible outcomes for a single trial of an experiment. Notes: S is a set. i.e. an unordered, unique element list. S must contain ALL possible outcomes. Two types: discrete (finite) -&gt; can list/count, continuous -&gt; uncountably many elements
+
+<blockquote>
+  Example <br>
+  Experiment: Roll a 6-sided die repeatedly <br>
+  Trial: One roll <br>
+  Outcomes: 1, 2, … , 5, 6 <br>
+  <script type="math/tex" id="MathJax-Element-281">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
+  <script type="math/tex" id="MathJax-Element-282">S_2</script> = {even, odd} (also works)
+</blockquote></dd>
+
+<dt>Event</dt>
+<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-283">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-284">S</script>
+
+<blockquote>
+  Example <br>
+  A = “a 1 is rolled” -&gt; A = {1} <br>
+  B = “the number is odd” -&gt; B = {1, 3, 5} <br>
+  <strong>Note:</strong> events consisting of one sample point are simple events, otherwise they are called compound events
+  
+  On any trial, if the outcome is in the event A, we say A has occurred. <br>
+  <strong>E.g.</strong> if a 1 is rolled -&gt; A occurs, B occurs <br>
+  3 is rolled -&gt; B occurs, A does not <br>
+  6 is rolled -&gt; neither occur
+</blockquote></dd>
+
+<dt>A Probability</dt>
+<dd>
+<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-285">Real</script> numbers such that </p>
+
+<ol>
+<li><script type="math/tex" id="MathJax-Element-286">0 \leq P(A) \leq 1</script> for any A <br>
+<ul><li><script type="math/tex" id="MathJax-Element-287">0 =</script> “impossible”</li>
+<li><script type="math/tex" id="MathJax-Element-288">1 =</script> “guaranteed”</li></ul></li>
+<li>If <script type="math/tex" id="MathJax-Element-289">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-290">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
+<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-291">A_i = \{a_i\}</script> </li>
+<li>Example: Roll a 6-sided die twice. S = {(1,1), (1,2), … , (1,6), … , (6, 1), … , (6,6)}</li>
+<li>Example: BST. A Binary Search Tree is degenerate if each node has at most one child</li>
+<li>Find the prob. that a tree with 3 elements is degenerate: </li>
+<li>We drew out all probs. 4/6 chance</li></ul></li>
+</ol>
+</dd>
+</dl>
+
+
+
+<h2 id="lecture-3">Lecture 3</h2>
+
+<p>Recall</p>
+
+<blockquote>
+  <p>P(A) is the probability that A occurs. A is a subset of S. If A is compound, its prob is the sum of the probs of the simple events that make up A.</p>
+</blockquote>
+
+
+
+<h3 id="counting-techniques">Counting Techniques</h3>
+
+<p>Two basic counting rules:</p>
+
+<ol>
+<li>Addition rule <br>
+<ul><li>if you can do 1 task in p ways and task 2 in q ways. Then the number of ways to do task 1 XOR task 2 is just p + q.</li></ul></li>
+<li>Multiplication rule <br>
+<ul><li>If we can do task 1 in p ways and for each of those ways, we can do task 2 in q ways, then the total number of ways we can do task 1 AND 2 is pq.</li></ul></li>
+</ol>
+
+
+
+<h3 id="sampling">Sampling</h3>
+
+<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-292">m^k</script> choices. M spaces, k options.</p>
+
+
+
+<h3 id="permutations">Permutations</h3>
+
+<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-293">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-294">n(n-1)...(n-k+1)</script> <br>
+Also <script type="math/tex" id="MathJax-Element-295">\frac{n!}{(n-k)!}</script></p>
+
+<blockquote>
+  <p>Tip, if computing a certain permutation is hard, try 1 - opposite of what you want to find. Eg. Find P(of at least one repeat) turns into 1 - P(no repeats) which is easier.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-4">Lecture - 4</h2>
+
+
+
+<h3 id="combinations">Combinations</h3>
+
+<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-296">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
+
+<p>Some shit about pascal’s triangle that is super obvious</p>
+
+
+
+<h3 id="pascals-identity">Pascal’s Identity</h3>
+
+<blockquote>
+  <p>(n choose k) = (n-1 choose k-1) + (n-1 choose k) <br>
+  We won’t prove this mathematically since it’s messy to prove</p>
+</blockquote>
+
+<p>oh lool, we proved this in MATH 239.</p>
+
+
+
+<h2 id="lecture-5">Lecture - 5</h2>
+
+<p>Example: <br>
+A box of 10 computer chips containing 3 defective ones in the box. Four of the chips are tested. What is the probability that 1 is found defective? <br>
+Solution: <br>
+W/o rep &amp; don’t care about order.</p>
+
+<p><script type="math/tex" id="MathJax-Element-297">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
+
+<p>The whole time, we don’t care about order. (i.e. we don’t need to worry if the defective one is first, last or etc)</p>
+
+<blockquote>
+  <p>Note: “1 if found” means exactly 1. Not at least one.</p>
+</blockquote>
+
+
+
+<h3 id="arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</h3>
+
+<blockquote>
+  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-298">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-299">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-300">n_k</script> is number of type k.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-6">Lecture - 6</h2>
+
+<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-301">0 \leq P(A) \leq 1</script> <br>
+Rules for probabilities <br>
+If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-302">P(A) \leq P(B)</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-303">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-304">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-305">= P(A) + (\geq 0)</script> <br>
+thus, <script type="math/tex" id="MathJax-Element-306">P(A) \leq P(B)</script></p>
+
+<p>A_bar , A^c, A^’, -&gt; NOT A. Aunion B = or. A intersect B = and.</p>
+
+
+
+<h3 id="de-morgans-laws">De Morgan’s Laws</h3>
+
+<p>Bar{aunionB} = a_bar and b_bar <br>
+bar{aintersectB} = a_bar or b_bar</p>
+
+<p>P(a union B) = P(A) + P(B) - P(AB)</p>
+
+
+
+<h2 id="lecture-7">Lecture - 7</h2>
+
+
+
+<h3 id="multiplication-rule">Multiplication Rule</h3>
+
+<p>applies when events are independent of each other (don’t affect one another)</p>
+
+
+
+<h2 id="lecture-8">Lecture - 8</h2>
+
+<p>Recall: Independent: P(AB) = P(A)P(B) <br>
+Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-307">\frac{P(AB)}{P(B)}</script></p>
+
+<p>Last time we had <br>
+A = small = 3 <br>
+C = total = 8 <br>
+P(A|C) = 1/5 <br>
+P(A) = 1/6</p>
+
+<p>C occuring makes A more likely.</p>
+
+<p>P(C|A) = 1/6, P(C) = 5/36</p>
+
+<p>A occurring makes C more likely. Dependence is a two-way relationship</p>
+
+<p>Alternative defn of independence. P(A|B) = P(A) <br>
+knowing B occurred has no effect on the probability of A occurring. P(B|A) = P(B)</p>
+
+<p>Example:</p>
+
+<p>Diana has 2 kids. Each independently has 0.5 chance of having red hair. At least one has red hair. What is the probability the other does? Let A = at least one red</p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Kid 1</th>
+  <th>Kid 2</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td><code>red</code></td>
+  <td>0.25</td>
+  <td>0.25</td>
+</tr>
+<tr>
+  <td><code>not red</code></td>
+  <td>0.25</td>
+  <td>0.25</td>
+</tr>
+</tbody></table>
+
+
+<p>P(A) = 0.75</p>
+
+<p>P(both|A) = P(both and A) / P(A) = 0.25/0.75 = 1/3</p>
+
+
+
+<h3 id="product-rule-45">Product Rule (4.5)</h3>
+
+<p>If we rearrange the definition of conditional prob, we get: <br>
+P(AB) = P(B)P(A|B) <br>
+P(AB) = P(A)P(B|A)</p>
+
+<p>Intuitively, think of “checking” whether A occurred. If it did, “check” whether B occurred (knowing A did). (or you check B first, then A) Works for both dependent and independent events.</p>
+
+<p>Extends nicely to multiple events P(ABC) = P(B)P(C|B)P(A|BC) <br>
+The order doesn’t matter as long as each probability is conditional on what we know.</p>
+
+
+
+<h3 id="law-of-total-probability">Law of Total Probability</h3>
+
+<p>Let <script type="math/tex" id="MathJax-Element-308">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-309">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-310">A_1 \cup ... \cup A_k = S</script></p>
+
+<p>(break S up into k disjoint pieces) This is a partition of S <br>
+e.g. A and A_bar is a partition of size 2. <br>
+For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-311">\cup_{i=1}^{k} (BA_i)</script> <br>
+So P(B) = <script type="math/tex" id="MathJax-Element-312">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
+
+<p>Example: <br>
+Three people A,B,C are writing code together. A produces twice as much as B or C</p>
+
+<p>1% of A’s code has errors <br>
+2% of B’s <br>
+5% of C’s <br>
+What is the probability that a random line of code has errors?</p>
+
+<p>Let E = line has error <br>
+A = line written by A <br>
+B = line written by B <br>
+C = line written by C</p>
+
+<p>We want P(E)</p>
+
+<p>Using the partition {A, B, C}, P(A) = 0.5 , P(B) = P(C)  = 0.25 <br>
+We have P(E|A) = 0.01 <br>
+P(E|B) = 0.02 <br>
+P(E|C) = 0.05</p>
+
+<p>So <script type="math/tex" id="MathJax-Element-313">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p></body>
+</html>
+
+-->

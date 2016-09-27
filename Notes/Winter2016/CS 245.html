@@ -1,0 +1,305 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS 245</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="cs-245-logic-and-computation">CS 245 - Logic and Computation</h1>
+
+<blockquote>
+  <p>Kevin Lanctot (long-k toe) <br>
+  email: klanctot@uwaterloo.ca <br>
+  Office: DC 2131 <br>
+  Office hours: Monday 1:00 - 2:00 pm (or by appointment) <br>
+  Lect 001-006 have same everything <br>
+  ahajyasien@uwaterloo.ca (MC 4012) &lt;- email him your assignment if crowdmark is down <br>
+  Assignments are due Wednesday <br>
+  Slides are available on LEARN</p>
+</blockquote>
+
+
+
+<h2 id="lecture-2">Lecture 2</h2>
+
+
+
+<h3 id="propositional-logic">Propositional Logic</h3>
+
+<ul>
+<li>Introduction to Propositional Logic</li>
+<li>Syntax (format)</li>
+<li>Semantics (meaning)</li>
+<li>Proof Systems</li>
+</ul>
+
+<blockquote>
+  <p>A Proposition is a declarative sentence that is either true or false</p>
+</blockquote>
+
+<p>Page 11:  <br>
+1. (p <script type="math/tex" id="MathJax-Element-175">\wedge</script> q) <br>
+2.  (p <script type="math/tex" id="MathJax-Element-176">\wedge (\not q)</script>) <br>
+3. ((notp) or q) <br>
+4. ((nots) -&gt; f) <br>
+5. ((nots) -&gt; f) <br>
+6. (f or s) <br>
+7. ((notf) -&gt; s)</p>
+
+<ol>
+<li>((r -&gt; h) and ((notr) -&gt; (m or s)))</li>
+<li>(s <script type="math/tex" id="MathJax-Element-177">\leftrightarrow</script> (e <script type="math/tex" id="MathJax-Element-178">\vee</script>o))</li>
+<li>((y<script type="math/tex" id="MathJax-Element-179">\wedge</script>x) <script type="math/tex" id="MathJax-Element-180">\rightarrow</script> (<script type="math/tex" id="MathJax-Element-181">\neg</script>z))</li>
+</ol>
+
+<dl>
+<dt>Expression</dt>
+<dd>Proposition <br>
+-  atomic <br>
+-  compound</dd>
+
+<dd>Garbage</dd>
+</dl>
+
+<p>Page 18 -&gt; more on expressions <br>
+ length is 9 <br>
+ Prop: variables, connective, punctuation</p>
+
+
+
+<h2 id="tutorial-2">Tutorial - 2</h2>
+
+<ul>
+<li>Well-formed formula</li>
+<li>Translations</li>
+<li>Induction</li>
+<li>Truth Table</li>
+</ul>
+
+<p>A well-formed formula is defined as:</p>
+
+<ul>
+<li>a single atom (ex: p)</li>
+<li>(\not alpha)</li>
+<li>(alpha \wedge B), (alpha \vee beta), (alpha \rightarrow beta)</li>
+<li>Where alpha, beta are well-formed formulae.</li>
+<li>eg. (notp \wedge q) wouldn’t get full marks since notp is not in brackets</li>
+</ul>
+
+
+
+<h3 id="translations">Translations</h3>
+
+<p>s: I study for exams <br>
+g: I get good grades <br>
+p: I will pass the class <br>
+h: I eat healthy food</p>
+
+<ol>
+<li>If I study for exams, then I get good grades <br>
+<ol><li><script type="math/tex" id="MathJax-Element-182">(s \Rightarrow g)</script></li></ol></li>
+<li>I do not eat healthy food whether or not I study for exams <br>
+<ol><li>v1 <script type="math/tex" id="MathJax-Element-183">((s\Rightarrow (\neg h)) \wedge ((\neg s) \Rightarrow (\neg h)))</script></li>
+<li>v2 <script type="math/tex" id="MathJax-Element-184">(\neg h)</script></li></ol></li>
+<li>I will pass the class <strong>only if</strong>(different from iff and if) I get good grades <br>
+<ol><li><script type="math/tex" id="MathJax-Element-185">(p \Rightarrow q)</script></li>
+<li>Ex: I will graduate from UW CS only if I pass CS245</li></ol></li>
+<li>If I do not study for exams, then I get good grades only if I eat healthy food <br>
+<ol><li><script type="math/tex" id="MathJax-Element-186">((\neg s)\rightarrow (g \Rightarrow h))</script></li></ol></li>
+<li>I will either pass the class or eat healthy food, but not both <br>
+<ol><li><script type="math/tex" id="MathJax-Element-187">((p \vee h)\wedge((\neg p) \vee (\neg h)))</script></li></ol></li>
+</ol>
+
+<p>Unless = or</p>
+
+
+
+<h3 id="structural-induction">Structural Induction</h3>
+
+<p>Let <script type="math/tex" id="MathJax-Element-188">\alpha</script> be a wff. Let m be the number of occurences of the atoms in <script type="math/tex" id="MathJax-Element-189">\alpha</script>. Let n be the number of occurrences of the binary connectives <script type="math/tex" id="MathJax-Element-190">\wedge</script>, <script type="math/tex" id="MathJax-Element-191">\vee</script>, <script type="math/tex" id="MathJax-Element-192">\Rightarrow</script>, <script type="math/tex" id="MathJax-Element-193">\Leftrightarrow</script>, in <script type="math/tex" id="MathJax-Element-194">\alpha</script>. Then m = n + 1.</p>
+
+<p>Base Case: <br>
+Consider the atom p: <br>
+m: 1 <br>
+n: 0 <br>
+True.</p>
+
+<p>IH: Assume the statement is true for wff. A &amp; B. <br>
+<script type="math/tex" id="MathJax-Element-195">m_a = n_a + 1</script> <br>
+<script type="math/tex" id="MathJax-Element-196">m_b = n_b + 1</script></p>
+
+<p>IC: Case 1: Suppose C = <script type="math/tex" id="MathJax-Element-197">(\neg A)</script> <br>
+<script type="math/tex" id="MathJax-Element-198">m_c = m_a = n_a + 1</script> <br>
+<script type="math/tex" id="MathJax-Element-199">n_c = n_a</script>  <br>
+By IH, <script type="math/tex" id="MathJax-Element-200">m_c = n_c + 1</script></p>
+
+<p>Case 2: Suppose C = (A * B) where * is any binary connective <br>
+<script type="math/tex" id="MathJax-Element-201">m_c = m_a + m_b = n_a + 1 + n_b + 1</script> by IH <br>
+<script type="math/tex" id="MathJax-Element-202">n_c = n_a + n_b + 1</script> <br>
+Therefore, <script type="math/tex" id="MathJax-Element-203">m_c = n_c + 1</script> <br>
+By POMI, statement is true for all wff A &amp; B . <script type="math/tex" id="MathJax-Element-204">\square</script></p></body>
+</html>
+
+<!--
+2: Using highlight.js
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS 245</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+
+</head>
+<body><h1 id="cs-245-logic-and-computation">CS 245 - Logic and Computation</h1>
+
+<blockquote>
+  <p>Kevin Lanctot (long-k toe) <br>
+  email: klanctot@uwaterloo.ca <br>
+  Office: DC 2131 <br>
+  Office hours: Monday 1:00 - 2:00 pm (or by appointment) <br>
+  Lect 001-006 have same everything <br>
+  ahajyasien@uwaterloo.ca (MC 4012) &lt;- email him your assignment if crowdmark is down <br>
+  Assignments are due Wednesday <br>
+  Slides are available on LEARN</p>
+</blockquote>
+
+
+
+<h2 id="lecture-2">Lecture 2</h2>
+
+
+
+<h3 id="propositional-logic">Propositional Logic</h3>
+
+<ul>
+<li>Introduction to Propositional Logic</li>
+<li>Syntax (format)</li>
+<li>Semantics (meaning)</li>
+<li>Proof Systems</li>
+</ul>
+
+<blockquote>
+  <p>A Proposition is a declarative sentence that is either true or false</p>
+</blockquote>
+
+<p>Page 11:  <br>
+1. (p <script type="math/tex" id="MathJax-Element-175">\wedge</script> q) <br>
+2.  (p <script type="math/tex" id="MathJax-Element-176">\wedge (\not q)</script>) <br>
+3. ((notp) or q) <br>
+4. ((nots) -&gt; f) <br>
+5. ((nots) -&gt; f) <br>
+6. (f or s) <br>
+7. ((notf) -&gt; s)</p>
+
+<ol>
+<li>((r -&gt; h) and ((notr) -&gt; (m or s)))</li>
+<li>(s <script type="math/tex" id="MathJax-Element-177">\leftrightarrow</script> (e <script type="math/tex" id="MathJax-Element-178">\vee</script>o))</li>
+<li>((y<script type="math/tex" id="MathJax-Element-179">\wedge</script>x) <script type="math/tex" id="MathJax-Element-180">\rightarrow</script> (<script type="math/tex" id="MathJax-Element-181">\neg</script>z))</li>
+</ol>
+
+<dl>
+<dt>Expression</dt>
+<dd>Proposition <br>
+-  atomic <br>
+-  compound</dd>
+
+<dd>Garbage</dd>
+</dl>
+
+<p>Page 18 -&gt; more on expressions <br>
+ length is 9 <br>
+ Prop: variables, connective, punctuation</p>
+
+
+
+<h2 id="tutorial-2">Tutorial - 2</h2>
+
+<ul>
+<li>Well-formed formula</li>
+<li>Translations</li>
+<li>Induction</li>
+<li>Truth Table</li>
+</ul>
+
+<p>A well-formed formula is defined as:</p>
+
+<ul>
+<li>a single atom (ex: p)</li>
+<li>(\not alpha)</li>
+<li>(alpha \wedge B), (alpha \vee beta), (alpha \rightarrow beta)</li>
+<li>Where alpha, beta are well-formed formulae.</li>
+<li>eg. (notp \wedge q) wouldn’t get full marks since notp is not in brackets</li>
+</ul>
+
+
+
+<h3 id="translations">Translations</h3>
+
+<p>s: I study for exams <br>
+g: I get good grades <br>
+p: I will pass the class <br>
+h: I eat healthy food</p>
+
+<ol>
+<li>If I study for exams, then I get good grades <br>
+<ol><li><script type="math/tex" id="MathJax-Element-182">(s \Rightarrow g)</script></li></ol></li>
+<li>I do not eat healthy food whether or not I study for exams <br>
+<ol><li>v1 <script type="math/tex" id="MathJax-Element-183">((s\Rightarrow (\neg h)) \wedge ((\neg s) \Rightarrow (\neg h)))</script></li>
+<li>v2 <script type="math/tex" id="MathJax-Element-184">(\neg h)</script></li></ol></li>
+<li>I will pass the class <strong>only if</strong>(different from iff and if) I get good grades <br>
+<ol><li><script type="math/tex" id="MathJax-Element-185">(p \Rightarrow q)</script></li>
+<li>Ex: I will graduate from UW CS only if I pass CS245</li></ol></li>
+<li>If I do not study for exams, then I get good grades only if I eat healthy food <br>
+<ol><li><script type="math/tex" id="MathJax-Element-186">((\neg s)\rightarrow (g \Rightarrow h))</script></li></ol></li>
+<li>I will either pass the class or eat healthy food, but not both <br>
+<ol><li><script type="math/tex" id="MathJax-Element-187">((p \vee h)\wedge((\neg p) \vee (\neg h)))</script></li></ol></li>
+</ol>
+
+<p>Unless = or</p>
+
+
+
+<h3 id="structural-induction">Structural Induction</h3>
+
+<p>Let <script type="math/tex" id="MathJax-Element-188">\alpha</script> be a wff. Let m be the number of occurences of the atoms in <script type="math/tex" id="MathJax-Element-189">\alpha</script>. Let n be the number of occurrences of the binary connectives <script type="math/tex" id="MathJax-Element-190">\wedge</script>, <script type="math/tex" id="MathJax-Element-191">\vee</script>, <script type="math/tex" id="MathJax-Element-192">\Rightarrow</script>, <script type="math/tex" id="MathJax-Element-193">\Leftrightarrow</script>, in <script type="math/tex" id="MathJax-Element-194">\alpha</script>. Then m = n + 1.</p>
+
+<p>Base Case: <br>
+Consider the atom p: <br>
+m: 1 <br>
+n: 0 <br>
+True.</p>
+
+<p>IH: Assume the statement is true for wff. A &amp; B. <br>
+<script type="math/tex" id="MathJax-Element-195">m_a = n_a + 1</script> <br>
+<script type="math/tex" id="MathJax-Element-196">m_b = n_b + 1</script></p>
+
+<p>IC: Case 1: Suppose C = <script type="math/tex" id="MathJax-Element-197">(\neg A)</script> <br>
+<script type="math/tex" id="MathJax-Element-198">m_c = m_a = n_a + 1</script> <br>
+<script type="math/tex" id="MathJax-Element-199">n_c = n_a</script>  <br>
+By IH, <script type="math/tex" id="MathJax-Element-200">m_c = n_c + 1</script></p>
+
+<p>Case 2: Suppose C = (A * B) where * is any binary connective <br>
+<script type="math/tex" id="MathJax-Element-201">m_c = m_a + m_b = n_a + 1 + n_b + 1</script> by IH <br>
+<script type="math/tex" id="MathJax-Element-202">n_c = n_a + n_b + 1</script> <br>
+Therefore, <script type="math/tex" id="MathJax-Element-203">m_c = n_c + 1</script> <br>
+By POMI, statement is true for all wff A &amp; B . <script type="math/tex" id="MathJax-Element-204">\square</script></p></body>
+</html>
+
+-->

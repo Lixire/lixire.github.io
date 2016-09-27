@@ -1,0 +1,2675 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS 246</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="cs-246-object-oriented-software-development">CS 246 - Object-Oriented Software Development</h1>
+
+<blockquote>
+  <p>Brad Lushman <br>
+  Office: DC 3110 <br>
+  Email: bmlushma <br>
+  <a href="http://www.student.cs.uwaterloo.ca/~cs246">http://www.student.cs.uwaterloo.ca/~cs246</a> <br>
+  Linux is required! Ripperino</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#cs-246-object-oriented-software-development">CS 246 - Object-Oriented Software Development</a><ul>
+<li><a href="#lecture-1">Lecture 1</a><ul>
+<li><a href="#linux-please">Linux, Please</a></li>
+<li><a href="#module-1-linux-shell">Module 1 - Linux Shell</a></li>
+<li><a href="#linux-file-system">Linux File System</a></li>
+<li><a href="#pipes">Pipes</a></li>
+</ul>
+</li>
+<li><a href="#lecture-2">Lecture 2</a><ul>
+<li><a href="#pipes-cont">Pipes Cont.</a></li>
+<li><a href="#pattern-matching-in-text-files">Pattern-Matching in Text Files</a></li>
+<li><a href="#permissions">Permissions</a></li>
+</ul>
+</li>
+<li><a href="#lecture-3">Lecture 3</a><ul>
+<li><a href="#shell-scripts">Shell Scripts</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#loops">Loops</a></li>
+</ul>
+</li>
+<li><a href="#lecture-4">Lecture - 4</a><ul>
+<li><a href="#se-topic-testing">SE Topic: Testing</a></li>
+<li><a href="#module-2-c">Module 2: C++</a></li>
+<li><a href="#compiling-c-programs">Compiling C++ programs</a></li>
+<li><a href="#inputoutput">Input/Output</a></li>
+</ul>
+</li>
+<li><a href="#lecture-5">Lecture 5</a><ul>
+<li><a href="#reading-strings">Reading Strings</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#string-operations">String Operations:</a></li>
+<li><a href="#default-fn-params">Default f’n Params</a></li>
+<li><a href="#overloading">Overloading</a></li>
+</ul>
+</li>
+<li><a href="#lecture-6">Lecture 6</a><ul>
+<li><a href="#structs">Structs</a></li>
+<li><a href="#constants">Constants</a></li>
+<li><a href="#parameter-passing">Parameter Passing</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="lecture-1">Lecture 1</h2>
+
+
+
+<h3 id="linux-please">Linux, Please</h3>
+
+<blockquote>
+  <p>Options: <br>
+  1. Lab, computers <br>
+  2. Install Linux on your machine <br>
+  3. ssh into school machines (recommended) (Windows: download putty.exe, winscp for file transfer) <br>
+  4. Cygwin - ewwwwwww <br>
+  Also - install an xwindows server. eg. XMing</p>
+</blockquote>
+
+<p>Modules:  <br>
+1 - Linux Shell (2 weeks) <br>
+2 - C++ (10 weeks) <br>
+3 - Tools (interspersed) <br>
+4 - Software engineering (interspersed)</p>
+
+<p>Homework: Print Linux handout from Piazza, and bring it to class</p>
+
+
+
+<h3 id="module-1-linux-shell">Module 1 - Linux Shell</h3>
+
+<blockquote>
+  <p>Shell - interface to OS - get the OS to do things - run programs, manage files - graphical shell (clicking with mouse/ touch interface) - command line - type commands at a prompt - more versatile</p>
+</blockquote>
+
+<p>This course: bash</p>
+
+<p>Make sure you are using bash! - Log in + type echo $0 <br>
+- should say bash</p>
+
+
+
+<h3 id="linux-file-system">Linux File System</h3>
+
+<p>Working with files <br>
+- cat - displays the contents of a file <br>
+- cat /usr/share/dict/words <br>
+- general format: root (top) directory/ directories (contains files)/ file</p>
+
+<blockquote>
+  <p>In Linux, a directory is considered a kind of file</p>
+</blockquote>
+
+<p><code>^C</code> to stop a program <br>
+ls : list files in current dir (non-hidden files) <br>
+ls -a : gives all files (even hidden ones) <br>
+hidden files start with a dot <br>
+pwd - prints current directory</p>
+
+<p>What happens if you type cat? <br>
+- waits for input <br>
+- prints everything you type <br>
+Useful? - if we can capture input in file. <br>
+Observe: </p>
+
+<p><code>cat &gt; output.txt</code></p>
+
+<p>To stop: Ctrl - D (^D) at the beginning of a line sends an end of file signal <br>
+In general: command args &gt; file ; executes command args + captures the output in file <br>
+- called <strong><em>output redirection</em></strong></p>
+
+<p>Can also redirect input:</p>
+
+<p><code>cat &lt; inputfile.txt</code></p>
+
+<ul>
+<li>takes input from inputfile.txt instead of keyboard</li>
+<li>displays inputfile.txt</li>
+<li>seems equal to cat inputfile.txt</li>
+</ul>
+
+<p>What’s the difference?</p>
+
+<p><code>cat inputfile.txt</code></p>
+
+<p>passes the name <code>inputfile.txt</code> as an arg to cat. cat opens the file and displays it</p>
+
+<p><code>cat &lt; inputfile.txt</code></p>
+
+<p>SHELL opens <code>inputfile.txt</code> and passes the contents to cat in place of keyboard or input</p>
+
+<p>Observe:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm">wc output<span class="hljs-preprocessor">.txt</span>
+&gt; <span class="hljs-number">2</span>  <span class="hljs-number">5</span> <span class="hljs-number">27</span> output<span class="hljs-preprocessor">.txt</span>
+
+wc &lt; output<span class="hljs-preprocessor">.txt</span>
+&gt; <span class="hljs-number">2</span>  <span class="hljs-number">5</span> <span class="hljs-number">27</span></code></pre>
+
+<p>Also: <code>cat *.txt</code> &lt;- globbing pattern <br>
+(* means match any sequence of chars) <br>
+- shell finds all files in the current dir that matches the pattern + substitutes on the cmd line.  <br>
+(eg. <code>cat a.txt, b.txt, c.txt</code> - opens all 3 and displays)</p>
+
+<p>More globbing patterns - Linux Sheet <br>
+Many, but not all programs accept input either on the command line or by redirection</p>
+
+<p>Can do both redirections <br>
+<code>cat &lt; in.txt &gt; out.txt</code></p>
+
+<p>Every process is attached to 3 streams: stdin, stderr, stdout</p>
+
+<dl>
+<dt>By default</dt>
+<dd>stdin = keyboard - redirect with &lt;</dd>
+
+<dd>stdout, stderr = screen (redirect with &gt;)</dd>
+
+<dt>stderr</dt>
+<dd>separate output stream - for error messages</dd>
+
+<dd>so that output + error messages can go to different places</dd>
+
+<dd>so that error msgs don’t clutter output file + corrupt formatting <br>
+Also: stdout may be buffered - system may wait to accumulate output before actually printing it ( flushing the buffer)</dd>
+</dl>
+
+<p>stderr - never buffered - get errror msgs immediately</p>
+
+
+
+<h3 id="pipes">Pipes</h3>
+
+<p>Use output from one program as the input of another</p>
+
+<blockquote>
+  <p><strong>Example: How many words occur in the first 20 lines of myfile.txt?</strong> <br>
+  Tools (sheet): <br>
+  <code>head -n file</code> gives the first n lines of the file <br>
+  <code>wc</code> counts words, lines, characters <br>
+  <code>wc -w</code> gives just words <br>
+  Soln: head -20 myfile.txt | wc -w <br>
+  the | is a pipe</p>
+</blockquote>
+
+
+
+<h2 id="lecture-2">Lecture 2</h2>
+
+
+
+<h3 id="pipes-cont">Pipes Cont.</h3>
+
+<p>How many words occur in the first 20 lines of myfile.txt? <br>
+Sol’n <code>head -20 myfile.txt | wc -w</code> or <code>cat myfile.txt | head -20 | wc -w</code></p>
+
+<p>Eg. Suppose words1.txt, words2.txt, etc. contain lists of words, one per line. Print a duplicate-free list of all words that occur in any of these lines.</p>
+
+<blockquote>
+  <p><strong>uniq</strong> - removes CONSECUTIVE duplicate entries -if entries are sorted, then it removes <em>all</em> duplicates <br>
+  <strong>sort</strong> - sorts lines</p>
+</blockquote>
+
+<p><code>cat words*.txt | sort | uniq</code></p>
+
+<p>Can we use the output of one program as param of another? (yes)</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-built_in">echo</span> <span class="hljs-string">"Today is <span class="hljs-variable">$(date)</span> and I am <span class="hljs-variable">$(whoami)</span>"</span>
+&gt; Today is Tue Sep <span class="hljs-number">13</span> <span class="hljs-number">10</span>:<span class="hljs-number">13</span>:<span class="hljs-number">50</span> EDT <span class="hljs-number">2016</span> and I am alqiu</code></pre>
+
+<p>Shell executes date + whoami + substitues the result into the command line <br>
+The quotations make it into only ONE arg. Also, whitespace here is used.</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-built_in">echo</span> Today is $(date) and I am           $(whoami)
+&gt; Today is Tue Sep <span class="hljs-number">13</span> <span class="hljs-number">10</span>:<span class="hljs-number">13</span>:<span class="hljs-number">50</span> EDT <span class="hljs-number">2016</span> and I am alqiu</code></pre>
+
+<p>Here, echo is given 7 arguments. Whitespace is ignored</p>
+
+<blockquote>
+  <p>Careful: </p>
+  
+  <pre class="prettyprint"><code class=" hljs applescript">echo 'Today <span class="hljs-keyword">is</span> $(<span class="hljs-type">date</span>) <span class="hljs-keyword">and</span> I am $(whoami)'
+&gt; Today <span class="hljs-keyword">is</span> $(<span class="hljs-type">date</span>) <span class="hljs-keyword">and</span> I am $(whoami)</code></pre>
+  
+  <p>Single quotes does not make any substitutions.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs delphi">echo *
+echo <span class="hljs-string">'*'</span> #outputs the same <span class="hljs-comment">(*)
+echo "*" #outputs the same (*)</span></code></pre>
+
+
+
+<h3 id="pattern-matching-in-text-files">Pattern-Matching in Text Files</h3>
+
+<dl>
+<dt>egrep (“extended global regular expression print”)</dt>
+<dd>egrep pattern file - prints every line in a file that contains a match to pattern</dd>
+</dl>
+
+<p>eg. Print every line in index.html that contains cs246.</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">egrep cs246 index.html</code></pre>
+
+<p>How many lines in index.html contain cs246 or CS246?</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">egrep <span class="hljs-string">"cs246|CS246"</span> index.html | wc <span class="hljs-operator">-l</span> //the quotes are really important here since bash thinks | is a pipe otherwise</code></pre>
+
+<p>Alt soln:</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">egrep <span class="hljs-string">"(cs|CS)246"</span> index.html | wc <span class="hljs-operator">-l</span></code></pre>
+
+<p>Available patterns - called regular expressions (different from globbing patterns)</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-string">"(c|C)(s|S)246"</span> -also matches cS246, Cs246
+<span class="hljs-string">"[cC][sS]246"</span></code></pre>
+
+<p>[..] - any one char between [ and ] <br>
+[<script type="math/tex" id="MathJax-Element-205">\text{^}</script> .. ] - any one char except</p>
+
+<p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
+? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
+* = 0 or more of preceding </p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r"><span class="hljs-string">"(cs)*246"</span>
+&gt; <span class="hljs-number">246</span>, cs246, cscs246 <span class="hljs-keyword">...</span></code></pre>
+
+<p>. = any single character <br>
+.* = anything</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs perl">egrep <span class="hljs-string">"cs.<span class="hljs-variable">*246</span>"</span> <span class="hljs-keyword">index</span>.html</code></pre>
+
+<ul>
+<li>lines containing cs(anything) 246</li>
+<li>^, $ - beginning + end of a line <br>
+<code>"^cs246"</code> - lines that start with 246 <br>
+<code>"^cs246$"</code> - lines that are exactly 246 <br>
++ = 1 or more occurrences of preceding pattern <br>
+.+ - non-empty.</li>
+</ul>
+
+<p>Eg lines of even length</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-string">"^(..)*$"</span></code></pre>
+
+<p>Files in the current dir whose names contain exactly one a.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs 1c">ls <span class="hljs-string">| egrep "</span>[^a]*a[^a]*<span class="hljs-string">"</span></code></pre>
+
+<p>All words in the global dictionary that start with e and have 5 characters</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs livecodeserver">egrep <span class="hljs-string">"^e....$"</span> /usr/share/dict/<span class="hljs-keyword">words</span></code></pre>
+
+
+
+<h3 id="permissions">Permissions</h3>
+
+<p><code>ls - l</code> - “long form” listening</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs lasso"><span class="hljs-attribute">-rw</span><span class="hljs-attribute">-r</span><span class="hljs-subst">-----</span> <span class="hljs-number">1</span> j2smith j2smith <span class="hljs-number">25</span> Sep <span class="hljs-number">9</span> <span class="hljs-number">15</span>:<span class="hljs-number">27</span> abc<span class="hljs-built_in">.</span>txt
+(<span class="hljs-subst">-</span>)<span class="hljs-keyword">type</span><span class="hljs-subst">|</span>(rw<span class="hljs-attribute">-r</span><span class="hljs-subst">-----</span>)permissions<span class="hljs-subst">|</span>(<span class="hljs-number">1</span>)<span class="hljs-variable">#of</span> links<span class="hljs-subst">|</span> (j2smith) owner<span class="hljs-subst">|</span> (j2smith) <span class="hljs-keyword">group</span><span class="hljs-subst">|</span> (<span class="hljs-number">25</span>) size <span class="hljs-subst">|</span> (<span class="hljs-number">25</span> Sep <span class="hljs-number">9</span> <span class="hljs-number">15</span>:<span class="hljs-number">27</span>) last modified <span class="hljs-subst">|</span> (abc<span class="hljs-built_in">.</span>txt) name</code></pre>
+
+<dl>
+<dt>groups</dt>
+<dd>a user can belong to one or more groups</dd>
+
+<dd>a file can be associated with one group</dd>
+
+<dt>type</dt>
+<dd><code>-</code> an ordinary file</dd>
+
+<dd><code>d</code> directory</dd>
+
+<dt>permissions</dt>
+<dd><code>rwxrwxrwx</code> -&gt; 1st rwx bits are “user bits”, then next 3 are “group bits”, last is “other bits” <br>
+<strong>Apply to:</strong> <br>
+- user bits: file’s owner <br>
+- group bits: members of the file’s group other than the owner <br>
+- other bits: everyone else <br>
+<code>r</code> - read bit <br>
+<code>w</code> - write bit <br>
+<code>x</code> - execute bit</dd>
+</dl>
+
+<table>
+<thead>
+<tr>
+  <th>Bit</th>
+  <th>Meaning for Ordinary Files</th>
+  <th>Meaning for directories</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>r</td>
+  <td><code>files contents can be read</code></td>
+  <td><code>directory's contents can be read (eg. ls works, globbing, tab completion)</code></td>
+</tr>
+<tr>
+  <td>w</td>
+  <td><code>files contents can be modified</code></td>
+  <td><code>directory's contents can be modified</code></td>
+</tr>
+<tr>
+  <td>x</td>
+  <td><code>file can be executed as a program</code></td>
+  <td><code>directory can be navigated (i.e. can cd into the dir)</code></td>
+</tr>
+</tbody></table>
+
+
+<blockquote>
+  <p>dir’s exec. bit not set = no access at all to the dir, nor to any subdir, nor to any file within it. <br>
+  Changing permissions: <code>chmod mode file</code></p>
+</blockquote>
+
+<p>Mode:</p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>u - user</td>
+  <td><ul>
+add perm
+</ul></td>
+  <td>r read</td>
+</tr>
+<tr>
+  <td>g - group</td>
+  <td><ul>
+remove perm
+</ul></td>
+  <td>w write</td>
+</tr>
+<tr>
+  <td>o - other</td>
+  <td>= set perm</td>
+  <td>x execute</td>
+</tr>
+<tr>
+  <td>a- all</td>
+  <td></td>
+  <td></td>
+</tr>
+</tbody></table>
+
+
+<p>eg.  <br>
+give others read permission: chmod o+r file  <br>
+make everyone’s permission rx: a = rx <br>
+give owner full control: u = rwx or u+rwx</p>
+
+<blockquote>
+  <p>Changing permissions - &gt; exclusive right of the owner</p>
+</blockquote>
+
+
+
+<h2 id="lecture-3">Lecture 3</h2>
+
+
+
+<h3 id="shell-scripts">Shell Scripts</h3>
+
+<blockquote>
+  <p>files containing sequences of shell commands, executed as programs</p>
+</blockquote>
+
+<p>eg. Print date, current user, current dir</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-comment">#!/bin/bash //"shebang" line - executes this file as a bash script</span>
+date
+whoami
+<span class="hljs-built_in">pwd</span></code></pre>
+
+<blockquote>
+  <p>Note: the script does not have the execute bit turned on. Give the file execute permission: <code>chmod u+x myscript</code> <br>
+  Run the file: <code>./myscript</code></p>
+</blockquote>
+
+
+
+<h3 id="variables">Variables</h3>
+
+<p><code>x=1</code> (NO spaces)</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$x</span>
+&gt; <span class="hljs-number">1</span></code></pre>
+
+<blockquote>
+  <p>Note: use <script type="math/tex" id="MathJax-Element-206"> when fetching the value of a var  
+  No </script> when setting a var. <br>
+  Good practice: <script type="math/tex" id="MathJax-Element-207">{x}  
+  All vars contain STRINGS. x is the string 1  
+  Eg. dir=~cs246  
+  echo </script>{dir}</p>
+</blockquote>
+
+<p>Some “global” vars available: <br>
+Important: PATH - list of dirs; When you type a command, the shell searches these directories in order for a program with that name</p>
+
+<blockquote>
+  <p>Eg. Check whether a word is in the directory <br>
+  eg. <code>./isItAWord hello</code></p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+egrep <span class="hljs-string">"^<span class="hljs-variable">$1</span>$"</span> /usr/shar/dict/words</code></pre>
+
+<blockquote>
+  <p>Prints nothing if word not found <br>
+  Prints the word if found</p>
+</blockquote>
+
+<p>Eg. - a good password should not be in the dictionary <br>
+answer whether a word is a good password</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+egrep <span class="hljs-string">"^<span class="hljs-variable">$1</span>$"</span> /usr/share/dict/words &gt; /dev/null //(suppresses output)
+<span class="hljs-keyword">if</span> [ $? <span class="hljs-operator">-eq</span> <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span> //the ; here allows you to put the <span class="hljs-keyword">then</span> on the same line
+    <span class="hljs-built_in">echo</span> Bad password
+<span class="hljs-keyword">else</span> 
+    <span class="hljs-built_in">echo</span> Maybe a good password
+<span class="hljs-keyword">fi</span> //ends the <span class="hljs-keyword">if</span>?</code></pre>
+
+<p>Note: every program returns a status code when finished <br>
+egrep: returns 0 if found, 1 if not found (In Linux: 0 is success, non-0 is fail)</p>
+
+<p>$? = status of the most recently executed command</p>
+
+<p>Verify # of args ; print error msg if wrong</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+<span class="hljs-function"><span class="hljs-title">usage</span></span>(){
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Usage: <span class="hljs-variable">$0</span> password"</span> &gt;&amp;<span class="hljs-number">2</span>
+}
+<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> <span class="hljs-operator">-ne</span> <span class="hljs-number">1</span>]; <span class="hljs-keyword">then</span>
+    usage
+    <span class="hljs-keyword">exit</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">fi</span>
+...(as before)</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">If stmt: //comparisons + other conditions handout
+    <span class="hljs-keyword">if</span> [ cond ]; then
+        <span class="hljs-keyword">...</span>
+    elif [ cond ]; then
+        <span class="hljs-keyword">...</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">...</span>
+fi</code></pre>
+
+
+
+<h3 id="loops">Loops</h3>
+
+<p>Print #’s from 1 to $1</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+x=<span class="hljs-number">1</span>
+<span class="hljs-keyword">while</span> [ <span class="hljs-variable">$x</span> -le <span class="hljs-variable">$1</span>]; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$x</span>
+    x=<span class="hljs-variable">$x</span>+<span class="hljs-number">1</span>
+<span class="hljs-keyword">done</span></code></pre>
+
+<p>This gives you “1+1” literally if x=1 <br>
+you want $((…)) for arithmetic instead</p>
+
+<p>Looping over a list <br>
+eg. Rename all .cpp files to .cc</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> *.cpp; <span class="hljs-keyword">do</span>
+    mv <span class="hljs-variable">${name}</span> <span class="hljs-variable">${name%cpp}</span>cc
+<span class="hljs-keyword">done</span></code></pre>
+
+<blockquote>
+  <p>note: <br>
+  *.cpp -&gt; glob - replaced with all matching files  <br>
+  name%cpp is the val of name, without the trailing cpp.</p>
+</blockquote>
+
+<p>How many times does word <script type="math/tex" id="MathJax-Element-208">1 appear in file </script>2?</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash">x=<span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> $(cat <span class="hljs-variable">$2</span>); <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$word</span>"</span> = <span class="hljs-string">"<span class="hljs-variable">$1</span>"</span> ]; <span class="hljs-keyword">then</span>
+        x=$((x+<span class="hljs-number">1</span>))
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">done</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$x</span></code></pre>
+
+<blockquote>
+  <p>Payday is the last Friday of the month. When is this month’s payday? <br>
+  2 tasks: Compute date <br>
+               Report answer</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+<span class="hljs-function"><span class="hljs-title">answer</span></span>(){
+<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$1</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">31</span>]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"This month is the 31st"</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"This month: the <span class="hljs-variable">${1}</span>th"</span>
+}<span class="hljs-keyword">fi</span>
+answer $(cal | awk <span class="hljs-string">'{print $6}'</span> | egrep <span class="hljs-string">"[0-9]"</span> | tail -<span class="hljs-number">1</span>)</code></pre>
+
+<p>Generalize to any month. <code>cal October 2016</code> -gives Oct’s calendar <br>
+let payday October 2016 give october’s payday</p>
+
+<p>ALL OF THESE ARE IN THE REPO</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-function"><span class="hljs-title">answer</span></span>(){
+    <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$2</span> ]; <span class="hljs-keyword">then</span>
+        preamble=<span class="hljs-variable">$2</span>
+    <span class="hljs-keyword">else</span>
+        preamble = <span class="hljs-string">"This month"</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$1</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">31</span>]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">${preamble}</span>: the 31st"</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">${preamble: the ${1}</span>th}"</span>
+    <span class="hljs-keyword">fi</span>
+}
+answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> | awk <span class="hljs-string">'{print #6}'</span> | egrep <span class="hljs-string">"[0-9]"</span> | tail -<span class="hljs-number">1</span>)</code></pre>
+
+<blockquote>
+  <p>note: no such thing as scope. You can reference from anywhere. if the var doesn’t exist, you get a blank.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-4">Lecture - 4</h2>
+
+
+
+<h3 id="se-topic-testing">SE Topic: Testing</h3>
+
+<ul>
+<li>essential part of program development</li>
+<li>on going  <br>
+<ul><li>not just at the end</li>
+<li>Begins <strong>before</strong> you start coding</li>
+<li>Test suites - expected behaviour <br>
+<script type="math/tex" id="MathJax-Element-209">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<li>cannot guarantee correctness - cannot prove wrongness</li>
+<li>ideally, developer + tester should be different people</li>
+</ul>
+
+<p>Human testing </p>
+
+<ul>
+<li>humans look over code, find flaws</li>
+<li>code inspections, walk throughs</li>
+<li>not on your assignments</li>
+</ul>
+
+<p>Machine testing</p>
+
+<ul>
+<li>run program on selected input, check against spec</li>
+<li>can’t check everything <br>
+<ul><li>choose test cases carefully</li></ul></li>
+</ul>
+
+<p>Black/White/Grey Box Testing</p>
+
+<ul>
+<li>no/full/some knowledge of implementation</li>
+</ul>
+
+<p>Start with black box, supplement with white box</p>
+
+<p>Black box:</p>
+
+<ul>
+<li>various classes of input <br>
+<ul><li>numeric ranges</li>
+<li>positive vs. negative</li></ul></li>
+<li>boundaries of valid ranges (edge cases)</li>
+<li>multiple simultaneous boundaries (corner cases)</li>
+<li>intuition/experience - guess at likely errors</li>
+<li>extreme cases</li>
+</ul>
+
+<p>White box:</p>
+
+<ul>
+<li>execute all logical paths through the program</li>
+<li>make sure every f’n runs</li>
+</ul>
+
+<p>Performance testing - is the program efficient enough? <br>
+Regression testing</p>
+
+<ul>
+<li>make sure new changes to program don’t break old test caes</li>
+<li>test suites, testing scripts</li>
+</ul>
+
+
+
+<h3 id="module-2-c">Module 2: C++</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-comment">//Hello world in C:</span>
+<span class="hljs-preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello World"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//Hello world in C++:</span>
+<span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"Hello world"</span> &lt;&lt; endl;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+
+<blockquote>
+  <p>Notes: main <strong>must</strong> return int in C++ (if no return in main, 0 is implied)</p>
+</blockquote>
+
+<ul>
+<li><code>stdio.h</code> , <code>printf</code> still available in c++</li>
+<li>preferred C++ <code>I/O</code> header <code>&lt;iostream&gt;</code></li>
+</ul>
+
+<p>Output: <br>
+std::cout &lt;&lt; ___ &lt;&lt; ___ &lt;&lt; ___ (___ is data) <br>
+std::endl = end of line</p>
+
+<ul>
+<li>using namespace std: <br>
+<ul><li>lets you say cout/endl instead of std::cout/std::endl</li></ul></li>
+</ul>
+
+
+
+<h3 id="compiling-c-programs">Compiling C++ programs</h3>
+
+<p><code>g++-5 -std=c++14 program.cc &lt;-o program&gt; (name of the excutable(by default, a.out))</code></p>
+
+<p>OR</p>
+
+<p><code>g++14 program.cc -o program</code> <br>
+<code>./program</code></p>
+
+
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<p>3 I/O streams: </p>
+
+<ul>
+<li>cin - for reading from stdin</li>
+<li>cout, cerr - for printing to stdout, stderr</li>
+</ul>
+
+<p>I/O operators:</p>
+
+<ul>
+<li>&lt;&lt; “put to” (output)</li>
+<li>&gt;&gt; “get from” (input)</li>
+<li>cerr &lt;&lt; x;</li>
+<li>cin &gt;&gt; x; <br>
+
+
+<blockquote>
+  <p>operator points in the direction of information flow</p></blockquote></li>
+  </ul> <br>
+  E.g. Add 2#’s
+
+
+
+
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<span class="hljs-keyword">using</span> nanospace <span class="hljs-built_in">std</span>
+<span class="hljs-comment">//above two lines are usually there even if teach doesn't write it (omit from now on)</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-built_in">cin</span> &gt;&gt; x &gt;&gt; y;
+    <span class="hljs-built_in">cout</span> &lt;&lt; x + y &lt;&lt; endl;
+}</code></pre>
+
+
+
+
+<blockquote>
+  <p>notes: <code>cin &gt;&gt; ignores whitespace</code> <br>
+  what if input doesn’t contain an int? -statement fails, value of var is undefined</p>
+</blockquote>
+
+What if the input is exhausted before we get two ints?
+
+<ul>
+<li>same as before</li>
+</ul>
+
+<hr>
+
+<p>If the read failed: <code>cin.fail()</code> will be true <br>
+If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
+
+<ul>
+<li>but not until attempted read fails</li>
+</ul>
+
+<p>Ex: read all ints from stdin, echo them and per line to std out. Stop on any failure.</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-built_in">cin</span> &gt;&gt; i;
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">cin</span>.fail()) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Note: Here is an implicit conversion from cin to bool</p>
+  
+  <ul>
+  <li>cin can be used as a condition - true if success, false if failed</li>
+  </ul>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v2.0</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-built_in">cin</span> &lt;&lt; i;
+        <span class="hljs-keyword">if</span>(!<span class="hljs-built_in">cin</span>) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-210">10_{\text(binary)}</script> = 2 <br>
+  But when LHS is cin, &gt;&gt; is “get from”</p>
+</blockquote>
+
+<p>operator &gt;&gt;: </p>
+
+<ul>
+<li>inputs: cin (stream), data (variety of types)</li>
+<li>output? - returns cin (istream)</li>
+</ul>
+
+<p>This is why we can write <code>cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;</code> the &gt;&gt; returns cin as each &gt;&gt; is calculated, which allows y and z to also be read in.</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v3.0</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span>&gt;&gt;i)) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v4.0</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; i){
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<h2 id="lecture-5">Lecture 5</h2>
+
+<p>Ex: Read ints + echo to stdout until EOF. Skip all non-int input</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span>&gt;&gt;i)){
+            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">cin</span>.eof()) <span class="hljs-keyword">break</span>;
+            <span class="hljs-built_in">cin</span>.clear(); <span class="hljs-comment">//clears the fail bit</span>
+            <span class="hljs-built_in">cin</span>.ignore(); <span class="hljs-comment">//skips the next char (because the char causing this to fail is still there)</span>
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt;i &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<h3 id="reading-strings">Reading Strings</h3>
+
+<p><code>type std::string (#include &lt;string&gt;)</code></p>
+
+<ul>
+<li>more details later</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-built_in">cin</span> &gt;&gt; s; <span class="hljs-comment">//skip leading whitespace (stop at whitespace)</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl; <span class="hljs-comment">//(therefore only reads one word)</span>
+}</code></pre>
+
+<p>If we want the whitespace: <code>getline(cin, s);</code></p>
+
+<ul>
+<li>reads from current position to next newline into s.</li>
+</ul>
+
+<p><code>cout &lt;&lt; 95 &lt;&lt; endl;</code></p>
+
+<p>What if we want to print a # in hexadecimal?</p>
+
+<p><code>cout &lt;&lt; hex &lt;&lt; 95 &lt;&lt; endl; \\prints 5f</code></p>
+
+<blockquote>
+  <p>hex : I/O manipulator - all subsequent ints printed in hex</p>
+</blockquote>
+
+<p><code>cout &lt;&lt; dec</code> to go back to decimal</p>
+
+<p>Other manipulators - notes <code>#include &lt;iomanip&gt;</code></p>
+
+<p>Stream abstraction applies to other sources of data</p>
+
+<p>Files </p>
+
+<ul>
+<li>Read from a file instead of stdin</li>
+<li>std::ifstream - read from a file</li>
+<li>std::ofstream - write to a file</li>
+</ul>
+
+<p>File access in C:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">char</span> s[<span class="hljs-number">256</span>];
+    FILE *file = fopen(<span class="hljs-string">"myfile.txt"</span>,<span class="hljs-string">"r"</span>);
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-built_in">fscanf</span>(file, <span class="hljs-string">"%255s"</span>, s);
+        <span class="hljs-keyword">if</span>(feof(file)) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, s);
+    }
+    fclose(file);
+}</code></pre>
+
+<p>C++:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<span class="hljs-preprocessor">#include &lt;string&gt;</span>
+<span class="hljs-preprocessor">#include &lt;fstream&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">int</span> main(){
+    ifstream file{<span class="hljs-string">"myfile.txt"</span>}; <span class="hljs-comment">// Initialization syntax. Declaring an ifstream opens the file</span>
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-keyword">while</span>(file &gt;&gt; s){
+        <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl;
+    } <span class="hljs-comment">// file is closed automatically as soon as the ifstream (file) goes out of scope :o woah</span>
+}</code></pre>
+
+<blockquote>
+  <p>note: This is the same as reading from cin in c++ except we use file in the while loop.</p>
+</blockquote>
+
+<p>Anything you can do with cin/cout, you can also do with an ifstream/ofstream.</p>
+
+<p>Example - strings - attach a stream to a string var + read from/write to it</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include&lt;sstream&gt;</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">istringstream</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">ostringstream</span>
+<span class="hljs-comment">//-read from/write to a string</span>
+<span class="hljs-keyword">int</span> lo = _____, hi = _____;
+<span class="hljs-built_in">ostringstream</span> ss;
+ss &lt;&lt; <span class="hljs-string">"Enter a # btwn "</span> &lt;&lt; lo &lt;&lt; <span class="hljs-string">" and "</span> &lt;&lt; hi;
+<span class="hljs-built_in">string</span> s = ss.str();</code></pre>
+
+<p>Eg - convert string to #</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> n;
+<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter a # "</span> &lt;&lt;endl;
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-built_in">cin</span> &gt;&gt; s;
+    (<span class="hljs-built_in">string</span> stream ss {s}); <span class="hljs-comment">// {s} &lt;- initialization</span>
+    <span class="hljs-keyword">if</span>(ss &gt;&gt; n) <span class="hljs-keyword">break</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"I said, "</span>;
+}
+<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"You entered "</span> &lt;&lt; n &lt;&lt; endl;</code></pre>
+
+<p>Example revisited: Echo #’s, skip non-#’s</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; s){
+        <span class="hljs-built_in">istringstream</span> ss {s};
+        <span class="hljs-keyword">int</span> n;
+        <span class="hljs-keyword">if</span>(ss &gt;&gt; n) <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<h3 id="strings">Strings</h3>
+
+<p>In C: </p>
+
+<ul>
+<li>array of char (char* or char[]) terminated by ‘\0’</li>
+<li>explicitly manage memory - allocate more as strings get larger</li>
+<li>easy to overwrite \0 and corrupt memory</li>
+</ul>
+
+<p>C++ strings:</p>
+
+<ul>
+<li>grow as needed (no memory management)</li>
+<li>safer to manipulate</li>
+</ul>
+
+<p>Eg: string s = “Hello”; // still a c-style string (char array with \0)</p>
+
+<blockquote>
+  <p>s  -  c++ string created from the c string on initialization</p>
+</blockquote>
+
+
+
+<h3 id="string-operations">String Operations:</h3>
+
+<p>Equality - s1 == s2, s1 != s2 <br>
+Comparison - s1 &lt;= s2 (lexicographic) <br>
+Get individual chars - s[0] , s[1], … etc <br>
+Concat: s3 = s1 + s2;   s3 += s4</p>
+
+
+
+<h3 id="default-fn-params">Default f’n Params</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs mel">void printWordsInFile(<span class="hljs-keyword">string</span> name = <span class="hljs-string">"suite.txt"</span>){
+    ifstream <span class="hljs-keyword">file</span> {name};
+    <span class="hljs-keyword">string</span> s;
+    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">file</span> &gt;&gt; s) cout &lt;&lt; s &lt;&lt; endl;
+}
+printWordsInFile(<span class="hljs-string">"suite2.txt"</span>);
+printWordsInFile(); <span class="hljs-comment">//uses stuite.txt</span></code></pre>
+
+<blockquote>
+  <p>Note: Optional parameters must be LAST</p>
+</blockquote>
+
+
+
+<h3 id="overloading">Overloading</h3>
+
+<p>C:</p>
+
+<ul>
+<li><code>int negInt(int n) {return -n;}</code></li>
+<li><code>bool negBool(bool b) {return !b;}</code></li>
+</ul>
+
+<p>C++</p>
+
+<p>F’ns with different param lists can share the same name <br>
+<code>int neg(int n) {return -n;}</code> <br>
+<code>bool neg(bool b) {return !b;}</code></p>
+
+<p>Compiler uses # + type of args to decide which neg is being called <br>
+Overloads must differ in # or types of args - may not differ on just return type</p>
+
+
+
+<h2 id="lecture-6">Lecture 6</h2>
+
+
+
+<h3 id="structs">Structs</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+};</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> data;
+    Node next; <span class="hljs-comment">//what's wrong? This makes the struct have no finite size since</span>
+    <span class="hljs-comment">// this contains a node in a node in a node ... etc which has no calculable size</span>
+};</code></pre>
+
+
+
+<h3 id="constants">Constants</h3>
+
+<p><code>const int maxGrade = 100; // must be initialized</code></p>
+
+<p><code>Node n1 = {5, nullptr}; \\syntax for a null ptr. Do not say NULL or 0 in this class</code></p>
+
+<p><code>const Node n2=n1</code></p>
+
+<ul>
+<li>immutable copy of n1</li>
+<li>can’t change n2’s fields</li>
+</ul>
+
+
+
+<h3 id="parameter-passing">Parameter Passing</h3>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs r">void inc (int n){++n;}
+<span class="hljs-keyword">...</span>
+int x=<span class="hljs-number">5</span>;
+inc(x);
+cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">5</span></code></pre>
+
+<p>call-by-value-inc gets a copy of x, increments the copy, original unchanged</p>
+
+<p>If a function needs to modify an arg - pass a ptr</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs r">void inc(int *n){(*n)++;}
+<span class="hljs-keyword">...</span>
+int x=<span class="hljs-number">5</span>;
+inc(&amp;x);
+cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">6</span></code></pre>
+
+<blockquote>
+  <p>Q: why cin &gt;&gt; x and not cin &gt;&gt; &amp;x ? <br>
+  A: C++ has another ptr-like type: references</p>
+</blockquote>
+
+
+
+<h3 id="references">References</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">int</span> y = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">int</span> &amp;z = y; <span class="hljs-comment">//z is an lvalue reference to y. Like a const ptr.</span>
+<span class="hljs-comment">//similar to int *const z = &amp;y;</span></code></pre>
+
+<p>References are like constant ptrs with automatic de-referencing  <br>
+z -&gt; y [10]</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs">z = <span class="hljs-number">12</span>; <span class="hljs-comment">//(NOT *z = 12)</span>
+<span class="hljs-comment">//(now, y == 12)</span>
+
+<span class="hljs-keyword">int</span> *p = &amp;z; <span class="hljs-comment">// gives the address of y</span></code></pre>
+
+<p>In all cases, z behaves exactly like y.</p>
+
+<p>z is an alias (“another name”) for y</p>
+
+<p><strong>Things you can’t do with lvalue references:</strong></p>
+
+<ol>
+<li>Leave them uninitialized. eg int &amp;x; <br>
+<ul><li>Must be initialized to something that has an address (an lvalue), since refs are ptrs: <code>int &amp;x = 3;</code> X , <code>int &amp;x = y + z;</code> X , <code>int &amp;x = y;</code> Is okay</li></ul></li>
+<li>Create a ptr to a reference: <br>
+<ul><li><code>int &amp;*x;</code>- for c, always start at var and then go left. So x is a pointer to a ref of an int.</li>
+<li>ref to ptr OK: <code>int *&amp;x = ... ;</code></li></ul></li>
+<li>Create a reference to a reference <br>
+<ul><li><code>int &amp;&amp;x = ... ;</code> - this means something difference (we’ll talk about this later)</li></ul></li>
+<li>Create an array of references: <code>int &amp;r[3] = {n,n,n};</code> X</li>
+</ol>
+
+<p>What <em>can</em> you do? pass as f’n params:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-keyword">void</span> inc (<span class="hljs-keyword">int</span> &amp;n){++n;} <span class="hljs-comment">// notice that there's no ptr deref and &amp;n is a const. ptr to the arg.</span>
+<span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+inc(x);
+<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl; <span class="hljs-comment">// 6</span></code></pre>
+
+<blockquote>
+  <p>So why does cin &gt;&gt; x work? - takes x by reference</p>
+</blockquote>
+
+<p><code>istream &amp; operator &gt;&gt; (istream &amp;in, int&amp;data)</code></p>
+
+<p>Pass-by-value. eg: <code>int f(int n) { ... } copies the arguement</code></p>
+
+<ul>
+<li>if the arg is big, copying can be expensive <br>
+eg: <code>struct Really Big { ... }</code>,</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-c (++ I dunno why it doesn't recg. c++) hljs "><span class="hljs-keyword">int</span> f(ReallyBig rb){ ... }; <span class="hljs-comment">// really slow</span>
+<span class="hljs-keyword">int</span> g(ReallyBig &amp;rb){ ... }; <span class="hljs-comment">// &amp;rb is now an alias - fast. Downside is that rb can be changed by the f'n. You don't know.</span>
+<span class="hljs-keyword">int</span> h(<span class="hljs-keyword">const</span> ReallyBig &amp;rb) { ... }; <span class="hljs-comment">// really fast and param can't be changed. woah</span></code></pre>
+
+<p>Advice: prefer pass-by-const-ref over pass-by-value for anything larger than a ptr - unless the f’n needs to make a copy anyway. Then, maybe pass-by-value.</p>
+
+<p>Also: <code>int f(int &amp;n) { ... }</code>      <code>int g(const int &amp;n) { ... }</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-c (++) same hljs ">f(<span class="hljs-number">5</span>); <span class="hljs-comment">// won't compile. can't initialize an lvalue ref (n) to a literal value. if n changes, can't change the literal 5.</span>
+g(<span class="hljs-number">5</span>); <span class="hljs-comment">//is a-OK since n can never be changed. Compiler allows this. How? compiler creates a temp location to hold the 5, so the reference n has something to point to.</span></code></pre>
+
+
+
+<h3 id="dynamic-memory-allocation">Dynamic Memory Allocation</h3>
+
+<p>C: </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> *p = <span class="hljs-built_in">malloc</span>( ... *<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+...
+<span class="hljs-built_in">free</span>(p); <span class="hljs-comment">//DON'T USE THESE IN C++</span></code></pre>
+
+<blockquote>
+  <p>Instead: new/delete - type aware and less error-prone</p>
+</blockquote>
+
+<p>Eg</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">struct Node {
+    int data;
+    Node *<span class="hljs-keyword">next</span>;
+};
+
+Node *np = new Node;
+<span class="hljs-keyword">...</span>
+delete np;</code></pre>
+
+<ul>
+<li>all local vars reside on the stack - vars are deallocated when they go out of scope (stack is popped).</li>
+<li>allocated memory resides on the heap.</li>
+<li>remains allocated until delete is called</li>
+<li>if you don’t delete all allocated memory - memory leak</li>
+<li>program will eventually fail - incorrect behaviour</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">Node *np = new Node[<span class="hljs-number">10</span>];
+<span class="hljs-keyword">...</span>
+delete [np];</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs coffeescript">Node getMeANode(){ <span class="hljs-regexp">//</span><span class="hljs-keyword">return</span>-<span class="hljs-keyword">by</span>-value = copy. expensive?
+    Node n;
+    <span class="hljs-keyword">return</span> n;
+}
+
+<span class="hljs-regexp">//</span>-<span class="hljs-keyword">return</span> <span class="hljs-keyword">by</span> ptr(ret) instead?
+Node *getMeANode(){
+    Node n;
+    <span class="hljs-keyword">return</span> &amp;n;
+    <span class="hljs-regexp">//</span>BAD - returns a ptr to stack - allocated data which <span class="hljs-keyword">is</span> dead <span class="hljs-literal">on</span> <span class="hljs-keyword">return</span>
+}
+
+Node *getMeANode(){ <span class="hljs-regexp">//</span>Ok - returns a ptr to Heap data - still alive - but don<span class="hljs-string">'t forget to delete it!
+    return new Node;
+}</span></code></pre></body>
+</html>
+
+<!--
+2: Using highlight.js
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CS 246</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+
+</head>
+<body><h1 id="cs-246-object-oriented-software-development">CS 246 - Object-Oriented Software Development</h1>
+
+<blockquote>
+  <p>Brad Lushman <br>
+  Office: DC 3110 <br>
+  Email: bmlushma <br>
+  <a href="http://www.student.cs.uwaterloo.ca/~cs246">http://www.student.cs.uwaterloo.ca/~cs246</a> <br>
+  Linux is required! Ripperino</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#cs-246-object-oriented-software-development">CS 246 - Object-Oriented Software Development</a><ul>
+<li><a href="#lecture-1">Lecture 1</a><ul>
+<li><a href="#linux-please">Linux, Please</a></li>
+<li><a href="#module-1-linux-shell">Module 1 - Linux Shell</a></li>
+<li><a href="#linux-file-system">Linux File System</a></li>
+<li><a href="#pipes">Pipes</a></li>
+</ul>
+</li>
+<li><a href="#lecture-2">Lecture 2</a><ul>
+<li><a href="#pipes-cont">Pipes Cont.</a></li>
+<li><a href="#pattern-matching-in-text-files">Pattern-Matching in Text Files</a></li>
+<li><a href="#permissions">Permissions</a></li>
+</ul>
+</li>
+<li><a href="#lecture-3">Lecture 3</a><ul>
+<li><a href="#shell-scripts">Shell Scripts</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#loops">Loops</a></li>
+</ul>
+</li>
+<li><a href="#lecture-4">Lecture - 4</a><ul>
+<li><a href="#se-topic-testing">SE Topic: Testing</a></li>
+<li><a href="#module-2-c">Module 2: C++</a></li>
+<li><a href="#compiling-c-programs">Compiling C++ programs</a></li>
+<li><a href="#inputoutput">Input/Output</a></li>
+</ul>
+</li>
+<li><a href="#lecture-5">Lecture 5</a><ul>
+<li><a href="#reading-strings">Reading Strings</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#string-operations">String Operations:</a></li>
+<li><a href="#default-fn-params">Default f’n Params</a></li>
+<li><a href="#overloading">Overloading</a></li>
+</ul>
+</li>
+<li><a href="#lecture-6">Lecture 6</a><ul>
+<li><a href="#structs">Structs</a></li>
+<li><a href="#constants">Constants</a></li>
+<li><a href="#parameter-passing">Parameter Passing</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="lecture-1">Lecture 1</h2>
+
+
+
+<h3 id="linux-please">Linux, Please</h3>
+
+<blockquote>
+  <p>Options: <br>
+  1. Lab, computers <br>
+  2. Install Linux on your machine <br>
+  3. ssh into school machines (recommended) (Windows: download putty.exe, winscp for file transfer) <br>
+  4. Cygwin - ewwwwwww <br>
+  Also - install an xwindows server. eg. XMing</p>
+</blockquote>
+
+<p>Modules:  <br>
+1 - Linux Shell (2 weeks) <br>
+2 - C++ (10 weeks) <br>
+3 - Tools (interspersed) <br>
+4 - Software engineering (interspersed)</p>
+
+<p>Homework: Print Linux handout from Piazza, and bring it to class</p>
+
+
+
+<h3 id="module-1-linux-shell">Module 1 - Linux Shell</h3>
+
+<blockquote>
+  <p>Shell - interface to OS - get the OS to do things - run programs, manage files - graphical shell (clicking with mouse/ touch interface) - command line - type commands at a prompt - more versatile</p>
+</blockquote>
+
+<p>This course: bash</p>
+
+<p>Make sure you are using bash! - Log in + type echo $0 <br>
+- should say bash</p>
+
+
+
+<h3 id="linux-file-system">Linux File System</h3>
+
+<p>Working with files <br>
+- cat - displays the contents of a file <br>
+- cat /usr/share/dict/words <br>
+- general format: root (top) directory/ directories (contains files)/ file</p>
+
+<blockquote>
+  <p>In Linux, a directory is considered a kind of file</p>
+</blockquote>
+
+<p><code>^C</code> to stop a program <br>
+ls : list files in current dir (non-hidden files) <br>
+ls -a : gives all files (even hidden ones) <br>
+hidden files start with a dot <br>
+pwd - prints current directory</p>
+
+<p>What happens if you type cat? <br>
+- waits for input <br>
+- prints everything you type <br>
+Useful? - if we can capture input in file. <br>
+Observe: </p>
+
+<p><code>cat &gt; output.txt</code></p>
+
+<p>To stop: Ctrl - D (^D) at the beginning of a line sends an end of file signal <br>
+In general: command args &gt; file ; executes command args + captures the output in file <br>
+- called <strong><em>output redirection</em></strong></p>
+
+<p>Can also redirect input:</p>
+
+<p><code>cat &lt; inputfile.txt</code></p>
+
+<ul>
+<li>takes input from inputfile.txt instead of keyboard</li>
+<li>displays inputfile.txt</li>
+<li>seems equal to cat inputfile.txt</li>
+</ul>
+
+<p>What’s the difference?</p>
+
+<p><code>cat inputfile.txt</code></p>
+
+<p>passes the name <code>inputfile.txt</code> as an arg to cat. cat opens the file and displays it</p>
+
+<p><code>cat &lt; inputfile.txt</code></p>
+
+<p>SHELL opens <code>inputfile.txt</code> and passes the contents to cat in place of keyboard or input</p>
+
+<p>Observe:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm">wc output<span class="hljs-preprocessor">.txt</span>
+&gt; <span class="hljs-number">2</span>  <span class="hljs-number">5</span> <span class="hljs-number">27</span> output<span class="hljs-preprocessor">.txt</span>
+
+wc &lt; output<span class="hljs-preprocessor">.txt</span>
+&gt; <span class="hljs-number">2</span>  <span class="hljs-number">5</span> <span class="hljs-number">27</span></code></pre>
+
+<p>Also: <code>cat *.txt</code> &lt;- globbing pattern <br>
+(* means match any sequence of chars) <br>
+- shell finds all files in the current dir that matches the pattern + substitutes on the cmd line.  <br>
+(eg. <code>cat a.txt, b.txt, c.txt</code> - opens all 3 and displays)</p>
+
+<p>More globbing patterns - Linux Sheet <br>
+Many, but not all programs accept input either on the command line or by redirection</p>
+
+<p>Can do both redirections <br>
+<code>cat &lt; in.txt &gt; out.txt</code></p>
+
+<p>Every process is attached to 3 streams: stdin, stderr, stdout</p>
+
+<dl>
+<dt>By default</dt>
+<dd>stdin = keyboard - redirect with &lt;</dd>
+
+<dd>stdout, stderr = screen (redirect with &gt;)</dd>
+
+<dt>stderr</dt>
+<dd>separate output stream - for error messages</dd>
+
+<dd>so that output + error messages can go to different places</dd>
+
+<dd>so that error msgs don’t clutter output file + corrupt formatting <br>
+Also: stdout may be buffered - system may wait to accumulate output before actually printing it ( flushing the buffer)</dd>
+</dl>
+
+<p>stderr - never buffered - get errror msgs immediately</p>
+
+
+
+<h3 id="pipes">Pipes</h3>
+
+<p>Use output from one program as the input of another</p>
+
+<blockquote>
+  <p><strong>Example: How many words occur in the first 20 lines of myfile.txt?</strong> <br>
+  Tools (sheet): <br>
+  <code>head -n file</code> gives the first n lines of the file <br>
+  <code>wc</code> counts words, lines, characters <br>
+  <code>wc -w</code> gives just words <br>
+  Soln: head -20 myfile.txt | wc -w <br>
+  the | is a pipe</p>
+</blockquote>
+
+
+
+<h2 id="lecture-2">Lecture 2</h2>
+
+
+
+<h3 id="pipes-cont">Pipes Cont.</h3>
+
+<p>How many words occur in the first 20 lines of myfile.txt? <br>
+Sol’n <code>head -20 myfile.txt | wc -w</code> or <code>cat myfile.txt | head -20 | wc -w</code></p>
+
+<p>Eg. Suppose words1.txt, words2.txt, etc. contain lists of words, one per line. Print a duplicate-free list of all words that occur in any of these lines.</p>
+
+<blockquote>
+  <p><strong>uniq</strong> - removes CONSECUTIVE duplicate entries -if entries are sorted, then it removes <em>all</em> duplicates <br>
+  <strong>sort</strong> - sorts lines</p>
+</blockquote>
+
+<p><code>cat words*.txt | sort | uniq</code></p>
+
+<p>Can we use the output of one program as param of another? (yes)</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-built_in">echo</span> <span class="hljs-string">"Today is <span class="hljs-variable">$(date)</span> and I am <span class="hljs-variable">$(whoami)</span>"</span>
+&gt; Today is Tue Sep <span class="hljs-number">13</span> <span class="hljs-number">10</span>:<span class="hljs-number">13</span>:<span class="hljs-number">50</span> EDT <span class="hljs-number">2016</span> and I am alqiu</code></pre>
+
+<p>Shell executes date + whoami + substitues the result into the command line <br>
+The quotations make it into only ONE arg. Also, whitespace here is used.</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-built_in">echo</span> Today is $(date) and I am           $(whoami)
+&gt; Today is Tue Sep <span class="hljs-number">13</span> <span class="hljs-number">10</span>:<span class="hljs-number">13</span>:<span class="hljs-number">50</span> EDT <span class="hljs-number">2016</span> and I am alqiu</code></pre>
+
+<p>Here, echo is given 7 arguments. Whitespace is ignored</p>
+
+<blockquote>
+  <p>Careful: </p>
+  
+  <pre class="prettyprint"><code class=" hljs applescript">echo 'Today <span class="hljs-keyword">is</span> $(<span class="hljs-type">date</span>) <span class="hljs-keyword">and</span> I am $(whoami)'
+&gt; Today <span class="hljs-keyword">is</span> $(<span class="hljs-type">date</span>) <span class="hljs-keyword">and</span> I am $(whoami)</code></pre>
+  
+  <p>Single quotes does not make any substitutions.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs delphi">echo *
+echo <span class="hljs-string">'*'</span> #outputs the same <span class="hljs-comment">(*)
+echo "*" #outputs the same (*)</span></code></pre>
+
+
+
+<h3 id="pattern-matching-in-text-files">Pattern-Matching in Text Files</h3>
+
+<dl>
+<dt>egrep (“extended global regular expression print”)</dt>
+<dd>egrep pattern file - prints every line in a file that contains a match to pattern</dd>
+</dl>
+
+<p>eg. Print every line in index.html that contains cs246.</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">egrep cs246 index.html</code></pre>
+
+<p>How many lines in index.html contain cs246 or CS246?</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">egrep <span class="hljs-string">"cs246|CS246"</span> index.html | wc <span class="hljs-operator">-l</span> //the quotes are really important here since bash thinks | is a pipe otherwise</code></pre>
+
+<p>Alt soln:</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">egrep <span class="hljs-string">"(cs|CS)246"</span> index.html | wc <span class="hljs-operator">-l</span></code></pre>
+
+<p>Available patterns - called regular expressions (different from globbing patterns)</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-string">"(c|C)(s|S)246"</span> -also matches cS246, Cs246
+<span class="hljs-string">"[cC][sS]246"</span></code></pre>
+
+<p>[..] - any one char between [ and ] <br>
+[<script type="math/tex" id="MathJax-Element-205">\text{^}</script> .. ] - any one char except</p>
+
+<p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
+? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
+* = 0 or more of preceding </p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r"><span class="hljs-string">"(cs)*246"</span>
+&gt; <span class="hljs-number">246</span>, cs246, cscs246 <span class="hljs-keyword">...</span></code></pre>
+
+<p>. = any single character <br>
+.* = anything</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs perl">egrep <span class="hljs-string">"cs.<span class="hljs-variable">*246</span>"</span> <span class="hljs-keyword">index</span>.html</code></pre>
+
+<ul>
+<li>lines containing cs(anything) 246</li>
+<li>^, $ - beginning + end of a line <br>
+<code>"^cs246"</code> - lines that start with 246 <br>
+<code>"^cs246$"</code> - lines that are exactly 246 <br>
++ = 1 or more occurrences of preceding pattern <br>
+.+ - non-empty.</li>
+</ul>
+
+<p>Eg lines of even length</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-string">"^(..)*$"</span></code></pre>
+
+<p>Files in the current dir whose names contain exactly one a.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs 1c">ls <span class="hljs-string">| egrep "</span>[^a]*a[^a]*<span class="hljs-string">"</span></code></pre>
+
+<p>All words in the global dictionary that start with e and have 5 characters</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs livecodeserver">egrep <span class="hljs-string">"^e....$"</span> /usr/share/dict/<span class="hljs-keyword">words</span></code></pre>
+
+
+
+<h3 id="permissions">Permissions</h3>
+
+<p><code>ls - l</code> - “long form” listening</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs lasso"><span class="hljs-attribute">-rw</span><span class="hljs-attribute">-r</span><span class="hljs-subst">-----</span> <span class="hljs-number">1</span> j2smith j2smith <span class="hljs-number">25</span> Sep <span class="hljs-number">9</span> <span class="hljs-number">15</span>:<span class="hljs-number">27</span> abc<span class="hljs-built_in">.</span>txt
+(<span class="hljs-subst">-</span>)<span class="hljs-keyword">type</span><span class="hljs-subst">|</span>(rw<span class="hljs-attribute">-r</span><span class="hljs-subst">-----</span>)permissions<span class="hljs-subst">|</span>(<span class="hljs-number">1</span>)<span class="hljs-variable">#of</span> links<span class="hljs-subst">|</span> (j2smith) owner<span class="hljs-subst">|</span> (j2smith) <span class="hljs-keyword">group</span><span class="hljs-subst">|</span> (<span class="hljs-number">25</span>) size <span class="hljs-subst">|</span> (<span class="hljs-number">25</span> Sep <span class="hljs-number">9</span> <span class="hljs-number">15</span>:<span class="hljs-number">27</span>) last modified <span class="hljs-subst">|</span> (abc<span class="hljs-built_in">.</span>txt) name</code></pre>
+
+<dl>
+<dt>groups</dt>
+<dd>a user can belong to one or more groups</dd>
+
+<dd>a file can be associated with one group</dd>
+
+<dt>type</dt>
+<dd><code>-</code> an ordinary file</dd>
+
+<dd><code>d</code> directory</dd>
+
+<dt>permissions</dt>
+<dd><code>rwxrwxrwx</code> -&gt; 1st rwx bits are “user bits”, then next 3 are “group bits”, last is “other bits” <br>
+<strong>Apply to:</strong> <br>
+- user bits: file’s owner <br>
+- group bits: members of the file’s group other than the owner <br>
+- other bits: everyone else <br>
+<code>r</code> - read bit <br>
+<code>w</code> - write bit <br>
+<code>x</code> - execute bit</dd>
+</dl>
+
+<table>
+<thead>
+<tr>
+  <th>Bit</th>
+  <th>Meaning for Ordinary Files</th>
+  <th>Meaning for directories</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>r</td>
+  <td><code>files contents can be read</code></td>
+  <td><code>directory's contents can be read (eg. ls works, globbing, tab completion)</code></td>
+</tr>
+<tr>
+  <td>w</td>
+  <td><code>files contents can be modified</code></td>
+  <td><code>directory's contents can be modified</code></td>
+</tr>
+<tr>
+  <td>x</td>
+  <td><code>file can be executed as a program</code></td>
+  <td><code>directory can be navigated (i.e. can cd into the dir)</code></td>
+</tr>
+</tbody></table>
+
+
+<blockquote>
+  <p>dir’s exec. bit not set = no access at all to the dir, nor to any subdir, nor to any file within it. <br>
+  Changing permissions: <code>chmod mode file</code></p>
+</blockquote>
+
+<p>Mode:</p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>u - user</td>
+  <td><ul>
+add perm
+</ul></td>
+  <td>r read</td>
+</tr>
+<tr>
+  <td>g - group</td>
+  <td><ul>
+remove perm
+</ul></td>
+  <td>w write</td>
+</tr>
+<tr>
+  <td>o - other</td>
+  <td>= set perm</td>
+  <td>x execute</td>
+</tr>
+<tr>
+  <td>a- all</td>
+  <td></td>
+  <td></td>
+</tr>
+</tbody></table>
+
+
+<p>eg.  <br>
+give others read permission: chmod o+r file  <br>
+make everyone’s permission rx: a = rx <br>
+give owner full control: u = rwx or u+rwx</p>
+
+<blockquote>
+  <p>Changing permissions - &gt; exclusive right of the owner</p>
+</blockquote>
+
+
+
+<h2 id="lecture-3">Lecture 3</h2>
+
+
+
+<h3 id="shell-scripts">Shell Scripts</h3>
+
+<blockquote>
+  <p>files containing sequences of shell commands, executed as programs</p>
+</blockquote>
+
+<p>eg. Print date, current user, current dir</p>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs "><span class="hljs-comment">#!/bin/bash //"shebang" line - executes this file as a bash script</span>
+date
+whoami
+<span class="hljs-built_in">pwd</span></code></pre>
+
+<blockquote>
+  <p>Note: the script does not have the execute bit turned on. Give the file execute permission: <code>chmod u+x myscript</code> <br>
+  Run the file: <code>./myscript</code></p>
+</blockquote>
+
+
+
+<h3 id="variables">Variables</h3>
+
+<p><code>x=1</code> (NO spaces)</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$x</span>
+&gt; <span class="hljs-number">1</span></code></pre>
+
+<blockquote>
+  <p>Note: use <script type="math/tex" id="MathJax-Element-206"> when fetching the value of a var  
+  No </script> when setting a var. <br>
+  Good practice: <script type="math/tex" id="MathJax-Element-207">{x}  
+  All vars contain STRINGS. x is the string 1  
+  Eg. dir=~cs246  
+  echo </script>{dir}</p>
+</blockquote>
+
+<p>Some “global” vars available: <br>
+Important: PATH - list of dirs; When you type a command, the shell searches these directories in order for a program with that name</p>
+
+<blockquote>
+  <p>Eg. Check whether a word is in the directory <br>
+  eg. <code>./isItAWord hello</code></p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+egrep <span class="hljs-string">"^<span class="hljs-variable">$1</span>$"</span> /usr/shar/dict/words</code></pre>
+
+<blockquote>
+  <p>Prints nothing if word not found <br>
+  Prints the word if found</p>
+</blockquote>
+
+<p>Eg. - a good password should not be in the dictionary <br>
+answer whether a word is a good password</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+egrep <span class="hljs-string">"^<span class="hljs-variable">$1</span>$"</span> /usr/share/dict/words &gt; /dev/null //(suppresses output)
+<span class="hljs-keyword">if</span> [ $? <span class="hljs-operator">-eq</span> <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span> //the ; here allows you to put the <span class="hljs-keyword">then</span> on the same line
+    <span class="hljs-built_in">echo</span> Bad password
+<span class="hljs-keyword">else</span> 
+    <span class="hljs-built_in">echo</span> Maybe a good password
+<span class="hljs-keyword">fi</span> //ends the <span class="hljs-keyword">if</span>?</code></pre>
+
+<p>Note: every program returns a status code when finished <br>
+egrep: returns 0 if found, 1 if not found (In Linux: 0 is success, non-0 is fail)</p>
+
+<p>$? = status of the most recently executed command</p>
+
+<p>Verify # of args ; print error msg if wrong</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+<span class="hljs-function"><span class="hljs-title">usage</span></span>(){
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Usage: <span class="hljs-variable">$0</span> password"</span> &gt;&amp;<span class="hljs-number">2</span>
+}
+<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> <span class="hljs-operator">-ne</span> <span class="hljs-number">1</span>]; <span class="hljs-keyword">then</span>
+    usage
+    <span class="hljs-keyword">exit</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">fi</span>
+...(as before)</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">If stmt: //comparisons + other conditions handout
+    <span class="hljs-keyword">if</span> [ cond ]; then
+        <span class="hljs-keyword">...</span>
+    elif [ cond ]; then
+        <span class="hljs-keyword">...</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">...</span>
+fi</code></pre>
+
+
+
+<h3 id="loops">Loops</h3>
+
+<p>Print #’s from 1 to $1</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+x=<span class="hljs-number">1</span>
+<span class="hljs-keyword">while</span> [ <span class="hljs-variable">$x</span> -le <span class="hljs-variable">$1</span>]; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$x</span>
+    x=<span class="hljs-variable">$x</span>+<span class="hljs-number">1</span>
+<span class="hljs-keyword">done</span></code></pre>
+
+<p>This gives you “1+1” literally if x=1 <br>
+you want $((…)) for arithmetic instead</p>
+
+<p>Looping over a list <br>
+eg. Rename all .cpp files to .cc</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> *.cpp; <span class="hljs-keyword">do</span>
+    mv <span class="hljs-variable">${name}</span> <span class="hljs-variable">${name%cpp}</span>cc
+<span class="hljs-keyword">done</span></code></pre>
+
+<blockquote>
+  <p>note: <br>
+  *.cpp -&gt; glob - replaced with all matching files  <br>
+  name%cpp is the val of name, without the trailing cpp.</p>
+</blockquote>
+
+<p>How many times does word <script type="math/tex" id="MathJax-Element-208">1 appear in file </script>2?</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash">x=<span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> $(cat <span class="hljs-variable">$2</span>); <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$word</span>"</span> = <span class="hljs-string">"<span class="hljs-variable">$1</span>"</span> ]; <span class="hljs-keyword">then</span>
+        x=$((x+<span class="hljs-number">1</span>))
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">done</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$x</span></code></pre>
+
+<blockquote>
+  <p>Payday is the last Friday of the month. When is this month’s payday? <br>
+  2 tasks: Compute date <br>
+               Report answer</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+<span class="hljs-function"><span class="hljs-title">answer</span></span>(){
+<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$1</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">31</span>]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"This month is the 31st"</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"This month: the <span class="hljs-variable">${1}</span>th"</span>
+}<span class="hljs-keyword">fi</span>
+answer $(cal | awk <span class="hljs-string">'{print $6}'</span> | egrep <span class="hljs-string">"[0-9]"</span> | tail -<span class="hljs-number">1</span>)</code></pre>
+
+<p>Generalize to any month. <code>cal October 2016</code> -gives Oct’s calendar <br>
+let payday October 2016 give october’s payday</p>
+
+<p>ALL OF THESE ARE IN THE REPO</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-function"><span class="hljs-title">answer</span></span>(){
+    <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$2</span> ]; <span class="hljs-keyword">then</span>
+        preamble=<span class="hljs-variable">$2</span>
+    <span class="hljs-keyword">else</span>
+        preamble = <span class="hljs-string">"This month"</span>
+    <span class="hljs-keyword">fi</span>
+    <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$1</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">31</span>]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">${preamble}</span>: the 31st"</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">${preamble: the ${1}</span>th}"</span>
+    <span class="hljs-keyword">fi</span>
+}
+answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> | awk <span class="hljs-string">'{print #6}'</span> | egrep <span class="hljs-string">"[0-9]"</span> | tail -<span class="hljs-number">1</span>)</code></pre>
+
+<blockquote>
+  <p>note: no such thing as scope. You can reference from anywhere. if the var doesn’t exist, you get a blank.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-4">Lecture - 4</h2>
+
+
+
+<h3 id="se-topic-testing">SE Topic: Testing</h3>
+
+<ul>
+<li>essential part of program development</li>
+<li>on going  <br>
+<ul><li>not just at the end</li>
+<li>Begins <strong>before</strong> you start coding</li>
+<li>Test suites - expected behaviour <br>
+<script type="math/tex" id="MathJax-Element-209">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<li>cannot guarantee correctness - cannot prove wrongness</li>
+<li>ideally, developer + tester should be different people</li>
+</ul>
+
+<p>Human testing </p>
+
+<ul>
+<li>humans look over code, find flaws</li>
+<li>code inspections, walk throughs</li>
+<li>not on your assignments</li>
+</ul>
+
+<p>Machine testing</p>
+
+<ul>
+<li>run program on selected input, check against spec</li>
+<li>can’t check everything <br>
+<ul><li>choose test cases carefully</li></ul></li>
+</ul>
+
+<p>Black/White/Grey Box Testing</p>
+
+<ul>
+<li>no/full/some knowledge of implementation</li>
+</ul>
+
+<p>Start with black box, supplement with white box</p>
+
+<p>Black box:</p>
+
+<ul>
+<li>various classes of input <br>
+<ul><li>numeric ranges</li>
+<li>positive vs. negative</li></ul></li>
+<li>boundaries of valid ranges (edge cases)</li>
+<li>multiple simultaneous boundaries (corner cases)</li>
+<li>intuition/experience - guess at likely errors</li>
+<li>extreme cases</li>
+</ul>
+
+<p>White box:</p>
+
+<ul>
+<li>execute all logical paths through the program</li>
+<li>make sure every f’n runs</li>
+</ul>
+
+<p>Performance testing - is the program efficient enough? <br>
+Regression testing</p>
+
+<ul>
+<li>make sure new changes to program don’t break old test caes</li>
+<li>test suites, testing scripts</li>
+</ul>
+
+
+
+<h3 id="module-2-c">Module 2: C++</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-comment">//Hello world in C:</span>
+<span class="hljs-preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello World"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//Hello world in C++:</span>
+<span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"Hello world"</span> &lt;&lt; endl;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+
+<blockquote>
+  <p>Notes: main <strong>must</strong> return int in C++ (if no return in main, 0 is implied)</p>
+</blockquote>
+
+<ul>
+<li><code>stdio.h</code> , <code>printf</code> still available in c++</li>
+<li>preferred C++ <code>I/O</code> header <code>&lt;iostream&gt;</code></li>
+</ul>
+
+<p>Output: <br>
+std::cout &lt;&lt; ___ &lt;&lt; ___ &lt;&lt; ___ (___ is data) <br>
+std::endl = end of line</p>
+
+<ul>
+<li>using namespace std: <br>
+<ul><li>lets you say cout/endl instead of std::cout/std::endl</li></ul></li>
+</ul>
+
+
+
+<h3 id="compiling-c-programs">Compiling C++ programs</h3>
+
+<p><code>g++-5 -std=c++14 program.cc &lt;-o program&gt; (name of the excutable(by default, a.out))</code></p>
+
+<p>OR</p>
+
+<p><code>g++14 program.cc -o program</code> <br>
+<code>./program</code></p>
+
+
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<p>3 I/O streams: </p>
+
+<ul>
+<li>cin - for reading from stdin</li>
+<li>cout, cerr - for printing to stdout, stderr</li>
+</ul>
+
+<p>I/O operators:</p>
+
+<ul>
+<li>&lt;&lt; “put to” (output)</li>
+<li>&gt;&gt; “get from” (input)</li>
+<li>cerr &lt;&lt; x;</li>
+<li>cin &gt;&gt; x; <br>
+
+
+<blockquote>
+  <p>operator points in the direction of information flow</p></blockquote></li>
+  </ul> <br>
+  E.g. Add 2#’s
+
+
+
+
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<span class="hljs-keyword">using</span> nanospace <span class="hljs-built_in">std</span>
+<span class="hljs-comment">//above two lines are usually there even if teach doesn't write it (omit from now on)</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-built_in">cin</span> &gt;&gt; x &gt;&gt; y;
+    <span class="hljs-built_in">cout</span> &lt;&lt; x + y &lt;&lt; endl;
+}</code></pre>
+
+
+
+
+<blockquote>
+  <p>notes: <code>cin &gt;&gt; ignores whitespace</code> <br>
+  what if input doesn’t contain an int? -statement fails, value of var is undefined</p>
+</blockquote>
+
+What if the input is exhausted before we get two ints?
+
+<ul>
+<li>same as before</li>
+</ul>
+
+<hr>
+
+<p>If the read failed: <code>cin.fail()</code> will be true <br>
+If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
+
+<ul>
+<li>but not until attempted read fails</li>
+</ul>
+
+<p>Ex: read all ints from stdin, echo them and per line to std out. Stop on any failure.</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-built_in">cin</span> &gt;&gt; i;
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">cin</span>.fail()) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Note: Here is an implicit conversion from cin to bool</p>
+  
+  <ul>
+  <li>cin can be used as a condition - true if success, false if failed</li>
+  </ul>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v2.0</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-built_in">cin</span> &lt;&lt; i;
+        <span class="hljs-keyword">if</span>(!<span class="hljs-built_in">cin</span>) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-210">10_{\text(binary)}</script> = 2 <br>
+  But when LHS is cin, &gt;&gt; is “get from”</p>
+</blockquote>
+
+<p>operator &gt;&gt;: </p>
+
+<ul>
+<li>inputs: cin (stream), data (variety of types)</li>
+<li>output? - returns cin (istream)</li>
+</ul>
+
+<p>This is why we can write <code>cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;</code> the &gt;&gt; returns cin as each &gt;&gt; is calculated, which allows y and z to also be read in.</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v3.0</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span>&gt;&gt;i)) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v4.0</span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; i){
+        <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<h2 id="lecture-5">Lecture 5</h2>
+
+<p>Ex: Read ints + echo to stdout until EOF. Skip all non-int input</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span>&gt;&gt;i)){
+            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">cin</span>.eof()) <span class="hljs-keyword">break</span>;
+            <span class="hljs-built_in">cin</span>.clear(); <span class="hljs-comment">//clears the fail bit</span>
+            <span class="hljs-built_in">cin</span>.ignore(); <span class="hljs-comment">//skips the next char (because the char causing this to fail is still there)</span>
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt;i &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<h3 id="reading-strings">Reading Strings</h3>
+
+<p><code>type std::string (#include &lt;string&gt;)</code></p>
+
+<ul>
+<li>more details later</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-built_in">cin</span> &gt;&gt; s; <span class="hljs-comment">//skip leading whitespace (stop at whitespace)</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl; <span class="hljs-comment">//(therefore only reads one word)</span>
+}</code></pre>
+
+<p>If we want the whitespace: <code>getline(cin, s);</code></p>
+
+<ul>
+<li>reads from current position to next newline into s.</li>
+</ul>
+
+<p><code>cout &lt;&lt; 95 &lt;&lt; endl;</code></p>
+
+<p>What if we want to print a # in hexadecimal?</p>
+
+<p><code>cout &lt;&lt; hex &lt;&lt; 95 &lt;&lt; endl; \\prints 5f</code></p>
+
+<blockquote>
+  <p>hex : I/O manipulator - all subsequent ints printed in hex</p>
+</blockquote>
+
+<p><code>cout &lt;&lt; dec</code> to go back to decimal</p>
+
+<p>Other manipulators - notes <code>#include &lt;iomanip&gt;</code></p>
+
+<p>Stream abstraction applies to other sources of data</p>
+
+<p>Files </p>
+
+<ul>
+<li>Read from a file instead of stdin</li>
+<li>std::ifstream - read from a file</li>
+<li>std::ofstream - write to a file</li>
+</ul>
+
+<p>File access in C:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">char</span> s[<span class="hljs-number">256</span>];
+    FILE *file = fopen(<span class="hljs-string">"myfile.txt"</span>,<span class="hljs-string">"r"</span>);
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+        <span class="hljs-built_in">fscanf</span>(file, <span class="hljs-string">"%255s"</span>, s);
+        <span class="hljs-keyword">if</span>(feof(file)) <span class="hljs-keyword">break</span>;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, s);
+    }
+    fclose(file);
+}</code></pre>
+
+<p>C++:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<span class="hljs-preprocessor">#include &lt;string&gt;</span>
+<span class="hljs-preprocessor">#include &lt;fstream&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">int</span> main(){
+    ifstream file{<span class="hljs-string">"myfile.txt"</span>}; <span class="hljs-comment">// Initialization syntax. Declaring an ifstream opens the file</span>
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-keyword">while</span>(file &gt;&gt; s){
+        <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl;
+    } <span class="hljs-comment">// file is closed automatically as soon as the ifstream (file) goes out of scope :o woah</span>
+}</code></pre>
+
+<blockquote>
+  <p>note: This is the same as reading from cin in c++ except we use file in the while loop.</p>
+</blockquote>
+
+<p>Anything you can do with cin/cout, you can also do with an ifstream/ofstream.</p>
+
+<p>Example - strings - attach a stream to a string var + read from/write to it</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include&lt;sstream&gt;</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">istringstream</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">ostringstream</span>
+<span class="hljs-comment">//-read from/write to a string</span>
+<span class="hljs-keyword">int</span> lo = _____, hi = _____;
+<span class="hljs-built_in">ostringstream</span> ss;
+ss &lt;&lt; <span class="hljs-string">"Enter a # btwn "</span> &lt;&lt; lo &lt;&lt; <span class="hljs-string">" and "</span> &lt;&lt; hi;
+<span class="hljs-built_in">string</span> s = ss.str();</code></pre>
+
+<p>Eg - convert string to #</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> n;
+<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter a # "</span> &lt;&lt;endl;
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-built_in">cin</span> &gt;&gt; s;
+    (<span class="hljs-built_in">string</span> stream ss {s}); <span class="hljs-comment">// {s} &lt;- initialization</span>
+    <span class="hljs-keyword">if</span>(ss &gt;&gt; n) <span class="hljs-keyword">break</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"I said, "</span>;
+}
+<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"You entered "</span> &lt;&lt; n &lt;&lt; endl;</code></pre>
+
+<p>Example revisited: Echo #’s, skip non-#’s</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; s){
+        <span class="hljs-built_in">istringstream</span> ss {s};
+        <span class="hljs-keyword">int</span> n;
+        <span class="hljs-keyword">if</span>(ss &gt;&gt; n) <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+    }
+}</code></pre>
+
+
+
+<h3 id="strings">Strings</h3>
+
+<p>In C: </p>
+
+<ul>
+<li>array of char (char* or char[]) terminated by ‘\0’</li>
+<li>explicitly manage memory - allocate more as strings get larger</li>
+<li>easy to overwrite \0 and corrupt memory</li>
+</ul>
+
+<p>C++ strings:</p>
+
+<ul>
+<li>grow as needed (no memory management)</li>
+<li>safer to manipulate</li>
+</ul>
+
+<p>Eg: string s = “Hello”; // still a c-style string (char array with \0)</p>
+
+<blockquote>
+  <p>s  -  c++ string created from the c string on initialization</p>
+</blockquote>
+
+
+
+<h3 id="string-operations">String Operations:</h3>
+
+<p>Equality - s1 == s2, s1 != s2 <br>
+Comparison - s1 &lt;= s2 (lexicographic) <br>
+Get individual chars - s[0] , s[1], … etc <br>
+Concat: s3 = s1 + s2;   s3 += s4</p>
+
+
+
+<h3 id="default-fn-params">Default f’n Params</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs mel">void printWordsInFile(<span class="hljs-keyword">string</span> name = <span class="hljs-string">"suite.txt"</span>){
+    ifstream <span class="hljs-keyword">file</span> {name};
+    <span class="hljs-keyword">string</span> s;
+    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">file</span> &gt;&gt; s) cout &lt;&lt; s &lt;&lt; endl;
+}
+printWordsInFile(<span class="hljs-string">"suite2.txt"</span>);
+printWordsInFile(); <span class="hljs-comment">//uses stuite.txt</span></code></pre>
+
+<blockquote>
+  <p>Note: Optional parameters must be LAST</p>
+</blockquote>
+
+
+
+<h3 id="overloading">Overloading</h3>
+
+<p>C:</p>
+
+<ul>
+<li><code>int negInt(int n) {return -n;}</code></li>
+<li><code>bool negBool(bool b) {return !b;}</code></li>
+</ul>
+
+<p>C++</p>
+
+<p>F’ns with different param lists can share the same name <br>
+<code>int neg(int n) {return -n;}</code> <br>
+<code>bool neg(bool b) {return !b;}</code></p>
+
+<p>Compiler uses # + type of args to decide which neg is being called <br>
+Overloads must differ in # or types of args - may not differ on just return type</p>
+
+
+
+<h2 id="lecture-6">Lecture 6</h2>
+
+
+
+<h3 id="structs">Structs</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+};</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> data;
+    Node next; <span class="hljs-comment">//what's wrong? This makes the struct have no finite size since</span>
+    <span class="hljs-comment">// this contains a node in a node in a node ... etc which has no calculable size</span>
+};</code></pre>
+
+
+
+<h3 id="constants">Constants</h3>
+
+<p><code>const int maxGrade = 100; // must be initialized</code></p>
+
+<p><code>Node n1 = {5, nullptr}; \\syntax for a null ptr. Do not say NULL or 0 in this class</code></p>
+
+<p><code>const Node n2=n1</code></p>
+
+<ul>
+<li>immutable copy of n1</li>
+<li>can’t change n2’s fields</li>
+</ul>
+
+
+
+<h3 id="parameter-passing">Parameter Passing</h3>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs r">void inc (int n){++n;}
+<span class="hljs-keyword">...</span>
+int x=<span class="hljs-number">5</span>;
+inc(x);
+cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">5</span></code></pre>
+
+<p>call-by-value-inc gets a copy of x, increments the copy, original unchanged</p>
+
+<p>If a function needs to modify an arg - pass a ptr</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs r">void inc(int *n){(*n)++;}
+<span class="hljs-keyword">...</span>
+int x=<span class="hljs-number">5</span>;
+inc(&amp;x);
+cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">6</span></code></pre>
+
+<blockquote>
+  <p>Q: why cin &gt;&gt; x and not cin &gt;&gt; &amp;x ? <br>
+  A: C++ has another ptr-like type: references</p>
+</blockquote>
+
+
+
+<h3 id="references">References</h3>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">int</span> y = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">int</span> &amp;z = y; <span class="hljs-comment">//z is an lvalue reference to y. Like a const ptr.</span>
+<span class="hljs-comment">//similar to int *const z = &amp;y;</span></code></pre>
+
+<p>References are like constant ptrs with automatic de-referencing  <br>
+z -&gt; y [10]</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cs">z = <span class="hljs-number">12</span>; <span class="hljs-comment">//(NOT *z = 12)</span>
+<span class="hljs-comment">//(now, y == 12)</span>
+
+<span class="hljs-keyword">int</span> *p = &amp;z; <span class="hljs-comment">// gives the address of y</span></code></pre>
+
+<p>In all cases, z behaves exactly like y.</p>
+
+<p>z is an alias (“another name”) for y</p>
+
+<p><strong>Things you can’t do with lvalue references:</strong></p>
+
+<ol>
+<li>Leave them uninitialized. eg int &amp;x; <br>
+<ul><li>Must be initialized to something that has an address (an lvalue), since refs are ptrs: <code>int &amp;x = 3;</code> X , <code>int &amp;x = y + z;</code> X , <code>int &amp;x = y;</code> Is okay</li></ul></li>
+<li>Create a ptr to a reference: <br>
+<ul><li><code>int &amp;*x;</code>- for c, always start at var and then go left. So x is a pointer to a ref of an int.</li>
+<li>ref to ptr OK: <code>int *&amp;x = ... ;</code></li></ul></li>
+<li>Create a reference to a reference <br>
+<ul><li><code>int &amp;&amp;x = ... ;</code> - this means something difference (we’ll talk about this later)</li></ul></li>
+<li>Create an array of references: <code>int &amp;r[3] = {n,n,n};</code> X</li>
+</ol>
+
+<p>What <em>can</em> you do? pass as f’n params:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-keyword">void</span> inc (<span class="hljs-keyword">int</span> &amp;n){++n;} <span class="hljs-comment">// notice that there's no ptr deref and &amp;n is a const. ptr to the arg.</span>
+<span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+inc(x);
+<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl; <span class="hljs-comment">// 6</span></code></pre>
+
+<blockquote>
+  <p>So why does cin &gt;&gt; x work? - takes x by reference</p>
+</blockquote>
+
+<p><code>istream &amp; operator &gt;&gt; (istream &amp;in, int&amp;data)</code></p>
+
+<p>Pass-by-value. eg: <code>int f(int n) { ... } copies the arguement</code></p>
+
+<ul>
+<li>if the arg is big, copying can be expensive <br>
+eg: <code>struct Really Big { ... }</code>,</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-c (++ I dunno why it doesn't recg. c++) hljs "><span class="hljs-keyword">int</span> f(ReallyBig rb){ ... }; <span class="hljs-comment">// really slow</span>
+<span class="hljs-keyword">int</span> g(ReallyBig &amp;rb){ ... }; <span class="hljs-comment">// &amp;rb is now an alias - fast. Downside is that rb can be changed by the f'n. You don't know.</span>
+<span class="hljs-keyword">int</span> h(<span class="hljs-keyword">const</span> ReallyBig &amp;rb) { ... }; <span class="hljs-comment">// really fast and param can't be changed. woah</span></code></pre>
+
+<p>Advice: prefer pass-by-const-ref over pass-by-value for anything larger than a ptr - unless the f’n needs to make a copy anyway. Then, maybe pass-by-value.</p>
+
+<p>Also: <code>int f(int &amp;n) { ... }</code>      <code>int g(const int &amp;n) { ... }</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-c (++) same hljs ">f(<span class="hljs-number">5</span>); <span class="hljs-comment">// won't compile. can't initialize an lvalue ref (n) to a literal value. if n changes, can't change the literal 5.</span>
+g(<span class="hljs-number">5</span>); <span class="hljs-comment">//is a-OK since n can never be changed. Compiler allows this. How? compiler creates a temp location to hold the 5, so the reference n has something to point to.</span></code></pre>
+
+
+
+<h3 id="dynamic-memory-allocation">Dynamic Memory Allocation</h3>
+
+<p>C: </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">int</span> *p = <span class="hljs-built_in">malloc</span>( ... *<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+...
+<span class="hljs-built_in">free</span>(p); <span class="hljs-comment">//DON'T USE THESE IN C++</span></code></pre>
+
+<blockquote>
+  <p>Instead: new/delete - type aware and less error-prone</p>
+</blockquote>
+
+<p>Eg</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">struct Node {
+    int data;
+    Node *<span class="hljs-keyword">next</span>;
+};
+
+Node *np = new Node;
+<span class="hljs-keyword">...</span>
+delete np;</code></pre>
+
+<ul>
+<li>all local vars reside on the stack - vars are deallocated when they go out of scope (stack is popped).</li>
+<li>allocated memory resides on the heap.</li>
+<li>remains allocated until delete is called</li>
+<li>if you don’t delete all allocated memory - memory leak</li>
+<li>program will eventually fail - incorrect behaviour</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">Node *np = new Node[<span class="hljs-number">10</span>];
+<span class="hljs-keyword">...</span>
+delete [np];</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs coffeescript">Node getMeANode(){ <span class="hljs-regexp">//</span><span class="hljs-keyword">return</span>-<span class="hljs-keyword">by</span>-value = copy. expensive?
+    Node n;
+    <span class="hljs-keyword">return</span> n;
+}
+
+<span class="hljs-regexp">//</span>-<span class="hljs-keyword">return</span> <span class="hljs-keyword">by</span> ptr(ret) instead?
+Node *getMeANode(){
+    Node n;
+    <span class="hljs-keyword">return</span> &amp;n;
+    <span class="hljs-regexp">//</span>BAD - returns a ptr to stack - allocated data which <span class="hljs-keyword">is</span> dead <span class="hljs-literal">on</span> <span class="hljs-keyword">return</span>
+}
+
+Node *getMeANode(){ <span class="hljs-regexp">//</span>Ok - returns a ptr to Heap data - still alive - but don<span class="hljs-string">'t forget to delete it!
+    return new Node;
+}</span></code></pre></body>
+</html>
+
+-->

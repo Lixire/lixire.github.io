@@ -1,0 +1,335 @@
+<!--
+1: Using prettify
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MATH 239</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><h1 id="math-239-intro-to-combinatorics">MATH 239 - Intro to Combinatorics</h1>
+
+<blockquote>
+  <p>Instructor: P. Haxell <br>
+  MC 6308 <br>
+  Office Hours: M 3-4, W 2:30-3:20 <br>
+  Mon Sept. 19 - 2:30 - 3:00 <br>
+  Nov 8. Midterm</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#math-239-intro-to-combinatorics">MATH 239 - Intro to Combinatorics</a><ul>
+<li><a href="#lecture-1-sept-9th">Lecture 1 - Sept 9th</a><ul>
+<li><a href="#basic-counting-review">Basic Counting Review</a></li>
+</ul>
+</li>
+<li><a href="#lecture-5">Lecture - 5</a><ul>
+<li><a href="#formal-power-series">Formal Power Series</a></li>
+<li><a href="#lecture-7">Lecture 7</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<dl>
+<dt>Topics</dt>
+<dd>Enumeration ~ 5 weeks</dd>
+
+<dd>Graph Theory ~ 7 weeks</dd>
+</dl>
+
+
+
+<h2 id="lecture-1-sept-9th">Lecture 1 - Sept 9th</h2>
+
+<p>What is enumeration about?</p>
+
+<p><strong>Typical Question:</strong> How many elements of a given set S have a given property? <br>
+We’ll answer such questions by encoding the properties of S using an algebraic expression called the <strong>generating series</strong> for S.</p>
+
+<p>Then to answer the question, we will find a certain <strong>coefficient</strong> in the generating series.</p>
+
+<blockquote>
+  <p><strong>eg:</strong> How many ways can you choose a dozen doughnuts if the available flavours are: Chocolate, Maple, Lemon, and Plain (at least 12 of each are available)? <br>
+  The generating series for this problem is <script type="math/tex" id="MathJax-Element-211">\frac{1}{(1-x)^4}</script> <br>
+  The answer is the coefficient of <script type="math/tex" id="MathJax-Element-212">x^{12}</script> in <script type="math/tex" id="MathJax-Element-213">\frac{1}{(1-x)^4}</script> which we denote by <script type="math/tex" id="MathJax-Element-214">[x^{12}]\frac{1}{(1-x)^4}</script> <br>
+  <strong>eg:</strong> Same question but now only 3 chocolate, and 5 maple are available (other 2 have &gt; 12 still). <br>
+  The generating series becomes <script type="math/tex" id="MathJax-Element-215">\frac{(1-x^4)(1-x^6)}{(1-x)^4}</script> <br>
+  The answer is <script type="math/tex" id="MathJax-Element-216">[x^{12}]\frac{(1-x^4)(1-x^6)}{(1-x)^4}</script></p>
+</blockquote>
+
+
+
+<h3 id="basic-counting-review">Basic Counting Review</h3>
+
+<ul>
+<li>For a set A we write <script type="math/tex" id="MathJax-Element-217">|A|</script> for the number of elements of A</li>
+<li>For finite sets A and B recall <script type="math/tex" id="MathJax-Element-218">A\cup B = \{x:\ x\epsilon A\ or\ x\epsilon B\ (or\ both)\}</script></li>
+<li><script type="math/tex" id="MathJax-Element-219">A\cap B = \{x: x\epsilon A\ and\ x\epsilon B\}</script></li>
+<li>Then <script type="math/tex" id="MathJax-Element-220">|A\cup B| = |A| + |B| - |A\cap B|</script></li>
+<li>If A and B are disjoint (ie. <script type="math/tex" id="MathJax-Element-221">A\cap B = \phi (empty)</script>) then <script type="math/tex" id="MathJax-Element-222">|A\cup B| = |A| + |B|</script></li>
+<li>The Cartesian product is <script type="math/tex" id="MathJax-Element-223">A \times B = \{(a,b) : a \epsilon A, b \epsilon B\}</script></li>
+<li>Then <script type="math/tex" id="MathJax-Element-224">|A\times B| = |A||B|</script></li>
+<li>For a positive integer k, then the Cartesian power of A is <script type="math/tex" id="MathJax-Element-225">A^k = \{(a_1, a_2, ... , a_k): a_i \epsilon A\ for\ each\ i\}</script> <br>
+<ul><li>i.e. the set of all ordered k-tuples of elements of A then <script type="math/tex" id="MathJax-Element-226">|A^k| = |A|^k</script></li></ul></li>
+</ul>
+
+<blockquote>
+  <p><strong>eg:</strong> In the doughnut shop there are 3 chocolate, 5 maple, 19 lemon and 17 plain doughnuts left. Describe the set <script type="math/tex" id="MathJax-Element-227">S_0</script> of all collections of doughnuts that can be formed (size of the collection not specified) as a Cartesian product. <br>
+  <strong>Answer:</strong> <script type="math/tex" id="MathJax-Element-228">S_0</script> as CP is : (chocolate) {0, 1, 2, 3} x (maple) {0, 1, 2, 3, 4, 5} x (lemon) {0, 1, … , 19} x (plain) {0, 1 , … , 17}</p>
+  
+  <p><strong>eg:</strong> No box contains BOTH chocolate and maple this time <br>
+  <strong>Answer</strong>: <script type="math/tex" id="MathJax-Element-229">S_0</script> as CP is : <br>
+  <script type="math/tex" id="MathJax-Element-230">S_1</script> = {0, 1, 2, 3} x {0} x {0, 1, … , 19} x {0, 1 , … , 17} <script type="math/tex" id="MathJax-Element-231">\cup</script>  {0} x {1, 2, 3, 4, 5} x {0, 1, … , 19} x {0, 1 , … , 17}</p>
+  
+  <p>Let m be a positive integer <br>
+  <strong>eg:</strong> Let S be the set of all subsets of {1, 7, … , m}. Fix k. <br>
+  How many elements of S have size k? <br>
+  ie. How many <strong>k-subsets (subsets of size k)</strong> of {1, … , m} are there?</p>
+</blockquote>
+
+<p><strong>Theorem:</strong> the number of k-subsets of {1, … , m} is <script type="math/tex" id="MathJax-Element-232">\frac{m(m-1) (m-k+1)}{k!}</script></p>
+
+<p><strong>Proof:</strong> Let (B is binomial) B(m,k) denote he number of k-subsets of {1, … , m} <br>
+Consider the set <script type="math/tex" id="MathJax-Element-233">\mathscr{L}</script> of ordered k-tuples of distinct elements of {1, … , m} <br>
+Then <script type="math/tex" id="MathJax-Element-234">|\mathscr{L}| = m(m-1)...(m-k+1)</script> <br>
+Now count <script type="math/tex" id="MathJax-Element-235">|\mathscr{L}|</script> as follows: make a list of all B(m, k) k-subsets of {1, … , m} and then order each subset in all k! possible ways. <br>
+So <script type="math/tex" id="MathJax-Element-236">|\mathscr{L}| = B(m,k)k!</script> <br>
+Hence, <script type="math/tex" id="MathJax-Element-237">m(m-1) .. (m-k + 1) = |\mathscr{L}| = B(m,k)k!</script> <br>
+So, <script type="math/tex" id="MathJax-Element-238">B(m,k) = \frac{m(m-1)...(m-k+1)}{k!} \ \ \square</script></p>
+
+
+
+<h2 id="lecture-5">Lecture - 5</h2>
+
+
+
+<h3 id="formal-power-series">Formal Power Series</h3>
+
+<p>Recall that for a fps (formal power series) A(x) we denote by <script type="math/tex" id="MathJax-Element-239">[x^n]A(x)</script> the coefficient of <script type="math/tex" id="MathJax-Element-240">x^n</script> in <script type="math/tex" id="MathJax-Element-241">A(x)</script>.</p>
+
+<p>Substitution: Let A(x) = <script type="math/tex" id="MathJax-Element-242">\Sigma_{i\geq0}a_ix^i</script> and <script type="math/tex" id="MathJax-Element-243">B(x)=\Sigma_{i\geq0}b_ix^i</script> be fps. Suppose that the constant coefficient <script type="math/tex" id="MathJax-Element-244">b_0</script> of B(x) is 0. Then A(B(x)) is a fps. <br>
+Proof: <br>
+Since <script type="math/tex" id="MathJax-Element-245">b_0 =0</script> we can write <script type="math/tex" id="MathJax-Element-246">B(x)=xC(x)</script> where <script type="math/tex" id="MathJax-Element-247">C(x) = b_1 + b_2x + b_3x^2 ...</script> <br>
+Then <script type="math/tex" id="MathJax-Element-248">A(B(x)) = a_0 + a_1xC(c) + a_2x^2C^2(x) + ... </script> <br>
+To show this a fps, we need to show that for every <script type="math/tex" id="MathJax-Element-249">h\geq</script>0, <script type="math/tex" id="MathJax-Element-250">[x^n]A(B(x))</script> is a finite rational number. The good thing is: <script type="math/tex" id="MathJax-Element-251">[x^n]A(B(x)) = [x^n](a_0 + a_1xC(x) + ... + a_nx^nC^n(x))</script> and <script type="math/tex" id="MathJax-Element-252">a_0 + a_1xC(x) + ... + a_nx^nC^n(x)</script> is a fps since it is a finite sum of finite products of fps, which is a fps <script type="math/tex" id="MathJax-Element-253">\square</script>.  <br>
+What goes wrong when <script type="math/tex" id="MathJax-Element-254">b_0 \neq = 0</script>? <br>
+We get <script type="math/tex" id="MathJax-Element-255">A(B(x)) = a_0 + a_1(b_0 + b_1x + ...) + a_2(b_0 + b_1x + ...)^2 ...</script> <br>
+Then for example <script type="math/tex" id="MathJax-Element-256">[x^0]A(B(x)) = a_0 + a_1b_0  + a_2b_0^2 + a_3b^3_0 + ...</script> which is NOT in general a finite rational number. So in general, A(B(x)) is not a fps.</p>
+
+<p>Inverse: Let A(x) be a fps. We say the fps C(x) is the (multiplicative) inverse of A(x) if <script type="math/tex" id="MathJax-Element-257">A(x)C(x) = 1 \ \ \ \ \ \ \ (= 1 + 0x + 0x^2 + 0x^3 + ...)</script> <br>
+e.g.: <br>
+<script type="math/tex" id="MathJax-Element-258">\Phi_{\mathscr{N}\geq0} = \Sigma_{i \geq 0}x^i =(\frac{1}{1-x})</script> has inverse <script type="math/tex" id="MathJax-Element-259">C(x) = 1 - x</script></p>
+
+<blockquote>
+  <p>Note: Multiplication of fps is symmetric therefore we can write <script type="math/tex" id="MathJax-Element-260">C(x)A(x)= (1-x)(1+x+x^2+....) = \\A(x)C(x) = (1+x+x^2+....)(1-x)</script> We write <script type="math/tex" id="MathJax-Element-261">C(x) = A^{-1}(x)</script> <br>
+  Check: <script type="math/tex" id="MathJax-Element-262">(1-x)(1+x+x^2+x^3 +) = 1 + x-x+x^2 -x^2 +x^3 -x ^3 +... \\= 1 + 0x + 0x^2 +... = 1</script></p>
+</blockquote>
+
+<p>Thm: The fps A(x) has an inverse if and only if <script type="math/tex" id="MathJax-Element-263">a_0 = [x^0] A(x)</script> is non-zero <br>
+Proof: (=&gt;) suppose C(x) is the inverse of A(x) <br>
+Then <script type="math/tex" id="MathJax-Element-264">[x^0]A(x)C(x) = [x^0](\Sigma_{i\geq0}a_ix^i)(\Sigma_{i\geq0}c_ix^i) \\= a_0c_0 = 1</script> <br>
+Therefore <script type="math/tex" id="MathJax-Element-265">a_0 \neq 0</script> <br>
+{&lt;=} Supposed <script type="math/tex" id="MathJax-Element-266">a_0 \neq0</script>. Then we can write <script type="math/tex" id="MathJax-Element-267">A(x) = a_0(1-xB(x))</script> where <script type="math/tex" id="MathJax-Element-268">B(x)=\frac{-a_1}{a_0} - \frac{a_2x}{a_0} + \frac{a_3x^2}{a_0} ...</script> <br>
+we claim <script type="math/tex" id="MathJax-Element-269">C(x) = \frac{1}{a_0} (1+ xB(x) + xB^2(x) + x^3B^3(x) + ...)</script> is a fps: note that it is xB(x) substituted into <script type="math/tex" id="MathJax-Element-270">\frac{1}{a_0}(1 + x + x^2 + x^3 ...)</script> and xB(x) has constant coefficient 0. Thus C(x) is a fps. <br>
+Then <script type="math/tex" id="MathJax-Element-271"> A(x)C(x) = a_0(1-xB(x))\frac{1}{a_0}(1+xB(x) + x^2B^2(x) ...) = 1 \\+ xB(x) - xB(x) + x^2B^2(x) - x^2B^2(x) ... = 1</script> <br>
+So <script type="math/tex" id="MathJax-Element-272">C(x) = A^{-1}(x)</script> by definition <script type="math/tex" id="MathJax-Element-273">\square</script></p>
+
+<p>eg. The inverse of <script type="math/tex" id="MathJax-Element-274">A(x) = 2 + 6x + 16x^2</script> is  <script type="math/tex" id="MathJax-Element-275">A(x) = 2(1+3x + 8x^2) = 2(1-x(-3-8x))</script>  <br>
+Then <script type="math/tex" id="MathJax-Element-276">A^{-1}(x) = \frac{1}{2} (1+x(-3-8x) + x^2(-3-8x)^2) +x^3(-3 -8x)^3 ...)</script> <br>
+It is usually more convenient to express this as <script type="math/tex" id="MathJax-Element-277">\frac{1}{2}\frac{1}{1-x(-3-8x)}=\frac{1}{2}\frac{1}{1+3x+8x^2}</script></p>
+
+<blockquote>
+  <p>Note that if A(x) has an inverse, then it is unique: Since if A(x)B(x) = 1 and A(x)C(x) =1. Then C(x)A(x)B(x) = C(x) =&gt; B(x) = C(x) <br>
+  Note that if A(x) has an inverse and B(x) has an inverse then A(x)B(x) has inverse <script type="math/tex" id="MathJax-Element-278">A^{-1}(x)B^{-1}(x)</script></p>
+</blockquote>
+
+
+
+<h3 id="lecture-7">Lecture 7</h3>
+
+<blockquote>
+  <p>eg. How many</p>
+</blockquote></body>
+</html>
+
+<!--
+2: Using highlight.js
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MATH 239</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+
+</head>
+<body><h1 id="math-239-intro-to-combinatorics">MATH 239 - Intro to Combinatorics</h1>
+
+<blockquote>
+  <p>Instructor: P. Haxell <br>
+  MC 6308 <br>
+  Office Hours: M 3-4, W 2:30-3:20 <br>
+  Mon Sept. 19 - 2:30 - 3:00 <br>
+  Nov 8. Midterm</p>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#math-239-intro-to-combinatorics">MATH 239 - Intro to Combinatorics</a><ul>
+<li><a href="#lecture-1-sept-9th">Lecture 1 - Sept 9th</a><ul>
+<li><a href="#basic-counting-review">Basic Counting Review</a></li>
+</ul>
+</li>
+<li><a href="#lecture-5">Lecture - 5</a><ul>
+<li><a href="#formal-power-series">Formal Power Series</a></li>
+<li><a href="#lecture-7">Lecture 7</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<dl>
+<dt>Topics</dt>
+<dd>Enumeration ~ 5 weeks</dd>
+
+<dd>Graph Theory ~ 7 weeks</dd>
+</dl>
+
+
+
+<h2 id="lecture-1-sept-9th">Lecture 1 - Sept 9th</h2>
+
+<p>What is enumeration about?</p>
+
+<p><strong>Typical Question:</strong> How many elements of a given set S have a given property? <br>
+We’ll answer such questions by encoding the properties of S using an algebraic expression called the <strong>generating series</strong> for S.</p>
+
+<p>Then to answer the question, we will find a certain <strong>coefficient</strong> in the generating series.</p>
+
+<blockquote>
+  <p><strong>eg:</strong> How many ways can you choose a dozen doughnuts if the available flavours are: Chocolate, Maple, Lemon, and Plain (at least 12 of each are available)? <br>
+  The generating series for this problem is <script type="math/tex" id="MathJax-Element-211">\frac{1}{(1-x)^4}</script> <br>
+  The answer is the coefficient of <script type="math/tex" id="MathJax-Element-212">x^{12}</script> in <script type="math/tex" id="MathJax-Element-213">\frac{1}{(1-x)^4}</script> which we denote by <script type="math/tex" id="MathJax-Element-214">[x^{12}]\frac{1}{(1-x)^4}</script> <br>
+  <strong>eg:</strong> Same question but now only 3 chocolate, and 5 maple are available (other 2 have &gt; 12 still). <br>
+  The generating series becomes <script type="math/tex" id="MathJax-Element-215">\frac{(1-x^4)(1-x^6)}{(1-x)^4}</script> <br>
+  The answer is <script type="math/tex" id="MathJax-Element-216">[x^{12}]\frac{(1-x^4)(1-x^6)}{(1-x)^4}</script></p>
+</blockquote>
+
+
+
+<h3 id="basic-counting-review">Basic Counting Review</h3>
+
+<ul>
+<li>For a set A we write <script type="math/tex" id="MathJax-Element-217">|A|</script> for the number of elements of A</li>
+<li>For finite sets A and B recall <script type="math/tex" id="MathJax-Element-218">A\cup B = \{x:\ x\epsilon A\ or\ x\epsilon B\ (or\ both)\}</script></li>
+<li><script type="math/tex" id="MathJax-Element-219">A\cap B = \{x: x\epsilon A\ and\ x\epsilon B\}</script></li>
+<li>Then <script type="math/tex" id="MathJax-Element-220">|A\cup B| = |A| + |B| - |A\cap B|</script></li>
+<li>If A and B are disjoint (ie. <script type="math/tex" id="MathJax-Element-221">A\cap B = \phi (empty)</script>) then <script type="math/tex" id="MathJax-Element-222">|A\cup B| = |A| + |B|</script></li>
+<li>The Cartesian product is <script type="math/tex" id="MathJax-Element-223">A \times B = \{(a,b) : a \epsilon A, b \epsilon B\}</script></li>
+<li>Then <script type="math/tex" id="MathJax-Element-224">|A\times B| = |A||B|</script></li>
+<li>For a positive integer k, then the Cartesian power of A is <script type="math/tex" id="MathJax-Element-225">A^k = \{(a_1, a_2, ... , a_k): a_i \epsilon A\ for\ each\ i\}</script> <br>
+<ul><li>i.e. the set of all ordered k-tuples of elements of A then <script type="math/tex" id="MathJax-Element-226">|A^k| = |A|^k</script></li></ul></li>
+</ul>
+
+<blockquote>
+  <p><strong>eg:</strong> In the doughnut shop there are 3 chocolate, 5 maple, 19 lemon and 17 plain doughnuts left. Describe the set <script type="math/tex" id="MathJax-Element-227">S_0</script> of all collections of doughnuts that can be formed (size of the collection not specified) as a Cartesian product. <br>
+  <strong>Answer:</strong> <script type="math/tex" id="MathJax-Element-228">S_0</script> as CP is : (chocolate) {0, 1, 2, 3} x (maple) {0, 1, 2, 3, 4, 5} x (lemon) {0, 1, … , 19} x (plain) {0, 1 , … , 17}</p>
+  
+  <p><strong>eg:</strong> No box contains BOTH chocolate and maple this time <br>
+  <strong>Answer</strong>: <script type="math/tex" id="MathJax-Element-229">S_0</script> as CP is : <br>
+  <script type="math/tex" id="MathJax-Element-230">S_1</script> = {0, 1, 2, 3} x {0} x {0, 1, … , 19} x {0, 1 , … , 17} <script type="math/tex" id="MathJax-Element-231">\cup</script>  {0} x {1, 2, 3, 4, 5} x {0, 1, … , 19} x {0, 1 , … , 17}</p>
+  
+  <p>Let m be a positive integer <br>
+  <strong>eg:</strong> Let S be the set of all subsets of {1, 7, … , m}. Fix k. <br>
+  How many elements of S have size k? <br>
+  ie. How many <strong>k-subsets (subsets of size k)</strong> of {1, … , m} are there?</p>
+</blockquote>
+
+<p><strong>Theorem:</strong> the number of k-subsets of {1, … , m} is <script type="math/tex" id="MathJax-Element-232">\frac{m(m-1) (m-k+1)}{k!}</script></p>
+
+<p><strong>Proof:</strong> Let (B is binomial) B(m,k) denote he number of k-subsets of {1, … , m} <br>
+Consider the set <script type="math/tex" id="MathJax-Element-233">\mathscr{L}</script> of ordered k-tuples of distinct elements of {1, … , m} <br>
+Then <script type="math/tex" id="MathJax-Element-234">|\mathscr{L}| = m(m-1)...(m-k+1)</script> <br>
+Now count <script type="math/tex" id="MathJax-Element-235">|\mathscr{L}|</script> as follows: make a list of all B(m, k) k-subsets of {1, … , m} and then order each subset in all k! possible ways. <br>
+So <script type="math/tex" id="MathJax-Element-236">|\mathscr{L}| = B(m,k)k!</script> <br>
+Hence, <script type="math/tex" id="MathJax-Element-237">m(m-1) .. (m-k + 1) = |\mathscr{L}| = B(m,k)k!</script> <br>
+So, <script type="math/tex" id="MathJax-Element-238">B(m,k) = \frac{m(m-1)...(m-k+1)}{k!} \ \ \square</script></p>
+
+
+
+<h2 id="lecture-5">Lecture - 5</h2>
+
+
+
+<h3 id="formal-power-series">Formal Power Series</h3>
+
+<p>Recall that for a fps (formal power series) A(x) we denote by <script type="math/tex" id="MathJax-Element-239">[x^n]A(x)</script> the coefficient of <script type="math/tex" id="MathJax-Element-240">x^n</script> in <script type="math/tex" id="MathJax-Element-241">A(x)</script>.</p>
+
+<p>Substitution: Let A(x) = <script type="math/tex" id="MathJax-Element-242">\Sigma_{i\geq0}a_ix^i</script> and <script type="math/tex" id="MathJax-Element-243">B(x)=\Sigma_{i\geq0}b_ix^i</script> be fps. Suppose that the constant coefficient <script type="math/tex" id="MathJax-Element-244">b_0</script> of B(x) is 0. Then A(B(x)) is a fps. <br>
+Proof: <br>
+Since <script type="math/tex" id="MathJax-Element-245">b_0 =0</script> we can write <script type="math/tex" id="MathJax-Element-246">B(x)=xC(x)</script> where <script type="math/tex" id="MathJax-Element-247">C(x) = b_1 + b_2x + b_3x^2 ...</script> <br>
+Then <script type="math/tex" id="MathJax-Element-248">A(B(x)) = a_0 + a_1xC(c) + a_2x^2C^2(x) + ... </script> <br>
+To show this a fps, we need to show that for every <script type="math/tex" id="MathJax-Element-249">h\geq</script>0, <script type="math/tex" id="MathJax-Element-250">[x^n]A(B(x))</script> is a finite rational number. The good thing is: <script type="math/tex" id="MathJax-Element-251">[x^n]A(B(x)) = [x^n](a_0 + a_1xC(x) + ... + a_nx^nC^n(x))</script> and <script type="math/tex" id="MathJax-Element-252">a_0 + a_1xC(x) + ... + a_nx^nC^n(x)</script> is a fps since it is a finite sum of finite products of fps, which is a fps <script type="math/tex" id="MathJax-Element-253">\square</script>.  <br>
+What goes wrong when <script type="math/tex" id="MathJax-Element-254">b_0 \neq = 0</script>? <br>
+We get <script type="math/tex" id="MathJax-Element-255">A(B(x)) = a_0 + a_1(b_0 + b_1x + ...) + a_2(b_0 + b_1x + ...)^2 ...</script> <br>
+Then for example <script type="math/tex" id="MathJax-Element-256">[x^0]A(B(x)) = a_0 + a_1b_0  + a_2b_0^2 + a_3b^3_0 + ...</script> which is NOT in general a finite rational number. So in general, A(B(x)) is not a fps.</p>
+
+<p>Inverse: Let A(x) be a fps. We say the fps C(x) is the (multiplicative) inverse of A(x) if <script type="math/tex" id="MathJax-Element-257">A(x)C(x) = 1 \ \ \ \ \ \ \ (= 1 + 0x + 0x^2 + 0x^3 + ...)</script> <br>
+e.g.: <br>
+<script type="math/tex" id="MathJax-Element-258">\Phi_{\mathscr{N}\geq0} = \Sigma_{i \geq 0}x^i =(\frac{1}{1-x})</script> has inverse <script type="math/tex" id="MathJax-Element-259">C(x) = 1 - x</script></p>
+
+<blockquote>
+  <p>Note: Multiplication of fps is symmetric therefore we can write <script type="math/tex" id="MathJax-Element-260">C(x)A(x)= (1-x)(1+x+x^2+....) = \\A(x)C(x) = (1+x+x^2+....)(1-x)</script> We write <script type="math/tex" id="MathJax-Element-261">C(x) = A^{-1}(x)</script> <br>
+  Check: <script type="math/tex" id="MathJax-Element-262">(1-x)(1+x+x^2+x^3 +) = 1 + x-x+x^2 -x^2 +x^3 -x ^3 +... \\= 1 + 0x + 0x^2 +... = 1</script></p>
+</blockquote>
+
+<p>Thm: The fps A(x) has an inverse if and only if <script type="math/tex" id="MathJax-Element-263">a_0 = [x^0] A(x)</script> is non-zero <br>
+Proof: (=&gt;) suppose C(x) is the inverse of A(x) <br>
+Then <script type="math/tex" id="MathJax-Element-264">[x^0]A(x)C(x) = [x^0](\Sigma_{i\geq0}a_ix^i)(\Sigma_{i\geq0}c_ix^i) \\= a_0c_0 = 1</script> <br>
+Therefore <script type="math/tex" id="MathJax-Element-265">a_0 \neq 0</script> <br>
+{&lt;=} Supposed <script type="math/tex" id="MathJax-Element-266">a_0 \neq0</script>. Then we can write <script type="math/tex" id="MathJax-Element-267">A(x) = a_0(1-xB(x))</script> where <script type="math/tex" id="MathJax-Element-268">B(x)=\frac{-a_1}{a_0} - \frac{a_2x}{a_0} + \frac{a_3x^2}{a_0} ...</script> <br>
+we claim <script type="math/tex" id="MathJax-Element-269">C(x) = \frac{1}{a_0} (1+ xB(x) + xB^2(x) + x^3B^3(x) + ...)</script> is a fps: note that it is xB(x) substituted into <script type="math/tex" id="MathJax-Element-270">\frac{1}{a_0}(1 + x + x^2 + x^3 ...)</script> and xB(x) has constant coefficient 0. Thus C(x) is a fps. <br>
+Then <script type="math/tex" id="MathJax-Element-271"> A(x)C(x) = a_0(1-xB(x))\frac{1}{a_0}(1+xB(x) + x^2B^2(x) ...) = 1 \\+ xB(x) - xB(x) + x^2B^2(x) - x^2B^2(x) ... = 1</script> <br>
+So <script type="math/tex" id="MathJax-Element-272">C(x) = A^{-1}(x)</script> by definition <script type="math/tex" id="MathJax-Element-273">\square</script></p>
+
+<p>eg. The inverse of <script type="math/tex" id="MathJax-Element-274">A(x) = 2 + 6x + 16x^2</script> is  <script type="math/tex" id="MathJax-Element-275">A(x) = 2(1+3x + 8x^2) = 2(1-x(-3-8x))</script>  <br>
+Then <script type="math/tex" id="MathJax-Element-276">A^{-1}(x) = \frac{1}{2} (1+x(-3-8x) + x^2(-3-8x)^2) +x^3(-3 -8x)^3 ...)</script> <br>
+It is usually more convenient to express this as <script type="math/tex" id="MathJax-Element-277">\frac{1}{2}\frac{1}{1-x(-3-8x)}=\frac{1}{2}\frac{1}{1+3x+8x^2}</script></p>
+
+<blockquote>
+  <p>Note that if A(x) has an inverse, then it is unique: Since if A(x)B(x) = 1 and A(x)C(x) =1. Then C(x)A(x)B(x) = C(x) =&gt; B(x) = C(x) <br>
+  Note that if A(x) has an inverse and B(x) has an inverse then A(x)B(x) has inverse <script type="math/tex" id="MathJax-Element-278">A^{-1}(x)B^{-1}(x)</script></p>
+</blockquote>
+
+
+
+<h3 id="lecture-7">Lecture 7</h3>
+
+<blockquote>
+  <p>eg. How many</p>
+</blockquote></body>
+</html>
+
+-->
