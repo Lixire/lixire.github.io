@@ -69,8 +69,17 @@
 <li><a href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
 </ul>
 </li>
+<li><a href="#lecture-7">Lecture - 7</a><ul>
+<li><a href="#operator-overloading">Operator Overloading</a></li>
+<li><a href="#overloading-and">Overloading &lt;&lt; and &gt;&gt;</a></li>
+<li><a href="#the-preprocessor">The Preprocessor</a></li>
+<li><a href="#separate-compilation">Separate Compilation</a></li>
+<li><a href="#compiling-separately">Compiling Separately</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</a></li>
 </ul>
 </div>
 </p>
@@ -307,7 +316,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-205">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-1">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -500,9 +509,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-206"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-2"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-207">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-3">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -603,7 +612,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-208">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-4">1 appear in file </script>2?</p>
 
 
 
@@ -671,7 +680,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-209">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-5">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -877,7 +886,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-210">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-6">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -1331,7 +1340,212 @@ Node *getMeANode(){
 
 Node *getMeANode(){ <span class="hljs-regexp">//</span>Ok - returns a ptr to Heap data - still alive - but don<span class="hljs-string">'t forget to delete it!
     return new Node;
-}</span></code></pre></body>
+}</span></code></pre>
+
+
+
+<h2 id="lecture-7">Lecture - 7</h2>
+
+
+
+<h3 id="operator-overloading">Operator Overloading</h3>
+
+<p>Give meanings to c++ operators for our own types <br>
+eg</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs">Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+    Vec v={v1.x + v2.x , v1.y + v2.y};
+    <span class="hljs-keyword">return</span> v;
+}
+
+Vec <span class="hljs-keyword">operator</span> *(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k, <span class="hljs-keyword">const</span> Vec &amp;v){
+    <span class="hljs-keyword">return</span> {k*v.x, k*v.y} <span class="hljs-comment">//okay since compiler knows that it's a vec based on the return type</span>
+}
+<span class="hljs-comment">// this only works when scalar is on the left (eg. k*v). To get v*k, we need to make another function.</span>
+Vec <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> Vec &amp;v, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k){
+    <span class="hljs-keyword">return</span> k*v;
+}</code></pre>
+
+
+
+<h3 id="overloading-and">Overloading &lt;&lt; and &gt;&gt;</h3>
+
+<p>Eg.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Grade{
+    <span class="hljs-keyword">int</span> theGrade;
+};
+
+ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;<span class="hljs-keyword">out</span>, <span class="hljs-keyword">const</span> Grade &amp;g){
+    <span class="hljs-keyword">out</span> &lt;&lt; g.theGrade &lt;&lt; <span class="hljs-string">'%'</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">out</span>
+}
+
+istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;<span class="hljs-keyword">in</span>, Grade &amp;g){
+    <span class="hljs-keyword">in</span> &gt;&gt; g.theGrade;
+    <span class="hljs-keyword">if</span>(g.theGrade &lt; <span class="hljs-number">0</span>) g.theGrade=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(g.theGrade&gt;<span class="hljs-number">100</span>) g.theGrade=<span class="hljs-number">100</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">in</span>;
+}</code></pre>
+
+
+
+<h3 id="the-preprocessor">The Preprocessor</h3>
+
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-7">\text{_____}</script> = preprocessor directive</p>
+
+<p>eg.<code>#include</code> <br>
+Including old C headers - new naming convention <br>
+eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#define VAR VALUE <span class="hljs-comment">//- sets a preprocessor variable, then all occurrences of VAR in the source file are replaced with VALUE</span></span>
+<span class="hljs-preprocessor">#define MAX 10</span>
+<span class="hljs-keyword">int</span> x[MAX] <span class="hljs-comment">//transformed to int x[10]. Was a cheap way of const from the old days (1970s) before const was a thing</span>
+
+<span class="hljs-preprocessor">#define FLAG <span class="hljs-comment">//sets the variable FLAG; Value is the empty string</span></span></code></pre>
+
+<p>Defined constants are useful for conditional compilation</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IOS 1</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> BBOS 2</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> OS IOS //(or BBOS)</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> OS==IOS</span>
+    <span class="hljs-keyword">short</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//Removed if OS!=IOS</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">elif</span> OS==BBOS</span>
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//this code is removed if OS!=BBOS</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span></code></pre>
+
+<p>Special Case</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> 0 //never true - all inner text is removed before it gets to the compiler</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span>
+<span class="hljs-comment">//heavy-duty "comment out"</span></code></pre>
+
+<p>Can also define symbols via compiler arguments</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">g++<span class="hljs-number">14</span> -DX=<span class="hljs-number">15</span> define.cc -o define</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-preprocessor">#ifdef NAME <span class="hljs-comment">//true if NAME has been defined</span></span>
+<span class="hljs-preprocessor">#ifndef NAME <span class="hljs-comment">//true if NAME HAS NOT been defined</span></span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-preprocessor">#ifdef DEBUG</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"setting x=1"</span> &lt;&lt;endl;
+    <span class="hljs-preprocessor">#endif</span>
+    <span class="hljs-keyword">int</span> x=<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span>(x&lt;<span class="hljs-number">10</span>){
+        ++x;
+        <span class="hljs-preprocessor">#ifdef DEBUG</span>
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"x is now"</span> &lt;&lt; endl;
+        <span class="hljs-preprocessor">#endif</span>
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs lua">gc++<span class="hljs-number">14</span> -DDEBUG <span class="hljs-built_in">debug</span>.cc -o <span class="hljs-built_in">debug</span>
+//enables <span class="hljs-built_in">debug</span> output</code></pre>
+
+
+
+<h3 id="separate-compilation">Separate Compilation</h3>
+
+<p>Split program into composable modules, with</p>
+
+<dl>
+<dt>Interface</dt>
+<dd>type definitions, prototypes for functions - .h file</dd>
+
+<dt>Implementation</dt>
+<dd>full definitions of functions - .cc file</dd>
+
+<dt><em>Recall</em>: declaration</dt>
+<dd>asserts existence</dd>
+
+<dd>def’n - full details - allocates space (for vars/f’ns)</dd>
+</dl>
+
+<p>E.g. Interface (vec.h)</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">struct Vec{
+    int x,y;
+}
+Vec operator +(const Vec &amp;v1, const Vec &amp;v2);
+<span class="hljs-keyword">...</span></code></pre>
+
+<p>main.cc</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
+int main(){
+    Vec v = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>};
+    v = v+v;
+    <span class="hljs-keyword">...</span>
+}
+//implied vec.cc
+
+<span class="hljs-comment">#include "vec.h" //we include vec.h here because we don't know what a vec is.</span>
+Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
+     <span class="hljs-keyword">...</span>
+     <span class="hljs-keyword">...</span>
+     <span class="hljs-keyword">...</span>
+}</code></pre>
+
+<blockquote>
+  <p>Recall: an entity can be declared many times, but defined at most once</p>
+</blockquote>
+
+
+
+<h3 id="compiling-separately">Compiling Separately</h3>
+
+
+
+<pre class="prettyprint"><code class=" hljs brainfuck"><span class="hljs-comment">g</span><span class="hljs-literal">+</span><span class="hljs-literal">+</span><span class="hljs-comment">14</span> <span class="hljs-literal">-</span><span class="hljs-comment">c</span> <span class="hljs-comment">vec</span><span class="hljs-string">.</span><span class="hljs-comment">cc</span>
+<span class="hljs-comment">g</span><span class="hljs-literal">+</span><span class="hljs-literal">+</span><span class="hljs-comment">14</span> <span class="hljs-literal">-</span><span class="hljs-comment">c</span> <span class="hljs-comment">main</span><span class="hljs-string">.</span><span class="hljs-comment">cc</span></code></pre>
+
+<blockquote>
+  <p><code>-c</code> -&gt; means compile only, do not link, do not build the executable. Produces an object file.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm">g++<span class="hljs-number">14</span> vec<span class="hljs-preprocessor">.o</span> main<span class="hljs-preprocessor">.o</span> -o main</code></pre>
+
+
+
+<h1 id="never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</h1>
+
+<p>Global var: <code>int globalNum;</code></p></body>
 </html>
 
 <!--
@@ -1407,8 +1621,17 @@ Node *getMeANode(){ <span class="hljs-regexp">//</span>Ok - returns a ptr to Hea
 <li><a href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
 </ul>
 </li>
+<li><a href="#lecture-7">Lecture - 7</a><ul>
+<li><a href="#operator-overloading">Operator Overloading</a></li>
+<li><a href="#overloading-and">Overloading &lt;&lt; and &gt;&gt;</a></li>
+<li><a href="#the-preprocessor">The Preprocessor</a></li>
+<li><a href="#separate-compilation">Separate Compilation</a></li>
+<li><a href="#compiling-separately">Compiling Separately</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</a></li>
 </ul>
 </div>
 </p>
@@ -1645,7 +1868,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-205">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-1">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -1838,9 +2061,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-206"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-2"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-207">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-3">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -1941,7 +2164,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-208">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-4">1 appear in file </script>2?</p>
 
 
 
@@ -2009,7 +2232,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-209">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-5">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -2215,7 +2438,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-210">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-6">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -2669,7 +2892,212 @@ Node *getMeANode(){
 
 Node *getMeANode(){ <span class="hljs-regexp">//</span>Ok - returns a ptr to Heap data - still alive - but don<span class="hljs-string">'t forget to delete it!
     return new Node;
-}</span></code></pre></body>
+}</span></code></pre>
+
+
+
+<h2 id="lecture-7">Lecture - 7</h2>
+
+
+
+<h3 id="operator-overloading">Operator Overloading</h3>
+
+<p>Give meanings to c++ operators for our own types <br>
+eg</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs">Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+    Vec v={v1.x + v2.x , v1.y + v2.y};
+    <span class="hljs-keyword">return</span> v;
+}
+
+Vec <span class="hljs-keyword">operator</span> *(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k, <span class="hljs-keyword">const</span> Vec &amp;v){
+    <span class="hljs-keyword">return</span> {k*v.x, k*v.y} <span class="hljs-comment">//okay since compiler knows that it's a vec based on the return type</span>
+}
+<span class="hljs-comment">// this only works when scalar is on the left (eg. k*v). To get v*k, we need to make another function.</span>
+Vec <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> Vec &amp;v, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k){
+    <span class="hljs-keyword">return</span> k*v;
+}</code></pre>
+
+
+
+<h3 id="overloading-and">Overloading &lt;&lt; and &gt;&gt;</h3>
+
+<p>Eg.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Grade{
+    <span class="hljs-keyword">int</span> theGrade;
+};
+
+ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;<span class="hljs-keyword">out</span>, <span class="hljs-keyword">const</span> Grade &amp;g){
+    <span class="hljs-keyword">out</span> &lt;&lt; g.theGrade &lt;&lt; <span class="hljs-string">'%'</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">out</span>
+}
+
+istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;<span class="hljs-keyword">in</span>, Grade &amp;g){
+    <span class="hljs-keyword">in</span> &gt;&gt; g.theGrade;
+    <span class="hljs-keyword">if</span>(g.theGrade &lt; <span class="hljs-number">0</span>) g.theGrade=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(g.theGrade&gt;<span class="hljs-number">100</span>) g.theGrade=<span class="hljs-number">100</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">in</span>;
+}</code></pre>
+
+
+
+<h3 id="the-preprocessor">The Preprocessor</h3>
+
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-7">\text{_____}</script> = preprocessor directive</p>
+
+<p>eg.<code>#include</code> <br>
+Including old C headers - new naming convention <br>
+eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#define VAR VALUE <span class="hljs-comment">//- sets a preprocessor variable, then all occurrences of VAR in the source file are replaced with VALUE</span></span>
+<span class="hljs-preprocessor">#define MAX 10</span>
+<span class="hljs-keyword">int</span> x[MAX] <span class="hljs-comment">//transformed to int x[10]. Was a cheap way of const from the old days (1970s) before const was a thing</span>
+
+<span class="hljs-preprocessor">#define FLAG <span class="hljs-comment">//sets the variable FLAG; Value is the empty string</span></span></code></pre>
+
+<p>Defined constants are useful for conditional compilation</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IOS 1</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> BBOS 2</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> OS IOS //(or BBOS)</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> OS==IOS</span>
+    <span class="hljs-keyword">short</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//Removed if OS!=IOS</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">elif</span> OS==BBOS</span>
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//this code is removed if OS!=BBOS</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span></code></pre>
+
+<p>Special Case</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> 0 //never true - all inner text is removed before it gets to the compiler</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span>
+<span class="hljs-comment">//heavy-duty "comment out"</span></code></pre>
+
+<p>Can also define symbols via compiler arguments</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-keyword">int</span> main(){
+    <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-bash hljs ">g++<span class="hljs-number">14</span> -DX=<span class="hljs-number">15</span> define.cc -o define</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-preprocessor">#ifdef NAME <span class="hljs-comment">//true if NAME has been defined</span></span>
+<span class="hljs-preprocessor">#ifndef NAME <span class="hljs-comment">//true if NAME HAS NOT been defined</span></span>
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-preprocessor">#ifdef DEBUG</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"setting x=1"</span> &lt;&lt;endl;
+    <span class="hljs-preprocessor">#endif</span>
+    <span class="hljs-keyword">int</span> x=<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span>(x&lt;<span class="hljs-number">10</span>){
+        ++x;
+        <span class="hljs-preprocessor">#ifdef DEBUG</span>
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"x is now"</span> &lt;&lt; endl;
+        <span class="hljs-preprocessor">#endif</span>
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl;
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class=" hljs lua">gc++<span class="hljs-number">14</span> -DDEBUG <span class="hljs-built_in">debug</span>.cc -o <span class="hljs-built_in">debug</span>
+//enables <span class="hljs-built_in">debug</span> output</code></pre>
+
+
+
+<h3 id="separate-compilation">Separate Compilation</h3>
+
+<p>Split program into composable modules, with</p>
+
+<dl>
+<dt>Interface</dt>
+<dd>type definitions, prototypes for functions - .h file</dd>
+
+<dt>Implementation</dt>
+<dd>full definitions of functions - .cc file</dd>
+
+<dt><em>Recall</em>: declaration</dt>
+<dd>asserts existence</dd>
+
+<dd>def’n - full details - allocates space (for vars/f’ns)</dd>
+</dl>
+
+<p>E.g. Interface (vec.h)</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">struct Vec{
+    int x,y;
+}
+Vec operator +(const Vec &amp;v1, const Vec &amp;v2);
+<span class="hljs-keyword">...</span></code></pre>
+
+<p>main.cc</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
+int main(){
+    Vec v = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>};
+    v = v+v;
+    <span class="hljs-keyword">...</span>
+}
+//implied vec.cc
+
+<span class="hljs-comment">#include "vec.h" //we include vec.h here because we don't know what a vec is.</span>
+Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
+     <span class="hljs-keyword">...</span>
+     <span class="hljs-keyword">...</span>
+     <span class="hljs-keyword">...</span>
+}</code></pre>
+
+<blockquote>
+  <p>Recall: an entity can be declared many times, but defined at most once</p>
+</blockquote>
+
+
+
+<h3 id="compiling-separately">Compiling Separately</h3>
+
+
+
+<pre class="prettyprint"><code class=" hljs brainfuck"><span class="hljs-comment">g</span><span class="hljs-literal">+</span><span class="hljs-literal">+</span><span class="hljs-comment">14</span> <span class="hljs-literal">-</span><span class="hljs-comment">c</span> <span class="hljs-comment">vec</span><span class="hljs-string">.</span><span class="hljs-comment">cc</span>
+<span class="hljs-comment">g</span><span class="hljs-literal">+</span><span class="hljs-literal">+</span><span class="hljs-comment">14</span> <span class="hljs-literal">-</span><span class="hljs-comment">c</span> <span class="hljs-comment">main</span><span class="hljs-string">.</span><span class="hljs-comment">cc</span></code></pre>
+
+<blockquote>
+  <p><code>-c</code> -&gt; means compile only, do not link, do not build the executable. Produces an object file.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm">g++<span class="hljs-number">14</span> vec<span class="hljs-preprocessor">.o</span> main<span class="hljs-preprocessor">.o</span> -o main</code></pre>
+
+
+
+<h1 id="never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</h1>
+
+<p>Global var: <code>int globalNum;</code></p></body>
 </html>
 
 -->
