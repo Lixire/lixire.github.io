@@ -56,6 +56,22 @@
 <li><a href="#law-of-total-probability">Law of Total Probability</a></li>
 </ul>
 </li>
+<li><a href="#lecture-9">Lecture - 9</a><ul>
+<li><a href="#bayes-rule">Bayes’ Rule</a></li>
+<li><a href="#machine-learning">Machine Learning</a></li>
+<li><a href="#monty-hall-problem">“Monty Hall” problem</a></li>
+<li><a href="#important-sums">Important Sums</a></li>
+</ul>
+</li>
+<li><a href="#lecture-10">Lecture - 10</a><ul>
+<li><a href="#ch-5-random-variables">Ch 5 Random Variables</a></li>
+</ul>
+</li>
+<li><a href="#lecture-11">Lecture - 11</a><ul>
+<li><a href="#properties-of-fx">Properties of F(x)</a></li>
+<li><a href="#discrete-uniform-52">Discrete Uniform (5.2)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -79,8 +95,8 @@ The likelihood of an event occuring</p>
 <h3 id="the-3-definitions-of-probability">The 3 Definitions of Probability</h3>
 
 <ol>
-<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-279">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
-<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-280">\infty</script> long) that the event occurs</li>
+<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-8">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
+<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-9">\infty</script> long) that the event occurs</li>
 <li>Subjective - Probability = how certain the person is that it will occur</li>
 </ol>
 
@@ -139,12 +155,12 @@ The likelihood of an event occuring</p>
   Experiment: Roll a 6-sided die repeatedly <br>
   Trial: One roll <br>
   Outcomes: 1, 2, … , 5, 6 <br>
-  <script type="math/tex" id="MathJax-Element-281">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
-  <script type="math/tex" id="MathJax-Element-282">S_2</script> = {even, odd} (also works)
+  <script type="math/tex" id="MathJax-Element-10">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
+  <script type="math/tex" id="MathJax-Element-11">S_2</script> = {even, odd} (also works)
 </blockquote></dd>
 
 <dt>Event</dt>
-<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-283">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-284">S</script>
+<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-12">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-13">S</script>
 
 <blockquote>
   Example <br>
@@ -160,14 +176,14 @@ The likelihood of an event occuring</p>
 
 <dt>A Probability</dt>
 <dd>
-<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-285">Real</script> numbers such that </p>
+<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-14">Real</script> numbers such that </p>
 
 <ol>
-<li><script type="math/tex" id="MathJax-Element-286">0 \leq P(A) \leq 1</script> for any A <br>
-<ul><li><script type="math/tex" id="MathJax-Element-287">0 =</script> “impossible”</li>
-<li><script type="math/tex" id="MathJax-Element-288">1 =</script> “guaranteed”</li></ul></li>
-<li>If <script type="math/tex" id="MathJax-Element-289">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-290">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
-<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-291">A_i = \{a_i\}</script> </li>
+<li><script type="math/tex" id="MathJax-Element-15">0 \leq P(A) \leq 1</script> for any A <br>
+<ul><li><script type="math/tex" id="MathJax-Element-16">0 =</script> “impossible”</li>
+<li><script type="math/tex" id="MathJax-Element-17">1 =</script> “guaranteed”</li></ul></li>
+<li>If <script type="math/tex" id="MathJax-Element-18">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-19">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
+<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-20">A_i = \{a_i\}</script> </li>
 <li>Example: Roll a 6-sided die twice. S = {(1,1), (1,2), … , (1,6), … , (6, 1), … , (6,6)}</li>
 <li>Example: BST. A Binary Search Tree is degenerate if each node has at most one child</li>
 <li>Find the prob. that a tree with 3 elements is degenerate: </li>
@@ -203,14 +219,14 @@ The likelihood of an event occuring</p>
 
 <h3 id="sampling">Sampling</h3>
 
-<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-292">m^k</script> choices. M spaces, k options.</p>
+<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-21">m^k</script> choices. M spaces, k options.</p>
 
 
 
 <h3 id="permutations">Permutations</h3>
 
-<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-293">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-294">n(n-1)...(n-k+1)</script> <br>
-Also <script type="math/tex" id="MathJax-Element-295">\frac{n!}{(n-k)!}</script></p>
+<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-22">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-23">n(n-1)...(n-k+1)</script> <br>
+Also <script type="math/tex" id="MathJax-Element-24">\frac{n!}{(n-k)!}</script></p>
 
 <blockquote>
   <p>Tip, if computing a certain permutation is hard, try 1 - opposite of what you want to find. Eg. Find P(of at least one repeat) turns into 1 - P(no repeats) which is easier.</p>
@@ -224,7 +240,7 @@ Also <script type="math/tex" id="MathJax-Element-295">\frac{n!}{(n-k)!}</script>
 
 <h3 id="combinations">Combinations</h3>
 
-<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-296">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
+<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-25">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
 
 <p>Some shit about pascal’s triangle that is super obvious</p>
 
@@ -248,7 +264,7 @@ A box of 10 computer chips containing 3 defective ones in the box. Four of the c
 Solution: <br>
 W/o rep &amp; don’t care about order.</p>
 
-<p><script type="math/tex" id="MathJax-Element-297">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
+<p><script type="math/tex" id="MathJax-Element-26">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
 
 <p>The whole time, we don’t care about order. (i.e. we don’t need to worry if the defective one is first, last or etc)</p>
 
@@ -261,21 +277,21 @@ W/o rep &amp; don’t care about order.</p>
 <h3 id="arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</h3>
 
 <blockquote>
-  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-298">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-299">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-300">n_k</script> is number of type k.</p>
+  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-27">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-28">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-29">n_k</script> is number of type k.</p>
 </blockquote>
 
 
 
 <h2 id="lecture-6">Lecture - 6</h2>
 
-<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-301">0 \leq P(A) \leq 1</script> <br>
+<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-30">0 \leq P(A) \leq 1</script> <br>
 Rules for probabilities <br>
-If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-302">P(A) \leq P(B)</script></p>
+If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-31">P(A) \leq P(B)</script></p>
 
-<p><script type="math/tex" id="MathJax-Element-303">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-304">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-305">= P(A) + (\geq 0)</script> <br>
-thus, <script type="math/tex" id="MathJax-Element-306">P(A) \leq P(B)</script></p>
+<p><script type="math/tex" id="MathJax-Element-32">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-33">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-34">= P(A) + (\geq 0)</script> <br>
+thus, <script type="math/tex" id="MathJax-Element-35">P(A) \leq P(B)</script></p>
 
 <p>A_bar , A^c, A^’, -&gt; NOT A. Aunion B = or. A intersect B = and.</p>
 
@@ -303,7 +319,7 @@ bar{aintersectB} = a_bar or b_bar</p>
 <h2 id="lecture-8">Lecture - 8</h2>
 
 <p>Recall: Independent: P(AB) = P(A)P(B) <br>
-Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-307">\frac{P(AB)}{P(B)}</script></p>
+Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-36">\frac{P(AB)}{P(B)}</script></p>
 
 <p>Last time we had <br>
 A = small = 3 <br>
@@ -366,12 +382,12 @@ The order doesn’t matter as long as each probability is conditional on what we
 
 <h3 id="law-of-total-probability">Law of Total Probability</h3>
 
-<p>Let <script type="math/tex" id="MathJax-Element-308">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-309">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-310">A_1 \cup ... \cup A_k = S</script></p>
+<p>Let <script type="math/tex" id="MathJax-Element-37">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-38">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-39">A_1 \cup ... \cup A_k = S</script></p>
 
 <p>(break S up into k disjoint pieces) This is a partition of S <br>
 e.g. A and A_bar is a partition of size 2. <br>
-For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-311">\cup_{i=1}^{k} (BA_i)</script> <br>
-So P(B) = <script type="math/tex" id="MathJax-Element-312">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
+For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-40">\cup_{i=1}^{k} (BA_i)</script> <br>
+So P(B) = <script type="math/tex" id="MathJax-Element-41">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
 
 <p>Example: <br>
 Three people A,B,C are writing code together. A produces twice as much as B or C</p>
@@ -393,7 +409,260 @@ We have P(E|A) = 0.01 <br>
 P(E|B) = 0.02 <br>
 P(E|C) = 0.05</p>
 
-<p>So <script type="math/tex" id="MathJax-Element-313">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p></body>
+<p>So <script type="math/tex" id="MathJax-Element-42">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p>
+
+
+
+<h2 id="lecture-9">Lecture - 9</h2>
+
+<p>We found P(E) = 0.0225 using law of total prob. We would like to know, if we find an error, whose fault is it? <br>
+We had to reverse the direction of the conditioning: we have P(E|author). We want P(author|E).</p>
+
+
+
+<h3 id="bayes-rule">Bayes’ Rule</h3>
+
+<p><script type="math/tex" id="MathJax-Element-43">P(A|B) = \frac{P(AB)}{P(B)} = \frac{P(A)P(B|A)}{P(B)}</script></p>
+
+<p>also written as <br>
+<script type="math/tex" id="MathJax-Element-44">P(A|B) = \frac{P(A)P(B|A)}{\Sigma_{i=1}^k P(A_i)P(B|A_i)}</script></p>
+
+<p>For this example: <br>
+<script type="math/tex" id="MathJax-Element-45">P(A|E) = \frac{0.5*0.01}{0.0225} = 0.222...</script></p>
+
+<p>Example</p>
+
+<blockquote>
+  <p>Your spam filter has 90% detection rate but 1% false positive rate. Suppose 25% of messages are spam</p>
+</blockquote>
+
+<p>Let S = “message is spam” P(S) = 0.25 P(S’) = 0.75 <br>
+I = “Identified as spam”  <br>
+P(I/S) = 0.9 -&gt; P(I’|S) = 0.0</p>
+
+<p>photo here&lt;&gt;</p>
+
+
+
+<h3 id="machine-learning">Machine Learning</h3>
+
+<p>Supervised learning -&gt; give some training data <br>
+Unsupervised learning -&gt; no training data</p>
+
+<dl>
+<dt>Types of Problems</dt>
+<dt>Classification</dt>
+<dd>spam vs non-spam email</dd>
+
+<dd>cancerous vs benign tumor</dd>
+
+<dd>fraudulent vs legit banking transactions</dd>
+
+<dt>Regression</dt>
+<dd>predict the price of house/stock</dd>
+
+<dd>length of recovery time</dd>
+
+<dt>Clustering</dt>
+<dd>grouping products together</dd>
+
+<dd>making recommendations</dd>
+</dl>
+
+<p>Bayesian Classifier <br>
+P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-46">\frac{P(cat1)P(ev|cat1)}{P(evidence)}</script></p>
+
+
+
+<h3 id="monty-hall-problem">“Monty Hall” problem</h3>
+
+<p>3 doors. 1 door is revealed to be a dud. Do you switch doors?</p>
+
+<p>Yes</p>
+
+
+
+<h3 id="important-sums">Important Sums</h3>
+
+<ol>
+<li>Geometric - <script type="math/tex" id="MathJax-Element-47">\frac{a}{1-r}</script></li>
+<li>Binomial - <script type="math/tex" id="MathJax-Element-48">(a+b)^n = \Sigma</script></li>
+</ol>
+
+
+
+<h2 id="lecture-10">Lecture - 10</h2>
+
+<p>Bayes’ Rule:</p>
+
+<blockquote>
+  <p>P(A|B) = <script type="math/tex" id="MathJax-Element-49">\frac{P(A)P(B|A)}{P(B)}</script> <br>
+  Product rule + law of total prob. A and A’ is a partition</p>
+</blockquote>
+
+
+
+<h3 id="ch-5-random-variables">Ch 5 Random Variables</h3>
+
+<blockquote>
+  <p>Def. A random variable (rv) is a function that maps points in a sample space to Real numbers</p>
+</blockquote>
+
+<p>The values that the rv can take on are called the RANGE of the rv. By convention, we call rvs X,Y,Z and the values, x,y,z <br>
+We are interested in finding the prob. that a rv X takes on one of it’s particular values. ie P(X =x) (outcome is a sample point that maps to x)</p>
+
+<p>There are two types of rvs, discrete -&gt; finite or countably infinite <strong>range</strong> vs continuous -&gt; incountably infinite <strong>range</strong></p>
+
+<p>More than one rv can be defined on the same S</p>
+
+<blockquote>
+  <p>eg roll 3 fair 6-sided dice. <br>
+  X = sum on 3 dice {3, … , 18} <br>
+  Y = avg value {1, … , 6} <br>
+  Z = the 3 digit number created by the dice <br>
+  W = the product of the 3 {1, 2, … , 216} <br>
+  U = number of 3s {1,2,3}  <br>
+  etc</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>Def. The probability factor (pf) of a discrete rv X is f(x) = P(X = x) and is only defined for x <script type="math/tex" id="MathJax-Element-50">\epsilon</script> range of X. f(x) if x does not belong in range is undefined or 0.</p>
+  
+  <dl>
+<dt>Properties of f(x)</dt>
+<dd><script type="math/tex" id="MathJax-Element-51">0 \leq f(x) \leq 1</script> for all x <script type="math/tex" id="MathJax-Element-52">\epsilon</script> range of f(x) . Why? it’s a probability</dd>
+
+<dd><script type="math/tex" id="MathJax-Element-53">\Sigma_{\text{all x}\ \epsilon \ \text{range}} f(x) = 1</script> The events “X = x” are mutually exclusive for each x</dd>
+</dl>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>Def. The cumulative distribution function (cdf) of the rv X is F(x) = P(X <script type="math/tex" id="MathJax-Element-54">\leq</script> x) and is defined for ALL Real x.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-11">Lecture - 11</h2>
+
+<blockquote>
+  <p>Recall: Random variable (X) maps sample points to Real numbers <br>
+  Probability function f(x) = P(X=x) <script type="math/tex" id="MathJax-Element-55">\forall</script> x <script type="math/tex" id="MathJax-Element-56">\epsilon</script> range <br>
+  Cumulative distribution function F(x) = P(<script type="math/tex" id="MathJax-Element-57">X \leq x</script>) <script type="math/tex" id="MathJax-Element-58">\forall</script> x <script type="math/tex" id="MathJax-Element-59">\epsilon R</script> </p>
+</blockquote>
+
+
+
+<h3 id="properties-of-fx">Properties of F(x)</h3>
+
+<ol>
+<li><script type="math/tex" id="MathJax-Element-60">0 \leq F(x) \leq 1</script> Why? it’s a probability</li>
+<li>F(x) is non-decreasing with respect to x . Why? Can’t lose probability when increasing x <br>
+<ol><li>Proof: the event “<script type="math/tex" id="MathJax-Element-61">X \leq a</script>” is contained in “<script type="math/tex" id="MathJax-Element-62">X \leq b</script>” where <script type="math/tex" id="MathJax-Element-63">a \leq b</script> so <script type="math/tex" id="MathJax-Element-64">F(a) \leq F(b)</script></li></ol></li>
+<li><script type="math/tex" id="MathJax-Element-65">lim_{x \rightarrow - \infty} F(x) = 0</script> where 0 is impossible</li>
+<li><script type="math/tex" id="MathJax-Element-66">lim_{x \rightarrow \infty} F(x) = 1</script> where 1 is guarenteed</li>
+</ol>
+
+<p>Example:</p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>0</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>125/216</td>
+  <td>75/216</td>
+  <td>15/216</td>
+  <td>1/216</td>
+</tr>
+<tr>
+  <td>F(x)</td>
+  <td>125/216</td>
+  <td>200/216</td>
+  <td>215/216</td>
+  <td>1</td>
+</tr>
+</tbody></table>
+
+
+<p>Let’s graph it to show what happens at other Real values of x. <br>
+<img src="http://i.stack.imgur.com/nzR9r.png"></p>
+
+<ul>
+<li>needs to approach one</li>
+<li>needs to approach zero</li>
+<li>right-step function (holes are filled on the left. empty on the right)</li>
+<li>On this image, needs to have an arrow from 0 going to the left</li>
+</ul>
+
+<p>Relationship between F and f <br>
+f(x) = the size of the jump in F(x) at the point x = F(x) - F(x-1) &lt;- which is the next smallest value in range</p>
+
+<p><script type="math/tex" id="MathJax-Element-67">F(x) = f(0) + f(1) + ... + f(\lfloor x \rfloor) = \Sigma_{i=0}^{\lfloor x \rfloor} f(i)</script> <br>
+We can use F(x) to find <script type="math/tex" id="MathJax-Element-68">P(a < X \leq b)</script> = P()</p>
+
+
+
+<h3 id="discrete-uniform-52">Discrete Uniform (5.2)</h3>
+
+<p>Let X be a rv on the range {a, a+1, …, b} where <script type="math/tex" id="MathJax-Element-69">a \leq b</script> &amp; a,b <script type="math/tex" id="MathJax-Element-70">\epsilon Z</script> where each value is equally likely. Then we say X has a discrete uniform distribution on [a , b] in other words, “X~DU[a,b]” . <em>X has a DU distribution of [a,b]</em></p>
+
+<p>e.g. </p>
+
+<ul>
+<li>fair die ~DU[1,6] </li>
+<li>position in a deck of one particular card ~ DU [1, 52]</li>
+</ul>
+
+<p>Find the pf f(x) = P(X = x) = c must be constant since all equal <br>
+We need <script type="math/tex" id="MathJax-Element-71">\Sigma_{x = a}^{b}f(x) = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-72">\Sigma_{x=a}^{b}c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-73">(b-a+1)c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-74">C = \frac{1}{b-a+1} = f(x) </script></p>
+
+<p>Find the cdf <br>
+<script type="math/tex; mode=display" id="MathJax-Element-75">\begin{equation}
+\begin{split}
+F(x) & = \Sigma_{i = a}^{\lfloor x \rfloor}f(i) \\ 
+& = \Sigma_{a}^{\lfloor x\rfloor} \frac{1}{b-a+1} \\
+F(x) & = 
+ \left\{
+\begin{array}{ll}
+      \frac{\lfloor x \rfloor -a + 1}{b-a+1} & a\leq x \leq b \\
+      0 & x < a\\
+      1 & x > b \\
+\end{array} 
+\right.
+\end{split}
+\end{equation}</script></p>
+
+<p>Example</p>
+
+<blockquote>
+  <p>You are looking through a linked list of 100 items for one particular item. Let X = # of comparisons to find it. Claim: X ~ DU [1, 100]</p>
+</blockquote>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-76">\begin{equation}
+\begin{split}
+f(1) &= P(X=1) = \frac{1}{100} \\
+f(2) & = P(X =2) \\
+& = P(X \neq 1)P(X=2|X\neq 1) \\
+& = \frac{99}{100}*\frac{1}{99} = \frac{1}{100} \\
+similarly, all f(x)  &= \frac{1}{100}
+\end{split}
+\end{equation}</script></p></body>
 </html>
 
 <!--
@@ -456,6 +725,22 @@ P(E|C) = 0.05</p>
 <li><a href="#law-of-total-probability">Law of Total Probability</a></li>
 </ul>
 </li>
+<li><a href="#lecture-9">Lecture - 9</a><ul>
+<li><a href="#bayes-rule">Bayes’ Rule</a></li>
+<li><a href="#machine-learning">Machine Learning</a></li>
+<li><a href="#monty-hall-problem">“Monty Hall” problem</a></li>
+<li><a href="#important-sums">Important Sums</a></li>
+</ul>
+</li>
+<li><a href="#lecture-10">Lecture - 10</a><ul>
+<li><a href="#ch-5-random-variables">Ch 5 Random Variables</a></li>
+</ul>
+</li>
+<li><a href="#lecture-11">Lecture - 11</a><ul>
+<li><a href="#properties-of-fx">Properties of F(x)</a></li>
+<li><a href="#discrete-uniform-52">Discrete Uniform (5.2)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -479,8 +764,8 @@ The likelihood of an event occuring</p>
 <h3 id="the-3-definitions-of-probability">The 3 Definitions of Probability</h3>
 
 <ol>
-<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-279">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
-<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-280">\infty</script> long) that the event occurs</li>
+<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-8">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
+<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-9">\infty</script> long) that the event occurs</li>
 <li>Subjective - Probability = how certain the person is that it will occur</li>
 </ol>
 
@@ -539,12 +824,12 @@ The likelihood of an event occuring</p>
   Experiment: Roll a 6-sided die repeatedly <br>
   Trial: One roll <br>
   Outcomes: 1, 2, … , 5, 6 <br>
-  <script type="math/tex" id="MathJax-Element-281">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
-  <script type="math/tex" id="MathJax-Element-282">S_2</script> = {even, odd} (also works)
+  <script type="math/tex" id="MathJax-Element-10">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
+  <script type="math/tex" id="MathJax-Element-11">S_2</script> = {even, odd} (also works)
 </blockquote></dd>
 
 <dt>Event</dt>
-<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-283">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-284">S</script>
+<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-12">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-13">S</script>
 
 <blockquote>
   Example <br>
@@ -560,14 +845,14 @@ The likelihood of an event occuring</p>
 
 <dt>A Probability</dt>
 <dd>
-<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-285">Real</script> numbers such that </p>
+<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-14">Real</script> numbers such that </p>
 
 <ol>
-<li><script type="math/tex" id="MathJax-Element-286">0 \leq P(A) \leq 1</script> for any A <br>
-<ul><li><script type="math/tex" id="MathJax-Element-287">0 =</script> “impossible”</li>
-<li><script type="math/tex" id="MathJax-Element-288">1 =</script> “guaranteed”</li></ul></li>
-<li>If <script type="math/tex" id="MathJax-Element-289">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-290">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
-<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-291">A_i = \{a_i\}</script> </li>
+<li><script type="math/tex" id="MathJax-Element-15">0 \leq P(A) \leq 1</script> for any A <br>
+<ul><li><script type="math/tex" id="MathJax-Element-16">0 =</script> “impossible”</li>
+<li><script type="math/tex" id="MathJax-Element-17">1 =</script> “guaranteed”</li></ul></li>
+<li>If <script type="math/tex" id="MathJax-Element-18">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-19">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
+<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-20">A_i = \{a_i\}</script> </li>
 <li>Example: Roll a 6-sided die twice. S = {(1,1), (1,2), … , (1,6), … , (6, 1), … , (6,6)}</li>
 <li>Example: BST. A Binary Search Tree is degenerate if each node has at most one child</li>
 <li>Find the prob. that a tree with 3 elements is degenerate: </li>
@@ -603,14 +888,14 @@ The likelihood of an event occuring</p>
 
 <h3 id="sampling">Sampling</h3>
 
-<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-292">m^k</script> choices. M spaces, k options.</p>
+<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-21">m^k</script> choices. M spaces, k options.</p>
 
 
 
 <h3 id="permutations">Permutations</h3>
 
-<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-293">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-294">n(n-1)...(n-k+1)</script> <br>
-Also <script type="math/tex" id="MathJax-Element-295">\frac{n!}{(n-k)!}</script></p>
+<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-22">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-23">n(n-1)...(n-k+1)</script> <br>
+Also <script type="math/tex" id="MathJax-Element-24">\frac{n!}{(n-k)!}</script></p>
 
 <blockquote>
   <p>Tip, if computing a certain permutation is hard, try 1 - opposite of what you want to find. Eg. Find P(of at least one repeat) turns into 1 - P(no repeats) which is easier.</p>
@@ -624,7 +909,7 @@ Also <script type="math/tex" id="MathJax-Element-295">\frac{n!}{(n-k)!}</script>
 
 <h3 id="combinations">Combinations</h3>
 
-<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-296">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
+<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-25">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
 
 <p>Some shit about pascal’s triangle that is super obvious</p>
 
@@ -648,7 +933,7 @@ A box of 10 computer chips containing 3 defective ones in the box. Four of the c
 Solution: <br>
 W/o rep &amp; don’t care about order.</p>
 
-<p><script type="math/tex" id="MathJax-Element-297">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
+<p><script type="math/tex" id="MathJax-Element-26">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
 
 <p>The whole time, we don’t care about order. (i.e. we don’t need to worry if the defective one is first, last or etc)</p>
 
@@ -661,21 +946,21 @@ W/o rep &amp; don’t care about order.</p>
 <h3 id="arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</h3>
 
 <blockquote>
-  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-298">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-299">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-300">n_k</script> is number of type k.</p>
+  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-27">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-28">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-29">n_k</script> is number of type k.</p>
 </blockquote>
 
 
 
 <h2 id="lecture-6">Lecture - 6</h2>
 
-<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-301">0 \leq P(A) \leq 1</script> <br>
+<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-30">0 \leq P(A) \leq 1</script> <br>
 Rules for probabilities <br>
-If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-302">P(A) \leq P(B)</script></p>
+If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-31">P(A) \leq P(B)</script></p>
 
-<p><script type="math/tex" id="MathJax-Element-303">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-304">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-305">= P(A) + (\geq 0)</script> <br>
-thus, <script type="math/tex" id="MathJax-Element-306">P(A) \leq P(B)</script></p>
+<p><script type="math/tex" id="MathJax-Element-32">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-33">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-34">= P(A) + (\geq 0)</script> <br>
+thus, <script type="math/tex" id="MathJax-Element-35">P(A) \leq P(B)</script></p>
 
 <p>A_bar , A^c, A^’, -&gt; NOT A. Aunion B = or. A intersect B = and.</p>
 
@@ -703,7 +988,7 @@ bar{aintersectB} = a_bar or b_bar</p>
 <h2 id="lecture-8">Lecture - 8</h2>
 
 <p>Recall: Independent: P(AB) = P(A)P(B) <br>
-Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-307">\frac{P(AB)}{P(B)}</script></p>
+Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-36">\frac{P(AB)}{P(B)}</script></p>
 
 <p>Last time we had <br>
 A = small = 3 <br>
@@ -766,12 +1051,12 @@ The order doesn’t matter as long as each probability is conditional on what we
 
 <h3 id="law-of-total-probability">Law of Total Probability</h3>
 
-<p>Let <script type="math/tex" id="MathJax-Element-308">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-309">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-310">A_1 \cup ... \cup A_k = S</script></p>
+<p>Let <script type="math/tex" id="MathJax-Element-37">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-38">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-39">A_1 \cup ... \cup A_k = S</script></p>
 
 <p>(break S up into k disjoint pieces) This is a partition of S <br>
 e.g. A and A_bar is a partition of size 2. <br>
-For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-311">\cup_{i=1}^{k} (BA_i)</script> <br>
-So P(B) = <script type="math/tex" id="MathJax-Element-312">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
+For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-40">\cup_{i=1}^{k} (BA_i)</script> <br>
+So P(B) = <script type="math/tex" id="MathJax-Element-41">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
 
 <p>Example: <br>
 Three people A,B,C are writing code together. A produces twice as much as B or C</p>
@@ -793,7 +1078,260 @@ We have P(E|A) = 0.01 <br>
 P(E|B) = 0.02 <br>
 P(E|C) = 0.05</p>
 
-<p>So <script type="math/tex" id="MathJax-Element-313">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p></body>
+<p>So <script type="math/tex" id="MathJax-Element-42">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p>
+
+
+
+<h2 id="lecture-9">Lecture - 9</h2>
+
+<p>We found P(E) = 0.0225 using law of total prob. We would like to know, if we find an error, whose fault is it? <br>
+We had to reverse the direction of the conditioning: we have P(E|author). We want P(author|E).</p>
+
+
+
+<h3 id="bayes-rule">Bayes’ Rule</h3>
+
+<p><script type="math/tex" id="MathJax-Element-43">P(A|B) = \frac{P(AB)}{P(B)} = \frac{P(A)P(B|A)}{P(B)}</script></p>
+
+<p>also written as <br>
+<script type="math/tex" id="MathJax-Element-44">P(A|B) = \frac{P(A)P(B|A)}{\Sigma_{i=1}^k P(A_i)P(B|A_i)}</script></p>
+
+<p>For this example: <br>
+<script type="math/tex" id="MathJax-Element-45">P(A|E) = \frac{0.5*0.01}{0.0225} = 0.222...</script></p>
+
+<p>Example</p>
+
+<blockquote>
+  <p>Your spam filter has 90% detection rate but 1% false positive rate. Suppose 25% of messages are spam</p>
+</blockquote>
+
+<p>Let S = “message is spam” P(S) = 0.25 P(S’) = 0.75 <br>
+I = “Identified as spam”  <br>
+P(I/S) = 0.9 -&gt; P(I’|S) = 0.0</p>
+
+<p>photo here&lt;&gt;</p>
+
+
+
+<h3 id="machine-learning">Machine Learning</h3>
+
+<p>Supervised learning -&gt; give some training data <br>
+Unsupervised learning -&gt; no training data</p>
+
+<dl>
+<dt>Types of Problems</dt>
+<dt>Classification</dt>
+<dd>spam vs non-spam email</dd>
+
+<dd>cancerous vs benign tumor</dd>
+
+<dd>fraudulent vs legit banking transactions</dd>
+
+<dt>Regression</dt>
+<dd>predict the price of house/stock</dd>
+
+<dd>length of recovery time</dd>
+
+<dt>Clustering</dt>
+<dd>grouping products together</dd>
+
+<dd>making recommendations</dd>
+</dl>
+
+<p>Bayesian Classifier <br>
+P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-46">\frac{P(cat1)P(ev|cat1)}{P(evidence)}</script></p>
+
+
+
+<h3 id="monty-hall-problem">“Monty Hall” problem</h3>
+
+<p>3 doors. 1 door is revealed to be a dud. Do you switch doors?</p>
+
+<p>Yes</p>
+
+
+
+<h3 id="important-sums">Important Sums</h3>
+
+<ol>
+<li>Geometric - <script type="math/tex" id="MathJax-Element-47">\frac{a}{1-r}</script></li>
+<li>Binomial - <script type="math/tex" id="MathJax-Element-48">(a+b)^n = \Sigma</script></li>
+</ol>
+
+
+
+<h2 id="lecture-10">Lecture - 10</h2>
+
+<p>Bayes’ Rule:</p>
+
+<blockquote>
+  <p>P(A|B) = <script type="math/tex" id="MathJax-Element-49">\frac{P(A)P(B|A)}{P(B)}</script> <br>
+  Product rule + law of total prob. A and A’ is a partition</p>
+</blockquote>
+
+
+
+<h3 id="ch-5-random-variables">Ch 5 Random Variables</h3>
+
+<blockquote>
+  <p>Def. A random variable (rv) is a function that maps points in a sample space to Real numbers</p>
+</blockquote>
+
+<p>The values that the rv can take on are called the RANGE of the rv. By convention, we call rvs X,Y,Z and the values, x,y,z <br>
+We are interested in finding the prob. that a rv X takes on one of it’s particular values. ie P(X =x) (outcome is a sample point that maps to x)</p>
+
+<p>There are two types of rvs, discrete -&gt; finite or countably infinite <strong>range</strong> vs continuous -&gt; incountably infinite <strong>range</strong></p>
+
+<p>More than one rv can be defined on the same S</p>
+
+<blockquote>
+  <p>eg roll 3 fair 6-sided dice. <br>
+  X = sum on 3 dice {3, … , 18} <br>
+  Y = avg value {1, … , 6} <br>
+  Z = the 3 digit number created by the dice <br>
+  W = the product of the 3 {1, 2, … , 216} <br>
+  U = number of 3s {1,2,3}  <br>
+  etc</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>Def. The probability factor (pf) of a discrete rv X is f(x) = P(X = x) and is only defined for x <script type="math/tex" id="MathJax-Element-50">\epsilon</script> range of X. f(x) if x does not belong in range is undefined or 0.</p>
+  
+  <dl>
+<dt>Properties of f(x)</dt>
+<dd><script type="math/tex" id="MathJax-Element-51">0 \leq f(x) \leq 1</script> for all x <script type="math/tex" id="MathJax-Element-52">\epsilon</script> range of f(x) . Why? it’s a probability</dd>
+
+<dd><script type="math/tex" id="MathJax-Element-53">\Sigma_{\text{all x}\ \epsilon \ \text{range}} f(x) = 1</script> The events “X = x” are mutually exclusive for each x</dd>
+</dl>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>Def. The cumulative distribution function (cdf) of the rv X is F(x) = P(X <script type="math/tex" id="MathJax-Element-54">\leq</script> x) and is defined for ALL Real x.</p>
+</blockquote>
+
+
+
+<h2 id="lecture-11">Lecture - 11</h2>
+
+<blockquote>
+  <p>Recall: Random variable (X) maps sample points to Real numbers <br>
+  Probability function f(x) = P(X=x) <script type="math/tex" id="MathJax-Element-55">\forall</script> x <script type="math/tex" id="MathJax-Element-56">\epsilon</script> range <br>
+  Cumulative distribution function F(x) = P(<script type="math/tex" id="MathJax-Element-57">X \leq x</script>) <script type="math/tex" id="MathJax-Element-58">\forall</script> x <script type="math/tex" id="MathJax-Element-59">\epsilon R</script> </p>
+</blockquote>
+
+
+
+<h3 id="properties-of-fx">Properties of F(x)</h3>
+
+<ol>
+<li><script type="math/tex" id="MathJax-Element-60">0 \leq F(x) \leq 1</script> Why? it’s a probability</li>
+<li>F(x) is non-decreasing with respect to x . Why? Can’t lose probability when increasing x <br>
+<ol><li>Proof: the event “<script type="math/tex" id="MathJax-Element-61">X \leq a</script>” is contained in “<script type="math/tex" id="MathJax-Element-62">X \leq b</script>” where <script type="math/tex" id="MathJax-Element-63">a \leq b</script> so <script type="math/tex" id="MathJax-Element-64">F(a) \leq F(b)</script></li></ol></li>
+<li><script type="math/tex" id="MathJax-Element-65">lim_{x \rightarrow - \infty} F(x) = 0</script> where 0 is impossible</li>
+<li><script type="math/tex" id="MathJax-Element-66">lim_{x \rightarrow \infty} F(x) = 1</script> where 1 is guarenteed</li>
+</ol>
+
+<p>Example:</p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>0</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>125/216</td>
+  <td>75/216</td>
+  <td>15/216</td>
+  <td>1/216</td>
+</tr>
+<tr>
+  <td>F(x)</td>
+  <td>125/216</td>
+  <td>200/216</td>
+  <td>215/216</td>
+  <td>1</td>
+</tr>
+</tbody></table>
+
+
+<p>Let’s graph it to show what happens at other Real values of x. <br>
+<img src="http://i.stack.imgur.com/nzR9r.png"></p>
+
+<ul>
+<li>needs to approach one</li>
+<li>needs to approach zero</li>
+<li>right-step function (holes are filled on the left. empty on the right)</li>
+<li>On this image, needs to have an arrow from 0 going to the left</li>
+</ul>
+
+<p>Relationship between F and f <br>
+f(x) = the size of the jump in F(x) at the point x = F(x) - F(x-1) &lt;- which is the next smallest value in range</p>
+
+<p><script type="math/tex" id="MathJax-Element-67">F(x) = f(0) + f(1) + ... + f(\lfloor x \rfloor) = \Sigma_{i=0}^{\lfloor x \rfloor} f(i)</script> <br>
+We can use F(x) to find <script type="math/tex" id="MathJax-Element-68">P(a < X \leq b)</script> = P()</p>
+
+
+
+<h3 id="discrete-uniform-52">Discrete Uniform (5.2)</h3>
+
+<p>Let X be a rv on the range {a, a+1, …, b} where <script type="math/tex" id="MathJax-Element-69">a \leq b</script> &amp; a,b <script type="math/tex" id="MathJax-Element-70">\epsilon Z</script> where each value is equally likely. Then we say X has a discrete uniform distribution on [a , b] in other words, “X~DU[a,b]” . <em>X has a DU distribution of [a,b]</em></p>
+
+<p>e.g. </p>
+
+<ul>
+<li>fair die ~DU[1,6] </li>
+<li>position in a deck of one particular card ~ DU [1, 52]</li>
+</ul>
+
+<p>Find the pf f(x) = P(X = x) = c must be constant since all equal <br>
+We need <script type="math/tex" id="MathJax-Element-71">\Sigma_{x = a}^{b}f(x) = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-72">\Sigma_{x=a}^{b}c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-73">(b-a+1)c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-74">C = \frac{1}{b-a+1} = f(x) </script></p>
+
+<p>Find the cdf <br>
+<script type="math/tex; mode=display" id="MathJax-Element-75">\begin{equation}
+\begin{split}
+F(x) & = \Sigma_{i = a}^{\lfloor x \rfloor}f(i) \\ 
+& = \Sigma_{a}^{\lfloor x\rfloor} \frac{1}{b-a+1} \\
+F(x) & = 
+ \left\{
+\begin{array}{ll}
+      \frac{\lfloor x \rfloor -a + 1}{b-a+1} & a\leq x \leq b \\
+      0 & x < a\\
+      1 & x > b \\
+\end{array} 
+\right.
+\end{split}
+\end{equation}</script></p>
+
+<p>Example</p>
+
+<blockquote>
+  <p>You are looking through a linked list of 100 items for one particular item. Let X = # of comparisons to find it. Claim: X ~ DU [1, 100]</p>
+</blockquote>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-76">\begin{equation}
+\begin{split}
+f(1) &= P(X=1) = \frac{1}{100} \\
+f(2) & = P(X =2) \\
+& = P(X \neq 1)P(X=2|X\neq 1) \\
+& = \frac{99}{100}*\frac{1}{99} = \frac{1}{100} \\
+similarly, all f(x)  &= \frac{1}{100}
+\end{split}
+\end{equation}</script></p></body>
 </html>
 
 -->

@@ -69,7 +69,7 @@
 <li><a href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
 </ul>
 </li>
-<li><a href="#lecture-7">Lecture - 7</a><ul>
+<li><a href="#lecture-7">Lecture 7</a><ul>
 <li><a href="#operator-overloading">Operator Overloading</a></li>
 <li><a href="#overloading-and">Overloading &lt;&lt; and &gt;&gt;</a></li>
 <li><a href="#the-preprocessor">The Preprocessor</a></li>
@@ -79,7 +79,13 @@
 </li>
 </ul>
 </li>
-<li><a href="#never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</a></li>
+<li><a href="#never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</a><ul>
+<li><a href="#lecture-8">Lecture 8</a><ul>
+<li><a href="#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </p>
@@ -1344,7 +1350,7 @@ Node *getMeANode(){ <span class="hljs-regexp">//</span>Ok - returns a ptr to Hea
 
 
 
-<h2 id="lecture-7">Lecture - 7</h2>
+<h2 id="lecture-7">Lecture 7</h2>
 
 
 
@@ -1545,7 +1551,276 @@ Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
 
 <h1 id="never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</h1>
 
-<p>Global var: <code>int globalNum;</code></p></body>
+<p>Global var: <code>int globalNum;</code></p>
+
+
+
+<h2 id="lecture-8">Lecture 8</h2>
+
+<p>vec.h</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+};
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> globalVar;
+Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2);</code></pre>
+
+<p>vec.cc</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
+int global Num;
+Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
+    <span class="hljs-keyword">...</span>
+}</code></pre>
+
+<p>Let’s write a linear algebra module <br>
+linalg.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+...</code></pre>
+
+<p>linalg.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<span class="hljs-preprocessor">#include "vec.h"</span>
+...</code></pre>
+
+<p>main.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<span class="hljs-preprocessor">#include "vec.h"</span>
+...</code></pre>
+
+<p>The above won’t compile:</p>
+
+<ul>
+<li>main.cc, linalg.cc include linalg.h, vec.h, linalg.h includes vec,h</li>
+<li>main.cc, linalg.cc get 2 copies of vec.h therefore struct vec defined twice. x</li>
+</ul>
+
+<blockquote>
+  <p>Need to prevent files from being included twice</p>
+</blockquote>
+
+<p>Sol’n: “include guard:” <br>
+vec.h </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#ifndef VEC_H</span>
+<span class="hljs-preprocessor">#define VEC_H</span>
+... file contents
+<span class="hljs-preprocessor">#endif</span></code></pre>
+
+<p>first time vec.h is included. Symbol VEC_H is not defined so file is included. After that, symbol is defined so vec.h is never included twice.</p>
+
+<p>Always - put include guards in .h files <br>
+Never - include .cc files - many many different functions. Included .cc file, you defined everything again and again and again.</p>
+
+<p>Never - put using namespace std in header files. This directive would be forced on any client that includes this file <br>
+- inside header files, always say std::cin, std::string etc.</p>
+
+
+
+<h3 id="classes">Classes</h3>
+
+<ul>
+<li>can put functions inside of structs</li>
+</ul>
+
+<p>eg.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
+    <span class="hljs-built_in">float</span> grade(){
+        <span class="hljs-keyword">return</span> assns*<span class="hljs-number">0.4</span> + mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+    }
+};
+Student s{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+cout &lt;&lt; s.grade() &lt;&lt; endl;</code></pre>
+
+<p>class </p>
+
+<ul>
+<li>a struct type that can contain f’ns</li>
+<li>c++ has a class keyword - we will use it later</li>
+</ul>
+
+<p>object</p>
+
+<ul>
+<li>an instance of a class</li>
+</ul>
+
+<p>eg: <code>Student</code> - class, <code>s</code> - object, <code>{60, 70, 80}</code></p>
+
+<p>The function grade - called a member function (or method) <br>
+What doe assns, mt, final inside of grade ( ) {…} mean? <br>
+- they are fields of the current object upon which grade was invoked</p>
+
+<p>e.g. </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs ">Student billy{<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>};
+billy.grade(); \\method call uses billy<span class="hljs-string">'s assns, mt, final</span></code></pre>
+
+<p>Formally: methods take a hidden extra parameter called this - ptr to the object on which the method was invoked. eg. billy.grade() &lt;- (this) == &amp;billy <br>
+can write</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
+    <span class="hljs-built_in">float</span> grade(){
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;assns *<span class="hljs-number">0.4</span> + <span class="hljs-keyword">this</span>-&gt;mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">this</span>-&gt;<span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+    }
+};</code></pre>
+
+<p>Initializing Objects</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs">Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//ok, but limited</span></code></pre>
+
+<p>Better: Write a method that does initialization: a constructor (ctor)</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade(){...}
+    Student(<span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final){
+        <span class="hljs-keyword">this</span>-&gt;assns = assns;
+        <span class="hljs-keyword">this</span>-&gt;mt = mt;
+        <span class="hljs-keyword">this</span>-&gt;final = final;
+    }
+}
+
+Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//better. Even though this looks the same as above, this calls a ctor if it has been defined. IF no ctor has been defined, these initialize the individual fields of student.</span></code></pre>
+
+<p>Head allocation:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs fix"><span class="hljs-attribute">Student xpBilly </span>=<span class="hljs-string"> new Student{60,70,80};</span></code></pre>
+
+<p>Advantages  of ctors: default params, overloading, sanity checks</p>
+
+<p>eg:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">struct Student{
+    <span class="hljs-keyword">...</span>
+    Student(<span class="hljs-keyword">in</span> assns = <span class="hljs-number">0</span>, int mt=<span class="hljs-number">0</span>, int final=<span class="hljs-number">0</span>){
+        this.assns = assns;
+        this.mt = mt;
+        this.final =final;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Note: Every class comes with a default (ie no-arg) ctor (which just default constructs all fields that are objects). <br>
+  eg.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs vhdl">Vec v; //<span class="hljs-keyword">default</span> ctor (does nothing <span class="hljs-keyword">in</span> this <span class="hljs-keyword">case</span>, the fields aren<span class="hljs-attribute">'t</span> objects)</code></pre>
+
+<p>But the built-in default ctor goes away if you provide a ctor <br>
+E.g.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y){
+        <span class="hljs-keyword">this</span>-&gt;x=x;
+        <span class="hljs-keyword">this</span>-&gt;y=y;
+    }
+}
+Vec v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>}; OK
+Vec v; XXXX</code></pre>
+
+<p>What if a struct contains consts or refs?</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> MyStruct{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> myConst; <span class="hljs-comment">//these two have to be initialized</span>
+    <span class="hljs-keyword">int</span> &amp;myRef;
+};
+
+<span class="hljs-keyword">int</span> z;
+<span class="hljs-keyword">struct</span> MyStuct {
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> myConst = <span class="hljs-number">5</span>; 
+    <span class="hljs-keyword">int</span> &amp;myRef=z;
+}; <span class="hljs-comment">//this is kind of bad since not every MyStruct wants the same val. Compiles, though</span></code></pre>
+
+<p>But does every instance of student need the same value of myConst, etc?</p>
+
+<p>Eg.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs objectivec"><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">id</span>; <span class="hljs-comment">//const (doesn't change) but not the same for all students.</span>
+}</code></pre>
+
+<p>Where do we initialize? ctor body? TOO LATE!</p>
+
+<p>Where do we initialize? ctor body? - too late - fields must be fully constructed by then.</p>
+
+<p>What happens when an object is created:</p>
+
+<ol>
+<li>space is allocated</li>
+<li>fields are constructed //need to put our initializations here</li>
+<li>ctor body runs</li>
+</ol>
+
+<p>How? - member initialization list (MIL)</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> id;
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    Student(<span class="hljs-keyword">int</span> id, <span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final):
+        id{id}, assns{assns}, mt{mt}, final{final} {}
+}</code></pre>
+
+<blockquote>
+  <p>Here: id - field, {id} - params <br>
+  Note: can initialize any field this way, not just const + refs <br>
+  Note: Fields initialized in the order in which they are declared in the class, even if the MIL orders them differently <br>
+  Note: MIL sometimes more efficient than setting fields in the body. (o/w - run default ctor, then reassign in the body) EMBRACE THE MIL! ALL HAIL. PRAISE BE.</p>
+</blockquote>
+
+<p>what if a field is initialized inline AND in the MIL?</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs rust"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">vec</span>(<span class="hljs-keyword">int</span> x); x{x} {}
+};</code></pre>
+
+<p>MIL takes precedence</p></body>
 </html>
 
 <!--
@@ -1621,7 +1896,7 @@ Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
 <li><a href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
 </ul>
 </li>
-<li><a href="#lecture-7">Lecture - 7</a><ul>
+<li><a href="#lecture-7">Lecture 7</a><ul>
 <li><a href="#operator-overloading">Operator Overloading</a></li>
 <li><a href="#overloading-and">Overloading &lt;&lt; and &gt;&gt;</a></li>
 <li><a href="#the-preprocessor">The Preprocessor</a></li>
@@ -1631,7 +1906,13 @@ Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
 </li>
 </ul>
 </li>
-<li><a href="#never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</a></li>
+<li><a href="#never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</a><ul>
+<li><a href="#lecture-8">Lecture 8</a><ul>
+<li><a href="#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </p>
@@ -2896,7 +3177,7 @@ Node *getMeANode(){ <span class="hljs-regexp">//</span>Ok - returns a ptr to Hea
 
 
 
-<h2 id="lecture-7">Lecture - 7</h2>
+<h2 id="lecture-7">Lecture 7</h2>
 
 
 
@@ -3097,7 +3378,276 @@ Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
 
 <h1 id="never-ever-ever-compile-h-files-ever">NEVER, EVER EVER COMPILE .h FILES, EVER</h1>
 
-<p>Global var: <code>int globalNum;</code></p></body>
+<p>Global var: <code>int globalNum;</code></p>
+
+
+
+<h2 id="lecture-8">Lecture 8</h2>
+
+<p>vec.h</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+};
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> globalVar;
+Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2);</code></pre>
+
+<p>vec.cc</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
+int global Num;
+Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
+    <span class="hljs-keyword">...</span>
+}</code></pre>
+
+<p>Let’s write a linear algebra module <br>
+linalg.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+...</code></pre>
+
+<p>linalg.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<span class="hljs-preprocessor">#include "vec.h"</span>
+...</code></pre>
+
+<p>main.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<span class="hljs-preprocessor">#include "vec.h"</span>
+...</code></pre>
+
+<p>The above won’t compile:</p>
+
+<ul>
+<li>main.cc, linalg.cc include linalg.h, vec.h, linalg.h includes vec,h</li>
+<li>main.cc, linalg.cc get 2 copies of vec.h therefore struct vec defined twice. x</li>
+</ul>
+
+<blockquote>
+  <p>Need to prevent files from being included twice</p>
+</blockquote>
+
+<p>Sol’n: “include guard:” <br>
+vec.h </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#ifndef VEC_H</span>
+<span class="hljs-preprocessor">#define VEC_H</span>
+... file contents
+<span class="hljs-preprocessor">#endif</span></code></pre>
+
+<p>first time vec.h is included. Symbol VEC_H is not defined so file is included. After that, symbol is defined so vec.h is never included twice.</p>
+
+<p>Always - put include guards in .h files <br>
+Never - include .cc files - many many different functions. Included .cc file, you defined everything again and again and again.</p>
+
+<p>Never - put using namespace std in header files. This directive would be forced on any client that includes this file <br>
+- inside header files, always say std::cin, std::string etc.</p>
+
+
+
+<h3 id="classes">Classes</h3>
+
+<ul>
+<li>can put functions inside of structs</li>
+</ul>
+
+<p>eg.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
+    <span class="hljs-built_in">float</span> grade(){
+        <span class="hljs-keyword">return</span> assns*<span class="hljs-number">0.4</span> + mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+    }
+};
+Student s{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+cout &lt;&lt; s.grade() &lt;&lt; endl;</code></pre>
+
+<p>class </p>
+
+<ul>
+<li>a struct type that can contain f’ns</li>
+<li>c++ has a class keyword - we will use it later</li>
+</ul>
+
+<p>object</p>
+
+<ul>
+<li>an instance of a class</li>
+</ul>
+
+<p>eg: <code>Student</code> - class, <code>s</code> - object, <code>{60, 70, 80}</code></p>
+
+<p>The function grade - called a member function (or method) <br>
+What doe assns, mt, final inside of grade ( ) {…} mean? <br>
+- they are fields of the current object upon which grade was invoked</p>
+
+<p>e.g. </p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs ">Student billy{<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>};
+billy.grade(); \\method call uses billy<span class="hljs-string">'s assns, mt, final</span></code></pre>
+
+<p>Formally: methods take a hidden extra parameter called this - ptr to the object on which the method was invoked. eg. billy.grade() &lt;- (this) == &amp;billy <br>
+can write</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
+    <span class="hljs-built_in">float</span> grade(){
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;assns *<span class="hljs-number">0.4</span> + <span class="hljs-keyword">this</span>-&gt;mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">this</span>-&gt;<span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+    }
+};</code></pre>
+
+<p>Initializing Objects</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs">Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//ok, but limited</span></code></pre>
+
+<p>Better: Write a method that does initialization: a constructor (ctor)</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade(){...}
+    Student(<span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final){
+        <span class="hljs-keyword">this</span>-&gt;assns = assns;
+        <span class="hljs-keyword">this</span>-&gt;mt = mt;
+        <span class="hljs-keyword">this</span>-&gt;final = final;
+    }
+}
+
+Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//better. Even though this looks the same as above, this calls a ctor if it has been defined. IF no ctor has been defined, these initialize the individual fields of student.</span></code></pre>
+
+<p>Head allocation:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs fix"><span class="hljs-attribute">Student xpBilly </span>=<span class="hljs-string"> new Student{60,70,80};</span></code></pre>
+
+<p>Advantages  of ctors: default params, overloading, sanity checks</p>
+
+<p>eg:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">struct Student{
+    <span class="hljs-keyword">...</span>
+    Student(<span class="hljs-keyword">in</span> assns = <span class="hljs-number">0</span>, int mt=<span class="hljs-number">0</span>, int final=<span class="hljs-number">0</span>){
+        this.assns = assns;
+        this.mt = mt;
+        this.final =final;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Note: Every class comes with a default (ie no-arg) ctor (which just default constructs all fields that are objects). <br>
+  eg.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class=" hljs vhdl">Vec v; //<span class="hljs-keyword">default</span> ctor (does nothing <span class="hljs-keyword">in</span> this <span class="hljs-keyword">case</span>, the fields aren<span class="hljs-attribute">'t</span> objects)</code></pre>
+
+<p>But the built-in default ctor goes away if you provide a ctor <br>
+E.g.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y){
+        <span class="hljs-keyword">this</span>-&gt;x=x;
+        <span class="hljs-keyword">this</span>-&gt;y=y;
+    }
+}
+Vec v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>}; OK
+Vec v; XXXX</code></pre>
+
+<p>What if a struct contains consts or refs?</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> MyStruct{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> myConst; <span class="hljs-comment">//these two have to be initialized</span>
+    <span class="hljs-keyword">int</span> &amp;myRef;
+};
+
+<span class="hljs-keyword">int</span> z;
+<span class="hljs-keyword">struct</span> MyStuct {
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> myConst = <span class="hljs-number">5</span>; 
+    <span class="hljs-keyword">int</span> &amp;myRef=z;
+}; <span class="hljs-comment">//this is kind of bad since not every MyStruct wants the same val. Compiles, though</span></code></pre>
+
+<p>But does every instance of student need the same value of myConst, etc?</p>
+
+<p>Eg.</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs objectivec"><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">id</span>; <span class="hljs-comment">//const (doesn't change) but not the same for all students.</span>
+}</code></pre>
+
+<p>Where do we initialize? ctor body? TOO LATE!</p>
+
+<p>Where do we initialize? ctor body? - too late - fields must be fully constructed by then.</p>
+
+<p>What happens when an object is created:</p>
+
+<ol>
+<li>space is allocated</li>
+<li>fields are constructed //need to put our initializations here</li>
+<li>ctor body runs</li>
+</ol>
+
+<p>How? - member initialization list (MIL)</p>
+
+
+
+<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> id;
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    Student(<span class="hljs-keyword">int</span> id, <span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final):
+        id{id}, assns{assns}, mt{mt}, final{final} {}
+}</code></pre>
+
+<blockquote>
+  <p>Here: id - field, {id} - params <br>
+  Note: can initialize any field this way, not just const + refs <br>
+  Note: Fields initialized in the order in which they are declared in the class, even if the MIL orders them differently <br>
+  Note: MIL sometimes more efficient than setting fields in the body. (o/w - run default ctor, then reassign in the body) EMBRACE THE MIL! ALL HAIL. PRAISE BE.</p>
+</blockquote>
+
+<p>what if a field is initialized inline AND in the MIL?</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs rust"><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">vec</span>(<span class="hljs-keyword">int</span> x); x{x} {}
+};</code></pre>
+
+<p>MIL takes precedence</p></body>
 </html>
 
 -->
