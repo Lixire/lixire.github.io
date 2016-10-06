@@ -84,6 +84,12 @@
 <li><a href="#classes">Classes</a></li>
 </ul>
 </li>
+<li><a href="#lecture-9">Lecture 9</a><ul>
+<li><a href="#uniform-initialization">Uniform Initialization</a></li>
+<li><a href="#destructors">Destructors</a></li>
+<li><a href="#copy-assignment-operator-the-one-everyone-gets-wrong-on-the-midterm-kekekek">Copy Assignment Operator - the one everyone gets wrong on the midterm kekekek</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -757,7 +763,7 @@ Regression testing</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//Hello world in C++:</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Hello world in C++:</span>
 <span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 <span class="hljs-keyword">int</span> main(){
@@ -825,7 +831,7 @@ std::endl = end of line</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
 <span class="hljs-keyword">using</span> nanospace <span class="hljs-built_in">std</span>
 <span class="hljs-comment">//above two lines are usually there even if teach doesn't write it (omit from now on)</span>
 <span class="hljs-keyword">int</span> main(){
@@ -861,7 +867,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
         <span class="hljs-built_in">cin</span> &gt;&gt; i;
@@ -880,7 +886,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v2.0</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//example v2.0</span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
@@ -907,7 +913,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v3.0</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//example v3.0</span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
@@ -918,7 +924,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v4.0</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//example v4.0</span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; i){
@@ -934,7 +940,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
         <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span>&gt;&gt;i)){
@@ -958,7 +964,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-built_in">string</span> s;
     <span class="hljs-built_in">cin</span> &gt;&gt; s; <span class="hljs-comment">//skip leading whitespace (stop at whitespace)</span>
     <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl; <span class="hljs-comment">//(therefore only reads one word)</span>
@@ -1013,7 +1019,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
 <span class="hljs-preprocessor">#include &lt;string&gt;</span>
 <span class="hljs-preprocessor">#include &lt;fstream&gt;</span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
@@ -1035,7 +1041,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include&lt;sstream&gt;</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include&lt;sstream&gt;</span>
 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">istringstream</span>
 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">ostringstream</span>
 <span class="hljs-comment">//-read from/write to a string</span>
@@ -1048,7 +1054,7 @@ ss &lt;&lt; <span class="hljs-string">"Enter a # btwn "</span> &lt;&lt; lo &lt;&
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> n;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> n;
 <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter a # "</span> &lt;&lt;endl;
     <span class="hljs-built_in">string</span> s;
@@ -1063,7 +1069,7 @@ ss &lt;&lt; <span class="hljs-string">"Enter a # btwn "</span> &lt;&lt; lo &lt;&
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-built_in">string</span> s;
     <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; s){
         <span class="hljs-built_in">istringstream</span> ss {s};
@@ -1112,10 +1118,10 @@ Concat: s3 = s1 + s2;   s3 += s4</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs mel">void printWordsInFile(<span class="hljs-keyword">string</span> name = <span class="hljs-string">"suite.txt"</span>){
-    ifstream <span class="hljs-keyword">file</span> {name};
-    <span class="hljs-keyword">string</span> s;
-    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">file</span> &gt;&gt; s) cout &lt;&lt; s &lt;&lt; endl;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> printWordsInFile(<span class="hljs-built_in">string</span> name = <span class="hljs-string">"suite.txt"</span>){
+    ifstream file {name};
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-keyword">while</span> (file &gt;&gt; s) <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl;
 }
 printWordsInFile(<span class="hljs-string">"suite2.txt"</span>);
 printWordsInFile(); <span class="hljs-comment">//uses stuite.txt</span></code></pre>
@@ -1154,14 +1160,14 @@ Overloads must differ in # or types of args - may not differ on just return type
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node {
     <span class="hljs-keyword">int</span> data;
     Node *next;
 };</code></pre>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node {
     <span class="hljs-keyword">int</span> data;
     Node next; <span class="hljs-comment">//what's wrong? This makes the struct have no finite size since</span>
     <span class="hljs-comment">// this contains a node in a node in a node ... etc which has no calculable size</span>
@@ -1190,11 +1196,11 @@ Overloads must differ in # or types of args - may not differ on just return type
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs r">void inc (int n){++n;}
-<span class="hljs-keyword">...</span>
-int x=<span class="hljs-number">5</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> inc (<span class="hljs-keyword">int</span> n){++n;}
+...
+<span class="hljs-keyword">int</span> x=<span class="hljs-number">5</span>;
 inc(x);
-cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">5</span></code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl; <span class="hljs-comment">//prints 5</span></code></pre>
 
 <p>call-by-value-inc gets a copy of x, increments the copy, original unchanged</p>
 
@@ -1202,11 +1208,11 @@ cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">5</span></code
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs r">void inc(int *n){(*n)++;}
-<span class="hljs-keyword">...</span>
-int x=<span class="hljs-number">5</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> inc(<span class="hljs-keyword">int</span> *n){(*n)++;}
+...
+<span class="hljs-keyword">int</span> x=<span class="hljs-number">5</span>;
 inc(&amp;x);
-cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">6</span></code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl; <span class="hljs-comment">//prints 6</span></code></pre>
 
 <blockquote>
   <p>Q: why cin &gt;&gt; x and not cin &gt;&gt; &amp;x ? <br>
@@ -1219,7 +1225,7 @@ cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">6</span></code
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">int</span> y = <span class="hljs-number">10</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> y = <span class="hljs-number">10</span>;
 <span class="hljs-keyword">int</span> &amp;z = y; <span class="hljs-comment">//z is an lvalue reference to y. Like a const ptr.</span>
 <span class="hljs-comment">//similar to int *const z = &amp;y;</span></code></pre>
 
@@ -1228,7 +1234,7 @@ z -&gt; y [10]</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs">z = <span class="hljs-number">12</span>; <span class="hljs-comment">//(NOT *z = 12)</span>
+<pre class="prettyprint"><code class="language-cpp hljs ">z = <span class="hljs-number">12</span>; <span class="hljs-comment">//(NOT *z = 12)</span>
 <span class="hljs-comment">//(now, y == 12)</span>
 
 <span class="hljs-keyword">int</span> *p = &amp;z; <span class="hljs-comment">// gives the address of y</span></code></pre>
@@ -1274,7 +1280,7 @@ eg: <code>struct Really Big { ... }</code>,</li>
 
 
 
-<pre class="prettyprint"><code class="language-c (++ I dunno why it doesn't recg. c++) hljs "><span class="hljs-keyword">int</span> f(ReallyBig rb){ ... }; <span class="hljs-comment">// really slow</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> f(ReallyBig rb){ ... }; <span class="hljs-comment">// really slow</span>
 <span class="hljs-keyword">int</span> g(ReallyBig &amp;rb){ ... }; <span class="hljs-comment">// &amp;rb is now an alias - fast. Downside is that rb can be changed by the f'n. You don't know.</span>
 <span class="hljs-keyword">int</span> h(<span class="hljs-keyword">const</span> ReallyBig &amp;rb) { ... }; <span class="hljs-comment">// really fast and param can't be changed. woah</span></code></pre>
 
@@ -1284,7 +1290,7 @@ eg: <code>struct Really Big { ... }</code>,</li>
 
 
 
-<pre class="prettyprint"><code class="language-c (++) same hljs ">f(<span class="hljs-number">5</span>); <span class="hljs-comment">// won't compile. can't initialize an lvalue ref (n) to a literal value. if n changes, can't change the literal 5.</span>
+<pre class="prettyprint"><code class="language-cpp hljs ">f(<span class="hljs-number">5</span>); <span class="hljs-comment">// won't compile. can't initialize an lvalue ref (n) to a literal value. if n changes, can't change the literal 5.</span>
 g(<span class="hljs-number">5</span>); <span class="hljs-comment">//is a-OK since n can never be changed. Compiler allows this. How? compiler creates a temp location to hold the 5, so the reference n has something to point to.</span></code></pre>
 
 
@@ -1307,14 +1313,14 @@ g(<span class="hljs-number">5</span>); <span class="hljs-comment">//is a-OK sinc
 
 
 
-<pre class="prettyprint"><code class=" hljs r">struct Node {
-    int data;
-    Node *<span class="hljs-keyword">next</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
 };
 
-Node *np = new Node;
-<span class="hljs-keyword">...</span>
-delete np;</code></pre>
+Node *np = <span class="hljs-keyword">new</span> Node;
+...
+<span class="hljs-keyword">delete</span> np;</code></pre>
 
 <ul>
 <li>all local vars reside on the stack - vars are deallocated when they go out of scope (stack is popped).</li>
@@ -1326,9 +1332,9 @@ delete np;</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs r">Node *np = new Node[<span class="hljs-number">10</span>];
-<span class="hljs-keyword">...</span>
-delete [np];</code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Node *np = <span class="hljs-keyword">new</span> Node[<span class="hljs-number">10</span>];
+...
+<span class="hljs-keyword">delete</span> [np];</code></pre>
 
 
 
@@ -1361,13 +1367,13 @@ eg</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
     <span class="hljs-keyword">int</span> x,y;
 }</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs">Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
     Vec v={v1.x + v2.x , v1.y + v2.y};
     <span class="hljs-keyword">return</span> v;
 }
@@ -1388,20 +1394,20 @@ Vec <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Grade{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Grade{
     <span class="hljs-keyword">int</span> theGrade;
 };
 
-ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;<span class="hljs-keyword">out</span>, <span class="hljs-keyword">const</span> Grade &amp;g){
-    <span class="hljs-keyword">out</span> &lt;&lt; g.theGrade &lt;&lt; <span class="hljs-string">'%'</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">out</span>
+ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;out, <span class="hljs-keyword">const</span> Grade &amp;g){
+    out &lt;&lt; g.theGrade &lt;&lt; <span class="hljs-string">'%'</span>;
+    <span class="hljs-keyword">return</span> out
 }
 
-istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;<span class="hljs-keyword">in</span>, Grade &amp;g){
-    <span class="hljs-keyword">in</span> &gt;&gt; g.theGrade;
+istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in, Grade &amp;g){
+    in &gt;&gt; g.theGrade;
     <span class="hljs-keyword">if</span>(g.theGrade &lt; <span class="hljs-number">0</span>) g.theGrade=<span class="hljs-number">0</span>;
     <span class="hljs-keyword">if</span>(g.theGrade&gt;<span class="hljs-number">100</span>) g.theGrade=<span class="hljs-number">100</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">in</span>;
+    <span class="hljs-keyword">return</span> in;
 }</code></pre>
 
 
@@ -1416,7 +1422,7 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#define VAR VALUE <span class="hljs-comment">//- sets a preprocessor variable, then all occurrences of VAR in the source file are replaced with VALUE</span></span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#define VAR VALUE <span class="hljs-comment">//- sets a preprocessor variable, then all occurrences of VAR in the source file are replaced with VALUE</span></span>
 <span class="hljs-preprocessor">#define MAX 10</span>
 <span class="hljs-keyword">int</span> x[MAX] <span class="hljs-comment">//transformed to int x[10]. Was a cheap way of const from the old days (1970s) before const was a thing</span>
 
@@ -1426,28 +1432,28 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IOS 1</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> BBOS 2</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> OS IOS //(or BBOS)</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> OS==IOS</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#define IOS 1</span>
+<span class="hljs-preprocessor">#define BBOS 2</span>
+<span class="hljs-preprocessor">#define OS IOS <span class="hljs-comment">//(or BBOS)</span></span>
+<span class="hljs-preprocessor">#if OS==IOS</span>
     <span class="hljs-keyword">short</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//Removed if OS!=IOS</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">elif</span> OS==BBOS</span>
+<span class="hljs-preprocessor">#elif OS==BBOS</span>
     <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//this code is removed if OS!=BBOS</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span></code></pre>
+<span class="hljs-preprocessor">#endif</span></code></pre>
 
 <p>Special Case</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> 0 //never true - all inner text is removed before it gets to the compiler</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#if 0 <span class="hljs-comment">//never true - all inner text is removed before it gets to the compiler</span></span>
+<span class="hljs-preprocessor">#endif</span>
 <span class="hljs-comment">//heavy-duty "comment out"</span></code></pre>
 
 <p>Can also define symbols via compiler arguments</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl;
 }</code></pre>
 
@@ -1457,7 +1463,7 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-preprocessor">#ifdef NAME <span class="hljs-comment">//true if NAME has been defined</span></span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#ifdef NAME <span class="hljs-comment">//true if NAME has been defined</span></span>
 <span class="hljs-preprocessor">#ifndef NAME <span class="hljs-comment">//true if NAME HAS NOT been defined</span></span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-preprocessor">#ifdef DEBUG</span>
@@ -1501,29 +1507,29 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class=" hljs r">struct Vec{
-    int x,y;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
 }
-Vec operator +(const Vec &amp;v1, const Vec &amp;v2);
-<span class="hljs-keyword">...</span></code></pre>
+Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2);
+...</code></pre>
 
 <p>main.cc</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
-int main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+<span class="hljs-keyword">int</span> main(){
     Vec v = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>};
     v = v+v;
-    <span class="hljs-keyword">...</span>
+    ...
 }
-//implied vec.cc
+<span class="hljs-comment">//implied vec.cc</span>
 
-<span class="hljs-comment">#include "vec.h" //we include vec.h here because we don't know what a vec is.</span>
-Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
-     <span class="hljs-keyword">...</span>
-     <span class="hljs-keyword">...</span>
-     <span class="hljs-keyword">...</span>
+<span class="hljs-preprocessor">#include "vec.h" <span class="hljs-comment">//we include vec.h here because we don't know what a vec is.</span></span>
+Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+     ...
+     ...
+     ...
 }</code></pre>
 
 <blockquote>
@@ -1561,7 +1567,7 @@ Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
     <span class="hljs-keyword">int</span> x,y;
 };
 <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> globalVar;
@@ -1571,10 +1577,10 @@ Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const
 
 
 
-<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
-int global Num;
-Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
-    <span class="hljs-keyword">...</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+<span class="hljs-keyword">int</span> global Num;
+Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+    ...
 }</code></pre>
 
 <p>Let’s write a linear algebra module <br>
@@ -1582,14 +1588,14 @@ linalg.h</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
 ...</code></pre>
 
 <p>linalg.cc</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
 <span class="hljs-preprocessor">#include "vec.h"</span>
 ...</code></pre>
 
@@ -1597,7 +1603,7 @@ linalg.h</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
 <span class="hljs-preprocessor">#include "vec.h"</span>
 ...</code></pre>
 
@@ -1617,7 +1623,7 @@ vec.h </p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#ifndef VEC_H</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#ifndef VEC_H</span>
 <span class="hljs-preprocessor">#define VEC_H</span>
 ... file contents
 <span class="hljs-preprocessor">#endif</span></code></pre>
@@ -1642,14 +1648,14 @@ Never - include .cc files - many many different functions. Included .cc file, yo
 
 
 
-<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
-    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
-    <span class="hljs-built_in">float</span> grade(){
-        <span class="hljs-keyword">return</span> assns*<span class="hljs-number">0.4</span> + mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade(){
+        <span class="hljs-keyword">return</span> assns*<span class="hljs-number">0.4</span> + mt*<span class="hljs-number">0.2</span> + final*<span class="hljs-number">0.4</span>;
     }
 };
 Student s{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
-cout &lt;&lt; s.grade() &lt;&lt; endl;</code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; s.grade() &lt;&lt; endl;</code></pre>
 
 <p>class </p>
 
@@ -1674,7 +1680,7 @@ What doe assns, mt, final inside of grade ( ) {…} mean? <br>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs ">Student billy{<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>};
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy{<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>};
 billy.grade(); \\method call uses billy<span class="hljs-string">'s assns, mt, final</span></code></pre>
 
 <p>Formally: methods take a hidden extra parameter called this - ptr to the object on which the method was invoked. eg. billy.grade() &lt;- (this) == &amp;billy <br>
@@ -1682,10 +1688,10 @@ can write</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
-    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
-    <span class="hljs-built_in">float</span> grade(){
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;assns *<span class="hljs-number">0.4</span> + <span class="hljs-keyword">this</span>-&gt;mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">this</span>-&gt;<span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade(){
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;assns *<span class="hljs-number">0.4</span> + <span class="hljs-keyword">this</span>-&gt;mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">this</span>-&gt;final*<span class="hljs-number">0.4</span>;
     }
 };</code></pre>
 
@@ -1693,13 +1699,13 @@ can write</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs">Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//ok, but limited</span></code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//ok, but limited</span></code></pre>
 
 <p>Better: Write a method that does initialization: a constructor (ctor)</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
     <span class="hljs-keyword">int</span> assns, mt, final;
     <span class="hljs-keyword">float</span> grade(){...}
     Student(<span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final){
@@ -1715,7 +1721,7 @@ Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70
 
 
 
-<pre class="prettyprint"><code class=" hljs fix"><span class="hljs-attribute">Student xpBilly </span>=<span class="hljs-string"> new Student{60,70,80};</span></code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Student xpBilly = <span class="hljs-keyword">new</span> Student{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};</code></pre>
 
 <p>Advantages  of ctors: default params, overloading, sanity checks</p>
 
@@ -1723,12 +1729,12 @@ Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70
 
 
 
-<pre class="prettyprint"><code class=" hljs r">struct Student{
-    <span class="hljs-keyword">...</span>
-    Student(<span class="hljs-keyword">in</span> assns = <span class="hljs-number">0</span>, int mt=<span class="hljs-number">0</span>, int final=<span class="hljs-number">0</span>){
-        this.assns = assns;
-        this.mt = mt;
-        this.final =final;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    Student(in assns = <span class="hljs-number">0</span>, <span class="hljs-keyword">int</span> mt=<span class="hljs-number">0</span>, <span class="hljs-keyword">int</span> final=<span class="hljs-number">0</span>){
+        <span class="hljs-keyword">this</span>.assns = assns;
+        <span class="hljs-keyword">this</span>.mt = mt;
+        <span class="hljs-keyword">this</span>.final =final;
     }
 }</code></pre>
 
@@ -1739,14 +1745,14 @@ Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70
 
 
 
-<pre class="prettyprint"><code class=" hljs vhdl">Vec v; //<span class="hljs-keyword">default</span> ctor (does nothing <span class="hljs-keyword">in</span> this <span class="hljs-keyword">case</span>, the fields aren<span class="hljs-attribute">'t</span> objects)</code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec v; <span class="hljs-comment">//default ctor (does nothing in this case, the fields aren't objects)</span></code></pre>
 
 <p>But the built-in default ctor goes away if you provide a ctor <br>
 E.g.</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
     <span class="hljs-keyword">int</span> x,y;
     Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y){
         <span class="hljs-keyword">this</span>-&gt;x=x;
@@ -1760,7 +1766,7 @@ Vec v; XXXX</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> MyStruct{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> MyStruct{
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> myConst; <span class="hljs-comment">//these two have to be initialized</span>
     <span class="hljs-keyword">int</span> &amp;myRef;
 };
@@ -1777,8 +1783,8 @@ Vec v; XXXX</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs objectivec"><span class="hljs-keyword">struct</span> Student{
-    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">id</span>; <span class="hljs-comment">//const (doesn't change) but not the same for all students.</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> id; <span class="hljs-comment">//const (doesn't change) but not the same for all students.</span>
 }</code></pre>
 
 <p>Where do we initialize? ctor body? TOO LATE!</p>
@@ -1797,7 +1803,7 @@ Vec v; XXXX</code></pre>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> id;
     <span class="hljs-keyword">int</span> assns, mt, final;
     Student(<span class="hljs-keyword">int</span> id, <span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final):
@@ -1820,7 +1826,222 @@ Vec v; XXXX</code></pre>
     <span class="hljs-keyword">vec</span>(<span class="hljs-keyword">int</span> x); x{x} {}
 };</code></pre>
 
-<p>MIL takes precedence</p></body>
+<p>MIL takes precedence</p>
+
+
+
+<h2 id="lecture-9">Lecture 9</h2>
+
+
+
+<h3 id="uniform-initialization">Uniform Initialization</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">int</span> x(<span class="hljs-number">5</span>);
+<span class="hljs-built_in">string</span> s = <span class="hljs-string">"hello"</span>;
+<span class="hljs-built_in">string</span> s(<span class="hljs-string">"hello"</span>);
+Student billy(<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>);
+<span class="hljs-comment">//preferred (cs246 doesn't care which init you use though). This was updated as of a few years ago.</span>
+<span class="hljs-keyword">int</span> x{<span class="hljs-number">5</span>};
+<span class="hljs-built_in">string</span> s{<span class="hljs-string">"hello"</span>};
+Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};</code></pre>
+
+<p>Now consider:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+Student bobby = billy; <span class="hljs-comment">//-how does this init happen? the COPY CONSTRUCTOR. For constructing one object as a copy of another</span></code></pre>
+
+<blockquote>
+  <p>Note: Every class comes with:</p>
+  
+  <ul>
+  <li>default ctor (default constructs all fields that are objects) <br>
+  <ul><li>copy ctor (just copies all the fields)</li>
+  <li>copy assignment operator</li>
+  <li>destructor</li>
+  <li>move ctor</li>
+  <li>move assignment operator</li></ul></li>
+  </ul>
+</blockquote>
+
+<p>Building your own copy ctor:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns,mt,final;
+    Student(...) {...}
+    Student(<span class="hljs-keyword">const</span> Student &amp;other): assns {assns}, mt {mt}, final {final} {}
+}; <span class="hljs-comment">//equiv. to built in</span></code></pre>
+
+<p>When is the built-in copy ctor not correct?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next
+    Node(<span class="hljs-keyword">int</span> data, Node *next): data {data}, next{next} {}
+    ...
+};
+Node *n = <span class="hljs-keyword">new</span> Node {<span class="hljs-number">1</span>, <span class="hljs-keyword">new</span> Node {<span class="hljs-number">2</span>, <span class="hljs-keyword">new</span> Node {<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>}}};
+Node m = *n;
+Node *p =<span class="hljs-keyword">new</span> Node{*n};</code></pre>
+
+<p><img src="http://amyqiu.me/Notes/pointer.png"> <br>
+Simple copy of fields -&gt; only the first node is actually copied (<em>shallow copy</em>) <br>
+If you want a <em>deep copy</em> (copies the whole list),  must write your own copy ctor:</p>
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    Node(<span class="hljs-keyword">const</span> Node &amp;other): data{other.data}, next{ other.next? <span class="hljs-keyword">new</span> Node (*other.next) : <span class="hljs-keyword">nullptr</span>}{}
+} <span class="hljs-comment">//we have some sneaky recursion going on here. This recursively invokes the copy ctor + copies the rest of the list</span></code></pre>
+
+<p>The copy ctor is called:</p>
+
+<ol>
+<li>When an object initializes another object</li>
+<li>When an object is passed by value</li>
+<li>When an object is returned by value (* - not always)</li>
+</ol>
+
+<blockquote>
+  <p>Note: Careful with ctors that can take ONE parameter:</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    Node(<span class="hljs-keyword">int</span> data): data{data}, next{<span class="hljs-keyword">nullptr</span>}{}
+};</code></pre>
+
+<p>single-arg ctors create implicit conversions. <br>
+Eg:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n{<span class="hljs-number">4</span>};
+<span class="hljs-comment">// - also I can call:</span>
+Node n =<span class="hljs-number">4</span>; <span class="hljs-comment">//- implicit conversion from int to node.</span>
+<span class="hljs-keyword">int</span> f(Node n){...}
+f(<span class="hljs-number">4</span>); <span class="hljs-comment">//works -4 is implicitly converted to Node</span></code></pre>
+
+<blockquote>
+  <p>Danger - accidentally passing an int to a f’n expecting a Node. Compiler will not signal an error. <br>
+  Good idea - disable the implicit conversion - make the ctor explicit</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    <span class="hljs-keyword">explicit</span> Node(<span class="hljs-keyword">int</span> data): data{data}, next{<span class="hljs-keyword">nullptr</span>}{}
+};
+Node n{<span class="hljs-number">4</span>}; <span class="hljs-comment">//ok</span>
+Node n = <span class="hljs-number">4</span>; <span class="hljs-comment">//error</span></code></pre>
+
+
+
+<h3 id="destructors">Destructors</h3>
+
+<p>When an object is destroyed (stack-allocated: goes out of scope, heap-allocated: is deleted) a method called the destructor runs. Classes comes with a dtor (just calls dtor on all fields that are objects) <br>
+When an object is destroyed:</p>
+
+<ol>
+<li>The dtor body runs</li>
+<li>field’s dtors invoked in reverse declaration order</li>
+<li>space deallocated</li>
+</ol>
+
+<p>When do we need to write one?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node *np = <span class="hljs-keyword">new</span> Node {<span class="hljs-number">1</span>, <span class="hljs-keyword">new</span> Node{<span class="hljs-number">2</span> <span class="hljs-keyword">new</span> Node {<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>}}};</code></pre>
+
+<p>If np goes out of scope - the pointer is reclaimed (stack-allocated). The entire list is leaked. <br>
+If we say <code>delete np;</code> then the 2 &amp; 3 nodes are leaked</p>
+
+<p>Write a dtor to ensure the whole list is freed:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    ~Node(){<span class="hljs-keyword">delete</span> next;} <span class="hljs-comment">//&lt;- recursively calls next's dtor - frees the whole list.</span>
+};</code></pre>
+
+<p>Now - <code>delete np;</code> -frees the whole list</p>
+
+
+
+<h3 id="copy-assignment-operator-the-one-everyone-gets-wrong-on-the-midterm-kekekek">Copy Assignment Operator - the one everyone gets wrong on the midterm kekekek</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+Student jane = billy; <span class="hljs-comment">//copy ctor</span>
+Student mary; <span class="hljs-comment">//default ctor</span>
+mary = billy; <span class="hljs-comment">//copy, but not construction. copy assignment operator is `=` - uses compiler-supplied default</span></code></pre>
+
+<p>May need to write your own:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    <span class="hljs-comment">//So that cascading works your return itself. Eg. a=b=c=4; returns a = b = c; (c=4 now), a=b, (b=4 as well now), and then a=4;</span>
+    Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+        data=other.data;
+        <span class="hljs-keyword">delete</span> next; <span class="hljs-comment">//the existing node might have other nodes so we need to delete those.</span>
+        next=other.next? <span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        <span class="hljs-comment">//THIS IS DANGEROUS</span>
+    }
+}</code></pre>
+
+<p>Why?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n{<span class="hljs-number">1</span>,<span class="hljs-keyword">new</span> Node {<span class="hljs-number">2</span>, <span class="hljs-keyword">new</span> Node{<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>}}};
+n=n; <span class="hljs-comment">//deletes n + then tries to copy n to n. undefined behaviour</span>
+*p = *q;
+a[i] = a[j];</code></pre>
+
+<p>When writing operator=, ALWAYS be wary of self-assignment:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>==&amp;other) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        data = other.data;
+        <span class="hljs-keyword">delete</span> next;
+        next = other.next? <span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }
+};</code></pre>
+
+<p>Better:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>==&amp;other) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    Node *tmp=next;
+    next = other.next?<span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+    data=other.data;
+    <span class="hljs-keyword">delete</span> tmp;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }</code></pre>
+
+<p>//if new fails, Node is still in a valid state.</p></body>
 </html>
 
 <!--
@@ -1911,6 +2132,12 @@ Vec v; XXXX</code></pre>
 <li><a href="#classes">Classes</a></li>
 </ul>
 </li>
+<li><a href="#lecture-9">Lecture 9</a><ul>
+<li><a href="#uniform-initialization">Uniform Initialization</a></li>
+<li><a href="#destructors">Destructors</a></li>
+<li><a href="#copy-assignment-operator-the-one-everyone-gets-wrong-on-the-midterm-kekekek">Copy Assignment Operator - the one everyone gets wrong on the midterm kekekek</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2584,7 +2811,7 @@ Regression testing</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//Hello world in C++:</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Hello world in C++:</span>
 <span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 <span class="hljs-keyword">int</span> main(){
@@ -2652,7 +2879,7 @@ std::endl = end of line</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
 <span class="hljs-keyword">using</span> nanospace <span class="hljs-built_in">std</span>
 <span class="hljs-comment">//above two lines are usually there even if teach doesn't write it (omit from now on)</span>
 <span class="hljs-keyword">int</span> main(){
@@ -2688,7 +2915,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
         <span class="hljs-built_in">cin</span> &gt;&gt; i;
@@ -2707,7 +2934,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v2.0</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//example v2.0</span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
@@ -2734,7 +2961,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v3.0</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//example v3.0</span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
@@ -2745,7 +2972,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-comment">//example v4.0</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//example v4.0</span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; i){
@@ -2761,7 +2988,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-keyword">int</span> i;
     <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
         <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span>&gt;&gt;i)){
@@ -2785,7 +3012,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-built_in">string</span> s;
     <span class="hljs-built_in">cin</span> &gt;&gt; s; <span class="hljs-comment">//skip leading whitespace (stop at whitespace)</span>
     <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl; <span class="hljs-comment">//(therefore only reads one word)</span>
@@ -2840,7 +3067,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
 <span class="hljs-preprocessor">#include &lt;string&gt;</span>
 <span class="hljs-preprocessor">#include &lt;fstream&gt;</span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
@@ -2862,7 +3089,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-preprocessor">#include&lt;sstream&gt;</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include&lt;sstream&gt;</span>
 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">istringstream</span>
 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">ostringstream</span>
 <span class="hljs-comment">//-read from/write to a string</span>
@@ -2875,7 +3102,7 @@ ss &lt;&lt; <span class="hljs-string">"Enter a # btwn "</span> &lt;&lt; lo &lt;&
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> n;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> n;
 <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter a # "</span> &lt;&lt;endl;
     <span class="hljs-built_in">string</span> s;
@@ -2890,7 +3117,7 @@ ss &lt;&lt; <span class="hljs-string">"Enter a # btwn "</span> &lt;&lt; lo &lt;&
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-built_in">string</span> s;
     <span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; s){
         <span class="hljs-built_in">istringstream</span> ss {s};
@@ -2939,10 +3166,10 @@ Concat: s3 = s1 + s2;   s3 += s4</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs mel">void printWordsInFile(<span class="hljs-keyword">string</span> name = <span class="hljs-string">"suite.txt"</span>){
-    ifstream <span class="hljs-keyword">file</span> {name};
-    <span class="hljs-keyword">string</span> s;
-    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">file</span> &gt;&gt; s) cout &lt;&lt; s &lt;&lt; endl;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> printWordsInFile(<span class="hljs-built_in">string</span> name = <span class="hljs-string">"suite.txt"</span>){
+    ifstream file {name};
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-keyword">while</span> (file &gt;&gt; s) <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; endl;
 }
 printWordsInFile(<span class="hljs-string">"suite2.txt"</span>);
 printWordsInFile(); <span class="hljs-comment">//uses stuite.txt</span></code></pre>
@@ -2981,14 +3208,14 @@ Overloads must differ in # or types of args - may not differ on just return type
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node {
     <span class="hljs-keyword">int</span> data;
     Node *next;
 };</code></pre>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">struct</span> Node {
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node {
     <span class="hljs-keyword">int</span> data;
     Node next; <span class="hljs-comment">//what's wrong? This makes the struct have no finite size since</span>
     <span class="hljs-comment">// this contains a node in a node in a node ... etc which has no calculable size</span>
@@ -3017,11 +3244,11 @@ Overloads must differ in # or types of args - may not differ on just return type
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs r">void inc (int n){++n;}
-<span class="hljs-keyword">...</span>
-int x=<span class="hljs-number">5</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> inc (<span class="hljs-keyword">int</span> n){++n;}
+...
+<span class="hljs-keyword">int</span> x=<span class="hljs-number">5</span>;
 inc(x);
-cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">5</span></code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl; <span class="hljs-comment">//prints 5</span></code></pre>
 
 <p>call-by-value-inc gets a copy of x, increments the copy, original unchanged</p>
 
@@ -3029,11 +3256,11 @@ cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">5</span></code
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs r">void inc(int *n){(*n)++;}
-<span class="hljs-keyword">...</span>
-int x=<span class="hljs-number">5</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> inc(<span class="hljs-keyword">int</span> *n){(*n)++;}
+...
+<span class="hljs-keyword">int</span> x=<span class="hljs-number">5</span>;
 inc(&amp;x);
-cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">6</span></code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl; <span class="hljs-comment">//prints 6</span></code></pre>
 
 <blockquote>
   <p>Q: why cin &gt;&gt; x and not cin &gt;&gt; &amp;x ? <br>
@@ -3046,7 +3273,7 @@ cout &lt;&lt; x &lt;&lt; endl; //prints <span class="hljs-number">6</span></code
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs"><span class="hljs-keyword">int</span> y = <span class="hljs-number">10</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> y = <span class="hljs-number">10</span>;
 <span class="hljs-keyword">int</span> &amp;z = y; <span class="hljs-comment">//z is an lvalue reference to y. Like a const ptr.</span>
 <span class="hljs-comment">//similar to int *const z = &amp;y;</span></code></pre>
 
@@ -3055,7 +3282,7 @@ z -&gt; y [10]</p>
 
 
 
-<pre class="prettyprint"><code class="language-c++ hljs cs">z = <span class="hljs-number">12</span>; <span class="hljs-comment">//(NOT *z = 12)</span>
+<pre class="prettyprint"><code class="language-cpp hljs ">z = <span class="hljs-number">12</span>; <span class="hljs-comment">//(NOT *z = 12)</span>
 <span class="hljs-comment">//(now, y == 12)</span>
 
 <span class="hljs-keyword">int</span> *p = &amp;z; <span class="hljs-comment">// gives the address of y</span></code></pre>
@@ -3101,7 +3328,7 @@ eg: <code>struct Really Big { ... }</code>,</li>
 
 
 
-<pre class="prettyprint"><code class="language-c (++ I dunno why it doesn't recg. c++) hljs "><span class="hljs-keyword">int</span> f(ReallyBig rb){ ... }; <span class="hljs-comment">// really slow</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> f(ReallyBig rb){ ... }; <span class="hljs-comment">// really slow</span>
 <span class="hljs-keyword">int</span> g(ReallyBig &amp;rb){ ... }; <span class="hljs-comment">// &amp;rb is now an alias - fast. Downside is that rb can be changed by the f'n. You don't know.</span>
 <span class="hljs-keyword">int</span> h(<span class="hljs-keyword">const</span> ReallyBig &amp;rb) { ... }; <span class="hljs-comment">// really fast and param can't be changed. woah</span></code></pre>
 
@@ -3111,7 +3338,7 @@ eg: <code>struct Really Big { ... }</code>,</li>
 
 
 
-<pre class="prettyprint"><code class="language-c (++) same hljs ">f(<span class="hljs-number">5</span>); <span class="hljs-comment">// won't compile. can't initialize an lvalue ref (n) to a literal value. if n changes, can't change the literal 5.</span>
+<pre class="prettyprint"><code class="language-cpp hljs ">f(<span class="hljs-number">5</span>); <span class="hljs-comment">// won't compile. can't initialize an lvalue ref (n) to a literal value. if n changes, can't change the literal 5.</span>
 g(<span class="hljs-number">5</span>); <span class="hljs-comment">//is a-OK since n can never be changed. Compiler allows this. How? compiler creates a temp location to hold the 5, so the reference n has something to point to.</span></code></pre>
 
 
@@ -3134,14 +3361,14 @@ g(<span class="hljs-number">5</span>); <span class="hljs-comment">//is a-OK sinc
 
 
 
-<pre class="prettyprint"><code class=" hljs r">struct Node {
-    int data;
-    Node *<span class="hljs-keyword">next</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
 };
 
-Node *np = new Node;
-<span class="hljs-keyword">...</span>
-delete np;</code></pre>
+Node *np = <span class="hljs-keyword">new</span> Node;
+...
+<span class="hljs-keyword">delete</span> np;</code></pre>
 
 <ul>
 <li>all local vars reside on the stack - vars are deallocated when they go out of scope (stack is popped).</li>
@@ -3153,9 +3380,9 @@ delete np;</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs r">Node *np = new Node[<span class="hljs-number">10</span>];
-<span class="hljs-keyword">...</span>
-delete [np];</code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Node *np = <span class="hljs-keyword">new</span> Node[<span class="hljs-number">10</span>];
+...
+<span class="hljs-keyword">delete</span> [np];</code></pre>
 
 
 
@@ -3188,13 +3415,13 @@ eg</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
     <span class="hljs-keyword">int</span> x,y;
 }</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs">Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
     Vec v={v1.x + v2.x , v1.y + v2.y};
     <span class="hljs-keyword">return</span> v;
 }
@@ -3215,20 +3442,20 @@ Vec <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Grade{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Grade{
     <span class="hljs-keyword">int</span> theGrade;
 };
 
-ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;<span class="hljs-keyword">out</span>, <span class="hljs-keyword">const</span> Grade &amp;g){
-    <span class="hljs-keyword">out</span> &lt;&lt; g.theGrade &lt;&lt; <span class="hljs-string">'%'</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">out</span>
+ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;out, <span class="hljs-keyword">const</span> Grade &amp;g){
+    out &lt;&lt; g.theGrade &lt;&lt; <span class="hljs-string">'%'</span>;
+    <span class="hljs-keyword">return</span> out
 }
 
-istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;<span class="hljs-keyword">in</span>, Grade &amp;g){
-    <span class="hljs-keyword">in</span> &gt;&gt; g.theGrade;
+istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in, Grade &amp;g){
+    in &gt;&gt; g.theGrade;
     <span class="hljs-keyword">if</span>(g.theGrade &lt; <span class="hljs-number">0</span>) g.theGrade=<span class="hljs-number">0</span>;
     <span class="hljs-keyword">if</span>(g.theGrade&gt;<span class="hljs-number">100</span>) g.theGrade=<span class="hljs-number">100</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">in</span>;
+    <span class="hljs-keyword">return</span> in;
 }</code></pre>
 
 
@@ -3243,7 +3470,7 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#define VAR VALUE <span class="hljs-comment">//- sets a preprocessor variable, then all occurrences of VAR in the source file are replaced with VALUE</span></span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#define VAR VALUE <span class="hljs-comment">//- sets a preprocessor variable, then all occurrences of VAR in the source file are replaced with VALUE</span></span>
 <span class="hljs-preprocessor">#define MAX 10</span>
 <span class="hljs-keyword">int</span> x[MAX] <span class="hljs-comment">//transformed to int x[10]. Was a cheap way of const from the old days (1970s) before const was a thing</span>
 
@@ -3253,28 +3480,28 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> IOS 1</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> BBOS 2</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> OS IOS //(or BBOS)</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> OS==IOS</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#define IOS 1</span>
+<span class="hljs-preprocessor">#define BBOS 2</span>
+<span class="hljs-preprocessor">#define OS IOS <span class="hljs-comment">//(or BBOS)</span></span>
+<span class="hljs-preprocessor">#if OS==IOS</span>
     <span class="hljs-keyword">short</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//Removed if OS!=IOS</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">elif</span> OS==BBOS</span>
+<span class="hljs-preprocessor">#elif OS==BBOS</span>
     <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> publickey; <span class="hljs-comment">//this code is removed if OS!=BBOS</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span></code></pre>
+<span class="hljs-preprocessor">#endif</span></code></pre>
 
 <p>Special Case</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-preprocessor">#<span class="hljs-keyword">if</span> 0 //never true - all inner text is removed before it gets to the compiler</span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#if 0 <span class="hljs-comment">//never true - all inner text is removed before it gets to the compiler</span></span>
+<span class="hljs-preprocessor">#endif</span>
 <span class="hljs-comment">//heavy-duty "comment out"</span></code></pre>
 
 <p>Can also define symbols via compiler arguments</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-keyword">int</span> main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
     <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; endl;
 }</code></pre>
 
@@ -3284,7 +3511,7 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-preprocessor">#ifdef NAME <span class="hljs-comment">//true if NAME has been defined</span></span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#ifdef NAME <span class="hljs-comment">//true if NAME has been defined</span></span>
 <span class="hljs-preprocessor">#ifndef NAME <span class="hljs-comment">//true if NAME HAS NOT been defined</span></span>
 <span class="hljs-keyword">int</span> main(){
     <span class="hljs-preprocessor">#ifdef DEBUG</span>
@@ -3328,29 +3555,29 @@ eg. Instead of <code>#include &lt;stdio.h&gt;, use #include&lt;cstdio&gt;</code>
 
 
 
-<pre class="prettyprint"><code class=" hljs r">struct Vec{
-    int x,y;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
 }
-Vec operator +(const Vec &amp;v1, const Vec &amp;v2);
-<span class="hljs-keyword">...</span></code></pre>
+Vec <span class="hljs-keyword">operator</span> +(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2);
+...</code></pre>
 
 <p>main.cc</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
-int main(){
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+<span class="hljs-keyword">int</span> main(){
     Vec v = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>};
     v = v+v;
-    <span class="hljs-keyword">...</span>
+    ...
 }
-//implied vec.cc
+<span class="hljs-comment">//implied vec.cc</span>
 
-<span class="hljs-comment">#include "vec.h" //we include vec.h here because we don't know what a vec is.</span>
-Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
-     <span class="hljs-keyword">...</span>
-     <span class="hljs-keyword">...</span>
-     <span class="hljs-keyword">...</span>
+<span class="hljs-preprocessor">#include "vec.h" <span class="hljs-comment">//we include vec.h here because we don't know what a vec is.</span></span>
+Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+     ...
+     ...
+     ...
 }</code></pre>
 
 <blockquote>
@@ -3388,7 +3615,7 @@ Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
     <span class="hljs-keyword">int</span> x,y;
 };
 <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> globalVar;
@@ -3398,10 +3625,10 @@ Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const
 
 
 
-<pre class="prettyprint"><code class=" hljs r"><span class="hljs-comment">#include "vec.h"</span>
-int global Num;
-Vec operator+(const Vec &amp;v1, const Vec &amp;v2){
-    <span class="hljs-keyword">...</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+<span class="hljs-keyword">int</span> global Num;
+Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> Vec &amp;v1, <span class="hljs-keyword">const</span> Vec &amp;v2){
+    ...
 }</code></pre>
 
 <p>Let’s write a linear algebra module <br>
@@ -3409,14 +3636,14 @@ linalg.h</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "vec.h"</span>
 ...</code></pre>
 
 <p>linalg.cc</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
 <span class="hljs-preprocessor">#include "vec.h"</span>
 ...</code></pre>
 
@@ -3424,7 +3651,7 @@ linalg.h</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "linalg.h"</span>
 <span class="hljs-preprocessor">#include "vec.h"</span>
 ...</code></pre>
 
@@ -3444,7 +3671,7 @@ vec.h </p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-preprocessor">#ifndef VEC_H</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#ifndef VEC_H</span>
 <span class="hljs-preprocessor">#define VEC_H</span>
 ... file contents
 <span class="hljs-preprocessor">#endif</span></code></pre>
@@ -3469,14 +3696,14 @@ Never - include .cc files - many many different functions. Included .cc file, yo
 
 
 
-<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
-    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
-    <span class="hljs-built_in">float</span> grade(){
-        <span class="hljs-keyword">return</span> assns*<span class="hljs-number">0.4</span> + mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade(){
+        <span class="hljs-keyword">return</span> assns*<span class="hljs-number">0.4</span> + mt*<span class="hljs-number">0.2</span> + final*<span class="hljs-number">0.4</span>;
     }
 };
 Student s{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
-cout &lt;&lt; s.grade() &lt;&lt; endl;</code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; s.grade() &lt;&lt; endl;</code></pre>
 
 <p>class </p>
 
@@ -3501,7 +3728,7 @@ What doe assns, mt, final inside of grade ( ) {…} mean? <br>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs ">Student billy{<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>};
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy{<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>};
 billy.grade(); \\method call uses billy<span class="hljs-string">'s assns, mt, final</span></code></pre>
 
 <p>Formally: methods take a hidden extra parameter called this - ptr to the object on which the method was invoked. eg. billy.grade() &lt;- (this) == &amp;billy <br>
@@ -3509,10 +3736,10 @@ can write</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs d"><span class="hljs-keyword">struct</span> Student{
-    <span class="hljs-keyword">int</span> assns, mt, <span class="hljs-keyword">final</span>;
-    <span class="hljs-built_in">float</span> grade(){
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;assns *<span class="hljs-number">0.4</span> + <span class="hljs-keyword">this</span>-&gt;mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">this</span>-&gt;<span class="hljs-keyword">final</span>*<span class="hljs-number">0.4</span>;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade(){
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;assns *<span class="hljs-number">0.4</span> + <span class="hljs-keyword">this</span>-&gt;mt*<span class="hljs-number">0.2</span> + <span class="hljs-keyword">this</span>-&gt;final*<span class="hljs-number">0.4</span>;
     }
 };</code></pre>
 
@@ -3520,13 +3747,13 @@ can write</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs">Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//ok, but limited</span></code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>}; <span class="hljs-comment">//ok, but limited</span></code></pre>
 
 <p>Better: Write a method that does initialization: a constructor (ctor)</p>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
     <span class="hljs-keyword">int</span> assns, mt, final;
     <span class="hljs-keyword">float</span> grade(){...}
     Student(<span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final){
@@ -3542,7 +3769,7 @@ Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70
 
 
 
-<pre class="prettyprint"><code class=" hljs fix"><span class="hljs-attribute">Student xpBilly </span>=<span class="hljs-string"> new Student{60,70,80};</span></code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Student xpBilly = <span class="hljs-keyword">new</span> Student{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};</code></pre>
 
 <p>Advantages  of ctors: default params, overloading, sanity checks</p>
 
@@ -3550,12 +3777,12 @@ Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70
 
 
 
-<pre class="prettyprint"><code class=" hljs r">struct Student{
-    <span class="hljs-keyword">...</span>
-    Student(<span class="hljs-keyword">in</span> assns = <span class="hljs-number">0</span>, int mt=<span class="hljs-number">0</span>, int final=<span class="hljs-number">0</span>){
-        this.assns = assns;
-        this.mt = mt;
-        this.final =final;
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    Student(in assns = <span class="hljs-number">0</span>, <span class="hljs-keyword">int</span> mt=<span class="hljs-number">0</span>, <span class="hljs-keyword">int</span> final=<span class="hljs-number">0</span>){
+        <span class="hljs-keyword">this</span>.assns = assns;
+        <span class="hljs-keyword">this</span>.mt = mt;
+        <span class="hljs-keyword">this</span>.final =final;
     }
 }</code></pre>
 
@@ -3566,14 +3793,14 @@ Student billy {<span class="hljs-number">60</span>, <span class="hljs-number">70
 
 
 
-<pre class="prettyprint"><code class=" hljs vhdl">Vec v; //<span class="hljs-keyword">default</span> ctor (does nothing <span class="hljs-keyword">in</span> this <span class="hljs-keyword">case</span>, the fields aren<span class="hljs-attribute">'t</span> objects)</code></pre>
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec v; <span class="hljs-comment">//default ctor (does nothing in this case, the fields aren't objects)</span></code></pre>
 
 <p>But the built-in default ctor goes away if you provide a ctor <br>
 E.g.</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> Vec{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
     <span class="hljs-keyword">int</span> x,y;
     Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y){
         <span class="hljs-keyword">this</span>-&gt;x=x;
@@ -3587,7 +3814,7 @@ Vec v; XXXX</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs cs"><span class="hljs-keyword">struct</span> MyStruct{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> MyStruct{
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> myConst; <span class="hljs-comment">//these two have to be initialized</span>
     <span class="hljs-keyword">int</span> &amp;myRef;
 };
@@ -3604,8 +3831,8 @@ Vec v; XXXX</code></pre>
 
 
 
-<pre class="prettyprint"><code class=" hljs objectivec"><span class="hljs-keyword">struct</span> Student{
-    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">id</span>; <span class="hljs-comment">//const (doesn't change) but not the same for all students.</span>
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> id; <span class="hljs-comment">//const (doesn't change) but not the same for all students.</span>
 }</code></pre>
 
 <p>Where do we initialize? ctor body? TOO LATE!</p>
@@ -3624,7 +3851,7 @@ Vec v; XXXX</code></pre>
 
 
 
-<pre class="prettyprint"><code class="language-c hljs "><span class="hljs-keyword">struct</span> Student{
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> id;
     <span class="hljs-keyword">int</span> assns, mt, final;
     Student(<span class="hljs-keyword">int</span> id, <span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final):
@@ -3647,7 +3874,222 @@ Vec v; XXXX</code></pre>
     <span class="hljs-keyword">vec</span>(<span class="hljs-keyword">int</span> x); x{x} {}
 };</code></pre>
 
-<p>MIL takes precedence</p></body>
+<p>MIL takes precedence</p>
+
+
+
+<h2 id="lecture-9">Lecture 9</h2>
+
+
+
+<h3 id="uniform-initialization">Uniform Initialization</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">int</span> x(<span class="hljs-number">5</span>);
+<span class="hljs-built_in">string</span> s = <span class="hljs-string">"hello"</span>;
+<span class="hljs-built_in">string</span> s(<span class="hljs-string">"hello"</span>);
+Student billy(<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>);
+<span class="hljs-comment">//preferred (cs246 doesn't care which init you use though). This was updated as of a few years ago.</span>
+<span class="hljs-keyword">int</span> x{<span class="hljs-number">5</span>};
+<span class="hljs-built_in">string</span> s{<span class="hljs-string">"hello"</span>};
+Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};</code></pre>
+
+<p>Now consider:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+Student bobby = billy; <span class="hljs-comment">//-how does this init happen? the COPY CONSTRUCTOR. For constructing one object as a copy of another</span></code></pre>
+
+<blockquote>
+  <p>Note: Every class comes with:</p>
+  
+  <ul>
+  <li>default ctor (default constructs all fields that are objects) <br>
+  <ul><li>copy ctor (just copies all the fields)</li>
+  <li>copy assignment operator</li>
+  <li>destructor</li>
+  <li>move ctor</li>
+  <li>move assignment operator</li></ul></li>
+  </ul>
+</blockquote>
+
+<p>Building your own copy ctor:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns,mt,final;
+    Student(...) {...}
+    Student(<span class="hljs-keyword">const</span> Student &amp;other): assns {assns}, mt {mt}, final {final} {}
+}; <span class="hljs-comment">//equiv. to built in</span></code></pre>
+
+<p>When is the built-in copy ctor not correct?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next
+    Node(<span class="hljs-keyword">int</span> data, Node *next): data {data}, next{next} {}
+    ...
+};
+Node *n = <span class="hljs-keyword">new</span> Node {<span class="hljs-number">1</span>, <span class="hljs-keyword">new</span> Node {<span class="hljs-number">2</span>, <span class="hljs-keyword">new</span> Node {<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>}}};
+Node m = *n;
+Node *p =<span class="hljs-keyword">new</span> Node{*n};</code></pre>
+
+<p><img src="http://amyqiu.me/Notes/pointer.png"> <br>
+Simple copy of fields -&gt; only the first node is actually copied (<em>shallow copy</em>) <br>
+If you want a <em>deep copy</em> (copies the whole list),  must write your own copy ctor:</p>
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    Node(<span class="hljs-keyword">const</span> Node &amp;other): data{other.data}, next{ other.next? <span class="hljs-keyword">new</span> Node (*other.next) : <span class="hljs-keyword">nullptr</span>}{}
+} <span class="hljs-comment">//we have some sneaky recursion going on here. This recursively invokes the copy ctor + copies the rest of the list</span></code></pre>
+
+<p>The copy ctor is called:</p>
+
+<ol>
+<li>When an object initializes another object</li>
+<li>When an object is passed by value</li>
+<li>When an object is returned by value (* - not always)</li>
+</ol>
+
+<blockquote>
+  <p>Note: Careful with ctors that can take ONE parameter:</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    Node(<span class="hljs-keyword">int</span> data): data{data}, next{<span class="hljs-keyword">nullptr</span>}{}
+};</code></pre>
+
+<p>single-arg ctors create implicit conversions. <br>
+Eg:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n{<span class="hljs-number">4</span>};
+<span class="hljs-comment">// - also I can call:</span>
+Node n =<span class="hljs-number">4</span>; <span class="hljs-comment">//- implicit conversion from int to node.</span>
+<span class="hljs-keyword">int</span> f(Node n){...}
+f(<span class="hljs-number">4</span>); <span class="hljs-comment">//works -4 is implicitly converted to Node</span></code></pre>
+
+<blockquote>
+  <p>Danger - accidentally passing an int to a f’n expecting a Node. Compiler will not signal an error. <br>
+  Good idea - disable the implicit conversion - make the ctor explicit</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    <span class="hljs-keyword">explicit</span> Node(<span class="hljs-keyword">int</span> data): data{data}, next{<span class="hljs-keyword">nullptr</span>}{}
+};
+Node n{<span class="hljs-number">4</span>}; <span class="hljs-comment">//ok</span>
+Node n = <span class="hljs-number">4</span>; <span class="hljs-comment">//error</span></code></pre>
+
+
+
+<h3 id="destructors">Destructors</h3>
+
+<p>When an object is destroyed (stack-allocated: goes out of scope, heap-allocated: is deleted) a method called the destructor runs. Classes comes with a dtor (just calls dtor on all fields that are objects) <br>
+When an object is destroyed:</p>
+
+<ol>
+<li>The dtor body runs</li>
+<li>field’s dtors invoked in reverse declaration order</li>
+<li>space deallocated</li>
+</ol>
+
+<p>When do we need to write one?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node *np = <span class="hljs-keyword">new</span> Node {<span class="hljs-number">1</span>, <span class="hljs-keyword">new</span> Node{<span class="hljs-number">2</span> <span class="hljs-keyword">new</span> Node {<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>}}};</code></pre>
+
+<p>If np goes out of scope - the pointer is reclaimed (stack-allocated). The entire list is leaked. <br>
+If we say <code>delete np;</code> then the 2 &amp; 3 nodes are leaked</p>
+
+<p>Write a dtor to ensure the whole list is freed:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    ~Node(){<span class="hljs-keyword">delete</span> next;} <span class="hljs-comment">//&lt;- recursively calls next's dtor - frees the whole list.</span>
+};</code></pre>
+
+<p>Now - <code>delete np;</code> -frees the whole list</p>
+
+
+
+<h3 id="copy-assignment-operator-the-one-everyone-gets-wrong-on-the-midterm-kekekek">Copy Assignment Operator - the one everyone gets wrong on the midterm kekekek</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+Student jane = billy; <span class="hljs-comment">//copy ctor</span>
+Student mary; <span class="hljs-comment">//default ctor</span>
+mary = billy; <span class="hljs-comment">//copy, but not construction. copy assignment operator is `=` - uses compiler-supplied default</span></code></pre>
+
+<p>May need to write your own:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    <span class="hljs-comment">//So that cascading works your return itself. Eg. a=b=c=4; returns a = b = c; (c=4 now), a=b, (b=4 as well now), and then a=4;</span>
+    Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+        data=other.data;
+        <span class="hljs-keyword">delete</span> next; <span class="hljs-comment">//the existing node might have other nodes so we need to delete those.</span>
+        next=other.next? <span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        <span class="hljs-comment">//THIS IS DANGEROUS</span>
+    }
+}</code></pre>
+
+<p>Why?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n{<span class="hljs-number">1</span>,<span class="hljs-keyword">new</span> Node {<span class="hljs-number">2</span>, <span class="hljs-keyword">new</span> Node{<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>}}};
+n=n; <span class="hljs-comment">//deletes n + then tries to copy n to n. undefined behaviour</span>
+*p = *q;
+a[i] = a[j];</code></pre>
+
+<p>When writing operator=, ALWAYS be wary of self-assignment:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>==&amp;other) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        data = other.data;
+        <span class="hljs-keyword">delete</span> next;
+        next = other.next? <span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }
+};</code></pre>
+
+<p>Better:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>==&amp;other) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    Node *tmp=next;
+    next = other.next?<span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+    data=other.data;
+    <span class="hljs-keyword">delete</span> tmp;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }</code></pre>
+
+<p>//if new fails, Node is still in a valid state.</p></body>
 </html>
 
 -->
