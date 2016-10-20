@@ -90,6 +90,26 @@
 <li><a href="#copy-assignment-operator-the-one-everyone-gets-wrong-on-the-midterm-kekekek">Copy Assignment Operator - the one everyone gets wrong on the midterm kekekek</a></li>
 </ul>
 </li>
+<li><a href="#lecture-10">Lecture 10</a><ul>
+<li><a href="#rvalues-rvalue-references">Rvalues + Rvalue References</a></li>
+<li><a href="#copymove-elision">Copy/Move Elision</a></li>
+</ul>
+</li>
+<li><a href="#lecture-10-1">Lecture - 10</a><ul>
+<li><a href="#separate-compilation-for-classes">Separate Compilation for Classes</a></li>
+<li><a href="#arrays-of-objects">Arrays of Objects</a></li>
+<li><a href="#const-objects">Const Objects</a></li>
+<li><a href="#static-fields-methods">Static Fields + Methods</a></li>
+<li><a href="#static-member-functions">Static Member Functions</a></li>
+<li><a href="#invariants-encapsulation">Invariants + Encapsulation</a></li>
+</ul>
+</li>
+<li><a href="#cs-246-tut-5">CS 246 TUT 5</a></li>
+<li><a href="#lecture-12">Lecture 12</a><ul>
+<li><a href="#se-topic-design-patterns">SE Topic: Design Patterns</a></li>
+<li><a href="#tools-topic-make">Tools topic: make</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1896,6 +1916,8 @@ Node *p =<span class="hljs-keyword">new</span> Node{*n};</code></pre>
 Simple copy of fields -&gt; only the first node is actually copied (<em>shallow copy</em>) <br>
 If you want a <em>deep copy</em> (copies the whole list),  must write your own copy ctor:</p>
 
+
+
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
     ...
     Node(<span class="hljs-keyword">const</span> Node &amp;other): data{other.data}, next{ other.next? <span class="hljs-keyword">new</span> Node (*other.next) : <span class="hljs-keyword">nullptr</span>}{}
@@ -2041,26 +2063,730 @@ a[i] = a[j];</code></pre>
     <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
     }</code></pre>
 
-<p>//if new fails, Node is still in a valid state.</p></body>
+<p>//if new fails, Node is still in a valid state.</p>
+
+
+
+<h2 id="lecture-10">Lecture 10</h2>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node&amp; operators=(<span class="hljs-keyword">const</span> Node &amp;other){
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>==&amp;other) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    Node *tmp = next;
+    next = other.next?<span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+    data = other.data;
+    <span class="hljs-keyword">delete</span> tmp;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>
+}</code></pre>
+
+<p>Alternative: copy + swap idiom &lt;3</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;utility&gt;</span>
+<span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">void</span> swap(Node &amp;other){
+        <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::swap;
+        swap(data,other.data);
+        swap(next, other.next);
+    }
+}
+
+Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+    Node tmp = other; <span class="hljs-comment">//tmp = copy of other</span>
+    swap(tmp); <span class="hljs-comment">//me = copy of other. tmp = my old fields</span>
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; <span class="hljs-comment">//my old data deleted when tmp goes out of scope</span>
+}</code></pre>
+
+
+
+<h3 id="rvalues-rvalue-references">Rvalues + Rvalue References</h3>
+
+<blockquote>
+  <p>Recall: - an lvalue is anything with an address. -an lvalue reference (&amp;) is like a const pointer with automatic dereferencing. -always initialized to a lvalue.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n{<span class="hljs-number">1</span>, <span class="hljs-keyword">new</span> Node{<span class="hljs-number">2</span>, <span class="hljs-keyword">nullptr</span>}};
+Node m=n; <span class="hljs-comment">//copy ctor;</span>
+Node m2;
+m2=n; <span class="hljs-comment">//copy assignment operator</span>
+
+Node plusOne(Node n){
+    <span class="hljs-keyword">for</span>(Node *p=&amp;n;p;p=p-&gt;next){
+        ++p-&gt;data;
+    }
+    <span class="hljs-keyword">return</span> n;
+}
+Node m3 = plusOne(n); <span class="hljs-comment">//copy ctor. What is "other" here? Reference to what?</span></code></pre>
+
+<ul>
+<li>Compiler creates a <code>temporary</code> object to hold the result of plusOne</li>
+<li>Other is a reference to this temporary - copy ctor deep-copies data from this temporary. <br>
+<em>But:</em> - the temporary is just going to be discarded anyway, as soon as the stmt <code>Node m3 = plusOne(n);</code> is done</li>
+<li>wasteful to copy from the temp. Why not just steal it instead? - save the cost of a copy. <br>
+-Need to be able to tell whether the other is a reference to a temporary or a standalone object <br>
+C++ - rvalue reference -&gt; Node &amp;&amp; is a reference to a temporary object (rvalue) of type Node.</li>
+</ul>
+
+<p>Version of the ctor that takes Node &amp;&amp;.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    Node(Node &amp;&amp; other): <span class="hljs-comment">//called a move ctor</span>
+    <span class="hljs-comment">// what should the move ctor do? Should steal other's data.</span>
+        data{other.data},
+        next{other.next} {
+            other.next=<span class="hljs-keyword">nullptr</span>; <span class="hljs-comment">//else the list is destroyed when other is destroyed. This ctor is constant time.</span>
+        }
+}</code></pre>
+
+<p>Similarly:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node m;
+m=plusOne(n); <span class="hljs-comment">//Assignment from temporary</span>
+<span class="hljs-comment">//More assignment operator:</span>
+<span class="hljs-keyword">struct</span> Node{
+    ...
+    Node &amp;<span class="hljs-keyword">operator</span>=(Node &amp;&amp;other){
+        swap(other); <span class="hljs-comment">//steal other's data</span>
+        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; <span class="hljs-comment">//destroy my old data. swap without copy</span>
+    }
+}</code></pre>
+
+<p>If you don’t define move ctor/assignment, the copy versions will be used. If the move ctor/assignment is defined, it will replace all calls to copy ctor/assignment when the argument is a temporary (rvalue).</p>
+
+
+
+<h3 id="copymove-elision">Copy/Move Elision</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec makeAVec(){
+    <span class="hljs-keyword">return</span> {<span class="hljs-number">0</span>,<span class="hljs-number">0</span>}; <span class="hljs-comment">//invokes a basic ctor</span>
+}
+Vec v=makeAVec(); <span class="hljs-comment">//what runs? Not Sure! When compiled in g++, there's the basic ctor (no move/copy ctor).</span></code></pre>
+
+<p>In some circumstances, the compiler is allowed to skip calling copy/move ctors (but doesn’t have to) <br>
+In this example: makeAVec writes it’s result ({0,0}) directly into the space occupied by v in the caller, rather than copy or move it later. <br>
+Example:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> doSomething(vec v)<span class="hljs-comment">//&lt;- pass-by-value copy/move ctor</span>
+{...}
+doSomething(makeAVec()); <span class="hljs-comment">//-result of makeAVec is written directly into the parameter. There is no copy or move. This is allowed even if dropping ctor calls would change the behaviour of the program. eg. if the ctors print something.</span></code></pre>
+
+<p>You are not expected to know exactly when move/copy elision is allowed, just that it is possible.</p>
+
+<p>If you need all of the ctors to run: <code>g++14 -fno-elide-constructors</code> runs all constructors. But this can slow down your program considerably</p>
+
+<p>In Summary: Rule of 5 (Big 5)</p>
+
+<ul>
+<li>If you need a custom version of any one of: <br>
+<ul><li>copy ctor</li>
+<li>copy assignment</li>
+<li>dtor</li>
+<li>move ctor</li>
+<li>move assignment <br>
+Then you usually need a custom version of all five. (The circumstances that require you to need one, usually require you to need all of them)</li></ul></li>
+</ul>
+
+<blockquote>
+  <p>Notice: <br>
+  <code>operator=</code> is a member function, not a standalone function <br>
+  When an operator is a member, <code>this</code> is the first arguement</p>
+  
+  <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+  <span class="hljs-keyword">int</span> x,y;
+  ...
+  Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> Vec&amp;other){
+     <span class="hljs-keyword">return</span>{x+other.x, y+other.y};
+  }
+  Vec <span class="hljs-keyword">operator</span>*{<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k}{ <span class="hljs-comment">//implements v*k</span>
+     <span class="hljs-keyword">return</span> {x*k, y*k};
+  }
+  <span class="hljs-comment">//How do we implement k*v? Can't be a member -first arg not Vec. -Write it as a standalone:</span>
+}
+Vec <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k, <span class="hljs-keyword">const</span> Vec &amp;v){
+  <span class="hljs-keyword">return</span> v*k;
+}</code></pre>
+</blockquote>
+
+<p>I/O operators:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+    ...
+    ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;out){
+        <span class="hljs-keyword">return</span> out &lt;&lt; x &lt;&lt; <span class="hljs-string">' '</span> &lt;&lt; y;
+    }
+};
+<span class="hljs-comment">//what's wrong? Make Vec the first arg. -&gt; Use as vec&lt;&lt;cout;</span></code></pre>
+
+<p>So define &lt;&lt;. &gt;&gt; as standalone fns.  <br>
+Certain operators <strong>must</strong> be members:</p>
+
+<ul>
+<li>operator=</li>
+<li>operator[]</li>
+<li>operator()</li>
+<li>operator T (where T is a type)</li>
+</ul>
+
+
+
+<h2 id="lecture-10-1">Lecture - 10</h2>
+
+
+
+<h3 id="separate-compilation-for-classes">Separate Compilation for Classes</h3>
+
+<p>Node.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor"># ...</span>
+<span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    <span class="hljs-keyword">explicit</span> Node(<span class="hljs-keyword">int</span> data, Node*next=<span class="hljs-keyword">nullptr</span>);
+    <span class="hljs-keyword">bool</span> hasNext();
+};</code></pre>
+
+<p>Node.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "node.h"</span>
+Node(<span class="hljs-keyword">int</span> data, Node *next): data{data}, next{next} {} <span class="hljs-comment">//compiler will yell at you for this. No return type and can't use init for f'ns.</span>
+Node::Node(<span class="hljs-keyword">int</span> data, Node *next): data{data}, next{next}{} <span class="hljs-comment">//tells compiler that it belongs to a class</span>
+
+<span class="hljs-keyword">bool</span> hasNext(){<span class="hljs-keyword">return</span> next!=<span class="hljs-keyword">nullptr</span>;} <span class="hljs-comment">//will yell and say that you're using an undeclared variable</span>
+<span class="hljs-keyword">bool</span> Node::hasNext(){<span class="hljs-keyword">return</span> next!=<span class="hljs-keyword">nullptr</span>;}<span class="hljs-comment">//better</span></code></pre>
+
+<p><code>::</code> - scope resolution operator <br>
+<code>Node:: ____</code> means <code>____</code> within class node <br>
+<code>::</code> like <code>.</code> where LHS is a class or namespace, not an object</p>
+
+
+
+<h3 id="arrays-of-objects">Arrays of Objects</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y): x{x}, y{y} {}
+};
+Vec *vp = <span class="hljs-keyword">new</span> Vec[<span class="hljs-number">5</span>]; <span class="hljs-comment">// X</span>
+Vec moreVecs[<span class="hljs-number">3</span>]; <span class="hljs-comment">// X</span>
+<span class="hljs-comment">//there want to call the default ctor on each item. Can't init array elements - no default ctor.</span></code></pre>
+
+<p>Options</p>
+
+<ol>
+<li>Provide a default ctor</li>
+<li>For stack arrays: <br>
+<code>Vec moreVecs[] = {{0,0}, {1,3}, {2,4}};</code></li>
+<li>For heap arrays: -create an array of ptrs</li>
+</ol>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec **vp = <span class="hljs-keyword">new</span> Vec*[<span class="hljs-number">5</span>];
+vp[<span class="hljs-number">0</span>]=<span class="hljs-keyword">new</span> Vec {<span class="hljs-number">0</span>,<span class="hljs-number">0</span>};
+vp[<span class="hljs-number">1</span>]=<span class="hljs-keyword">new</span> Vec[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>];
+...
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>;++i){
+    <span class="hljs-keyword">delete</span> vp[i];
+}
+<span class="hljs-keyword">delete</span>[] vp;</code></pre>
+
+
+
+<h3 id="const-objects">Const Objects</h3>
+
+<p>Const objects arise often</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> f(<span class="hljs-keyword">const</span> Node &amp;n) {...}</code></pre>
+
+<p>What is a const object? Can’t change fields <br>
+Question: Can we call methods on a const object? <br>
+<em>Issue:</em> <br>
+The method may modify fields, violate const <br>
+Answer: Yes - we can call methods that promise not to change fields</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade() <span class="hljs-keyword">const</span>; <span class="hljs-comment">//this method will not change fields</span>
+};</code></pre>
+
+<p>Compiler checks that const methods don’t modify fields. Only const methods can be called on const objects.</p>
+
+<p>Now consider: want to collect usage stats on student objects</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    <span class="hljs-keyword">int</span> numMethodCalls=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">float</span> grade() <span class="hljs-keyword">const</span>{
+        ++numMethodcalls; <span class="hljs-comment">//method isn't const anymore. If you take const out, can't call grade on const students</span>
+        <span class="hljs-keyword">return</span> ...
+    }
+};</code></pre>
+
+<p>But mutating numMethodCalls affects only the <strong>physical constness</strong> of student objects, not the <strong>logical constness</strong></p>
+
+<p>Want to be able to update numMethodCalls, even if the object is const - declare the field <code>mutable</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">float</span> grade() <span class="hljs-keyword">const</span>{
+        ++numMethodCalls;
+        <span class="hljs-keyword">return</span> ...;
+    }
+};</code></pre>
+
+<p>mutable fields can be changed, even if the object is const.</p>
+
+
+
+<h3 id="static-fields-methods">Static Fields + Methods</h3>
+
+<p><code>numMethodCalls</code> tracked # of method calls for each particular Student <br>
+What if we want to track method calls over all Students? <br>
+Or what if we want to know how many Students were created? <br>
+<strong>Static members</strong> - associated with the class itself, not with any specified instance (object).</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> numInstances;
+    Student(<span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final): assns{assns}, mt{mt}, final{final} {
+        ++numInstances;
+    }
+};
+
+<span class="hljs-keyword">int</span> Student::numInstances=<span class="hljs-number">0</span>; <span class="hljs-comment">//in .cc file</span></code></pre>
+
+<p>static fields must be defined, external to the class</p>
+
+
+
+<h3 id="static-member-functions">Static Member Functions</h3>
+
+<ul>
+<li>Don’t depend on a specific instance (no <code>this</code> param)</li>
+<li>Can only access static fields + call other static methods</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> numInstance;
+    ...
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> printNumInstances(){
+        <span class="hljs-built_in">cout</span> &lt;&lt; numInstances &lt;&lt; endl;
+    }
+};
+Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+Student jane{<span class="hljs-number">70</span>,<span class="hljs-number">80</span>,<span class="hljs-number">90</span>};
+Student::printNumInstances(); <span class="hljs-comment">//2</span></code></pre>
+
+
+
+<h3 id="invariants-encapsulation">Invariants + Encapsulation</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    Node(<span class="hljs-keyword">int</span> data, Node*next);
+    ...
+    ~Node(){<span class="hljs-keyword">delete</span> next;}
+};
+Node n1 {<span class="hljs-number">1</span>, newNode {<span class="hljs-number">2</span>, <span class="hljs-keyword">nullptr</span>}};
+Node n2 {<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>};
+Node n3 {<span class="hljs-number">4</span>, &amp;n2};</code></pre>
+
+<p>What happens when these go out of scope?</p>
+
+<ul>
+<li>n1: dtor runs, whole list is deleted OK</li>
+<li>n2, n3 go out of scope - n3’s dtor attempts to delete n2 but n2 is on the stack, not the heap! Undefined behaviour!</li>
+</ul>
+
+<p>Class Node relies on an assumption for its proper operation - next is either <code>nullptr</code> or allocated by <code>new</code>.</p>
+
+<p>This is an <strong>invariant</strong> - statement that holds true, upon which Node relies. <br>
+But we can’t guarantee this invariant - can’t trust the user to use Node properly.  <br>
+Can’t enforce any invariants - user can interfere with our data.</p>
+
+<blockquote>
+  <p>Eg. - Stack : Invariant -&gt; last item pushed is first item popped. <br>
+  but not if the client can rearrange the underlying data. </p>
+</blockquote>
+
+<p>Hard to reason about programs if you can’t rely on invariants. <br>
+To enforce invariants - we introduce <code>encapsulation</code>  - we can’t clients to treat our objects as black boxes - capsules.</p>
+
+<ul>
+<li>implementation details sealed away</li>
+<li>can only interact via provided methods</li>
+<li>abstraction - regains control over our objects</li>
+</ul>
+
+<p>Eg</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">strut Vec{
+    Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y); <span class="hljs-comment">//public by default</span>
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">int</span> x,y;<span class="hljs-comment">//can't be accessed outside the struct Vec.</span>
+    <span class="hljs-keyword">public</span>:
+        Vec <span class="hljs-keyword">operator</span>+(...);<span class="hljs-comment">//anyone can access</span>
+        ...
+};</code></pre>
+
+<p>In general: want fields to be private - only methods should be public.  <br>
+Better to have default visibility to be private. <br>
+Switch from struct to class. <br>
+THIS IS THE ONLY DIFFERENCE BETWEEN STRUCT AND CLASS -&gt; default visibility. Public in <code>struct</code>. Private in <code>class</code>.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    Vec(<span class="hljs-keyword">int</span> x,y);
+    Vec <span class="hljs-keyword">operator</span>+(...);
+    ...
+};</code></pre>
+
+
+
+<h2 id="cs-246-tut-5">CS 246 TUT 5</h2>
+
+<blockquote>
+  <p>Summary: Rvalues &amp; Lvalues <br>
+  Move Copy/Assignment <br>
+  Rule of Five <br>
+  Member Operators</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> value;
+    Node *next;
+};
+
+Node add(Node n, <span class="hljs-keyword">int</span> inc){ <span class="hljs-comment">//copy ctor runs</span>
+    <span class="hljs-keyword">for</span>(Node *m=&amp;n; m != <span class="hljs-keyword">nullptr</span>; m = m-&gt;next){
+        m-&gt;value += inc;
+    }
+    <span class="hljs-keyword">return</span> n;
+}
+
+Node n1{<span class="hljs-number">1</span>,<span class="hljs-number">3</span>};
+Node n2 = add(n1,<span class="hljs-number">3</span>); <span class="hljs-comment">//move ctor</span>
+n2 = add(n1, <span class="hljs-number">4</span>); <span class="hljs-comment">//move assign</span>
+
+Node(Node &amp;&amp;other): <span class="hljs-comment">//impl of the move ctor</span>
+value{other.value}, next{other.next} {
+    other.next = <span class="hljs-keyword">nullptr</span>;
+}</code></pre>
+
+<p>Node &amp;operator=(Node &amp;&amp;other){ <br>
+    swap(value, other.value); <br>
+    swap(next, other.next); <br>
+    return *this; <br>
+}</p>
+
+<p>lvalue -&gt; with address <br>
+rvalue -&gt; without address</p>
+
+
+
+<h2 id="lecture-12">Lecture 12</h2>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+        <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-keyword">public</span>:
+        Vec (<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y);
+        Vec <span class="hljs-keyword">operator</span>+(...);
+        ...
+};</code></pre>
+
+<p>Fix our linked list class: <br>
+list.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node; <span class="hljs-comment">//private nested class. Only accessible within list.</span>
+    Node *theList = <span class="hljs-keyword">nullptr</span>;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> addToFront(<span class="hljs-keyword">int</span> n);
+        <span class="hljs-keyword">int</span> ith(<span class="hljs-keyword">int</span> n) <span class="hljs-keyword">const</span>;
+        ~List(){<span class="hljs-keyword">delete</span> theList;}
+};</code></pre>
+
+<p>list.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "list.h"</span>
+<span class="hljs-keyword">struct</span> List::Node{ <span class="hljs-comment">// Nested class</span>
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    Node(...): ... {}
+    ~Node() {<span class="hljs-keyword">delete</span> next;}
+};
+
+<span class="hljs-keyword">void</span> List::addToFront(<span class="hljs-keyword">int</span> n){
+    theList = <span class="hljs-keyword">new</span> Node {n, theList};
+}
+
+<span class="hljs-keyword">int</span> List::ith(<span class="hljs-keyword">int</span> i)<span class="hljs-keyword">const</span>{
+    Node *cur = theList;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> n=<span class="hljs-number">0</span>; n &lt; i &amp;&amp; cur; ++n; curr=cur-&gt;next);
+    <span class="hljs-keyword">return</span> cur-&gt; data;
+}</code></pre>
+
+<p>Only List can create/manipulate Node objects <br>
+<script type="math/tex" id="MathJax-Element-8">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+
+<p>pause</p>
+
+<hr>
+
+<p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-9">O(n^2)</script> time. <br>
+But we can’t expose the nodes, or we lose encapsulation</p>
+
+
+
+<h3 id="se-topic-design-patterns">SE Topic: Design Patterns</h3>
+
+<ul>
+<li>certain problems arise frequently</li>
+<li>keep track of good solutions, use in similar situations</li>
+</ul>
+
+<dl>
+<dt>Design Pattern</dt>
+<dd>If you have problem X, solution Y will fix it.</dd>
+</dl>
+
+<blockquote>
+  <p>Book Rec: Design Patterns (by the gang of four)</p>
+</blockquote>
+
+<hr>
+
+<p>resume</p>
+
+<p>Solution: Create a class that manages access to nodes <br>
+- Create a class that manages access to nodes <br>
+- abstraction of a ptr <br>
+- walk the list without exposing the actual ptrs.</p>
+
+<p>Inspiration:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> *p=a; p! = a+n ; ++p){
+    ... *p ...
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node;
+    Node *theList;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator{
+            Node *p;
+            <span class="hljs-keyword">public</span>:
+                <span class="hljs-keyword">explicit</span> Iterator(Node *p):p{p}{}
+                <span class="hljs-keyword">int</span> &amp;<span class="hljs-keyword">operator</span>*(){<span class="hljs-keyword">return</span> p-&gt;data;} <span class="hljs-comment">// returns p-&gt;data ITSELF. allows the user to update it themselves. (eg. Iterator it ... ; *it = 7;)</span>
+                Iterator &amp;<span class="hljs-keyword">operator</span>++(){p=p-&gt;next; <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;}
+                <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-keyword">const</span> Iterator &amp;other){ <span class="hljs-keyword">return</span> p==other.p;}
+                <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>!=(<span class="hljs-keyword">const</span> Iterator &amp;other){
+                    <span class="hljs-keyword">return</span> !(*<span class="hljs-keyword">this</span>==other);
+                }
+        };
+        Iterator begin(){<span class="hljs-keyword">return</span> Iterator{theList};}
+        Iterator end(){<span class="hljs-keyword">return</span> Iterator{<span class="hljs-keyword">nullptr</span>};}
+        ...<span class="hljs-comment">//other methods like ith</span>
+        ... 
+};</code></pre>
+
+<p>Client:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
+    List l;
+    l.addToFront(<span class="hljs-number">1</span>);
+    l.addToFront(<span class="hljs-number">2</span>);
+    l.addToFront(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">for</span>(List::Iterator it=l.begin(); it!=l.end();++it){
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt;endl;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Shortcut: automatic type deduction - <code>auto x = y;</code> . <code>auto</code> automatically gives x the same type as y.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it = l.begin(); it!=l.end(); ++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; endl;
+}</code></pre>
+
+<blockquote>
+  <p>Shorter cut: range-based for loop</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> n:l){
+    <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+}</code></pre>
+
+<p>Available for any class with:</p>
+
+<ul>
+<li>methods begin + end that produces iterators</li>
+<li>iterators must support !=, prefix ++, unary *</li>
+</ul>
+
+<p>If you want to modify the list items (or save copying):</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;n: l){
+    ++n;
+}</code></pre>
+
+<p>Iterators shall return later.</p>
+
+<p>Encapsulation ctd.</p>
+
+<p>List  Client can create iterators directly :o</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">auto</span> it = List::Iterator{<span class="hljs-keyword">nullptr</span>}; <span class="hljs-comment">//well, they only can make a nullptr iterator. But still. Bad form.</span></code></pre>
+
+<ul>
+<li>violate encapsulation - client should be using begin/end.</li>
+</ul>
+
+<p>We could make Iterator’s ctor private. Then client can’t call <code>List::Iterator(...)</code> . But then neither can List.</p>
+
+<p>Solution: Give List privileged access to Iterator. Make it a <code>friend</code>.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator{
+            Node *p;
+            <span class="hljs-keyword">explicit</span> Iterator(Node *p); <span class="hljs-comment">//private</span>
+            <span class="hljs-keyword">public</span>:
+                ...
+                <span class="hljs-keyword">friend</span> clas List; <span class="hljs-comment">// List has access to all members of Iterator.</span>
+        };
+    ...
+};</code></pre>
+
+<p>Now List can still create iterators, but client can only create them by calling <code>begin()</code> and <code>end()</code>.</p>
+
+<p>Advice: give your classes as few friends as possible. weakens encapsulation. <br>
+Once again: keep fields private. What if you want to give access to fields? use accessor + mutator methods.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> getX()<span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> x;} <span class="hljs-comment">//accessor</span>
+        <span class="hljs-keyword">void</span> setY(<span class="hljs-keyword">int</span> newY){y=newY;} <span class="hljs-comment">//mutator</span>
+};</code></pre>
+
+<hr>
+
+<p>what about operator &lt;&lt; - needs x+y, can’t be a member <br>
+If no getX, getY - make operator &lt;&lt; a friend function</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">friend</span> <span class="hljs-built_in">std</span>::ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(<span class="hljs-built_in">std</span>::ostream &amp;out, <span class="hljs-keyword">const</span> Vec &amp;v);
+}
+
+<span class="hljs-comment">//.cc</span>
+ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;out, <span class="hljs-keyword">const</span> Vec &amp;v){
+    <span class="hljs-keyword">return</span> out &lt;&lt; v.x &lt;&lt; <span class="hljs-string">' '</span> &lt;&lt; v.y;
+}</code></pre>
+
+
+
+<h3 id="tools-topic-make">Tools topic: make</h3>
+
+<p>Separate compilation: <code>g++14 -c list.cc</code> , <code>g++14 -c node.cc</code>, <code>g++14 -c iter.cc</code>, <code>g++14 -c main.cc</code>, <code>g++14 list.o node.o iter.o main.o -o myprog</code> <br>
+Why do we do this? So we don’t have to recompile files that haven’t changed.</p>
+
+<p>How do you keep track of what’s changed? <br>
+Let Linux help you - with make.</p>
+
+<p>Create a Makefile that says which files depend on which other files. <br>
+myprog: main.o list.o node.o iter.o //myprog depends on these <br>
+[   ] (MUST be a TAB) g++-5 -std=c++14 main.o list.o node.o iter.o -o myprog (&lt;- how to rebuild)</p></body>
 </html>
 
 <!--
 2: Using highlight.js
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>CS 246</title>
-
 <link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
-
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/agate.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script> 
-
 </head>
 <body><h1 id="cs-246-object-oriented-software-development">CS 246 - Object-Oriented Software Development</h1>
 
@@ -2138,6 +2864,26 @@ a[i] = a[j];</code></pre>
 <li><a href="#copy-assignment-operator-the-one-everyone-gets-wrong-on-the-midterm-kekekek">Copy Assignment Operator - the one everyone gets wrong on the midterm kekekek</a></li>
 </ul>
 </li>
+<li><a href="#lecture-10">Lecture 10</a><ul>
+<li><a href="#rvalues-rvalue-references">Rvalues + Rvalue References</a></li>
+<li><a href="#copymove-elision">Copy/Move Elision</a></li>
+</ul>
+</li>
+<li><a href="#lecture-10-1">Lecture - 10</a><ul>
+<li><a href="#separate-compilation-for-classes">Separate Compilation for Classes</a></li>
+<li><a href="#arrays-of-objects">Arrays of Objects</a></li>
+<li><a href="#const-objects">Const Objects</a></li>
+<li><a href="#static-fields-methods">Static Fields + Methods</a></li>
+<li><a href="#static-member-functions">Static Member Functions</a></li>
+<li><a href="#invariants-encapsulation">Invariants + Encapsulation</a></li>
+</ul>
+</li>
+<li><a href="#cs-246-tut-5">CS 246 TUT 5</a></li>
+<li><a href="#lecture-12">Lecture 12</a><ul>
+<li><a href="#se-topic-design-patterns">SE Topic: Design Patterns</a></li>
+<li><a href="#tools-topic-make">Tools topic: make</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3944,6 +4690,8 @@ Node *p =<span class="hljs-keyword">new</span> Node{*n};</code></pre>
 Simple copy of fields -&gt; only the first node is actually copied (<em>shallow copy</em>) <br>
 If you want a <em>deep copy</em> (copies the whole list),  must write your own copy ctor:</p>
 
+
+
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
     ...
     Node(<span class="hljs-keyword">const</span> Node &amp;other): data{other.data}, next{ other.next? <span class="hljs-keyword">new</span> Node (*other.next) : <span class="hljs-keyword">nullptr</span>}{}
@@ -4089,7 +4837,715 @@ a[i] = a[j];</code></pre>
     <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
     }</code></pre>
 
-<p>//if new fails, Node is still in a valid state.</p></body>
-</html>
+<p>//if new fails, Node is still in a valid state.</p>
 
+
+
+<h2 id="lecture-10">Lecture 10</h2>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node&amp; operators=(<span class="hljs-keyword">const</span> Node &amp;other){
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>==&amp;other) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    Node *tmp = next;
+    next = other.next?<span class="hljs-keyword">new</span> Node{*other.next}:<span class="hljs-keyword">nullptr</span>;
+    data = other.data;
+    <span class="hljs-keyword">delete</span> tmp;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>
+}</code></pre>
+
+<p>Alternative: copy + swap idiom &lt;3</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;utility&gt;</span>
+<span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">void</span> swap(Node &amp;other){
+        <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::swap;
+        swap(data,other.data);
+        swap(next, other.next);
+    }
+}
+
+Node &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Node &amp;other){
+    Node tmp = other; <span class="hljs-comment">//tmp = copy of other</span>
+    swap(tmp); <span class="hljs-comment">//me = copy of other. tmp = my old fields</span>
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; <span class="hljs-comment">//my old data deleted when tmp goes out of scope</span>
+}</code></pre>
+
+
+
+<h3 id="rvalues-rvalue-references">Rvalues + Rvalue References</h3>
+
+<blockquote>
+  <p>Recall: - an lvalue is anything with an address. -an lvalue reference (&amp;) is like a const pointer with automatic dereferencing. -always initialized to a lvalue.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n{<span class="hljs-number">1</span>, <span class="hljs-keyword">new</span> Node{<span class="hljs-number">2</span>, <span class="hljs-keyword">nullptr</span>}};
+Node m=n; <span class="hljs-comment">//copy ctor;</span>
+Node m2;
+m2=n; <span class="hljs-comment">//copy assignment operator</span>
+
+Node plusOne(Node n){
+    <span class="hljs-keyword">for</span>(Node *p=&amp;n;p;p=p-&gt;next){
+        ++p-&gt;data;
+    }
+    <span class="hljs-keyword">return</span> n;
+}
+Node m3 = plusOne(n); <span class="hljs-comment">//copy ctor. What is "other" here? Reference to what?</span></code></pre>
+
+<ul>
+<li>Compiler creates a <code>temporary</code> object to hold the result of plusOne</li>
+<li>Other is a reference to this temporary - copy ctor deep-copies data from this temporary. <br>
+<em>But:</em> - the temporary is just going to be discarded anyway, as soon as the stmt <code>Node m3 = plusOne(n);</code> is done</li>
+<li>wasteful to copy from the temp. Why not just steal it instead? - save the cost of a copy. <br>
+-Need to be able to tell whether the other is a reference to a temporary or a standalone object <br>
+C++ - rvalue reference -&gt; Node &amp;&amp; is a reference to a temporary object (rvalue) of type Node.</li>
+</ul>
+
+<p>Version of the ctor that takes Node &amp;&amp;.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    ...
+    Node(Node &amp;&amp; other): <span class="hljs-comment">//called a move ctor</span>
+    <span class="hljs-comment">// what should the move ctor do? Should steal other's data.</span>
+        data{other.data},
+        next{other.next} {
+            other.next=<span class="hljs-keyword">nullptr</span>; <span class="hljs-comment">//else the list is destroyed when other is destroyed. This ctor is constant time.</span>
+        }
+}</code></pre>
+
+<p>Similarly:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node m;
+m=plusOne(n); <span class="hljs-comment">//Assignment from temporary</span>
+<span class="hljs-comment">//More assignment operator:</span>
+<span class="hljs-keyword">struct</span> Node{
+    ...
+    Node &amp;<span class="hljs-keyword">operator</span>=(Node &amp;&amp;other){
+        swap(other); <span class="hljs-comment">//steal other's data</span>
+        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; <span class="hljs-comment">//destroy my old data. swap without copy</span>
+    }
+}</code></pre>
+
+<p>If you don’t define move ctor/assignment, the copy versions will be used. If the move ctor/assignment is defined, it will replace all calls to copy ctor/assignment when the argument is a temporary (rvalue).</p>
+
+
+
+<h3 id="copymove-elision">Copy/Move Elision</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec makeAVec(){
+    <span class="hljs-keyword">return</span> {<span class="hljs-number">0</span>,<span class="hljs-number">0</span>}; <span class="hljs-comment">//invokes a basic ctor</span>
+}
+Vec v=makeAVec(); <span class="hljs-comment">//what runs? Not Sure! When compiled in g++, there's the basic ctor (no move/copy ctor).</span></code></pre>
+
+<p>In some circumstances, the compiler is allowed to skip calling copy/move ctors (but doesn’t have to) <br>
+In this example: makeAVec writes it’s result ({0,0}) directly into the space occupied by v in the caller, rather than copy or move it later. <br>
+Example:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> doSomething(vec v)<span class="hljs-comment">//&lt;- pass-by-value copy/move ctor</span>
+{...}
+doSomething(makeAVec()); <span class="hljs-comment">//-result of makeAVec is written directly into the parameter. There is no copy or move. This is allowed even if dropping ctor calls would change the behaviour of the program. eg. if the ctors print something.</span></code></pre>
+
+<p>You are not expected to know exactly when move/copy elision is allowed, just that it is possible.</p>
+
+<p>If you need all of the ctors to run: <code>g++14 -fno-elide-constructors</code> runs all constructors. But this can slow down your program considerably</p>
+
+<p>In Summary: Rule of 5 (Big 5)</p>
+
+<ul>
+<li>If you need a custom version of any one of: <br>
+<ul><li>copy ctor</li>
+<li>copy assignment</li>
+<li>dtor</li>
+<li>move ctor</li>
+<li>move assignment <br>
+Then you usually need a custom version of all five. (The circumstances that require you to need one, usually require you to need all of them)</li></ul></li>
+</ul>
+
+<blockquote>
+  <p>Notice: <br>
+  <code>operator=</code> is a member function, not a standalone function <br>
+  When an operator is a member, <code>this</code> is the first arguement</p>
+  
+  <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+  <span class="hljs-keyword">int</span> x,y;
+  ...
+  Vec <span class="hljs-keyword">operator</span>+(<span class="hljs-keyword">const</span> Vec&amp;other){
+     <span class="hljs-keyword">return</span>{x+other.x, y+other.y};
+  }
+  Vec <span class="hljs-keyword">operator</span>*{<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k}{ <span class="hljs-comment">//implements v*k</span>
+     <span class="hljs-keyword">return</span> {x*k, y*k};
+  }
+  <span class="hljs-comment">//How do we implement k*v? Can't be a member -first arg not Vec. -Write it as a standalone:</span>
+}
+Vec <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> k, <span class="hljs-keyword">const</span> Vec &amp;v){
+  <span class="hljs-keyword">return</span> v*k;
+}</code></pre>
+</blockquote>
+
+<p>I/O operators:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+    ...
+    ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;out){
+        <span class="hljs-keyword">return</span> out &lt;&lt; x &lt;&lt; <span class="hljs-string">' '</span> &lt;&lt; y;
+    }
+};
+<span class="hljs-comment">//what's wrong? Make Vec the first arg. -&gt; Use as vec&lt;&lt;cout;</span></code></pre>
+
+<p>So define &lt;&lt;. &gt;&gt; as standalone fns.  <br>
+Certain operators <strong>must</strong> be members:</p>
+
+<ul>
+<li>operator=</li>
+<li>operator[]</li>
+<li>operator()</li>
+<li>operator T (where T is a type)</li>
+</ul>
+
+
+
+<h2 id="lecture-10-1">Lecture - 10</h2>
+
+
+
+<h3 id="separate-compilation-for-classes">Separate Compilation for Classes</h3>
+
+<p>Node.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor"># ...</span>
+<span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    <span class="hljs-keyword">explicit</span> Node(<span class="hljs-keyword">int</span> data, Node*next=<span class="hljs-keyword">nullptr</span>);
+    <span class="hljs-keyword">bool</span> hasNext();
+};</code></pre>
+
+<p>Node.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "node.h"</span>
+Node(<span class="hljs-keyword">int</span> data, Node *next): data{data}, next{next} {} <span class="hljs-comment">//compiler will yell at you for this. No return type and can't use init for f'ns.</span>
+Node::Node(<span class="hljs-keyword">int</span> data, Node *next): data{data}, next{next}{} <span class="hljs-comment">//tells compiler that it belongs to a class</span>
+
+<span class="hljs-keyword">bool</span> hasNext(){<span class="hljs-keyword">return</span> next!=<span class="hljs-keyword">nullptr</span>;} <span class="hljs-comment">//will yell and say that you're using an undeclared variable</span>
+<span class="hljs-keyword">bool</span> Node::hasNext(){<span class="hljs-keyword">return</span> next!=<span class="hljs-keyword">nullptr</span>;}<span class="hljs-comment">//better</span></code></pre>
+
+<p><code>::</code> - scope resolution operator <br>
+<code>Node:: ____</code> means <code>____</code> within class node <br>
+<code>::</code> like <code>.</code> where LHS is a class or namespace, not an object</p>
+
+
+
+<h3 id="arrays-of-objects">Arrays of Objects</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y): x{x}, y{y} {}
+};
+Vec *vp = <span class="hljs-keyword">new</span> Vec[<span class="hljs-number">5</span>]; <span class="hljs-comment">// X</span>
+Vec moreVecs[<span class="hljs-number">3</span>]; <span class="hljs-comment">// X</span>
+<span class="hljs-comment">//there want to call the default ctor on each item. Can't init array elements - no default ctor.</span></code></pre>
+
+<p>Options</p>
+
+<ol>
+<li>Provide a default ctor</li>
+<li>For stack arrays: <br>
+<code>Vec moreVecs[] = {{0,0}, {1,3}, {2,4}};</code></li>
+<li>For heap arrays: -create an array of ptrs</li>
+</ol>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Vec **vp = <span class="hljs-keyword">new</span> Vec*[<span class="hljs-number">5</span>];
+vp[<span class="hljs-number">0</span>]=<span class="hljs-keyword">new</span> Vec {<span class="hljs-number">0</span>,<span class="hljs-number">0</span>};
+vp[<span class="hljs-number">1</span>]=<span class="hljs-keyword">new</span> Vec[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>];
+...
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">5</span>;++i){
+    <span class="hljs-keyword">delete</span> vp[i];
+}
+<span class="hljs-keyword">delete</span>[] vp;</code></pre>
+
+
+
+<h3 id="const-objects">Const Objects</h3>
+
+<p>Const objects arise often</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> f(<span class="hljs-keyword">const</span> Node &amp;n) {...}</code></pre>
+
+<p>What is a const object? Can’t change fields <br>
+Question: Can we call methods on a const object? <br>
+<em>Issue:</em> <br>
+The method may modify fields, violate const <br>
+Answer: Yes - we can call methods that promise not to change fields</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">int</span> assns, mt, final;
+    <span class="hljs-keyword">float</span> grade() <span class="hljs-keyword">const</span>; <span class="hljs-comment">//this method will not change fields</span>
+};</code></pre>
+
+<p>Compiler checks that const methods don’t modify fields. Only const methods can be called on const objects.</p>
+
+<p>Now consider: want to collect usage stats on student objects</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    <span class="hljs-keyword">int</span> numMethodCalls=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">float</span> grade() <span class="hljs-keyword">const</span>{
+        ++numMethodcalls; <span class="hljs-comment">//method isn't const anymore. If you take const out, can't call grade on const students</span>
+        <span class="hljs-keyword">return</span> ...
+    }
+};</code></pre>
+
+<p>But mutating numMethodCalls affects only the <strong>physical constness</strong> of student objects, not the <strong>logical constness</strong></p>
+
+<p>Want to be able to update numMethodCalls, even if the object is const - declare the field <code>mutable</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    <span class="hljs-keyword">float</span> grade() <span class="hljs-keyword">const</span>{
+        ++numMethodCalls;
+        <span class="hljs-keyword">return</span> ...;
+    }
+};</code></pre>
+
+<p>mutable fields can be changed, even if the object is const.</p>
+
+
+
+<h3 id="static-fields-methods">Static Fields + Methods</h3>
+
+<p><code>numMethodCalls</code> tracked # of method calls for each particular Student <br>
+What if we want to track method calls over all Students? <br>
+Or what if we want to know how many Students were created? <br>
+<strong>Static members</strong> - associated with the class itself, not with any specified instance (object).</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> numInstances;
+    Student(<span class="hljs-keyword">int</span> assns, <span class="hljs-keyword">int</span> mt, <span class="hljs-keyword">int</span> final): assns{assns}, mt{mt}, final{final} {
+        ++numInstances;
+    }
+};
+
+<span class="hljs-keyword">int</span> Student::numInstances=<span class="hljs-number">0</span>; <span class="hljs-comment">//in .cc file</span></code></pre>
+
+<p>static fields must be defined, external to the class</p>
+
+
+
+<h3 id="static-member-functions">Static Member Functions</h3>
+
+<ul>
+<li>Don’t depend on a specific instance (no <code>this</code> param)</li>
+<li>Can only access static fields + call other static methods</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Student{
+    ...
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> numInstance;
+    ...
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> printNumInstances(){
+        <span class="hljs-built_in">cout</span> &lt;&lt; numInstances &lt;&lt; endl;
+    }
+};
+Student billy{<span class="hljs-number">60</span>,<span class="hljs-number">70</span>,<span class="hljs-number">80</span>};
+Student jane{<span class="hljs-number">70</span>,<span class="hljs-number">80</span>,<span class="hljs-number">90</span>};
+Student::printNumInstances(); <span class="hljs-comment">//2</span></code></pre>
+
+
+
+<h3 id="invariants-encapsulation">Invariants + Encapsulation</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    Node(<span class="hljs-keyword">int</span> data, Node*next);
+    ...
+    ~Node(){<span class="hljs-keyword">delete</span> next;}
+};
+Node n1 {<span class="hljs-number">1</span>, newNode {<span class="hljs-number">2</span>, <span class="hljs-keyword">nullptr</span>}};
+Node n2 {<span class="hljs-number">3</span>, <span class="hljs-keyword">nullptr</span>};
+Node n3 {<span class="hljs-number">4</span>, &amp;n2};</code></pre>
+
+<p>What happens when these go out of scope?</p>
+
+<ul>
+<li>n1: dtor runs, whole list is deleted OK</li>
+<li>n2, n3 go out of scope - n3’s dtor attempts to delete n2 but n2 is on the stack, not the heap! Undefined behaviour!</li>
+</ul>
+
+<p>Class Node relies on an assumption for its proper operation - next is either <code>nullptr</code> or allocated by <code>new</code>.</p>
+
+<p>This is an <strong>invariant</strong> - statement that holds true, upon which Node relies. <br>
+But we can’t guarantee this invariant - can’t trust the user to use Node properly.  <br>
+Can’t enforce any invariants - user can interfere with our data.</p>
+
+<blockquote>
+  <p>Eg. - Stack : Invariant -&gt; last item pushed is first item popped. <br>
+  but not if the client can rearrange the underlying data. </p>
+</blockquote>
+
+<p>Hard to reason about programs if you can’t rely on invariants. <br>
+To enforce invariants - we introduce <code>encapsulation</code>  - we can’t clients to treat our objects as black boxes - capsules.</p>
+
+<ul>
+<li>implementation details sealed away</li>
+<li>can only interact via provided methods</li>
+<li>abstraction - regains control over our objects</li>
+</ul>
+
+<p>Eg</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">strut Vec{
+    Vec(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y); <span class="hljs-comment">//public by default</span>
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">int</span> x,y;<span class="hljs-comment">//can't be accessed outside the struct Vec.</span>
+    <span class="hljs-keyword">public</span>:
+        Vec <span class="hljs-keyword">operator</span>+(...);<span class="hljs-comment">//anyone can access</span>
+        ...
+};</code></pre>
+
+<p>In general: want fields to be private - only methods should be public.  <br>
+Better to have default visibility to be private. <br>
+Switch from struct to class. <br>
+THIS IS THE ONLY DIFFERENCE BETWEEN STRUCT AND CLASS -&gt; default visibility. Public in <code>struct</code>. Private in <code>class</code>.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    Vec(<span class="hljs-keyword">int</span> x,y);
+    Vec <span class="hljs-keyword">operator</span>+(...);
+    ...
+};</code></pre>
+
+
+
+<h2 id="cs-246-tut-5">CS 246 TUT 5</h2>
+
+<blockquote>
+  <p>Summary: Rvalues &amp; Lvalues <br>
+  Move Copy/Assignment <br>
+  Rule of Five <br>
+  Member Operators</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> Node{
+    <span class="hljs-keyword">int</span> value;
+    Node *next;
+};
+
+Node add(Node n, <span class="hljs-keyword">int</span> inc){ <span class="hljs-comment">//copy ctor runs</span>
+    <span class="hljs-keyword">for</span>(Node *m=&amp;n; m != <span class="hljs-keyword">nullptr</span>; m = m-&gt;next){
+        m-&gt;value += inc;
+    }
+    <span class="hljs-keyword">return</span> n;
+}
+
+Node n1{<span class="hljs-number">1</span>,<span class="hljs-number">3</span>};
+Node n2 = add(n1,<span class="hljs-number">3</span>); <span class="hljs-comment">//move ctor</span>
+n2 = add(n1, <span class="hljs-number">4</span>); <span class="hljs-comment">//move assign</span>
+
+Node(Node &amp;&amp;other): <span class="hljs-comment">//impl of the move ctor</span>
+value{other.value}, next{other.next} {
+    other.next = <span class="hljs-keyword">nullptr</span>;
+}</code></pre>
+
+<p>Node &amp;operator=(Node &amp;&amp;other){ <br>
+    swap(value, other.value); <br>
+    swap(next, other.next); <br>
+    return *this; <br>
+}</p>
+
+<p>lvalue -&gt; with address <br>
+rvalue -&gt; without address</p>
+
+
+
+<h2 id="lecture-12">Lecture 12</h2>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+        <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-keyword">public</span>:
+        Vec (<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y);
+        Vec <span class="hljs-keyword">operator</span>+(...);
+        ...
+};</code></pre>
+
+<p>Fix our linked list class: <br>
+list.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node; <span class="hljs-comment">//private nested class. Only accessible within list.</span>
+    Node *theList = <span class="hljs-keyword">nullptr</span>;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> addToFront(<span class="hljs-keyword">int</span> n);
+        <span class="hljs-keyword">int</span> ith(<span class="hljs-keyword">int</span> n) <span class="hljs-keyword">const</span>;
+        ~List(){<span class="hljs-keyword">delete</span> theList;}
+};</code></pre>
+
+<p>list.cc</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include "list.h"</span>
+<span class="hljs-keyword">struct</span> List::Node{ <span class="hljs-comment">// Nested class</span>
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    Node(...): ... {}
+    ~Node() {<span class="hljs-keyword">delete</span> next;}
+};
+
+<span class="hljs-keyword">void</span> List::addToFront(<span class="hljs-keyword">int</span> n){
+    theList = <span class="hljs-keyword">new</span> Node {n, theList};
+}
+
+<span class="hljs-keyword">int</span> List::ith(<span class="hljs-keyword">int</span> i)<span class="hljs-keyword">const</span>{
+    Node *cur = theList;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> n=<span class="hljs-number">0</span>; n &lt; i &amp;&amp; cur; ++n; curr=cur-&gt;next);
+    <span class="hljs-keyword">return</span> cur-&gt; data;
+}</code></pre>
+
+<p>Only List can create/manipulate Node objects <br>
+<script type="math/tex" id="MathJax-Element-8">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+
+<p>pause</p>
+
+<hr>
+
+<p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-9">O(n^2)</script> time. <br>
+But we can’t expose the nodes, or we lose encapsulation</p>
+
+
+
+<h3 id="se-topic-design-patterns">SE Topic: Design Patterns</h3>
+
+<ul>
+<li>certain problems arise frequently</li>
+<li>keep track of good solutions, use in similar situations</li>
+</ul>
+
+<dl>
+<dt>Design Pattern</dt>
+<dd>If you have problem X, solution Y will fix it.</dd>
+</dl>
+
+<blockquote>
+  <p>Book Rec: Design Patterns (by the gang of four)</p>
+</blockquote>
+
+<hr>
+
+<p>resume</p>
+
+<p>Solution: Create a class that manages access to nodes <br>
+- Create a class that manages access to nodes <br>
+- abstraction of a ptr <br>
+- walk the list without exposing the actual ptrs.</p>
+
+<p>Inspiration:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> *p=a; p! = a+n ; ++p){
+    ... *p ...
+}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node;
+    Node *theList;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator{
+            Node *p;
+            <span class="hljs-keyword">public</span>:
+                <span class="hljs-keyword">explicit</span> Iterator(Node *p):p{p}{}
+                <span class="hljs-keyword">int</span> &amp;<span class="hljs-keyword">operator</span>*(){<span class="hljs-keyword">return</span> p-&gt;data;} <span class="hljs-comment">// returns p-&gt;data ITSELF. allows the user to update it themselves. (eg. Iterator it ... ; *it = 7;)</span>
+                Iterator &amp;<span class="hljs-keyword">operator</span>++(){p=p-&gt;next; <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;}
+                <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-keyword">const</span> Iterator &amp;other){ <span class="hljs-keyword">return</span> p==other.p;}
+                <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>!=(<span class="hljs-keyword">const</span> Iterator &amp;other){
+                    <span class="hljs-keyword">return</span> !(*<span class="hljs-keyword">this</span>==other);
+                }
+        };
+        Iterator begin(){<span class="hljs-keyword">return</span> Iterator{theList};}
+        Iterator end(){<span class="hljs-keyword">return</span> Iterator{<span class="hljs-keyword">nullptr</span>};}
+        ...<span class="hljs-comment">//other methods like ith</span>
+        ... 
+};</code></pre>
+
+<p>Client:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> main(){
+    List l;
+    l.addToFront(<span class="hljs-number">1</span>);
+    l.addToFront(<span class="hljs-number">2</span>);
+    l.addToFront(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">for</span>(List::Iterator it=l.begin(); it!=l.end();++it){
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt;endl;
+    }
+}</code></pre>
+
+<blockquote>
+  <p>Shortcut: automatic type deduction - <code>auto x = y;</code> . <code>auto</code> automatically gives x the same type as y.</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it = l.begin(); it!=l.end(); ++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; endl;
+}</code></pre>
+
+<blockquote>
+  <p>Shorter cut: range-based for loop</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> n:l){
+    <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+}</code></pre>
+
+<p>Available for any class with:</p>
+
+<ul>
+<li>methods begin + end that produces iterators</li>
+<li>iterators must support !=, prefix ++, unary *</li>
+</ul>
+
+<p>If you want to modify the list items (or save copying):</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;n: l){
+    ++n;
+}</code></pre>
+
+<p>Iterators shall return later.</p>
+
+<p>Encapsulation ctd.</p>
+
+<p>List  Client can create iterators directly :o</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">auto</span> it = List::Iterator{<span class="hljs-keyword">nullptr</span>}; <span class="hljs-comment">//well, they only can make a nullptr iterator. But still. Bad form.</span></code></pre>
+
+<ul>
+<li>violate encapsulation - client should be using begin/end.</li>
+</ul>
+
+<p>We could make Iterator’s ctor private. Then client can’t call <code>List::Iterator(...)</code> . But then neither can List.</p>
+
+<p>Solution: Give List privileged access to Iterator. Make it a <code>friend</code>.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator{
+            Node *p;
+            <span class="hljs-keyword">explicit</span> Iterator(Node *p); <span class="hljs-comment">//private</span>
+            <span class="hljs-keyword">public</span>:
+                ...
+                <span class="hljs-keyword">friend</span> clas List; <span class="hljs-comment">// List has access to all members of Iterator.</span>
+        };
+    ...
+};</code></pre>
+
+<p>Now List can still create iterators, but client can only create them by calling <code>begin()</code> and <code>end()</code>.</p>
+
+<p>Advice: give your classes as few friends as possible. weakens encapsulation. <br>
+Once again: keep fields private. What if you want to give access to fields? use accessor + mutator methods.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> getX()<span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> x;} <span class="hljs-comment">//accessor</span>
+        <span class="hljs-keyword">void</span> setY(<span class="hljs-keyword">int</span> newY){y=newY;} <span class="hljs-comment">//mutator</span>
+};</code></pre>
+
+<hr>
+
+<p>what about operator &lt;&lt; - needs x+y, can’t be a member <br>
+If no getX, getY - make operator &lt;&lt; a friend function</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">friend</span> <span class="hljs-built_in">std</span>::ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(<span class="hljs-built_in">std</span>::ostream &amp;out, <span class="hljs-keyword">const</span> Vec &amp;v);
+}
+
+<span class="hljs-comment">//.cc</span>
+ostream &amp;<span class="hljs-keyword">operator</span>&lt;&lt;(ostream &amp;out, <span class="hljs-keyword">const</span> Vec &amp;v){
+    <span class="hljs-keyword">return</span> out &lt;&lt; v.x &lt;&lt; <span class="hljs-string">' '</span> &lt;&lt; v.y;
+}</code></pre>
+
+
+
+<h3 id="tools-topic-make">Tools topic: make</h3>
+
+<p>Separate compilation: <code>g++14 -c list.cc</code> , <code>g++14 -c node.cc</code>, <code>g++14 -c iter.cc</code>, <code>g++14 -c main.cc</code>, <code>g++14 list.o node.o iter.o main.o -o myprog</code> <br>
+Why do we do this? So we don’t have to recompile files that haven’t changed.</p>
+
+<p>How do you keep track of what’s changed? <br>
+Let Linux help you - with make.</p>
+
+<p>Create a Makefile that says which files depend on which other files. <br>
+myprog: main.o list.o node.o iter.o //myprog depends on these <br>
+[   ] (MUST be a TAB) g++-5 -std=c++14 main.o list.o node.o iter.o -o myprog (&lt;- how to rebuild)</p></body>
+</html>
 -->
