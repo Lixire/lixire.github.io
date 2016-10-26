@@ -110,6 +110,13 @@
 <li><a href="#tools-topic-make">Tools topic: make</a></li>
 </ul>
 </li>
+<li><a href="#lecture-13">Lecture 13</a><ul>
+<li><a href="#makefile">Makefile</a></li>
+<li><a href="#system-modelling">System Modelling</a></li>
+<li><a href="#aggegation">Aggegation</a></li>
+<li><a href="#inheritance-specialization-generalization">Inheritance (Specialization/ Generalization)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -348,7 +355,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-1">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-187">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -541,9 +548,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-2"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-188"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-3">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-189">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -644,7 +651,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-4">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-190">1 appear in file </script>2?</p>
 
 
 
@@ -712,7 +719,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-5">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-191">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -918,7 +925,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-6">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-192">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -1434,7 +1441,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-7">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-193">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -2577,14 +2584,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-8">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-194">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-9">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-195">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -2772,7 +2779,268 @@ Let Linux help you - with make.</p>
 
 <p>Create a Makefile that says which files depend on which other files. <br>
 myprog: main.o list.o node.o iter.o //myprog depends on these <br>
-[   ] (MUST be a TAB) g++-5 -std=c++14 main.o list.o node.o iter.o -o myprog (&lt;- how to rebuild)</p></body>
+[   ] (MUST be a TAB) g++-5 -std=c++14 main.o list.o node.o iter.o -o myprog (&lt;- how to rebuild)</p>
+
+
+
+<h2 id="lecture-13">Lecture 13</h2>
+
+
+
+<h3 id="makefile">Makefile</h3>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">myprog:</span> main<span class="hljs-preprocessor">.o</span> list<span class="hljs-preprocessor">.o</span> iter<span class="hljs-preprocessor">.o</span> node<span class="hljs-preprocessor">.o</span>
+    g++-<span class="hljs-number">5</span> -<span class="hljs-keyword">std</span>==++<span class="hljs-number">14</span> main<span class="hljs-preprocessor">.o</span> list<span class="hljs-preprocessor">.o</span> iter<span class="hljs-preprocessor">.o</span> node<span class="hljs-preprocessor">.o</span> -o myprog
+<span class="hljs-label">list.o:</span> list<span class="hljs-preprocessor">.cc</span> list<span class="hljs-preprocessor">.h</span> node<span class="hljs-preprocessor">.h</span>
+    g++-<span class="hljs-number">5</span> -<span class="hljs-keyword">std</span>=c++<span class="hljs-number">14</span> -c list<span class="hljs-preprocessor">.cc</span>
+etc</code></pre>
+
+<p>What does myprogram depend on? <br>
+- Recursively build these, if necessary <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-196">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-197">\therefore</script> rebuild myprogram <br>
+- To do a full rebuild, make clean, make</p>
+
+<p>Generalize with variables</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs lasso">CXX <span class="hljs-subst">=</span> g<span class="hljs-subst">++-</span><span class="hljs-number">5</span> <span class="hljs-comment">//compiler's name</span>
+CXXFLAGS <span class="hljs-subst">=</span> <span class="hljs-attribute">-std</span><span class="hljs-subst">=</span>c<span class="hljs-subst">++</span><span class="hljs-number">14</span> <span class="hljs-attribute">-Wall</span> <span class="hljs-comment">//(Wall turns on warnings)</span></code></pre>
+
+<p>eg. </p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">iter.o:</span> iter<span class="hljs-preprocessor">.cc</span> iter<span class="hljs-preprocessor">.h</span>
+    ${CXX} ${CXXFLAGS} -c iter<span class="hljs-preprocessor">.cc</span></code></pre>
+
+<p>Shortcut: for any rule of the form</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">x.o:</span> <span class="hljs-built_in">x</span><span class="hljs-preprocessor">.cc</span> a<span class="hljs-preprocessor">.h</span> b<span class="hljs-preprocessor">.h</span></code></pre>
+
+<p>-can leave out the build command <br>
+- make guesses that you want</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-variable">${CXX}</span> <span class="hljs-variable">${CXXFLAGS}</span> -c x.cc -o x.o</code></pre>
+
+<p>Biggest problem with writing Makefiles <br>
+-working out dependencies <br>
+and maintaining them if they change.</p>
+
+<p>Can get help from g++</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs lasso">g<span class="hljs-subst">++</span><span class="hljs-number">14</span> <span class="hljs-attribute">-MMD</span> <span class="hljs-attribute">-c</span> iter<span class="hljs-built_in">.</span>cc</code></pre>
+
+<p>-creates iter.o and iter.d <br>
+iter.d</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">iter.o:</span> iter<span class="hljs-preprocessor">.cc</span> list<span class="hljs-preprocessor">.h</span> node<span class="hljs-preprocessor">.h</span></code></pre>
+
+<p>Now just include this in the Makefile</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">CXXFLAGS= -std=c++<span class="hljs-number">14</span> -Wall -MMD
+<span class="hljs-keyword">...</span>
+OBJECTS = main.o list.o iter.o node.o
+DEPENDS = ${OBJECTS: .o=.d}
+<span class="hljs-keyword">...</span></code></pre>
+
+<p>-include ${DEPENDS}</p>
+
+
+
+<h3 id="system-modelling">System Modelling</h3>
+
+<p>building an 00 system: <br>
+- identify abstractions <br>
+- formalize relationships among them <br>
+Helpful to map these out <br>
+popular standard: UML (Unified Modelling Language) <br>
+Modelling a Class</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Vec</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>Fields(optional)</td>
+  <td>-x:Integer, -y:Integer</td>
+</tr>
+<tr>
+  <td>Methods(optional)</td>
+  <td>+getx: Integer, +getY:Integer</td>
+</tr>
+</tbody></table>
+
+
+<p>Visibility: <code>-</code> -&gt; private, <code>+</code> -&gt; public <br>
+Relationship: Composition of Classes</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-keyword">public</span>:
+        Vec(<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y);
+};
+<span class="hljs-comment">//Two vecs define a basis</span>
+<span class="hljs-keyword">class</span> Basis{
+    Vec v1,v2;
+};
+Basis b; <span class="hljs-comment">//XXX can't initialize v1, v2 - no default ctor for Vec.</span></code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Basis{
+    Vec v1, v2;
+    <span class="hljs-keyword">public</span>:
+        Basis(): v1{<span class="hljs-number">1</span>,<span class="hljs-number">0</span>}, v2 {<span class="hljs-number">0</span>,<span class="hljs-number">1</span>} {}
+};</code></pre>
+
+<p>Embedding one obj.(Vec) inside another (Basis) called <strong>Composition</strong> <br>
+Relationship between Basis + Vec is called “owns-a” - A Basis “owns” the two Vec objects.</p>
+
+<p>If A “owns-a” B then typically -</p>
+
+<ul>
+<li>B has no identity outside A (B is a part of A)</li>
+<li>If A is destroyed, B is destroyed</li>
+<li>If A is copied, B is copied (deep copy) <br>
+E.g: A car owns y wheels - a wheel is a part of a car <br>
+-destroy the car -&gt; destroy the wheels <br>
+-copy the car -&gt; copy the wheels</li>
+</ul>
+
+<p>Implement: usually as composition of classes <br>
+Modelling <br>
+<img src="http://amyqiu.me/Notes/ownsa.png"> <br>
+More details: links on course website</p>
+
+
+
+<h3 id="aggegation">Aggegation</h3>
+
+<p>Compare car parts in a car (“owns a”) vs car parts in a catalogue. <br>
+The catalogue contains parts, but the parts exists on their own. “has-a” relationship (aggregation)</p>
+
+<p>If A “has a” B, then typically</p>
+
+<ul>
+<li>B has an existence outside of its association with A</li>
+<li>If A is destroyed, B lives on</li>
+<li>If A is copied, B is not (shallow copies) <br>
+<ul><li>copies of A share the same B</li></ul></li>
+</ul>
+
+<p>e.g.: Ducks in a pond <br>
+<img src="http://amyqiu.me/Notes/hasa.png"> <br>
+Typical Implementation</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Pond {
+    Duck *ducks[maxDucks];
+};</code></pre>
+
+
+
+<h3 id="inheritance-specialization-generalization">Inheritance (Specialization/ Generalization)</h3>
+
+<p>Suppose you want to track your collection of books</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    ...
+};
+
+<span class="hljs-keyword">class</span> Text{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-built_in">string</span> topic;
+    ...
+};
+
+<span class="hljs-keyword">class</span> Comic{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-built_in">string</span> hero;
+    ...
+};</code></pre>
+
+<p>-Doesn’t affress relationship among these classes. <br>
+-How would we create an array or list containing a mixture of these? <br>
+Observe that Texts + comics are KINDS of books. Books with extra features <br>
+In c++ - inheritance</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{ <span class="hljs-comment">//Base class or superclass</span>
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">public</span>:
+        Book(...);
+        ...
+};
+
+<span class="hljs-comment">//Derived classes or subclasses</span>
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> topic;
+    <span class="hljs-keyword">public</span>:
+        Text(...);
+};
+
+<span class="hljs-keyword">class</span> Comic: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> hero;
+    <span class="hljs-keyword">public</span>:
+        Comic(...);
+};</code></pre>
+
+<p>Derived classes inherit fields + methods from the base class. <br>
+So Text, Comic have title author, numPages. <br>
+Any method that can be called on Book can be called on Text, Comic. <br>
+Who can see these members? <br>
+title, author, numPages are private in Book. - outsiders can’t see them. <br>
+Can Text, Comic see them? <br>
+No. Even subclasses can’t see them!</p>
+
+<p>How do we initialize Text?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> topic;
+    <span class="hljs-keyword">public</span>:
+        Text(<span class="hljs-built_in">string</span> title, <span class="hljs-built_in">string</span> author, <span class="hljs-keyword">int</span> numPages, <span class="hljs-built_in">string</span> topic): title{title}, author{author}, numPages{numPages}, topic{topic}{} <span class="hljs-comment">//WRONG. DOESN'T WORK HAHA</span>
+};</code></pre>
+
+<p>Wrong for 2 reasons:</p>
+
+<ul>
+<li>title, author, numPages not accessible in Text</li>
+<li>when an object is created: <br>
+<ol><li>space is allocated</li>
+<li><strong>superclass part is constructed</strong> (in this case, Book doesn’t have a default ctor. Can’t do this)</li>
+<li>fields are constructed</li>
+<li>ctor body runs</li></ol></li>
+</ul></body>
 </html>
 
 <!--
@@ -2884,6 +3152,13 @@ myprog: main.o list.o node.o iter.o //myprog depends on these <br>
 <li><a href="#tools-topic-make">Tools topic: make</a></li>
 </ul>
 </li>
+<li><a href="#lecture-13">Lecture 13</a><ul>
+<li><a href="#makefile">Makefile</a></li>
+<li><a href="#system-modelling">System Modelling</a></li>
+<li><a href="#aggegation">Aggegation</a></li>
+<li><a href="#inheritance-specialization-generalization">Inheritance (Specialization/ Generalization)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3122,7 +3397,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-1">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-187">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -3315,9 +3590,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-2"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-188"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-3">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-189">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -3418,7 +3693,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-4">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-190">1 appear in file </script>2?</p>
 
 
 
@@ -3486,7 +3761,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-5">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-191">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -3692,7 +3967,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-6">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-192">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -4208,7 +4483,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-7">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-193">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -5351,14 +5626,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-8">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-194">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-9">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-195">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -5546,6 +5821,267 @@ Let Linux help you - with make.</p>
 
 <p>Create a Makefile that says which files depend on which other files. <br>
 myprog: main.o list.o node.o iter.o //myprog depends on these <br>
-[   ] (MUST be a TAB) g++-5 -std=c++14 main.o list.o node.o iter.o -o myprog (&lt;- how to rebuild)</p></body>
+[   ] (MUST be a TAB) g++-5 -std=c++14 main.o list.o node.o iter.o -o myprog (&lt;- how to rebuild)</p>
+
+
+
+<h2 id="lecture-13">Lecture 13</h2>
+
+
+
+<h3 id="makefile">Makefile</h3>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">myprog:</span> main<span class="hljs-preprocessor">.o</span> list<span class="hljs-preprocessor">.o</span> iter<span class="hljs-preprocessor">.o</span> node<span class="hljs-preprocessor">.o</span>
+    g++-<span class="hljs-number">5</span> -<span class="hljs-keyword">std</span>==++<span class="hljs-number">14</span> main<span class="hljs-preprocessor">.o</span> list<span class="hljs-preprocessor">.o</span> iter<span class="hljs-preprocessor">.o</span> node<span class="hljs-preprocessor">.o</span> -o myprog
+<span class="hljs-label">list.o:</span> list<span class="hljs-preprocessor">.cc</span> list<span class="hljs-preprocessor">.h</span> node<span class="hljs-preprocessor">.h</span>
+    g++-<span class="hljs-number">5</span> -<span class="hljs-keyword">std</span>=c++<span class="hljs-number">14</span> -c list<span class="hljs-preprocessor">.cc</span>
+etc</code></pre>
+
+<p>What does myprogram depend on? <br>
+- Recursively build these, if necessary <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-196">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-197">\therefore</script> rebuild myprogram <br>
+- To do a full rebuild, make clean, make</p>
+
+<p>Generalize with variables</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs lasso">CXX <span class="hljs-subst">=</span> g<span class="hljs-subst">++-</span><span class="hljs-number">5</span> <span class="hljs-comment">//compiler's name</span>
+CXXFLAGS <span class="hljs-subst">=</span> <span class="hljs-attribute">-std</span><span class="hljs-subst">=</span>c<span class="hljs-subst">++</span><span class="hljs-number">14</span> <span class="hljs-attribute">-Wall</span> <span class="hljs-comment">//(Wall turns on warnings)</span></code></pre>
+
+<p>eg. </p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">iter.o:</span> iter<span class="hljs-preprocessor">.cc</span> iter<span class="hljs-preprocessor">.h</span>
+    ${CXX} ${CXXFLAGS} -c iter<span class="hljs-preprocessor">.cc</span></code></pre>
+
+<p>Shortcut: for any rule of the form</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">x.o:</span> <span class="hljs-built_in">x</span><span class="hljs-preprocessor">.cc</span> a<span class="hljs-preprocessor">.h</span> b<span class="hljs-preprocessor">.h</span></code></pre>
+
+<p>-can leave out the build command <br>
+- make guesses that you want</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-variable">${CXX}</span> <span class="hljs-variable">${CXXFLAGS}</span> -c x.cc -o x.o</code></pre>
+
+<p>Biggest problem with writing Makefiles <br>
+-working out dependencies <br>
+and maintaining them if they change.</p>
+
+<p>Can get help from g++</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs lasso">g<span class="hljs-subst">++</span><span class="hljs-number">14</span> <span class="hljs-attribute">-MMD</span> <span class="hljs-attribute">-c</span> iter<span class="hljs-built_in">.</span>cc</code></pre>
+
+<p>-creates iter.o and iter.d <br>
+iter.d</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">iter.o:</span> iter<span class="hljs-preprocessor">.cc</span> list<span class="hljs-preprocessor">.h</span> node<span class="hljs-preprocessor">.h</span></code></pre>
+
+<p>Now just include this in the Makefile</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs r">CXXFLAGS= -std=c++<span class="hljs-number">14</span> -Wall -MMD
+<span class="hljs-keyword">...</span>
+OBJECTS = main.o list.o iter.o node.o
+DEPENDS = ${OBJECTS: .o=.d}
+<span class="hljs-keyword">...</span></code></pre>
+
+<p>-include ${DEPENDS}</p>
+
+
+
+<h3 id="system-modelling">System Modelling</h3>
+
+<p>building an 00 system: <br>
+- identify abstractions <br>
+- formalize relationships among them <br>
+Helpful to map these out <br>
+popular standard: UML (Unified Modelling Language) <br>
+Modelling a Class</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Vec</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>Fields(optional)</td>
+  <td>-x:Integer, -y:Integer</td>
+</tr>
+<tr>
+  <td>Methods(optional)</td>
+  <td>+getx: Integer, +getY:Integer</td>
+</tr>
+</tbody></table>
+
+
+<p>Visibility: <code>-</code> -&gt; private, <code>+</code> -&gt; public <br>
+Relationship: Composition of Classes</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Vec{
+    <span class="hljs-keyword">int</span> x,y;
+    <span class="hljs-keyword">public</span>:
+        Vec(<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y);
+};
+<span class="hljs-comment">//Two vecs define a basis</span>
+<span class="hljs-keyword">class</span> Basis{
+    Vec v1,v2;
+};
+Basis b; <span class="hljs-comment">//XXX can't initialize v1, v2 - no default ctor for Vec.</span></code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Basis{
+    Vec v1, v2;
+    <span class="hljs-keyword">public</span>:
+        Basis(): v1{<span class="hljs-number">1</span>,<span class="hljs-number">0</span>}, v2 {<span class="hljs-number">0</span>,<span class="hljs-number">1</span>} {}
+};</code></pre>
+
+<p>Embedding one obj.(Vec) inside another (Basis) called <strong>Composition</strong> <br>
+Relationship between Basis + Vec is called “owns-a” - A Basis “owns” the two Vec objects.</p>
+
+<p>If A “owns-a” B then typically -</p>
+
+<ul>
+<li>B has no identity outside A (B is a part of A)</li>
+<li>If A is destroyed, B is destroyed</li>
+<li>If A is copied, B is copied (deep copy) <br>
+E.g: A car owns y wheels - a wheel is a part of a car <br>
+-destroy the car -&gt; destroy the wheels <br>
+-copy the car -&gt; copy the wheels</li>
+</ul>
+
+<p>Implement: usually as composition of classes <br>
+Modelling <br>
+<img src="http://amyqiu.me/Notes/ownsa.png"> <br>
+More details: links on course website</p>
+
+
+
+<h3 id="aggegation">Aggegation</h3>
+
+<p>Compare car parts in a car (“owns a”) vs car parts in a catalogue. <br>
+The catalogue contains parts, but the parts exists on their own. “has-a” relationship (aggregation)</p>
+
+<p>If A “has a” B, then typically</p>
+
+<ul>
+<li>B has an existence outside of its association with A</li>
+<li>If A is destroyed, B lives on</li>
+<li>If A is copied, B is not (shallow copies) <br>
+<ul><li>copies of A share the same B</li></ul></li>
+</ul>
+
+<p>e.g.: Ducks in a pond <br>
+<img src="http://amyqiu.me/Notes/hasa.png"> <br>
+Typical Implementation</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Pond {
+    Duck *ducks[maxDucks];
+};</code></pre>
+
+
+
+<h3 id="inheritance-specialization-generalization">Inheritance (Specialization/ Generalization)</h3>
+
+<p>Suppose you want to track your collection of books</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    ...
+};
+
+<span class="hljs-keyword">class</span> Text{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-built_in">string</span> topic;
+    ...
+};
+
+<span class="hljs-keyword">class</span> Comic{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-built_in">string</span> hero;
+    ...
+};</code></pre>
+
+<p>-Doesn’t affress relationship among these classes. <br>
+-How would we create an array or list containing a mixture of these? <br>
+Observe that Texts + comics are KINDS of books. Books with extra features <br>
+In c++ - inheritance</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{ <span class="hljs-comment">//Base class or superclass</span>
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">public</span>:
+        Book(...);
+        ...
+};
+
+<span class="hljs-comment">//Derived classes or subclasses</span>
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> topic;
+    <span class="hljs-keyword">public</span>:
+        Text(...);
+};
+
+<span class="hljs-keyword">class</span> Comic: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> hero;
+    <span class="hljs-keyword">public</span>:
+        Comic(...);
+};</code></pre>
+
+<p>Derived classes inherit fields + methods from the base class. <br>
+So Text, Comic have title author, numPages. <br>
+Any method that can be called on Book can be called on Text, Comic. <br>
+Who can see these members? <br>
+title, author, numPages are private in Book. - outsiders can’t see them. <br>
+Can Text, Comic see them? <br>
+No. Even subclasses can’t see them!</p>
+
+<p>How do we initialize Text?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> topic;
+    <span class="hljs-keyword">public</span>:
+        Text(<span class="hljs-built_in">string</span> title, <span class="hljs-built_in">string</span> author, <span class="hljs-keyword">int</span> numPages, <span class="hljs-built_in">string</span> topic): title{title}, author{author}, numPages{numPages}, topic{topic}{} <span class="hljs-comment">//WRONG. DOESN'T WORK HAHA</span>
+};</code></pre>
+
+<p>Wrong for 2 reasons:</p>
+
+<ul>
+<li>title, author, numPages not accessible in Text</li>
+<li>when an object is created: <br>
+<ol><li>space is allocated</li>
+<li><strong>superclass part is constructed</strong> (in this case, Book doesn’t have a default ctor. Can’t do this)</li>
+<li>fields are constructed</li>
+<li>ctor body runs</li></ol></li>
+</ul></body>
 </html>
 -->
