@@ -117,6 +117,10 @@
 <li><a href="#inheritance-specialization-generalization">Inheritance (Specialization/ Generalization)</a></li>
 </ul>
 </li>
+<li><a href="#lecture-14">Lecture 14</a><ul>
+<li><a href="#destructor-revisited">Destructor Revisited</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -355,7 +359,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-187">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-316">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -548,9 +552,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-188"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-317"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-189">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-318">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -651,7 +655,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-190">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-319">1 appear in file </script>2?</p>
 
 
 
@@ -719,7 +723,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-191">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-320">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -925,7 +929,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-192">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-321">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -1441,7 +1445,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-193">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-322">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -2584,14 +2588,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-194">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-323">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-195">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-324">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -2799,8 +2803,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-196">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-197">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-325">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-326">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -3040,7 +3044,238 @@ No. Even subclasses can’t see them!</p>
 <li><strong>superclass part is constructed</strong> (in this case, Book doesn’t have a default ctor. Can’t do this)</li>
 <li>fields are constructed</li>
 <li>ctor body runs</li></ol></li>
-</ul></body>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> * <span class="hljs-keyword">const</span> p; <span class="hljs-comment">//read right to left. p is a constant pointer to an int.</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p; <span class="hljs-comment">//p is a pointer to an int that is constant</span></code></pre>
+
+
+
+<h2 id="lecture-14">Lecture 14</h2>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+      Text(<span class="hljs-built_in">string</span> title, <span class="hljs-built_in">string</span> author, <span class="hljs-keyword">int</span> numPages, <span class="hljs-built_in">string</span> topic): Book {title, author, numPages}, topic{topic}{}
+};</code></pre>
+
+<p>If the superclass has no default ctor, the subclass MUST invoke a superclass ctor in its Member Initialization List.</p>
+
+<p>If you want to give the subclass access to certain superclass members, use <strong>protected</strong> visibility.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-keyword">protected</span>:
+      <span class="hljs-built_in">string</span> title, author;
+      <span class="hljs-keyword">int</span> numPages;
+      ...
+};
+
+<span class="hljs-keyword">class</span> Topic: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> topic;
+    <span class="hljs-keyword">public</span>:
+      ...
+      <span class="hljs-keyword">void</span> addAuthor(<span class="hljs-built_in">string</span> auth) {author+=auth;} <span class="hljs-comment">//ok since we protected author</span>
+};</code></pre>
+
+<p>Not a good idea to give subclasses unlimited access to fields. Breaks encapsulation and invariant. -&gt; eg. if you really don’t want Book to have the author Robert Munch, but you can’t guarantee that all subclasses will follow that rule and since they can change fields, breaks invariant.</p>
+
+<p>Better: make fields private and provide protected access.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">protected</span>:
+        <span class="hljs-built_in">string</span> getTitle() <span class="hljs-keyword">const</span>;
+        <span class="hljs-keyword">void</span> setAuthor(<span class="hljs-built_in">string</span> auth);
+        ...
+    <span class="hljs-keyword">public</span>:
+        Book (...);
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span>;
+    ...
+};</code></pre>
+
+<p>Relationship among Text, Comic, Book is called “is-a” <br>
+- a Text is a Book <br>
+- a Comic is a Book <br>
+- protected: #</p>
+
+<p><img src="amyqiu.me/Notes/TextComic.png"></p>
+
+<p>Method isItHeavy - when is a book heavy? <br>
+- for ordinary Books - &gt; 200 pgs <br>
+- for Text - &gt; 500 pages <br>
+- for Comics - &gt; 30 pages</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    ...
+    <span class="hljs-keyword">protected</span>:
+        <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> numPages &gt; <span class="hljs-number">200</span>;}
+};
+
+<span class="hljs-keyword">class</span> Comic: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> numPages &gt; <span class="hljs-number">30</span>;}
+};
+
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> numPages &gt; <span class="hljs-number">500</span>;}
+};
+
+Book b{<span class="hljs-string">"A small book"</span>, <span class="hljs-string">"..."</span>, <span class="hljs-number">50</span>};
+Comic c{<span class="hljs-string">"A big comic"</span>, <span class="hljs-string">"..."</span>, <span class="hljs-number">40</span>};
+<span class="hljs-built_in">cout</span> &lt;&lt; b.isItHeavy() <span class="hljs-comment">//false</span>
+     &lt;&lt; c.isItHeavy() <span class="hljs-comment">//true</span></code></pre>
+
+<p>Since a Comic “is a” Book, we can do this:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{<span class="hljs-string">"A big comic"</span>, <span class="hljs-string">"..."</span>, <span class="hljs-number">40</span>};</code></pre>
+
+<p>Q: Is b heavy? <br>
+Which isItHeavy runs: Book::isItHeavy, or Comic:isItHeavy ? <br>
+A: NO - b is not heavy. Book::isItHeavy runs. <br>
+Why? <br>
+<img src="amyqiu.me/Notes/ComicvsBook.png"> <br>
+Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{...};
+<span class="hljs-comment">//tries to fit a Comic object where there is only space for a Book object. What happens? - slicing occurs - c++ makes comic fit by chopping off bits. Hero field is chopped off so comic is coerced into a Book.</span></code></pre>
+
+<p>So this converts the comic into a Book and Book::isItHeavy runs.</p>
+
+<p>When accessing objects through ptrs, slicing is unnecessary and doesn’t happen.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Comic c {...,...,<span class="hljs-number">40</span>,...};
+Book *pb = &amp;c;
+Comic *pc = &amp;c;
+<span class="hljs-built_in">cout</span> &lt;&lt;  pc -&gt; isItHeavy(); <span class="hljs-comment">//true</span>
+     &lt;&lt; pb -&gt; isItHeavy(); <span class="hljs-comment">//not heavy</span></code></pre>
+
+<p>still Book:isItHeavy runs when we access pb-&gt;isItHeavy(). <br>
+Same object behaves differently, depending on what kind of ptr points at it. <br>
+Compiler uses the type of the pointer (or reference) to determine which isItHeavy to run. - does not consider the actual type of the object <br>
+Means a comic is only a comic when pointed at by a comic ptr -proabably not what we want.</p>
+
+<p>How do we make comic act like a Comic, even when pointed at by a Book ptr? <br>
+Declare the method <strong>virtual</strong></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Book (...);
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {...};
+        ...
+};
+
+<span class="hljs-keyword">class</span> Comic: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Comic(...);
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> override{...}
+        ...
+};
+
+Comic c {...,...,<span class="hljs-number">40</span>,...};
+Book *pb = &amp;c;
+Book &amp;rb = c;
+Comic *pc = &amp;;
+
+<span class="hljs-built_in">cout</span> &lt;&lt; pc-&gt;isItHeavy() <span class="hljs-comment">//true</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; pb-&gt;isItHeavy() <span class="hljs-comment">//true</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; rb.isItHeavy() <span class="hljs-comment">//true</span></code></pre>
+
+<p>E.g. <br>
+My Book Collection:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *myBooks[<span class="hljs-number">20</span>];
+...
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">20</span> ; ++i){
+    <span class="hljs-built_in">cout</span> &lt;&lt; myBooks[i] -&gt;isItHeavy() &lt;&lt; endl; <span class="hljs-comment">// uses the right isItHeavy for corresponding types. :D</span>
+}</code></pre>
+
+<p>Accommadates multiple types under one abstraction <br>
+-polymorphism (“many forms”)</p>
+
+<hr>
+
+
+
+<h3 id="destructor-revisited">Destructor Revisited</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> X{
+    <span class="hljs-keyword">int</span> *x;
+    <span class="hljs-keyword">public</span>:
+        X(<span class="hljs-keyword">int</span> n): x{<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n]}{}
+        ~X(){<span class="hljs-keyword">delete</span> [] x;}
+};
+
+<span class="hljs-keyword">class</span> Y: <span class="hljs-keyword">public</span> X{
+    <span class="hljs-keyword">int</span> *y;
+    <span class="hljs-keyword">public</span>:
+        Y(<span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span> n): X{n}, y{<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[m]}{}
+        ~Y(){<span class="hljs-keyword">delete</span> [] y};
+};</code></pre>
+
+<p>You don’t have to delete X. X’s dtor will run after Y automatically since it’s the superclass.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">X *myX = <span class="hljs-keyword">new</span> Y{<span class="hljs-number">10</span>, <span class="hljs-number">20</span>};
+<span class="hljs-keyword">delete</span> myX; <span class="hljs-comment">//- leaks, why? X's dtor ran, but myX points to a Y. Y's dtor never runs here.</span></code></pre>
+
+<p>So only x, but not y is freed. <br>
+How can we ensure that deletion through superclass ptr will call subclass dtor? <br>
+- declare the dtor virtual</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> X{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">virtual</span> ~X(){
+            <span class="hljs-keyword">delete</span> x;
+        }
+};</code></pre>
+
+<p>ALWAYS - make the dtor virtual in classes that are meant to have subclasses <br>
+-even if the dtor doesn’t do anything <br>
+If a subclass is NOT meant to have subclasses, declare it <code>final</code>:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Y final: <span class="hljs-keyword">public</span> X{
+    ...
+};</code></pre></body>
 </html>
 
 <!--
@@ -3159,6 +3394,10 @@ No. Even subclasses can’t see them!</p>
 <li><a href="#inheritance-specialization-generalization">Inheritance (Specialization/ Generalization)</a></li>
 </ul>
 </li>
+<li><a href="#lecture-14">Lecture 14</a><ul>
+<li><a href="#destructor-revisited">Destructor Revisited</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3397,7 +3636,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-187">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-316">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -3590,9 +3829,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-188"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-317"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-189">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-318">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -3693,7 +3932,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-190">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-319">1 appear in file </script>2?</p>
 
 
 
@@ -3761,7 +4000,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-191">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-320">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -3967,7 +4206,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-192">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-321">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -4483,7 +4722,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-193">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-322">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -5626,14 +5865,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-194">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-323">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-195">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-324">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -5841,8 +6080,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-196">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-197">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-325">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-326">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -6082,6 +6321,237 @@ No. Even subclasses can’t see them!</p>
 <li><strong>superclass part is constructed</strong> (in this case, Book doesn’t have a default ctor. Can’t do this)</li>
 <li>fields are constructed</li>
 <li>ctor body runs</li></ol></li>
-</ul></body>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> * <span class="hljs-keyword">const</span> p; <span class="hljs-comment">//read right to left. p is a constant pointer to an int.</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p; <span class="hljs-comment">//p is a pointer to an int that is constant</span></code></pre>
+
+
+
+<h2 id="lecture-14">Lecture 14</h2>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+      Text(<span class="hljs-built_in">string</span> title, <span class="hljs-built_in">string</span> author, <span class="hljs-keyword">int</span> numPages, <span class="hljs-built_in">string</span> topic): Book {title, author, numPages}, topic{topic}{}
+};</code></pre>
+
+<p>If the superclass has no default ctor, the subclass MUST invoke a superclass ctor in its Member Initialization List.</p>
+
+<p>If you want to give the subclass access to certain superclass members, use <strong>protected</strong> visibility.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-keyword">protected</span>:
+      <span class="hljs-built_in">string</span> title, author;
+      <span class="hljs-keyword">int</span> numPages;
+      ...
+};
+
+<span class="hljs-keyword">class</span> Topic: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-built_in">string</span> topic;
+    <span class="hljs-keyword">public</span>:
+      ...
+      <span class="hljs-keyword">void</span> addAuthor(<span class="hljs-built_in">string</span> auth) {author+=auth;} <span class="hljs-comment">//ok since we protected author</span>
+};</code></pre>
+
+<p>Not a good idea to give subclasses unlimited access to fields. Breaks encapsulation and invariant. -&gt; eg. if you really don’t want Book to have the author Robert Munch, but you can’t guarantee that all subclasses will follow that rule and since they can change fields, breaks invariant.</p>
+
+<p>Better: make fields private and provide protected access.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">protected</span>:
+        <span class="hljs-built_in">string</span> getTitle() <span class="hljs-keyword">const</span>;
+        <span class="hljs-keyword">void</span> setAuthor(<span class="hljs-built_in">string</span> auth);
+        ...
+    <span class="hljs-keyword">public</span>:
+        Book (...);
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span>;
+    ...
+};</code></pre>
+
+<p>Relationship among Text, Comic, Book is called “is-a” <br>
+- a Text is a Book <br>
+- a Comic is a Book <br>
+- protected: #</p>
+
+<p><img src="amyqiu.me/Notes/TextComic.png"></p>
+
+<p>Method isItHeavy - when is a book heavy? <br>
+- for ordinary Books - &gt; 200 pgs <br>
+- for Text - &gt; 500 pages <br>
+- for Comics - &gt; 30 pages</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    ...
+    <span class="hljs-keyword">protected</span>:
+        <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> numPages &gt; <span class="hljs-number">200</span>;}
+};
+
+<span class="hljs-keyword">class</span> Comic: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> numPages &gt; <span class="hljs-number">30</span>;}
+};
+
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {<span class="hljs-keyword">return</span> numPages &gt; <span class="hljs-number">500</span>;}
+};
+
+Book b{<span class="hljs-string">"A small book"</span>, <span class="hljs-string">"..."</span>, <span class="hljs-number">50</span>};
+Comic c{<span class="hljs-string">"A big comic"</span>, <span class="hljs-string">"..."</span>, <span class="hljs-number">40</span>};
+<span class="hljs-built_in">cout</span> &lt;&lt; b.isItHeavy() <span class="hljs-comment">//false</span>
+     &lt;&lt; c.isItHeavy() <span class="hljs-comment">//true</span></code></pre>
+
+<p>Since a Comic “is a” Book, we can do this:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{<span class="hljs-string">"A big comic"</span>, <span class="hljs-string">"..."</span>, <span class="hljs-number">40</span>};</code></pre>
+
+<p>Q: Is b heavy? <br>
+Which isItHeavy runs: Book::isItHeavy, or Comic:isItHeavy ? <br>
+A: NO - b is not heavy. Book::isItHeavy runs. <br>
+Why? <br>
+<img src="amyqiu.me/Notes/ComicvsBook.png"> <br>
+Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{...};
+<span class="hljs-comment">//tries to fit a Comic object where there is only space for a Book object. What happens? - slicing occurs - c++ makes comic fit by chopping off bits. Hero field is chopped off so comic is coerced into a Book.</span></code></pre>
+
+<p>So this converts the comic into a Book and Book::isItHeavy runs.</p>
+
+<p>When accessing objects through ptrs, slicing is unnecessary and doesn’t happen.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Comic c {...,...,<span class="hljs-number">40</span>,...};
+Book *pb = &amp;c;
+Comic *pc = &amp;c;
+<span class="hljs-built_in">cout</span> &lt;&lt;  pc -&gt; isItHeavy(); <span class="hljs-comment">//true</span>
+     &lt;&lt; pb -&gt; isItHeavy(); <span class="hljs-comment">//not heavy</span></code></pre>
+
+<p>still Book:isItHeavy runs when we access pb-&gt;isItHeavy(). <br>
+Same object behaves differently, depending on what kind of ptr points at it. <br>
+Compiler uses the type of the pointer (or reference) to determine which isItHeavy to run. - does not consider the actual type of the object <br>
+Means a comic is only a comic when pointed at by a comic ptr -proabably not what we want.</p>
+
+<p>How do we make comic act like a Comic, even when pointed at by a Book ptr? <br>
+Declare the method <strong>virtual</strong></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Book (...);
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> {...};
+        ...
+};
+
+<span class="hljs-keyword">class</span> Comic: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Comic(...);
+        <span class="hljs-keyword">bool</span> isItHeavy() <span class="hljs-keyword">const</span> override{...}
+        ...
+};
+
+Comic c {...,...,<span class="hljs-number">40</span>,...};
+Book *pb = &amp;c;
+Book &amp;rb = c;
+Comic *pc = &amp;;
+
+<span class="hljs-built_in">cout</span> &lt;&lt; pc-&gt;isItHeavy() <span class="hljs-comment">//true</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; pb-&gt;isItHeavy() <span class="hljs-comment">//true</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; rb.isItHeavy() <span class="hljs-comment">//true</span></code></pre>
+
+<p>E.g. <br>
+My Book Collection:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *myBooks[<span class="hljs-number">20</span>];
+...
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">20</span> ; ++i){
+    <span class="hljs-built_in">cout</span> &lt;&lt; myBooks[i] -&gt;isItHeavy() &lt;&lt; endl; <span class="hljs-comment">// uses the right isItHeavy for corresponding types. :D</span>
+}</code></pre>
+
+<p>Accommadates multiple types under one abstraction <br>
+-polymorphism (“many forms”)</p>
+
+<hr>
+
+
+
+<h3 id="destructor-revisited">Destructor Revisited</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> X{
+    <span class="hljs-keyword">int</span> *x;
+    <span class="hljs-keyword">public</span>:
+        X(<span class="hljs-keyword">int</span> n): x{<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n]}{}
+        ~X(){<span class="hljs-keyword">delete</span> [] x;}
+};
+
+<span class="hljs-keyword">class</span> Y: <span class="hljs-keyword">public</span> X{
+    <span class="hljs-keyword">int</span> *y;
+    <span class="hljs-keyword">public</span>:
+        Y(<span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span> n): X{n}, y{<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[m]}{}
+        ~Y(){<span class="hljs-keyword">delete</span> [] y};
+};</code></pre>
+
+<p>You don’t have to delete X. X’s dtor will run after Y automatically since it’s the superclass.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">X *myX = <span class="hljs-keyword">new</span> Y{<span class="hljs-number">10</span>, <span class="hljs-number">20</span>};
+<span class="hljs-keyword">delete</span> myX; <span class="hljs-comment">//- leaks, why? X's dtor ran, but myX points to a Y. Y's dtor never runs here.</span></code></pre>
+
+<p>So only x, but not y is freed. <br>
+How can we ensure that deletion through superclass ptr will call subclass dtor? <br>
+- declare the dtor virtual</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> X{
+    ...
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-keyword">virtual</span> ~X(){
+            <span class="hljs-keyword">delete</span> x;
+        }
+};</code></pre>
+
+<p>ALWAYS - make the dtor virtual in classes that are meant to have subclasses <br>
+-even if the dtor doesn’t do anything <br>
+If a subclass is NOT meant to have subclasses, declare it <code>final</code>:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Y final: <span class="hljs-keyword">public</span> X{
+    ...
+};</code></pre></body>
 </html>
 -->

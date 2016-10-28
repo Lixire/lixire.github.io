@@ -107,6 +107,11 @@
 <li><a href="#means-and-variances-of-named-distributions-74">Means (and variances) of named distributions (7.4)</a></li>
 </ul>
 </li>
+<li><a href="#lecture-20">Lecture 20</a><ul>
+<li><a href="#mean-var-of-a-linear-fn-of-x">Mean + Var of a linear f’n of X</a></li>
+<li><a href="#variances-of-named-distributions">Variances of named distributions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -130,8 +135,8 @@ The likelihood of an event occuring</p>
 <h3 id="the-3-definitions-of-probability">The 3 Definitions of Probability</h3>
 
 <ol>
-<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-1096">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
-<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-1097">\infty</script> long) that the event occurs</li>
+<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-1">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
+<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-2">\infty</script> long) that the event occurs</li>
 <li>Subjective - Probability = how certain the person is that it will occur</li>
 </ol>
 
@@ -190,12 +195,12 @@ The likelihood of an event occuring</p>
   Experiment: Roll a 6-sided die repeatedly <br>
   Trial: One roll <br>
   Outcomes: 1, 2, … , 5, 6 <br>
-  <script type="math/tex" id="MathJax-Element-1098">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
-  <script type="math/tex" id="MathJax-Element-1099">S_2</script> = {even, odd} (also works)
+  <script type="math/tex" id="MathJax-Element-3">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
+  <script type="math/tex" id="MathJax-Element-4">S_2</script> = {even, odd} (also works)
 </blockquote></dd>
 
 <dt>Event</dt>
-<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-1100">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-1101">S</script>
+<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-5">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-6">S</script>
 
 <blockquote>
   Example <br>
@@ -211,14 +216,14 @@ The likelihood of an event occuring</p>
 
 <dt>A Probability</dt>
 <dd>
-<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-1102">Real</script> numbers such that </p>
+<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-7">Real</script> numbers such that </p>
 
 <ol>
-<li><script type="math/tex" id="MathJax-Element-1103">0 \leq P(A) \leq 1</script> for any A <br>
-<ul><li><script type="math/tex" id="MathJax-Element-1104">0 =</script> “impossible”</li>
-<li><script type="math/tex" id="MathJax-Element-1105">1 =</script> “guaranteed”</li></ul></li>
-<li>If <script type="math/tex" id="MathJax-Element-1106">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-1107">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
-<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-1108">A_i = \{a_i\}</script> </li>
+<li><script type="math/tex" id="MathJax-Element-8">0 \leq P(A) \leq 1</script> for any A <br>
+<ul><li><script type="math/tex" id="MathJax-Element-9">0 =</script> “impossible”</li>
+<li><script type="math/tex" id="MathJax-Element-10">1 =</script> “guaranteed”</li></ul></li>
+<li>If <script type="math/tex" id="MathJax-Element-11">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-12">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
+<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-13">A_i = \{a_i\}</script> </li>
 <li>Example: Roll a 6-sided die twice. S = {(1,1), (1,2), … , (1,6), … , (6, 1), … , (6,6)}</li>
 <li>Example: BST. A Binary Search Tree is degenerate if each node has at most one child</li>
 <li>Find the prob. that a tree with 3 elements is degenerate: </li>
@@ -254,14 +259,14 @@ The likelihood of an event occuring</p>
 
 <h3 id="sampling">Sampling</h3>
 
-<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-1109">m^k</script> choices. M spaces, k options.</p>
+<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-14">m^k</script> choices. M spaces, k options.</p>
 
 
 
 <h3 id="permutations">Permutations</h3>
 
-<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-1110">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-1111">n(n-1)...(n-k+1)</script> <br>
-Also <script type="math/tex" id="MathJax-Element-1112">\frac{n!}{(n-k)!}</script></p>
+<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-15">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-16">n(n-1)...(n-k+1)</script> <br>
+Also <script type="math/tex" id="MathJax-Element-17">\frac{n!}{(n-k)!}</script></p>
 
 <blockquote>
   <p>Tip, if computing a certain permutation is hard, try 1 - opposite of what you want to find. Eg. Find P(of at least one repeat) turns into 1 - P(no repeats) which is easier.</p>
@@ -275,7 +280,7 @@ Also <script type="math/tex" id="MathJax-Element-1112">\frac{n!}{(n-k)!}</script
 
 <h3 id="combinations">Combinations</h3>
 
-<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-1113">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
+<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-18">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
 
 <p>Some shit about pascal’s triangle that is super obvious</p>
 
@@ -299,7 +304,7 @@ A box of 10 computer chips containing 3 defective ones in the box. Four of the c
 Solution: <br>
 W/o rep &amp; don’t care about order.</p>
 
-<p><script type="math/tex" id="MathJax-Element-1114">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
+<p><script type="math/tex" id="MathJax-Element-19">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
 
 <p>The whole time, we don’t care about order. (i.e. we don’t need to worry if the defective one is first, last or etc)</p>
 
@@ -312,21 +317,21 @@ W/o rep &amp; don’t care about order.</p>
 <h3 id="arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</h3>
 
 <blockquote>
-  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-1115">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-1116">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-1117">n_k</script> is number of type k.</p>
+  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-20">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-21">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-22">n_k</script> is number of type k.</p>
 </blockquote>
 
 
 
 <h2 id="lecture-6">Lecture - 6</h2>
 
-<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-1118">0 \leq P(A) \leq 1</script> <br>
+<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-23">0 \leq P(A) \leq 1</script> <br>
 Rules for probabilities <br>
-If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-1119">P(A) \leq P(B)</script></p>
+If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-24">P(A) \leq P(B)</script></p>
 
-<p><script type="math/tex" id="MathJax-Element-1120">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-1121">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-1122">= P(A) + (\geq 0)</script> <br>
-thus, <script type="math/tex" id="MathJax-Element-1123">P(A) \leq P(B)</script></p>
+<p><script type="math/tex" id="MathJax-Element-25">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-26">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-27">= P(A) + (\geq 0)</script> <br>
+thus, <script type="math/tex" id="MathJax-Element-28">P(A) \leq P(B)</script></p>
 
 <p>A_bar , A^c, A^’, -&gt; NOT A. Aunion B = or. A intersect B = and.</p>
 
@@ -354,7 +359,7 @@ bar{aintersectB} = a_bar or b_bar</p>
 <h2 id="lecture-8">Lecture - 8</h2>
 
 <p>Recall: Independent: P(AB) = P(A)P(B) <br>
-Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-1124">\frac{P(AB)}{P(B)}</script></p>
+Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-29">\frac{P(AB)}{P(B)}</script></p>
 
 <p>Last time we had <br>
 A = small = 3 <br>
@@ -417,12 +422,12 @@ The order doesn’t matter as long as each probability is conditional on what we
 
 <h3 id="law-of-total-probability">Law of Total Probability</h3>
 
-<p>Let <script type="math/tex" id="MathJax-Element-1125">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-1126">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-1127">A_1 \cup ... \cup A_k = S</script></p>
+<p>Let <script type="math/tex" id="MathJax-Element-30">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-31">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-32">A_1 \cup ... \cup A_k = S</script></p>
 
 <p>(break S up into k disjoint pieces) This is a partition of S <br>
 e.g. A and A_bar is a partition of size 2. <br>
-For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-1128">\cup_{i=1}^{k} (BA_i)</script> <br>
-So P(B) = <script type="math/tex" id="MathJax-Element-1129">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
+For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-33">\cup_{i=1}^{k} (BA_i)</script> <br>
+So P(B) = <script type="math/tex" id="MathJax-Element-34">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
 
 <p>Example: <br>
 Three people A,B,C are writing code together. A produces twice as much as B or C</p>
@@ -444,7 +449,7 @@ We have P(E|A) = 0.01 <br>
 P(E|B) = 0.02 <br>
 P(E|C) = 0.05</p>
 
-<p>So <script type="math/tex" id="MathJax-Element-1130">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p>
+<p>So <script type="math/tex" id="MathJax-Element-35">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p>
 
 
 
@@ -457,13 +462,13 @@ We had to reverse the direction of the conditioning: we have P(E|author). We wan
 
 <h3 id="bayes-rule">Bayes’ Rule</h3>
 
-<p><script type="math/tex" id="MathJax-Element-1131">P(A|B) = \frac{P(AB)}{P(B)} = \frac{P(A)P(B|A)}{P(B)}</script></p>
+<p><script type="math/tex" id="MathJax-Element-36">P(A|B) = \frac{P(AB)}{P(B)} = \frac{P(A)P(B|A)}{P(B)}</script></p>
 
 <p>also written as <br>
-<script type="math/tex" id="MathJax-Element-1132">P(A|B) = \frac{P(A)P(B|A)}{\Sigma_{i=1}^k P(A_i)P(B|A_i)}</script></p>
+<script type="math/tex" id="MathJax-Element-37">P(A|B) = \frac{P(A)P(B|A)}{\Sigma_{i=1}^k P(A_i)P(B|A_i)}</script></p>
 
 <p>For this example: <br>
-<script type="math/tex" id="MathJax-Element-1133">P(A|E) = \frac{0.5*0.01}{0.0225} = 0.222...</script></p>
+<script type="math/tex" id="MathJax-Element-38">P(A|E) = \frac{0.5*0.01}{0.0225} = 0.222...</script></p>
 
 <p>Example</p>
 
@@ -505,7 +510,7 @@ Unsupervised learning -&gt; no training data</p>
 </dl>
 
 <p>Bayesian Classifier <br>
-P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-1134">\frac{P(cat1)P(ev|cat1)}{P(evidence)}</script></p>
+P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-39">\frac{P(cat1)P(ev|cat1)}{P(evidence)}</script></p>
 
 
 
@@ -520,8 +525,8 @@ P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-1134">\fra
 <h3 id="important-sums">Important Sums</h3>
 
 <ol>
-<li>Geometric - <script type="math/tex" id="MathJax-Element-1135">\frac{a}{1-r}</script></li>
-<li>Binomial - <script type="math/tex" id="MathJax-Element-1136">(a+b)^n = \Sigma</script></li>
+<li>Geometric - <script type="math/tex" id="MathJax-Element-40">\frac{a}{1-r}</script></li>
+<li>Binomial - <script type="math/tex" id="MathJax-Element-41">(a+b)^n = \Sigma</script></li>
 </ol>
 
 
@@ -531,7 +536,7 @@ P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-1134">\fra
 <p>Bayes’ Rule:</p>
 
 <blockquote>
-  <p>P(A|B) = <script type="math/tex" id="MathJax-Element-1137">\frac{P(A)P(B|A)}{P(B)}</script> <br>
+  <p>P(A|B) = <script type="math/tex" id="MathJax-Element-42">\frac{P(A)P(B|A)}{P(B)}</script> <br>
   Product rule + law of total prob. A and A’ is a partition</p>
 </blockquote>
 
@@ -563,20 +568,20 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 <hr>
 
 <blockquote>
-  <p>Def. The probability factor (pf) of a discrete rv X is f(x) = P(X = x) and is only defined for x <script type="math/tex" id="MathJax-Element-1138">\epsilon</script> range of X. f(x) if x does not belong in range is undefined or 0.</p>
+  <p>Def. The probability factor (pf) of a discrete rv X is f(x) = P(X = x) and is only defined for x <script type="math/tex" id="MathJax-Element-43">\epsilon</script> range of X. f(x) if x does not belong in range is undefined or 0.</p>
   
   <dl>
 <dt>Properties of f(x)</dt>
-<dd><script type="math/tex" id="MathJax-Element-1139">0 \leq f(x) \leq 1</script> for all x <script type="math/tex" id="MathJax-Element-1140">\epsilon</script> range of f(x) . Why? it’s a probability</dd>
+<dd><script type="math/tex" id="MathJax-Element-44">0 \leq f(x) \leq 1</script> for all x <script type="math/tex" id="MathJax-Element-45">\epsilon</script> range of f(x) . Why? it’s a probability</dd>
 
-<dd><script type="math/tex" id="MathJax-Element-1141">\Sigma_{\text{all x}\ \epsilon \ \text{range}} f(x) = 1</script> The events “X = x” are mutually exclusive for each x</dd>
+<dd><script type="math/tex" id="MathJax-Element-46">\Sigma_{\text{all x}\ \epsilon \ \text{range}} f(x) = 1</script> The events “X = x” are mutually exclusive for each x</dd>
 </dl>
 </blockquote>
 
 <hr>
 
 <blockquote>
-  <p>Def. The cumulative distribution function (cdf) of the rv X is F(x) = P(X <script type="math/tex" id="MathJax-Element-1142">\leq</script> x) and is defined for ALL Real x.</p>
+  <p>Def. The cumulative distribution function (cdf) of the rv X is F(x) = P(X <script type="math/tex" id="MathJax-Element-47">\leq</script> x) and is defined for ALL Real x.</p>
 </blockquote>
 
 
@@ -585,8 +590,8 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 
 <blockquote>
   <p>Recall: Random variable (X) maps sample points to Real numbers <br>
-  Probability function f(x) = P(X=x) <script type="math/tex" id="MathJax-Element-1143">\forall</script> x <script type="math/tex" id="MathJax-Element-1144">\epsilon</script> range <br>
-  Cumulative distribution function F(x) = P(<script type="math/tex" id="MathJax-Element-1145">X \leq x</script>) <script type="math/tex" id="MathJax-Element-1146">\forall</script> x <script type="math/tex" id="MathJax-Element-1147">\epsilon R</script> </p>
+  Probability function f(x) = P(X=x) <script type="math/tex" id="MathJax-Element-48">\forall</script> x <script type="math/tex" id="MathJax-Element-49">\epsilon</script> range <br>
+  Cumulative distribution function F(x) = P(<script type="math/tex" id="MathJax-Element-50">X \leq x</script>) <script type="math/tex" id="MathJax-Element-51">\forall</script> x <script type="math/tex" id="MathJax-Element-52">\epsilon R</script> </p>
 </blockquote>
 
 
@@ -594,11 +599,11 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 <h3 id="properties-of-fx">Properties of F(x)</h3>
 
 <ol>
-<li><script type="math/tex" id="MathJax-Element-1148">0 \leq F(x) \leq 1</script> Why? it’s a probability</li>
+<li><script type="math/tex" id="MathJax-Element-53">0 \leq F(x) \leq 1</script> Why? it’s a probability</li>
 <li>F(x) is non-decreasing with respect to x . Why? Can’t lose probability when increasing x <br>
-<ol><li>Proof: the event “<script type="math/tex" id="MathJax-Element-1149">X \leq a</script>” is contained in “<script type="math/tex" id="MathJax-Element-1150">X \leq b</script>” where <script type="math/tex" id="MathJax-Element-1151">a \leq b</script> so <script type="math/tex" id="MathJax-Element-1152">F(a) \leq F(b)</script></li></ol></li>
-<li><script type="math/tex" id="MathJax-Element-1153">lim_{x \rightarrow - \infty} F(x) = 0</script> where 0 is impossible</li>
-<li><script type="math/tex" id="MathJax-Element-1154">lim_{x \rightarrow \infty} F(x) = 1</script> where 1 is guarenteed</li>
+<ol><li>Proof: the event “<script type="math/tex" id="MathJax-Element-54">X \leq a</script>” is contained in “<script type="math/tex" id="MathJax-Element-55">X \leq b</script>” where <script type="math/tex" id="MathJax-Element-56">a \leq b</script> so <script type="math/tex" id="MathJax-Element-57">F(a) \leq F(b)</script></li></ol></li>
+<li><script type="math/tex" id="MathJax-Element-58">lim_{x \rightarrow - \infty} F(x) = 0</script> where 0 is impossible</li>
+<li><script type="math/tex" id="MathJax-Element-59">lim_{x \rightarrow \infty} F(x) = 1</script> where 1 is guarenteed</li>
 </ol>
 
 <p>Example:</p>
@@ -643,14 +648,14 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 <p>Relationship between F and f <br>
 f(x) = the size of the jump in F(x) at the point x = F(x) - F(x-1) &lt;- which is the next smallest value in range</p>
 
-<p><script type="math/tex" id="MathJax-Element-1155">F(x) = f(0) + f(1) + ... + f(\lfloor x \rfloor) = \Sigma_{i=0}^{\lfloor x \rfloor} f(i)</script> <br>
-We can use F(x) to find <script type="math/tex" id="MathJax-Element-1156">P(a < X \leq b)</script> = P()</p>
+<p><script type="math/tex" id="MathJax-Element-60">F(x) = f(0) + f(1) + ... + f(\lfloor x \rfloor) = \Sigma_{i=0}^{\lfloor x \rfloor} f(i)</script> <br>
+We can use F(x) to find <script type="math/tex" id="MathJax-Element-61">P(a < X \leq b)</script> = P()</p>
 
 
 
 <h3 id="discrete-uniform-52">Discrete Uniform (5.2)</h3>
 
-<p>Let X be a rv on the range {a, a+1, …, b} where <script type="math/tex" id="MathJax-Element-1157">a \leq b</script> &amp; a,b <script type="math/tex" id="MathJax-Element-1158">\epsilon Z</script> where each value is equally likely. Then we say X has a discrete uniform distribution on [a , b] in other words, “X~DU[a,b]” . <em>X has a DU distribution of [a,b]</em></p>
+<p>Let X be a rv on the range {a, a+1, …, b} where <script type="math/tex" id="MathJax-Element-62">a \leq b</script> &amp; a,b <script type="math/tex" id="MathJax-Element-63">\epsilon Z</script> where each value is equally likely. Then we say X has a discrete uniform distribution on [a , b] in other words, “X~DU[a,b]” . <em>X has a DU distribution of [a,b]</em></p>
 
 <p>e.g. </p>
 
@@ -660,13 +665,13 @@ We can use F(x) to find <script type="math/tex" id="MathJax-Element-1156">P(a < 
 </ul>
 
 <p>Find the pf f(x) = P(X = x) = c must be constant since all equal <br>
-We need <script type="math/tex" id="MathJax-Element-1159">\Sigma_{x = a}^{b}f(x) = 1</script> <br>
-<script type="math/tex" id="MathJax-Element-1160">\Sigma_{x=a}^{b}c  = 1 </script> <br>
-<script type="math/tex" id="MathJax-Element-1161">(b-a+1)c  = 1 </script> <br>
-<script type="math/tex" id="MathJax-Element-1162">C = \frac{1}{b-a+1} = f(x) </script></p>
+We need <script type="math/tex" id="MathJax-Element-64">\Sigma_{x = a}^{b}f(x) = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-65">\Sigma_{x=a}^{b}c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-66">(b-a+1)c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-67">C = \frac{1}{b-a+1} = f(x) </script></p>
 
 <p>Find the cdf <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1163">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-68">\begin{equation}
 \begin{split}
 F(x) & = \Sigma_{i = a}^{\lfloor x \rfloor}f(i) \\ 
 & = \Sigma_{a}^{\lfloor x\rfloor} \frac{1}{b-a+1} \\
@@ -689,7 +694,7 @@ F(x) & =
 
 
 
-<p><script type="math/tex; mode=display" id="MathJax-Element-1164">\begin{equation}
+<p><script type="math/tex; mode=display" id="MathJax-Element-69">\begin{equation}
 \begin{split}
 f(1) &= P(X=1) = \frac{1}{100} \\
 f(2) & = P(X =2) \\
@@ -716,9 +721,9 @@ X ~ Hyp(N,r,n) <br>
 N=49, r = 6, n =6 <br>
 Find the pf f(x) = P(X=x) = P(we get x S’s and n-x F’s)</p>
 
-<p><script type="math/tex" id="MathJax-Element-1165">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{N \choose n}</script> <br>
+<p><script type="math/tex" id="MathJax-Element-70">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{N \choose n}</script> <br>
 range of x? <br>
-lower bound: <script type="math/tex" id="MathJax-Element-1166">x \leq 0</script>, <script type="math/tex" id="MathJax-Element-1167">x \leq n - (N-r)</script> possible to run out of F’s so remaining will all be S’s</p>
+lower bound: <script type="math/tex" id="MathJax-Element-71">x \leq 0</script>, <script type="math/tex" id="MathJax-Element-72">x \leq n - (N-r)</script> possible to run out of F’s so remaining will all be S’s</p>
 
 <p>upper bound x \leq n (all 5’s), x \leq r (could run out of S’s) <br>
 so the range of X is messy and depends on the relationship btwn N, r, and n.</p>
@@ -727,7 +732,7 @@ so the range of X is messy and depends on the relationship btwn N, r, and n.</p>
 Example: <br>
 You have 10 cards - 7 treasure, 3 non-treasure. <br>
 Draw 5 without replacement. Let X = “# of treasure cards”. X ~ Hyp(N=10, r=7, n=5) <br>
-f(x) = P(X = x) = <script type="math/tex" id="MathJax-Element-1168">\frac{{7 \choose x}{3 \choose 5-x}}{10 \choose 5}</script> for x = 2,3,4,5 <br>
+f(x) = P(X = x) = <script type="math/tex" id="MathJax-Element-73">\frac{{7 \choose x}{3 \choose 5-x}}{10 \choose 5}</script> for x = 2,3,4,5 <br>
 All the values of f(x) will add up to 1 <br>
 (proven using Hypergeometric series result)</p>
 
@@ -759,7 +764,7 @@ Find the pf f(x) = P(X=x) = P(we get x S’s and n-x F’s) = p^x(1-p)^(n-x)j</p
 <li>P = (10!/2!)/(11!/(2!2!)) = 0.182</li></ul></li>
 <li>The two B’s are consecutive and Y is in the last position <br>
 <ul><li>(9!/2!)/(11!/(2!2!)) = 0.018 = P(AB)</li>
-<li>Note: <script type="math/tex" id="MathJax-Element-1169">P(AB) \neq P(A)P(B)</script></li></ul></li>
+<li>Note: <script type="math/tex" id="MathJax-Element-74">P(AB) \neq P(A)P(B)</script></li></ul></li>
 <li>Y is not in the last position and the two B’s are not consecutive <br>
 <ul><li>P(A_bar B_bar) = P((AUB)_bar) = 1-P(AUB) = 1-(P(A)+P(B)-P(AB)) = 0.745</li></ul></li>
 <li>Y is not in the last position or the two B’s are not consecutive <br>
@@ -804,10 +809,10 @@ Find the pf f(x) = P(X=x) = P(we get x S’s and n-x F’s) = p^x(1-p)^(n-x)j</p
 <blockquote>
   <p>Recall: <br>
   X~Hyp(N, r, n) <br>
-  <script type="math/tex" id="MathJax-Element-1170">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{{N \choose n}}</script> <br>
+  <script type="math/tex" id="MathJax-Element-75">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{{N \choose n}}</script> <br>
   X = # S’s in n objects w/o rep <br>
   X~Bin(n,p) <br>
-  <script type="math/tex" id="MathJax-Element-1171">f(x) = {n \choose x}p^x (1-p)^{n-x}</script></p>
+  <script type="math/tex" id="MathJax-Element-76">f(x) = {n \choose x}p^x (1-p)^{n-x}</script></p>
 </blockquote>
 
 <p>Example: <br>
@@ -816,20 +821,20 @@ Probability = 0.1 <br>
 P(message received correctly?) <br>
 Let X = # of bits flipped <br>
 X~Bin(4, 0.1) <br>
-P(X=0) =<script type="math/tex" id="MathJax-Element-1172">{4 \choose 0}0.1^00.9^4 = 0.656</script></p>
+P(X=0) =<script type="math/tex" id="MathJax-Element-77">{4 \choose 0}0.1^00.9^4 = 0.656</script></p>
 
 <p>Now add 3 “parity bits” to the message which allows the receiver to detect and fix up to 1 error. <br>
 Let Y = # bits flipped ~Bin(7, 0.1) <br>
 P(Y=0) + P(Y=1) are both ok. <br>
-<script type="math/tex" id="MathJax-Element-1173">= {7 \choose 0}0.1^00.9^7 + {7 \choose 1}0.1^10.9^6= 0.85</script></p>
+<script type="math/tex" id="MathJax-Element-78">= {7 \choose 0}0.1^00.9^7 + {7 \choose 1}0.1^10.9^6= 0.85</script></p>
 
 
 
 <h3 id="bin-approx-to-hyp">Bin approx to Hyp.</h3>
 
 <p>(ie. n &lt;&lt; N) then it doesn’t make a big difference to the probabilities if you sample with or without replacement. If we did it with replacement the number of S’s we get <br>
-X~Bin(n,p=<script type="math/tex" id="MathJax-Element-1174">\frac{r}{N}</script>) <br>
-So when N is large and n is small, we can use a Bin(n, <script type="math/tex" id="MathJax-Element-1175">\frac{r}{N}</script>) to approximate a Hyp(N,r,m). (when <script type="math/tex" id="MathJax-Element-1176">\frac{n}{N}</script> is less than 0.05)</p>
+X~Bin(n,p=<script type="math/tex" id="MathJax-Element-79">\frac{r}{N}</script>) <br>
+So when N is large and n is small, we can use a Bin(n, <script type="math/tex" id="MathJax-Element-80">\frac{r}{N}</script>) to approximate a Hyp(N,r,m). (when <script type="math/tex" id="MathJax-Element-81">\frac{n}{N}</script> is less than 0.05)</p>
 
 
 
@@ -861,12 +866,12 @@ So when N is large and n is small, we can use a Bin(n, <script type="math/tex" i
 </tbody></table>
 
 
-<p>We write <script type="math/tex" id="MathJax-Element-1177">X\sim NB(k,p)</script> <br>
-range <script type="math/tex" id="MathJax-Element-1178">\{0,1,2, ...\}</script></p>
+<p>We write <script type="math/tex" id="MathJax-Element-82">X\sim NB(k,p)</script> <br>
+range <script type="math/tex" id="MathJax-Element-83">\{0,1,2, ...\}</script></p>
 
 
 
-<p><script type="math/tex; mode=display" id="MathJax-Element-1179">\begin{equation}
+<p><script type="math/tex; mode=display" id="MathJax-Element-84">\begin{equation}
 \begin{split}
 pf \ \ \ f(x) & = P(X=x) \\
 & = P(x \ \ \text{F's befpre the kth S}) \\
@@ -877,17 +882,17 @@ pf \ \ \ f(x) & = P(X=x) \\
 \end{split}
 \end{equation}</script></p>
 
-<p>We can show that <script type="math/tex" id="MathJax-Element-1180">\Sigma^{\infty}_{x=0}f(x) = 1</script> <br>
-But there is no closed form expression for <script type="math/tex" id="MathJax-Element-1181">F(x)=\Sigma^{x}_{y=0}f(y)</script></p>
+<p>We can show that <script type="math/tex" id="MathJax-Element-85">\Sigma^{\infty}_{x=0}f(x) = 1</script> <br>
+But there is no closed form expression for <script type="math/tex" id="MathJax-Element-86">F(x)=\Sigma^{x}_{y=0}f(y)</script></p>
 
 <blockquote>
   <p>Example: <br>
   A startup is looking for 5 investors. Each investor will independently say yes with probability 0.2. Founders will ask investors one at a time until they get 5 yes. Let X=total # of investors asked. Find f(x) and f(10). <br>
-  <script type="math/tex" id="MathJax-Element-1182">X \not\sim NB</script> <br>
+  <script type="math/tex" id="MathJax-Element-87">X \not\sim NB</script> <br>
   Let Y = # who say no (Y+5=X) <br>
-  <script type="math/tex" id="MathJax-Element-1183">Y \sim NB(5, 0.2)</script> <br>
+  <script type="math/tex" id="MathJax-Element-88">Y \sim NB(5, 0.2)</script> <br>
   So <br>
-  <script type="math/tex; mode=display" id="MathJax-Element-1184">\begin{equation}
+  <script type="math/tex; mode=display" id="MathJax-Element-89">\begin{equation}
 \begin{split}
 f(x) & = P(X=x) \\ &= P(Y= x-5) \\ & ={x-5+5-1 \choose 5-1} {0.2}^5 0.8^{x-5} \\
 & = {x-1 \choose 4}0.2^50.8^{x-5} \ \text{for x=5,6,7,...} \\
@@ -908,7 +913,7 @@ range: {0, 1, 2, …}</p>
 
 
 
-<p><script type="math/tex; mode=display" id="MathJax-Element-1626">\begin{equation}
+<p><script type="math/tex; mode=display" id="MathJax-Element-90">\begin{equation}
 \begin{split}
 pf \ \ \ f(x) & = P(X=x) \\
 & = P(x \ \ \text{F's, then 1 S}) \\
@@ -916,8 +921,8 @@ pf \ \ \ f(x) & = P(X=x) \\
 \end{split}
 \end{equation}</script> <br>
 no orderings to worry about since it’s just FFFF….FS (x F’s) <br>
-Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\infty f(x) =1</script> using infinite geometric series formula <br>
-<script type="math/tex" id="MathJax-Element-1628">F(x) = P(X \leq x) = 1 - P(X \leq x+1) \\= 1 - (p(1-p)^{x+1} + p(1-p)^{x+2} + p(1-p)^{x+3} + ...)</script></p>
+Easy to show <script type="math/tex" id="MathJax-Element-91">\Sigma_{x=0}^\infty f(x) =1</script> using infinite geometric series formula <br>
+<script type="math/tex" id="MathJax-Element-92">F(x) = P(X \leq x) = 1 - P(X \leq x+1) \\= 1 - (p(1-p)^{x+1} + p(1-p)^{x+2} + p(1-p)^{x+3} + ...)</script></p>
 
 <table>
 <thead>
@@ -933,12 +938,12 @@ Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\inf
 </thead>
 <tbody><tr>
   <td>pf f(x)</td>
-  <td><script type="math/tex" id="MathJax-Element-1629">\frac{1}{b-a+1}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1630">\frac{{r \choose x} {N-r \choose n-x}}{{N \choose n}}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1631">{n \choose x}p^x(1-p)^{n-x}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1632">{x + k -1 \choose k-1}p^k(1-p)^x</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1633">(1-p)^xp</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1634">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-93">\frac{1}{b-a+1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-94">\frac{{r \choose x} {N-r \choose n-x}}{{N \choose n}}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-95">{n \choose x}p^x(1-p)^{n-x}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-96">{x + k -1 \choose k-1}p^k(1-p)^x</script></td>
+  <td><script type="math/tex" id="MathJax-Element-97">(1-p)^xp</script></td>
+  <td><script type="math/tex" id="MathJax-Element-98">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script></td>
 </tr>
 <tr>
   <td>range</td>
@@ -951,20 +956,20 @@ Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\inf
 </tr>
 <tr>
   <td>cdf F(x)</td>
-  <td><script type="math/tex" id="MathJax-Element-1635">\frac{x-a+1}{b-a+1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-99">\frac{x-a+1}{b-a+1}</script></td>
   <td>no closed form</td>
   <td>no</td>
   <td>no</td>
-  <td><script type="math/tex" id="MathJax-Element-1636">1-(1-p)^{x+1}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1637">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script></td>
+  <td><script type="math/tex" id="MathJax-Element-100">1-(1-p)^{x+1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-101">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script></td>
 </tr>
 <tr>
   <td>when to use?</td>
-  <td><script type="math/tex" id="MathJax-Element-1638">- \text{fixed # values} \\ - \text{equally likely}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1639">- \text{w/o replacement} \\ - \text{know # S in a subset}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1640">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-1641"> -\text{know # trials} \\</script> - counting # S</td>
-  <td><script type="math/tex" id="MathJax-Element-1642">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-1643">- \text{ know # S's $\\$} \\ -\text{"before" "until" "waiting for"}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1644">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-1645">- \text{same but k=1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-102">- \text{fixed # values} \\ - \text{equally likely}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-103">- \text{w/o replacement} \\ - \text{know # S in a subset}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-104">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-105"> -\text{know # trials} \\</script> - counting # S</td>
+  <td><script type="math/tex" id="MathJax-Element-106">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-107">- \text{ know # S's $\\$} \\ -\text{"before" "until" "waiting for"}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-108">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-109">- \text{same but k=1}</script></td>
   <td>Bin with large n, small p (approx)</td>
 </tr>
 </tbody></table>
@@ -973,6 +978,8 @@ Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\inf
 <p>f(x) <br>
 When to use? = Bin with large n, small p (approx) <br>
 range 0,1,2,…</p>
+
+
 
 <h2 id="lecture-15">Lecture - 15</h2>
 
@@ -986,13 +993,13 @@ range 0,1,2,…</p>
 
 <h3 id="poisson-rv-57">Poisson rv (5.7)</h3>
 
-<p>We say X has a Poisson distribution with parameter <script type="math/tex" id="MathJax-Element-1203">\mu</script> (<script type="math/tex" id="MathJax-Element-1204">X\sim Poi(\mu))</script> if <script type="math/tex" id="MathJax-Element-1205">f(x) = \frac{e^{-\mu}\mu^x}{x!}</script> for <script type="math/tex" id="MathJax-Element-1206">x=0,1,2,...</script> <br>
-Easy to show <script type="math/tex" id="MathJax-Element-1207">\Sigma_{x=0}^{\infty}f(x)=1</script> since <script type="math/tex" id="MathJax-Element-1208">e^\mu=\Sigma_{x=0}^{\infty} \frac{{\mu}^x}{x!}</script> <br>
-The Poisson is a limiting case of the Binomial when n-&gt;<script type="math/tex" id="MathJax-Element-1209">\infty</script> and p-&gt;0 such that the product np remains constant  <br>
-<script type="math/tex" id="MathJax-Element-1210">f(x) = {n \choose x}p^x (1-p)^{n-x}</script> <br>
-Let np = <script type="math/tex" id="MathJax-Element-1211">\mu</script> <br>
+<p>We say X has a Poisson distribution with parameter <script type="math/tex" id="MathJax-Element-110">\mu</script> (<script type="math/tex" id="MathJax-Element-111">X\sim Poi(\mu))</script> if <script type="math/tex" id="MathJax-Element-112">f(x) = \frac{e^{-\mu}\mu^x}{x!}</script> for <script type="math/tex" id="MathJax-Element-113">x=0,1,2,...</script> <br>
+Easy to show <script type="math/tex" id="MathJax-Element-114">\Sigma_{x=0}^{\infty}f(x)=1</script> since <script type="math/tex" id="MathJax-Element-115">e^\mu=\Sigma_{x=0}^{\infty} \frac{{\mu}^x}{x!}</script> <br>
+The Poisson is a limiting case of the Binomial when n-&gt;<script type="math/tex" id="MathJax-Element-116">\infty</script> and p-&gt;0 such that the product np remains constant  <br>
+<script type="math/tex" id="MathJax-Element-117">f(x) = {n \choose x}p^x (1-p)^{n-x}</script> <br>
+Let np = <script type="math/tex" id="MathJax-Element-118">\mu</script> <br>
 then,  <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1212">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-119">\begin{equation}
 \begin{split}
 p &=\frac{\mu}{n} \\
  &= \frac{n(n-1)...(n-x+1)}{x!}\frac{\mu}{n}^x(1-\frac{\mu}{n})^{n-x} \\
@@ -1002,7 +1009,7 @@ p &=\frac{\mu}{n} \\
 &=\frac{e^{-\mu}\mu^x}{x!} \text{ which is } Poi(\mu=np)
 \end{split}
 \end{equation}</script> <br>
-So if we have a Bin(n,p) with large n and small p, we can approx if with a Poisson rv with parameter <script type="math/tex" id="MathJax-Element-1213">\mu = np</script>. Guideline: <script type="math/tex" id="MathJax-Element-1214">n\geq40</script> and <script type="math/tex" id="MathJax-Element-1215">p\leq 0.05</script> works well!</p>
+So if we have a Bin(n,p) with large n and small p, we can approx if with a Poisson rv with parameter <script type="math/tex" id="MathJax-Element-120">\mu = np</script>. Guideline: <script type="math/tex" id="MathJax-Element-121">n\geq40</script> and <script type="math/tex" id="MathJax-Element-122">p\leq 0.05</script> works well!</p>
 
 <blockquote>
   <p>Example: <br>
@@ -1010,9 +1017,9 @@ So if we have a Bin(n,p) with large n and small p, we can approx if with a Poiss
 </blockquote>
 
 <p>X= # winning <br>
-<script type="math/tex" id="MathJax-Element-1216">X \sim Bin(100,\frac{1}{9})</script> <br>
+<script type="math/tex" id="MathJax-Element-123">X \sim Bin(100,\frac{1}{9})</script> <br>
 So: <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1217">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-124">\begin{equation}
 \begin{split}
 P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 & = {100 \choose 0} \frac{1}{9}^0\frac{8}{9}^100 + {100 \choose 1} \frac{1}{9}^1\frac{8}{9}^99 + ... + \text{tedious calc} \\
@@ -1020,11 +1027,11 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 \end{split}
 \end{equation}</script></p>
 
-<p>Try Poisson approx <script type="math/tex" id="MathJax-Element-1218">\mu = 100*\frac{1}{9} = 11.111</script> <br>
-<script type="math/tex" id="MathJax-Element-1219">Y \sim Poi(11.111)</script> <br>
-<script type="math/tex" id="MathJax-Element-1220">P(Y\leq 10) = \frac{e^{-11.1}}{0!}11.1^0+\frac{e^{-11.1}}{1!}11.1^1 + ... + \frac{e^{-11.1}}{11!}11.1^{10} \\= e^{-11.1}(1 + 11.1 + \frac{11.1}{2!}^2 + ... + \frac{11.1}{10!}^10) = 0.447</script></p>
+<p>Try Poisson approx <script type="math/tex" id="MathJax-Element-125">\mu = 100*\frac{1}{9} = 11.111</script> <br>
+<script type="math/tex" id="MathJax-Element-126">Y \sim Poi(11.111)</script> <br>
+<script type="math/tex" id="MathJax-Element-127">P(Y\leq 10) = \frac{e^{-11.1}}{0!}11.1^0+\frac{e^{-11.1}}{1!}11.1^1 + ... + \frac{e^{-11.1}}{11!}11.1^{10} \\= e^{-11.1}(1 + 11.1 + \frac{11.1}{2!}^2 + ... + \frac{11.1}{10!}^10) = 0.447</script></p>
 
-<p>Not a great approx since <script type="math/tex" id="MathJax-Element-1221">p = \frac{1}{9}</script> was a bit too high to be “close to 0”</p>
+<p>Not a great approx since <script type="math/tex" id="MathJax-Element-128">p = \frac{1}{9}</script> was a bit too high to be “close to 0”</p>
 
 <blockquote>
   <p>Clicker question <br>
@@ -1032,7 +1039,7 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
   0.405 -&gt; from bin. 0.407 -&gt; from poisson</p>
 </blockquote>
 
-<p>You can also use Poisson when <script type="math/tex" id="MathJax-Element-1222">p\approx 1</script> by instead modelling the number of F’s instead of S’s.</p>
+<p>You can also use Poisson when <script type="math/tex" id="MathJax-Element-129">p\approx 1</script> by instead modelling the number of F’s instead of S’s.</p>
 
 
 
@@ -1048,8 +1055,8 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 <ol><li>(events occur one at a time)</li>
 <li>Cannot have two or more events at the exact same time</li></ol></li>
 <li>Homogeneity/Uniformity <br>
-<ol><li>(events occur at a constant rate <script type="math/tex" id="MathJax-Element-1223">\lambda</script>)</li>
-<li>Prob of an event occurring in a short time interval (t, t+ <script type="math/tex" id="MathJax-Element-1224">\Delta</script>t) is proportional to <script type="math/tex" id="MathJax-Element-1225">\lambda \Delta t</script></li>
+<ol><li>(events occur at a constant rate <script type="math/tex" id="MathJax-Element-130">\lambda</script>)</li>
+<li>Prob of an event occurring in a short time interval (t, t+ <script type="math/tex" id="MathJax-Element-131">\Delta</script>t) is proportional to <script type="math/tex" id="MathJax-Element-132">\lambda \Delta t</script></li>
 <li>Can’t have periods of higher activity</li></ol></li>
 </ol>
 
@@ -1063,12 +1070,12 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 
 <h2 id="lecture-16">Lecture - 16</h2>
 
-<p>Imagine we observe a Poisson process (with rate <script type="math/tex" id="MathJax-Element-1226">\lambda</script>) for t units of time. <br>
+<p>Imagine we observe a Poisson process (with rate <script type="math/tex" id="MathJax-Element-133">\lambda</script>) for t units of time. <br>
 Let X = # of events that occur. <br>
 X is a discrete rv with no maximum. <br>
 It turns out that: <br>
-X ~ Poi(<script type="math/tex" id="MathJax-Element-1227">\mu</script> = Xt) <br>
-ie. <script type="math/tex" id="MathJax-Element-1228">f(x) = \frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> for x = 0, 1, 2</p>
+X ~ Poi(<script type="math/tex" id="MathJax-Element-134">\mu</script> = Xt) <br>
+ie. <script type="math/tex" id="MathJax-Element-135">f(x) = \frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> for x = 0, 1, 2</p>
 
 <blockquote>
   <p>Proof: See course notes <br>
@@ -1076,7 +1083,7 @@ ie. <script type="math/tex" id="MathJax-Element-1228">f(x) = \frac{e^{-\lambda t
 </blockquote>
 
 <p>| Poisson <br>
-f(x) | <script type="math/tex" id="MathJax-Element-1229">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> | <script type="math/tex" id="MathJax-Element-1230">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script> <br>
+f(x) | <script type="math/tex" id="MathJax-Element-136">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> | <script type="math/tex" id="MathJax-Element-137">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script> <br>
 When to use? = Bin with large n, small p (approx) <br>
 range 0,1,2,…</p>
 
@@ -1096,11 +1103,11 @@ If it makes sense to ask how many time the event did not occur</p>
 </blockquote>
 
 <p>Let X = # requests in 1 sec <br>
-X ~ Poi(<script type="math/tex" id="MathJax-Element-1231">\mu = 100 * \frac{1}{60}</script> or <script type="math/tex" id="MathJax-Element-1232">\frac{100}{60} = \frac{5}{3}</script>) <br>
-<script type="math/tex" id="MathJax-Element-1233">P(X=1)=\frac{e^{-\frac{5}{3}}(\frac{5}{3})}{1!} = 0.314</script> <br>
+X ~ Poi(<script type="math/tex" id="MathJax-Element-138">\mu = 100 * \frac{1}{60}</script> or <script type="math/tex" id="MathJax-Element-139">\frac{100}{60} = \frac{5}{3}</script>) <br>
+<script type="math/tex" id="MathJax-Element-140">P(X=1)=\frac{e^{-\frac{5}{3}}(\frac{5}{3})}{1!} = 0.314</script> <br>
 Let Y = # requrests in 1 min <br>
-Y ~ Poi(<script type="math/tex" id="MathJax-Element-1234">\mu = 100*1</script>) <br>
-P(Y=90) = <script type="math/tex" id="MathJax-Element-1235">\frac{e^{-100}100^{90}}{90!} = 0.025</script></p>
+Y ~ Poi(<script type="math/tex" id="MathJax-Element-141">\mu = 100*1</script>) <br>
+P(Y=90) = <script type="math/tex" id="MathJax-Element-142">\frac{e^{-100}100^{90}}{90!} = 0.025</script></p>
 
 
 
@@ -1114,25 +1121,25 @@ P(Y=90) = <script type="math/tex" id="MathJax-Element-1235">\frac{e^{-100}100^{9
 </blockquote>
 
 <p>a) Find the Prob of a “quiet” second.  <br>
-X=# requests in 1 sec. X~Poi(<script type="math/tex" id="MathJax-Element-1236">\frac{5}{3}</script>) <br>
-P(X = 0) = <script type="math/tex" id="MathJax-Element-1237">\frac{e^{-\frac{5}{3}}(\frac{5}{3})^0}{0!} = 0.189</script></p>
+X=# requests in 1 sec. X~Poi(<script type="math/tex" id="MathJax-Element-143">\frac{5}{3}</script>) <br>
+P(X = 0) = <script type="math/tex" id="MathJax-Element-144">\frac{e^{-\frac{5}{3}}(\frac{5}{3})^0}{0!} = 0.189</script></p>
 
 <p>b) Prob of 10 “quiet” seconds in a minute (60 non-overlapping sec) <br>
 Let Y = # “quiet” in 60 sec. <br>
 Y~Bin(60,0.189) <br>
-P(Y=10) = <script type="math/tex" id="MathJax-Element-1238">{60 \choose 10}0.189^{10}0.811^{50} = 0.124</script></p>
+P(Y=10) = <script type="math/tex" id="MathJax-Element-145">{60 \choose 10}0.189^{10}0.811^{50} = 0.124</script></p>
 
 <p>c) Prob of having to wait 30 non-overlapping sec to get 2 “quiet” <br>
 Let Z = # non-quiet sec before 2 “quiet” <br>
 Z ~ NB(2, 0.189) <br>
-P(Z = 28) = <script type="math/tex" id="MathJax-Element-1239">{28 + 2 -1 \choose 28}0.189^2 0.811^{28} = 0.003</script></p>
+P(Z = 28) = <script type="math/tex" id="MathJax-Element-146">{28 + 2 -1 \choose 28}0.189^2 0.811^{28} = 0.003</script></p>
 
 <p>d) Given (c), the prob there is 1 “quiet” sec in the first 15 sec. <br>
 P(1 Q in 15 sec | wait 30 for 2 Q) <br>
-<script type="math/tex" id="MathJax-Element-1240">= \frac{P(\text{1 Q in 15 sec AND wait 30 for 2Q})}{P(\text{wait 30 for 2 Q})}</script> <br>
-<script type="math/tex" id="MathJax-Element-1241">= \frac{P(\text{1 Q in 15 sec})P(\text{wait 15 more to get one more Q)}}{P(\text{wait 30 for 2 Q})}</script> <br>
+<script type="math/tex" id="MathJax-Element-147">= \frac{P(\text{1 Q in 15 sec AND wait 30 for 2Q})}{P(\text{wait 30 for 2 Q})}</script> <br>
+<script type="math/tex" id="MathJax-Element-148">= \frac{P(\text{1 Q in 15 sec})P(\text{wait 15 more to get one more Q)}}{P(\text{wait 30 for 2 Q})}</script> <br>
 Use binomial for 1st prob. Geometric for 2nd. <br>
-<script type="math/tex" id="MathJax-Element-1242">= \frac{({15 \choose 1}0.189^10.811^{14})(0.811^{14}0.189)}{{29 \choose 28}0.189^{2}0.811^{28}}</script></p>
+<script type="math/tex" id="MathJax-Element-149">= \frac{({15 \choose 1}0.189^10.811^{14})(0.811^{14}0.189)}{{29 \choose 28}0.189^{2}0.811^{28}}</script></p>
 
 
 
@@ -1180,7 +1187,7 @@ Use binomial for 1st prob. Geometric for 2nd. <br>
 <p>2. a frequency histogram (different graph here because I was lazy and didn’t want to draw one in ms paint) <br>
 <img src="https://www.mathsisfun.com/data/images/bar-graph-fruit.gif"> <br>
 3. A single number representing the average or sample mean <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1243">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-150">\begin{equation}
 \begin{split}
 \bar x &= \frac{\text{total # kids}}{\text{# families}}\\
 & = \frac{1*10 + 2*14 + 3*10 + 4*1 + 5*2}{37}\\
@@ -1192,8 +1199,8 @@ Use binomial for 1st prob. Geometric for 2nd. <br>
 5. mode - most common/frequent value (in this case, 2)</p>
 
 <p>Expectation of a r.v. (7.2) <br>
-We had the sample mean of the kids be <script type="math/tex" id="MathJax-Element-1244">\bar x</script> <br>
-<script type="math/tex" id="MathJax-Element-1245">\Sigma_{x=1}^{5} (\text{relative frequency of answering x})</script></p>
+We had the sample mean of the kids be <script type="math/tex" id="MathJax-Element-151">\bar x</script> <br>
+<script type="math/tex" id="MathJax-Element-152">\Sigma_{x=1}^{5} (\text{relative frequency of answering x})</script></p>
 
 <p>We can replace the observed relative frequency with a theoretical probability of the r.v. equally x -&gt; theoretical mean</p>
 
@@ -1222,38 +1229,38 @@ We had the sample mean of the kids be <script type="math/tex" id="MathJax-Elemen
 
 
 <p>so the theoretical mean of X is: <br>
-<script type="math/tex" id="MathJax-Element-1246">\Sigma_{x=1}^{5}xf(x) = 1* 0.43 + 2*0.4 + 3*0.12 + 4*0.04 + 5*0.01 = 1.8</script> <br>
+<script type="math/tex" id="MathJax-Element-153">\Sigma_{x=1}^{5}xf(x) = 1* 0.43 + 2*0.4 + 3*0.12 + 4*0.04 + 5*0.01 = 1.8</script> <br>
 and median is 2 since F(2) &gt; 0.5 and F(1) &lt; 0.5 <br>
 and mode is 1</p>
 
 <p>Def: The expected value or expectation or mean of a discrete r.v X is: <br>
-<script type="math/tex" id="MathJax-Element-1247">E[X] = \mu = \Sigma_{\text{all x } \epsilon \text{ range of X}}xf(x)</script></p>
+<script type="math/tex" id="MathJax-Element-154">E[X] = \mu = \Sigma_{\text{all x } \epsilon \text{ range of X}}xf(x)</script></p>
 
 
 
 <h2 id="lecture-18">Lecture 18</h2>
 
 <blockquote>
-  <p>Recall - Expected value (aka mean) of X is <script type="math/tex" id="MathJax-Element-1248">E[X]=\mu=\Sigma_{\text{all  }\epsilon \text{ range of X}}xf(x)</script></p>
+  <p>Recall - Expected value (aka mean) of X is <script type="math/tex" id="MathJax-Element-155">E[X]=\mu=\Sigma_{\text{all  }\epsilon \text{ range of X}}xf(x)</script></p>
 </blockquote>
 
 <p>Can think of it as a weighted average of the values X can take with weights = probabilities or balance point of the histogram of f(x). Often we may be interested in the average value of the function of x. Eg. x = usage on phone. g(X) = cost of that usage.</p>
 
-<p>Def: the expected value of g(X) for a discrete r.v. X is <script type="math/tex" id="MathJax-Element-1249">E[g(X)] = \Sigma_{\text{all  }\epsilon \text{ range of X}}g(x)f(x)</script>  <br>
+<p>Def: the expected value of g(X) for a discrete r.v. X is <script type="math/tex" id="MathJax-Element-156">E[g(X)] = \Sigma_{\text{all  }\epsilon \text{ range of X}}g(x)f(x)</script>  <br>
 weighted average of the g(x) values that can occur. (e.g. g(X) = 1000 + 250x)</p>
 
-<p>What if <script type="math/tex" id="MathJax-Element-1250">g(X) = \frac{2000}{X}</script> ? <br>
-Here, <script type="math/tex" id="MathJax-Element-1251">E[g(X)] \neq g(E[x])</script> because g(x) is <strong>non-linear</strong> function of X. Expectation is a linear operator.</p>
+<p>What if <script type="math/tex" id="MathJax-Element-157">g(X) = \frac{2000}{X}</script> ? <br>
+Here, <script type="math/tex" id="MathJax-Element-158">E[g(X)] \neq g(E[x])</script> because g(x) is <strong>non-linear</strong> function of X. Expectation is a linear operator.</p>
 
 <p>SO ONLY USE IF g(X) IS LINEAR <br>
 Also: <br>
-<script type="math/tex" id="MathJax-Element-1252">E[aX + b] = aE[X] + b</script></p>
+<script type="math/tex" id="MathJax-Element-159">E[aX + b] = aE[X] + b</script></p>
 
 
 
 <h3 id="applications-of-expectation-53">Applications of Expectation (5.3)</h3>
 
-<p>If we have the distribution of X ans we let Y = g(X), we can find E[Y] by either: <script type="math/tex" id="MathJax-Element-1253">E[g(X)] = \Sigma_{\text{all x}}g(x)f(x)</script> or by finding the range and pf of Y and using <script type="math/tex" id="MathJax-Element-1254">\Sigma_{\text{all y}}yf(y)</script></p>
+<p>If we have the distribution of X ans we let Y = g(X), we can find E[Y] by either: <script type="math/tex" id="MathJax-Element-160">E[g(X)] = \Sigma_{\text{all x}}g(x)f(x)</script> or by finding the range and pf of Y and using <script type="math/tex" id="MathJax-Element-161">\Sigma_{\text{all y}}yf(y)</script></p>
 
 <blockquote>
   <p>Example <br>
@@ -1290,7 +1297,7 @@ Let X = 0 (no errors), 1(syntax), 2(logic), 3(both),</p>
 </tbody></table>
 
 
-<p>So <script type="math/tex" id="MathJax-Element-1255">E[g(X)] = \Sigma_{x=0}^{3}g(x)f(x) \\ = 10*0.72 + 12*0.08 + 20*0.18 + 22*0.02 = 12.2</script></p>
+<p>So <script type="math/tex" id="MathJax-Element-162">E[g(X)] = \Sigma_{x=0}^{3}g(x)f(x) \\ = 10*0.72 + 12*0.08 + 20*0.18 + 22*0.02 = 12.2</script></p>
 
 <p>Example: <br>
 A web server has a cache. 20% chance that the request is found in the cache (cache hit) -&gt; 10 ms. If it’s not found (cache miss) then it takes 50(send msg) + 70(lookup) + 50(return answer) ms. Find the expected time with and without the cache. <br>
@@ -1323,7 +1330,7 @@ With: Let X = 0 if found, 1 if not found</p>
 <h2 id="lecture-19">Lecture 19</h2>
 
 <p>Recall: <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1256">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-163">\begin{equation}
 \begin{split}
 E[g(X)] &= \Sigma_{\text{all x}}g(x)f(x)\\
 E[aX + b] &= aE[X]+b \text{(linear operator)}
@@ -1338,51 +1345,199 @@ E[aX + b] &= aE[X]+b \text{(linear operator)}
 <li>Binomial <br>
 <ul><li>Let X~ Bin(n,i) <br>
 Find E[X]: <br>
-<script type="math/tex" id="MathJax-Element-1290">E[X] = \Sigma_{allx}xf(x) \\ = \Sigma_{x=0}^{n}x{n \choose x}p^x(1-p)^{n-x} \\ = \Sigma_{x=1}^{n}x{n \choose x}p^x(1-p)^{n-x}</script> <br>
+<script type="math/tex" id="MathJax-Element-164">E[X] = \Sigma_{allx}xf(x) \\ = \Sigma_{x=0}^{n}x{n \choose x}p^x(1-p)^{n-x} \\ = \Sigma_{x=1}^{n}x{n \choose x}p^x(1-p)^{n-x}</script> <br>
 since the x=0 term is 0 <br>
-<script type="math/tex" id="MathJax-Element-1291">=\Sigma_{x=1}^{n}x\frac{n!}{x!(n-x)!}p^x(1-p)^{n-x} </script> <br>
-Note: If <script type="math/tex" id="MathJax-Element-1292">x \leq 1</script>, then <script type="math/tex" id="MathJax-Element-1293">x! = x(x-1)!</script> <br>
-<script type="math/tex" id="MathJax-Element-1294">= \Sigma_{x=1}^{n}\frac{n!}{(x-1)!(n-x)!}p^x(1-p)^{n-x}</script> <br>
-<script type="math/tex" id="MathJax-Element-1295">= \Sigma_{x=1}^{n}\frac{n(n-1)!}{(x-1)!((n-1)-(x-1))!}pp^{x-1}(1-p)^{(x-1)-(x-1)}</script> <br>
-<script type="math/tex" id="MathJax-Element-1296">= np\Sigma_{x=1}^{n}{n-1 \choose x-1}p^{x-1}(1-p)^{(n-1)-(x-1)}</script> <br>
-Let <script type="math/tex" id="MathJax-Element-1297">y = x-1</script> <br>
-<script type="math/tex" id="MathJax-Element-1298">np\Sigma_{y=0}^{n-1}{n-1 \choose y}p^y(1-p)^{n-1-y}</script> <br>
+<script type="math/tex" id="MathJax-Element-165">=\Sigma_{x=1}^{n}x\frac{n!}{x!(n-x)!}p^x(1-p)^{n-x} </script> <br>
+Note: If <script type="math/tex" id="MathJax-Element-166">x \leq 1</script>, then <script type="math/tex" id="MathJax-Element-167">x! = x(x-1)!</script> <br>
+<script type="math/tex" id="MathJax-Element-168">= \Sigma_{x=1}^{n}\frac{n!}{(x-1)!(n-x)!}p^x(1-p)^{n-x}</script> <br>
+<script type="math/tex" id="MathJax-Element-169">= \Sigma_{x=1}^{n}\frac{n(n-1)!}{(x-1)!((n-1)-(x-1))!}pp^{x-1}(1-p)^{(x-1)-(x-1)}</script> <br>
+<script type="math/tex" id="MathJax-Element-170">= np\Sigma_{x=1}^{n}{n-1 \choose x-1}p^{x-1}(1-p)^{(n-1)-(x-1)}</script> <br>
+Let <script type="math/tex" id="MathJax-Element-171">y = x-1</script> <br>
+<script type="math/tex" id="MathJax-Element-172">np\Sigma_{y=0}^{n-1}{n-1 \choose y}p^y(1-p)^{n-1-y}</script> <br>
 The summation is just f(y) for Y~Bin(n-1,y) and that = 1 <br>
-<script type="math/tex" id="MathJax-Element-1299">\therefore E[X] = np</script> for X~Bin(n,p) <br>
+<script type="math/tex" id="MathJax-Element-173">\therefore E[X] = np</script> for X~Bin(n,p) <br>
 This makes logical sense because the number of successes is proportional to both the # of trials and the prob of success. So the average # S is the # trials x prob of S.</li></ul></li>
 <li>Poisson <br>
-<ul><li>Let X~Poi(<script type="math/tex" id="MathJax-Element-1300">\mu</script>) (where <script type="math/tex" id="MathJax-Element-1301">\mu</script> comes from <script type="math/tex" id="MathJax-Element-1302">\lambda t</script> or np or given) <br>
+<ul><li>Let X~Poi(<script type="math/tex" id="MathJax-Element-174">\mu</script>) (where <script type="math/tex" id="MathJax-Element-175">\mu</script> comes from <script type="math/tex" id="MathJax-Element-176">\lambda t</script> or np or given) <br>
 Find E[X] <br>
-<script type="math/tex" id="MathJax-Element-1303">E[X] = \Sigma_{x=0}^{\infty}x\frac{e^{-\mu}\mu^x}{x!}</script> <br>
-again the x=0 term is 0 and for <script type="math/tex" id="MathJax-Element-1304">x \leq 1</script>, x! =x(x-1)! <br>
-<script type="math/tex" id="MathJax-Element-1305">= \Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^x}{(x-1)!}</script> <br>
-<script type="math/tex" id="MathJax-Element-1306">= \mu\Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^{x-1}}{(x-1)!}</script> <br>
+<script type="math/tex" id="MathJax-Element-177">E[X] = \Sigma_{x=0}^{\infty}x\frac{e^{-\mu}\mu^x}{x!}</script> <br>
+again the x=0 term is 0 and for <script type="math/tex" id="MathJax-Element-178">x \leq 1</script>, x! =x(x-1)! <br>
+<script type="math/tex" id="MathJax-Element-179">= \Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^x}{(x-1)!}</script> <br>
+<script type="math/tex" id="MathJax-Element-180">= \mu\Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^{x-1}}{(x-1)!}</script> <br>
 Let y = x-1 <br>
-<script type="math/tex" id="MathJax-Element-1307">= \mu \Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!}</script> <br>
-that sum is just f(y) for Y~Poi(<script type="math/tex" id="MathJax-Element-1308">\mu</script>) so <script type="math/tex" id="MathJax-Element-1309">\Sigma_{y=1}^{\infty}f(y)=1</script> <br>
-<script type="math/tex" id="MathJax-Element-1310">\therefore E[X] = \mu</script> for X~Poi(<script type="math/tex" id="MathJax-Element-1311">\mu</script>) <br>
-i.e. <script type="math/tex" id="MathJax-Element-1312">\mu</script> is the parameter and the mean. <br>
-This makes sense if <script type="math/tex" id="MathJax-Element-1313">\mu = \lambda t</script> since avg # events in t units of time should be the rate (<script type="math/tex" id="MathJax-Element-1314">\frac{\text{avg # events}}{\text{time unit}}</script>) multiplied by the length of the time interval we observe.</li></ul></li>
+<script type="math/tex" id="MathJax-Element-181">= \mu \Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!}</script> <br>
+that sum is just f(y) for Y~Poi(<script type="math/tex" id="MathJax-Element-182">\mu</script>) so <script type="math/tex" id="MathJax-Element-183">\Sigma_{y=1}^{\infty}f(y)=1</script> <br>
+<script type="math/tex" id="MathJax-Element-184">\therefore E[X] = \mu</script> for X~Poi(<script type="math/tex" id="MathJax-Element-185">\mu</script>) <br>
+i.e. <script type="math/tex" id="MathJax-Element-186">\mu</script> is the parameter and the mean. <br>
+This makes sense if <script type="math/tex" id="MathJax-Element-187">\mu = \lambda t</script> since avg # events in t units of time should be the rate (<script type="math/tex" id="MathJax-Element-188">\frac{\text{avg # events}}{\text{time unit}}</script>) multiplied by the length of the time interval we observe.</li></ul></li>
 <li>Similarly: <br>
-<ol><li>X~NB(k,p) , <script type="math/tex" id="MathJax-Element-1315">E[X] = \frac{k(1-p)}{p}</script></li>
-<li>X~Hyp(N,r,n) , <script type="math/tex" id="MathJax-Element-1316">E[X] = \frac{nr}{N}</script></li>
-<li>X~DU[a,b] , <script type="math/tex" id="MathJax-Element-1317">E[X] = \frac{a+b}{2}</script> <br>
-these results can be proven from first principles (<script type="math/tex" id="MathJax-Element-1318">\Sigma_{\text{all x}}xf(x)</script>) but there are other easier ways to show them</li></ol></li>
+<ol><li>X~NB(k,p) , <script type="math/tex" id="MathJax-Element-189">E[X] = \frac{k(1-p)}{p}</script></li>
+<li>X~Hyp(N,r,n) , <script type="math/tex" id="MathJax-Element-190">E[X] = \frac{nr}{N}</script></li>
+<li>X~DU[a,b] , <script type="math/tex" id="MathJax-Element-191">E[X] = \frac{a+b}{2}</script> <br>
+these results can be proven from first principles (<script type="math/tex" id="MathJax-Element-192">\Sigma_{\text{all x}}xf(x)</script>) but there are other easier ways to show them</li></ol></li>
 </ol>
 
 <p>The mean of X, E[X] tells us where the distribution is centered, on average. But the practice we also care about how widely spread out the distribution is around that mean. <br>
 E.g. determining the number of servers for an online system. need to know spread. <br>
 How to measure? <br>
-<script type="math/tex" id="MathJax-Element-1319">E[X-\mu] = 0 </script> (not helpful!) <br>
-<script type="math/tex" id="MathJax-Element-1320">E[|X-\mu|]</script> - average absolute distance from mean</p>
+<script type="math/tex" id="MathJax-Element-193">E[X-\mu] = 0 </script> (not helpful!) <br>
+<script type="math/tex" id="MathJax-Element-194">E[|X-\mu|]</script> - average absolute distance from mean</p>
 
 <ul>
 <li>need cases to evaluate</li>
-<li>point of non-differentiabililty at <script type="math/tex" id="MathJax-Element-1321">\mu</script></li>
+<li>point of non-differentiabililty at <script type="math/tex" id="MathJax-Element-195">\mu</script></li>
 </ul>
 
 <p>So we use: <br>
-<script type="math/tex" id="MathJax-Element-1322">E[(X-\mu)^2]</script> - average squared distance from mean</p></body>
+<script type="math/tex" id="MathJax-Element-196">E[(X-\mu)^2]</script> - average squared distance from mean</p>
+
+
+
+<h2 id="lecture-20">Lecture 20</h2>
+
+<blockquote>
+  <p>Def: Variance of a r.v. X is <script type="math/tex" id="MathJax-Element-197">Var(X)= \sigma^2 = E[(X-\mu)^2]</script> <br>
+  Weighted average squared, distance from mean. If X is discrete, <script type="math/tex" id="MathJax-Element-198">Var(X) = \Sigma_{\text{all x}}(x-\mu)^2f(x)</script></p>
+</blockquote>
+
+<p>Calc form of variance: <br>
+<script type="math/tex; mode=display" id="MathJax-Element-199">\begin{equation}
+\begin{split}
+Var(X) &= E[(X-\mu)^2] \\
+&= E[X^2 - 2\mu X + \mu^2] \\
+&= E[X^2] - 2\mu E[X] + \mu^2 \text{ by linearity} \\
+&= E[X^2] - 2\mu^2 + \mu^2 \text{ since }E[X] = \mu \\
+&= E[X^2] - \mu^2 \\
+&= E[X^2] - E[X]^2
+\end{split}
+\end{equation}</script> <br>
+Where <script type="math/tex" id="MathJax-Element-200">E[X^2] = \Sigma_{\text{all x}}xf(x)</script></p>
+
+<p>Example: <br>
+X has pf</p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>10</th>
+  <th>12</th>
+  <th>20</th>
+  <th>22</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>0.72</td>
+  <td>0.08</td>
+  <td>0.18</td>
+  <td>0.62</td>
+</tr>
+</tbody></table>
+
+
+<p>We found <script type="math/tex" id="MathJax-Element-201">E[X] = 12.2</script> min <br>
+Now <script type="math/tex" id="MathJax-Element-202">E[X^2] = 10^2 *0.72 + 12^2*0.08 + 20^2*0.18 + 22^2*0.02 = 165.2</script> <br>
+<script type="math/tex" id="MathJax-Element-203">\therefore Var(X) = 165.2 - 12.2^2 = 16.36 \text{ min}^2</script></p>
+
+<blockquote>
+  <p>Note that variance is measured in units squared rather than the original units of X. Taking the square root of the variance makes more sense.</p>
+</blockquote>
+
+<p><strong>Defn</strong>: the standard deviation of X is <script type="math/tex" id="MathJax-Element-204">SD(X) = \sigma = \sqrt{Var(X)}</script></p>
+
+<p>In our example, <script type="math/tex" id="MathJax-Element-205">SD(X) = \sqrt{16.36} = 4.04</script> min <br>
+Remember, Var(X) will always be non-negative because it’s a weighted average of <script type="math/tex" id="MathJax-Element-206">(x-\mu)^2</script> values <script type="math/tex" id="MathJax-Element-207">\geq 0</script> <br>
+So SD(X) will also be <script type="math/tex" id="MathJax-Element-208">\geq 0</script> and a Real number</p>
+
+
+
+<h3 id="mean-var-of-a-linear-fn-of-x">Mean + Var of a linear f’n of X</h3>
+
+<p><script type="math/tex" id="MathJax-Element-209">Y=aX+b</script> <br>
+<script type="math/tex" id="MathJax-Element-210">E[Y] = aE[X] + b</script> by linearity of expectations <br>
+<script type="math/tex; mode=display" id="MathJax-Element-211">\begin{equation}
+\begin{split}
+Var(Y) &= E[(Y - E[Y])^2] \\
+& = E[(aX + b - (aE[X] + b))^2] \\
+&= E[a^2(X-E[X])^2] \\
+&= a^2Var(X)
+\end{split}
+\end{equation}</script></p>
+
+<blockquote>
+  <p>Note: b does not affect the variance since shifting the distribution doesn’t affect the spread. We increase all the distances by a factor of <script type="math/tex" id="MathJax-Element-212">a</script> so the squared distances increase by <script type="math/tex" id="MathJax-Element-213">a^2</script></p>
+</blockquote>
+
+<p>Finally, <br>
+<script type="math/tex" id="MathJax-Element-214">SD(Y) = \sqrt{Var{Y}} \\ = \sqrt{a^2Var(X)} \\ =|a|SD(x)</script></p>
+
+<p>Example <br>
+Suppose X has pf</p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>0</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+  <th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>0.1</td>
+  <td>0.1</td>
+  <td>0.1</td>
+  <td>0.5</td>
+  <td>0.2</td>
+</tr>
+<tr>
+  <td>y</td>
+  <td>1</td>
+  <td>3</td>
+  <td>5</td>
+  <td>7</td>
+  <td>9</td>
+</tr>
+</tbody></table>
+
+
+<p>Let <script type="math/tex" id="MathJax-Element-215">Y = 2X + 1</script> <br>
+<script type="math/tex" id="MathJax-Element-216">E[X] = 2.6</script> <br>
+<script type="math/tex" id="MathJax-Element-217">E[X^2] = 8.2</script>  <br>
+<script type="math/tex" id="MathJax-Element-218">E[Y] = 6.2</script>  <br>
+<script type="math/tex" id="MathJax-Element-219">E[Y^2] = 44.2</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-220">Var(X) = E[X^2] - E[X] = 1.44</script> <br>
+<script type="math/tex" id="MathJax-Element-221">Var(Y) = E[Y^2] - E[Y] = 5.76</script></p>
+
+<p>But! We can calculate the Var(Y) in a different way! <br>
+Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> and <script type="math/tex" id="MathJax-Element-223">Var(Y) = 2^2Var(X)</script></p>
+
+
+
+<h3 id="variances-of-named-distributions">Variances of named distributions</h3>
+
+<p></p><ol> <br>
+<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br>
+<ul><li><script type="math/tex" id="MathJax-Element-226">Var(X) = E[X^2] - E[X]</script> <br>
+<script type="math/tex" id="MathJax-Element-227">= E[X(X-1) + X] - E[X]^2</script> <br>
+<script type="math/tex" id="MathJax-Element-228">= E[X(X-1)] +E[X] - E[X]^2</script></li>
+<li>Why? </li>
+<li><script type="math/tex" id="MathJax-Element-229">E[X(X-1)] = \Sigma_{x=0}^{\infty}x(x-1)\frac{e^{-\mu}\mu^x}{x(x-1)(x-2)!} \\=\mu^2\Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!} = ty = x-2</script></li>
+<li>So <script type="math/tex" id="MathJax-Element-230">Var(X) = \mu^2 + \mu - \mu^2 = \mu</script> <br>
+In the Poisson, <script type="math/tex" id="MathJax-Element-231">\mu</script> is the mean and the variance!  <br>
+<strong>^ the Poisson variance is a good exam question</strong></li></ul></li>
+<li>Binomial - <script type="math/tex" id="MathJax-Element-232">E[X] = np</script> ,  <script type="math/tex" id="MathJax-Element-233">E[X(X-1)] = n(n-1)p^2</script> <br>
+<ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br></li></ul></li></ol><p></p>
+
+<blockquote>
+  <p>Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty
+  </p>
+</blockquote></body>
 </html>
 
 <!--
@@ -1491,6 +1646,11 @@ How to measure? <br>
 <li><a href="#means-and-variances-of-named-distributions-74">Means (and variances) of named distributions (7.4)</a></li>
 </ul>
 </li>
+<li><a href="#lecture-20">Lecture 20</a><ul>
+<li><a href="#mean-var-of-a-linear-fn-of-x">Mean + Var of a linear f’n of X</a></li>
+<li><a href="#variances-of-named-distributions">Variances of named distributions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1514,8 +1674,8 @@ The likelihood of an event occuring</p>
 <h3 id="the-3-definitions-of-probability">The 3 Definitions of Probability</h3>
 
 <ol>
-<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-1096">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
-<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-1097">\infty</script> long) that the event occurs</li>
+<li>Classical - Probability is equal to <script type="math/tex" id="MathJax-Element-1">\frac{\text{# of ways event occurs}}{\text{total # of outcomes}}</script> (relies on outcomes being equally likely)</li>
+<li>Relative Frequency - Probability = proportion of time (<script type="math/tex" id="MathJax-Element-2">\infty</script> long) that the event occurs</li>
 <li>Subjective - Probability = how certain the person is that it will occur</li>
 </ol>
 
@@ -1574,12 +1734,12 @@ The likelihood of an event occuring</p>
   Experiment: Roll a 6-sided die repeatedly <br>
   Trial: One roll <br>
   Outcomes: 1, 2, … , 5, 6 <br>
-  <script type="math/tex" id="MathJax-Element-1098">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
-  <script type="math/tex" id="MathJax-Element-1099">S_2</script> = {even, odd} (also works)
+  <script type="math/tex" id="MathJax-Element-3">S_1</script> = {1, 2, 3, 4, 5, 6} (most versatile) <br>
+  <script type="math/tex" id="MathJax-Element-4">S_2</script> = {even, odd} (also works)
 </blockquote></dd>
 
 <dt>Event</dt>
-<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-1100">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-1101">S</script>
+<dd>A subset of a sample space (including the empty set <script type="math/tex" id="MathJax-Element-5">\phi</script>) and the entire sample space <script type="math/tex" id="MathJax-Element-6">S</script>
 
 <blockquote>
   Example <br>
@@ -1595,14 +1755,14 @@ The likelihood of an event occuring</p>
 
 <dt>A Probability</dt>
 <dd>
-<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-1102">Real</script> numbers such that </p>
+<p>is a function that maps events in a sample space to <script type="math/tex" id="MathJax-Element-7">Real</script> numbers such that </p>
 
 <ol>
-<li><script type="math/tex" id="MathJax-Element-1103">0 \leq P(A) \leq 1</script> for any A <br>
-<ul><li><script type="math/tex" id="MathJax-Element-1104">0 =</script> “impossible”</li>
-<li><script type="math/tex" id="MathJax-Element-1105">1 =</script> “guaranteed”</li></ul></li>
-<li>If <script type="math/tex" id="MathJax-Element-1106">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-1107">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
-<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-1108">A_i = \{a_i\}</script> </li>
+<li><script type="math/tex" id="MathJax-Element-8">0 \leq P(A) \leq 1</script> for any A <br>
+<ul><li><script type="math/tex" id="MathJax-Element-9">0 =</script> “impossible”</li>
+<li><script type="math/tex" id="MathJax-Element-10">1 =</script> “guaranteed”</li></ul></li>
+<li>If <script type="math/tex" id="MathJax-Element-11">a_i</script> are the elements of S, then <script type="math/tex" id="MathJax-Element-12">\Sigma_{\text{all ai}} P(a_i) = 1</script> <br>
+<ul><li>where Simple event <script type="math/tex" id="MathJax-Element-13">A_i = \{a_i\}</script> </li>
 <li>Example: Roll a 6-sided die twice. S = {(1,1), (1,2), … , (1,6), … , (6, 1), … , (6,6)}</li>
 <li>Example: BST. A Binary Search Tree is degenerate if each node has at most one child</li>
 <li>Find the prob. that a tree with 3 elements is degenerate: </li>
@@ -1638,14 +1798,14 @@ The likelihood of an event occuring</p>
 
 <h3 id="sampling">Sampling</h3>
 
-<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-1109">m^k</script> choices. M spaces, k options.</p>
+<p>“with replacement” - is possible to obtain the same result more than once. Then it’ll have <script type="math/tex" id="MathJax-Element-14">m^k</script> choices. M spaces, k options.</p>
 
 
 
 <h3 id="permutations">Permutations</h3>
 
-<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-1110">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-1111">n(n-1)...(n-k+1)</script> <br>
-Also <script type="math/tex" id="MathJax-Element-1112">\frac{n!}{(n-k)!}</script></p>
+<p>A permutation is an ordering of k objects selected from n objects without replacement. Let n = number of objects. K spaces. The order matters! <script type="math/tex" id="MathJax-Element-15">n^{(k)}</script> = “n to k factors” = <script type="math/tex" id="MathJax-Element-16">n(n-1)...(n-k+1)</script> <br>
+Also <script type="math/tex" id="MathJax-Element-17">\frac{n!}{(n-k)!}</script></p>
 
 <blockquote>
   <p>Tip, if computing a certain permutation is hard, try 1 - opposite of what you want to find. Eg. Find P(of at least one repeat) turns into 1 - P(no repeats) which is easier.</p>
@@ -1659,7 +1819,7 @@ Also <script type="math/tex" id="MathJax-Element-1112">\frac{n!}{(n-k)!}</script
 
 <h3 id="combinations">Combinations</h3>
 
-<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-1113">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
+<p>A combination is a selection of k objects from n objects without replacement. The order does NOT matter. E.g. drawing a hand of cards. Denoted by N choose K (I forget how to <script type="math/tex" id="MathJax-Element-18">\LaTeX</script> this) Pascal triangle - n choose k is the kth entry in the nth row.</p>
 
 <p>Some shit about pascal’s triangle that is super obvious</p>
 
@@ -1683,7 +1843,7 @@ A box of 10 computer chips containing 3 defective ones in the box. Four of the c
 Solution: <br>
 W/o rep &amp; don’t care about order.</p>
 
-<p><script type="math/tex" id="MathJax-Element-1114">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
+<p><script type="math/tex" id="MathJax-Element-19">Prob = \frac{\text{# of ways to get 1 def chips}}{\text{# of ways to test 4}} = \frac{\binom{3}{1}\binom{7}{3}}{\binom{10}{4}}</script></p>
 
 <p>The whole time, we don’t care about order. (i.e. we don’t need to worry if the defective one is first, last or etc)</p>
 
@@ -1696,21 +1856,21 @@ W/o rep &amp; don’t care about order.</p>
 <h3 id="arrangements-where-some-objects-are-alike-indistinguishable">Arrangements, where some objects are alike (indistinguishable)</h3>
 
 <blockquote>
-  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-1115">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-1116">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-1117">n_k</script> is number of type k.</p>
+  <p>Can be arranged  <script type="math/tex" id="MathJax-Element-20">\frac{n!}{n_1!n_2!...n_k!}</script> where <script type="math/tex" id="MathJax-Element-21">n_1 + n_2 + ... + n_k = n</script> and <script type="math/tex" id="MathJax-Element-22">n_k</script> is number of type k.</p>
 </blockquote>
 
 
 
 <h2 id="lecture-6">Lecture - 6</h2>
 
-<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-1118">0 \leq P(A) \leq 1</script> <br>
+<p>Recall - event -&gt; subset of S for any event A, <script type="math/tex" id="MathJax-Element-23">0 \leq P(A) \leq 1</script> <br>
 Rules for probabilities <br>
-If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-1119">P(A) \leq P(B)</script></p>
+If an event A is contained in another event B (A subset B) Then, <script type="math/tex" id="MathJax-Element-24">P(A) \leq P(B)</script></p>
 
-<p><script type="math/tex" id="MathJax-Element-1120">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-1121">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
-<script type="math/tex" id="MathJax-Element-1122">= P(A) + (\geq 0)</script> <br>
-thus, <script type="math/tex" id="MathJax-Element-1123">P(A) \leq P(B)</script></p>
+<p><script type="math/tex" id="MathJax-Element-25">P(B) = \Sigma_{a_i \epsilon B} P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-26">= \Sigma_{a_i \epsilon A} P(a_i) + \Sigma_{a_i \epsilon B but not A}P(a_i)</script> <br>
+<script type="math/tex" id="MathJax-Element-27">= P(A) + (\geq 0)</script> <br>
+thus, <script type="math/tex" id="MathJax-Element-28">P(A) \leq P(B)</script></p>
 
 <p>A_bar , A^c, A^’, -&gt; NOT A. Aunion B = or. A intersect B = and.</p>
 
@@ -1738,7 +1898,7 @@ bar{aintersectB} = a_bar or b_bar</p>
 <h2 id="lecture-8">Lecture - 8</h2>
 
 <p>Recall: Independent: P(AB) = P(A)P(B) <br>
-Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-1124">\frac{P(AB)}{P(B)}</script></p>
+Conditional prob of A given B: P(A|B) = <script type="math/tex" id="MathJax-Element-29">\frac{P(AB)}{P(B)}</script></p>
 
 <p>Last time we had <br>
 A = small = 3 <br>
@@ -1801,12 +1961,12 @@ The order doesn’t matter as long as each probability is conditional on what we
 
 <h3 id="law-of-total-probability">Law of Total Probability</h3>
 
-<p>Let <script type="math/tex" id="MathJax-Element-1125">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-1126">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-1127">A_1 \cup ... \cup A_k = S</script></p>
+<p>Let <script type="math/tex" id="MathJax-Element-30">A_1 , ... , A_k</script> be a collection of events that are mutually exclusive <script type="math/tex" id="MathJax-Element-31">A_i\cap A_j = \phi</script> cover the sample space <script type="math/tex" id="MathJax-Element-32">A_1 \cup ... \cup A_k = S</script></p>
 
 <p>(break S up into k disjoint pieces) This is a partition of S <br>
 e.g. A and A_bar is a partition of size 2. <br>
-For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-1128">\cup_{i=1}^{k} (BA_i)</script> <br>
-So P(B) = <script type="math/tex" id="MathJax-Element-1129">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
+For any event B in S, we can express it as B = <script type="math/tex" id="MathJax-Element-33">\cup_{i=1}^{k} (BA_i)</script> <br>
+So P(B) = <script type="math/tex" id="MathJax-Element-34">\Sigma_{i=1}^{k}P(A_i)P(B|A_i)</script> using product rule</p>
 
 <p>Example: <br>
 Three people A,B,C are writing code together. A produces twice as much as B or C</p>
@@ -1828,7 +1988,7 @@ We have P(E|A) = 0.01 <br>
 P(E|B) = 0.02 <br>
 P(E|C) = 0.05</p>
 
-<p>So <script type="math/tex" id="MathJax-Element-1130">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p>
+<p>So <script type="math/tex" id="MathJax-Element-35">P(E) = P(A)P(E|A) + P(B)P(E|B) + P(C)P(E|C) = 0.5*0.01 + 0.25*0.02 + 0.25*0.05 = 0.0225</script></p>
 
 
 
@@ -1841,13 +2001,13 @@ We had to reverse the direction of the conditioning: we have P(E|author). We wan
 
 <h3 id="bayes-rule">Bayes’ Rule</h3>
 
-<p><script type="math/tex" id="MathJax-Element-1131">P(A|B) = \frac{P(AB)}{P(B)} = \frac{P(A)P(B|A)}{P(B)}</script></p>
+<p><script type="math/tex" id="MathJax-Element-36">P(A|B) = \frac{P(AB)}{P(B)} = \frac{P(A)P(B|A)}{P(B)}</script></p>
 
 <p>also written as <br>
-<script type="math/tex" id="MathJax-Element-1132">P(A|B) = \frac{P(A)P(B|A)}{\Sigma_{i=1}^k P(A_i)P(B|A_i)}</script></p>
+<script type="math/tex" id="MathJax-Element-37">P(A|B) = \frac{P(A)P(B|A)}{\Sigma_{i=1}^k P(A_i)P(B|A_i)}</script></p>
 
 <p>For this example: <br>
-<script type="math/tex" id="MathJax-Element-1133">P(A|E) = \frac{0.5*0.01}{0.0225} = 0.222...</script></p>
+<script type="math/tex" id="MathJax-Element-38">P(A|E) = \frac{0.5*0.01}{0.0225} = 0.222...</script></p>
 
 <p>Example</p>
 
@@ -1889,7 +2049,7 @@ Unsupervised learning -&gt; no training data</p>
 </dl>
 
 <p>Bayesian Classifier <br>
-P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-1134">\frac{P(cat1)P(ev|cat1)}{P(evidence)}</script></p>
+P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-39">\frac{P(cat1)P(ev|cat1)}{P(evidence)}</script></p>
 
 
 
@@ -1904,8 +2064,8 @@ P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-1134">\fra
 <h3 id="important-sums">Important Sums</h3>
 
 <ol>
-<li>Geometric - <script type="math/tex" id="MathJax-Element-1135">\frac{a}{1-r}</script></li>
-<li>Binomial - <script type="math/tex" id="MathJax-Element-1136">(a+b)^n = \Sigma</script></li>
+<li>Geometric - <script type="math/tex" id="MathJax-Element-40">\frac{a}{1-r}</script></li>
+<li>Binomial - <script type="math/tex" id="MathJax-Element-41">(a+b)^n = \Sigma</script></li>
 </ol>
 
 
@@ -1915,7 +2075,7 @@ P(Category 1 | evidence) =<script type="math/tex" id="MathJax-Element-1134">\fra
 <p>Bayes’ Rule:</p>
 
 <blockquote>
-  <p>P(A|B) = <script type="math/tex" id="MathJax-Element-1137">\frac{P(A)P(B|A)}{P(B)}</script> <br>
+  <p>P(A|B) = <script type="math/tex" id="MathJax-Element-42">\frac{P(A)P(B|A)}{P(B)}</script> <br>
   Product rule + law of total prob. A and A’ is a partition</p>
 </blockquote>
 
@@ -1947,20 +2107,20 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 <hr>
 
 <blockquote>
-  <p>Def. The probability factor (pf) of a discrete rv X is f(x) = P(X = x) and is only defined for x <script type="math/tex" id="MathJax-Element-1138">\epsilon</script> range of X. f(x) if x does not belong in range is undefined or 0.</p>
+  <p>Def. The probability factor (pf) of a discrete rv X is f(x) = P(X = x) and is only defined for x <script type="math/tex" id="MathJax-Element-43">\epsilon</script> range of X. f(x) if x does not belong in range is undefined or 0.</p>
   
   <dl>
 <dt>Properties of f(x)</dt>
-<dd><script type="math/tex" id="MathJax-Element-1139">0 \leq f(x) \leq 1</script> for all x <script type="math/tex" id="MathJax-Element-1140">\epsilon</script> range of f(x) . Why? it’s a probability</dd>
+<dd><script type="math/tex" id="MathJax-Element-44">0 \leq f(x) \leq 1</script> for all x <script type="math/tex" id="MathJax-Element-45">\epsilon</script> range of f(x) . Why? it’s a probability</dd>
 
-<dd><script type="math/tex" id="MathJax-Element-1141">\Sigma_{\text{all x}\ \epsilon \ \text{range}} f(x) = 1</script> The events “X = x” are mutually exclusive for each x</dd>
+<dd><script type="math/tex" id="MathJax-Element-46">\Sigma_{\text{all x}\ \epsilon \ \text{range}} f(x) = 1</script> The events “X = x” are mutually exclusive for each x</dd>
 </dl>
 </blockquote>
 
 <hr>
 
 <blockquote>
-  <p>Def. The cumulative distribution function (cdf) of the rv X is F(x) = P(X <script type="math/tex" id="MathJax-Element-1142">\leq</script> x) and is defined for ALL Real x.</p>
+  <p>Def. The cumulative distribution function (cdf) of the rv X is F(x) = P(X <script type="math/tex" id="MathJax-Element-47">\leq</script> x) and is defined for ALL Real x.</p>
 </blockquote>
 
 
@@ -1969,8 +2129,8 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 
 <blockquote>
   <p>Recall: Random variable (X) maps sample points to Real numbers <br>
-  Probability function f(x) = P(X=x) <script type="math/tex" id="MathJax-Element-1143">\forall</script> x <script type="math/tex" id="MathJax-Element-1144">\epsilon</script> range <br>
-  Cumulative distribution function F(x) = P(<script type="math/tex" id="MathJax-Element-1145">X \leq x</script>) <script type="math/tex" id="MathJax-Element-1146">\forall</script> x <script type="math/tex" id="MathJax-Element-1147">\epsilon R</script> </p>
+  Probability function f(x) = P(X=x) <script type="math/tex" id="MathJax-Element-48">\forall</script> x <script type="math/tex" id="MathJax-Element-49">\epsilon</script> range <br>
+  Cumulative distribution function F(x) = P(<script type="math/tex" id="MathJax-Element-50">X \leq x</script>) <script type="math/tex" id="MathJax-Element-51">\forall</script> x <script type="math/tex" id="MathJax-Element-52">\epsilon R</script> </p>
 </blockquote>
 
 
@@ -1978,11 +2138,11 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 <h3 id="properties-of-fx">Properties of F(x)</h3>
 
 <ol>
-<li><script type="math/tex" id="MathJax-Element-1148">0 \leq F(x) \leq 1</script> Why? it’s a probability</li>
+<li><script type="math/tex" id="MathJax-Element-53">0 \leq F(x) \leq 1</script> Why? it’s a probability</li>
 <li>F(x) is non-decreasing with respect to x . Why? Can’t lose probability when increasing x <br>
-<ol><li>Proof: the event “<script type="math/tex" id="MathJax-Element-1149">X \leq a</script>” is contained in “<script type="math/tex" id="MathJax-Element-1150">X \leq b</script>” where <script type="math/tex" id="MathJax-Element-1151">a \leq b</script> so <script type="math/tex" id="MathJax-Element-1152">F(a) \leq F(b)</script></li></ol></li>
-<li><script type="math/tex" id="MathJax-Element-1153">lim_{x \rightarrow - \infty} F(x) = 0</script> where 0 is impossible</li>
-<li><script type="math/tex" id="MathJax-Element-1154">lim_{x \rightarrow \infty} F(x) = 1</script> where 1 is guarenteed</li>
+<ol><li>Proof: the event “<script type="math/tex" id="MathJax-Element-54">X \leq a</script>” is contained in “<script type="math/tex" id="MathJax-Element-55">X \leq b</script>” where <script type="math/tex" id="MathJax-Element-56">a \leq b</script> so <script type="math/tex" id="MathJax-Element-57">F(a) \leq F(b)</script></li></ol></li>
+<li><script type="math/tex" id="MathJax-Element-58">lim_{x \rightarrow - \infty} F(x) = 0</script> where 0 is impossible</li>
+<li><script type="math/tex" id="MathJax-Element-59">lim_{x \rightarrow \infty} F(x) = 1</script> where 1 is guarenteed</li>
 </ol>
 
 <p>Example:</p>
@@ -2027,14 +2187,14 @@ We are interested in finding the prob. that a rv X takes on one of it’s partic
 <p>Relationship between F and f <br>
 f(x) = the size of the jump in F(x) at the point x = F(x) - F(x-1) &lt;- which is the next smallest value in range</p>
 
-<p><script type="math/tex" id="MathJax-Element-1155">F(x) = f(0) + f(1) + ... + f(\lfloor x \rfloor) = \Sigma_{i=0}^{\lfloor x \rfloor} f(i)</script> <br>
-We can use F(x) to find <script type="math/tex" id="MathJax-Element-1156">P(a < X \leq b)</script> = P()</p>
+<p><script type="math/tex" id="MathJax-Element-60">F(x) = f(0) + f(1) + ... + f(\lfloor x \rfloor) = \Sigma_{i=0}^{\lfloor x \rfloor} f(i)</script> <br>
+We can use F(x) to find <script type="math/tex" id="MathJax-Element-61">P(a < X \leq b)</script> = P()</p>
 
 
 
 <h3 id="discrete-uniform-52">Discrete Uniform (5.2)</h3>
 
-<p>Let X be a rv on the range {a, a+1, …, b} where <script type="math/tex" id="MathJax-Element-1157">a \leq b</script> &amp; a,b <script type="math/tex" id="MathJax-Element-1158">\epsilon Z</script> where each value is equally likely. Then we say X has a discrete uniform distribution on [a , b] in other words, “X~DU[a,b]” . <em>X has a DU distribution of [a,b]</em></p>
+<p>Let X be a rv on the range {a, a+1, …, b} where <script type="math/tex" id="MathJax-Element-62">a \leq b</script> &amp; a,b <script type="math/tex" id="MathJax-Element-63">\epsilon Z</script> where each value is equally likely. Then we say X has a discrete uniform distribution on [a , b] in other words, “X~DU[a,b]” . <em>X has a DU distribution of [a,b]</em></p>
 
 <p>e.g. </p>
 
@@ -2044,13 +2204,13 @@ We can use F(x) to find <script type="math/tex" id="MathJax-Element-1156">P(a < 
 </ul>
 
 <p>Find the pf f(x) = P(X = x) = c must be constant since all equal <br>
-We need <script type="math/tex" id="MathJax-Element-1159">\Sigma_{x = a}^{b}f(x) = 1</script> <br>
-<script type="math/tex" id="MathJax-Element-1160">\Sigma_{x=a}^{b}c  = 1 </script> <br>
-<script type="math/tex" id="MathJax-Element-1161">(b-a+1)c  = 1 </script> <br>
-<script type="math/tex" id="MathJax-Element-1162">C = \frac{1}{b-a+1} = f(x) </script></p>
+We need <script type="math/tex" id="MathJax-Element-64">\Sigma_{x = a}^{b}f(x) = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-65">\Sigma_{x=a}^{b}c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-66">(b-a+1)c  = 1 </script> <br>
+<script type="math/tex" id="MathJax-Element-67">C = \frac{1}{b-a+1} = f(x) </script></p>
 
 <p>Find the cdf <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1163">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-68">\begin{equation}
 \begin{split}
 F(x) & = \Sigma_{i = a}^{\lfloor x \rfloor}f(i) \\ 
 & = \Sigma_{a}^{\lfloor x\rfloor} \frac{1}{b-a+1} \\
@@ -2073,7 +2233,7 @@ F(x) & =
 
 
 
-<p><script type="math/tex; mode=display" id="MathJax-Element-1164">\begin{equation}
+<p><script type="math/tex; mode=display" id="MathJax-Element-69">\begin{equation}
 \begin{split}
 f(1) &= P(X=1) = \frac{1}{100} \\
 f(2) & = P(X =2) \\
@@ -2100,9 +2260,9 @@ X ~ Hyp(N,r,n) <br>
 N=49, r = 6, n =6 <br>
 Find the pf f(x) = P(X=x) = P(we get x S’s and n-x F’s)</p>
 
-<p><script type="math/tex" id="MathJax-Element-1165">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{N \choose n}</script> <br>
+<p><script type="math/tex" id="MathJax-Element-70">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{N \choose n}</script> <br>
 range of x? <br>
-lower bound: <script type="math/tex" id="MathJax-Element-1166">x \leq 0</script>, <script type="math/tex" id="MathJax-Element-1167">x \leq n - (N-r)</script> possible to run out of F’s so remaining will all be S’s</p>
+lower bound: <script type="math/tex" id="MathJax-Element-71">x \leq 0</script>, <script type="math/tex" id="MathJax-Element-72">x \leq n - (N-r)</script> possible to run out of F’s so remaining will all be S’s</p>
 
 <p>upper bound x \leq n (all 5’s), x \leq r (could run out of S’s) <br>
 so the range of X is messy and depends on the relationship btwn N, r, and n.</p>
@@ -2111,7 +2271,7 @@ so the range of X is messy and depends on the relationship btwn N, r, and n.</p>
 Example: <br>
 You have 10 cards - 7 treasure, 3 non-treasure. <br>
 Draw 5 without replacement. Let X = “# of treasure cards”. X ~ Hyp(N=10, r=7, n=5) <br>
-f(x) = P(X = x) = <script type="math/tex" id="MathJax-Element-1168">\frac{{7 \choose x}{3 \choose 5-x}}{10 \choose 5}</script> for x = 2,3,4,5 <br>
+f(x) = P(X = x) = <script type="math/tex" id="MathJax-Element-73">\frac{{7 \choose x}{3 \choose 5-x}}{10 \choose 5}</script> for x = 2,3,4,5 <br>
 All the values of f(x) will add up to 1 <br>
 (proven using Hypergeometric series result)</p>
 
@@ -2143,7 +2303,7 @@ Find the pf f(x) = P(X=x) = P(we get x S’s and n-x F’s) = p^x(1-p)^(n-x)j</p
 <li>P = (10!/2!)/(11!/(2!2!)) = 0.182</li></ul></li>
 <li>The two B’s are consecutive and Y is in the last position <br>
 <ul><li>(9!/2!)/(11!/(2!2!)) = 0.018 = P(AB)</li>
-<li>Note: <script type="math/tex" id="MathJax-Element-1169">P(AB) \neq P(A)P(B)</script></li></ul></li>
+<li>Note: <script type="math/tex" id="MathJax-Element-74">P(AB) \neq P(A)P(B)</script></li></ul></li>
 <li>Y is not in the last position and the two B’s are not consecutive <br>
 <ul><li>P(A_bar B_bar) = P((AUB)_bar) = 1-P(AUB) = 1-(P(A)+P(B)-P(AB)) = 0.745</li></ul></li>
 <li>Y is not in the last position or the two B’s are not consecutive <br>
@@ -2188,10 +2348,10 @@ Find the pf f(x) = P(X=x) = P(we get x S’s and n-x F’s) = p^x(1-p)^(n-x)j</p
 <blockquote>
   <p>Recall: <br>
   X~Hyp(N, r, n) <br>
-  <script type="math/tex" id="MathJax-Element-1170">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{{N \choose n}}</script> <br>
+  <script type="math/tex" id="MathJax-Element-75">f(x) = \frac{{r \choose x}{N-r \choose n-x}}{{N \choose n}}</script> <br>
   X = # S’s in n objects w/o rep <br>
   X~Bin(n,p) <br>
-  <script type="math/tex" id="MathJax-Element-1171">f(x) = {n \choose x}p^x (1-p)^{n-x}</script></p>
+  <script type="math/tex" id="MathJax-Element-76">f(x) = {n \choose x}p^x (1-p)^{n-x}</script></p>
 </blockquote>
 
 <p>Example: <br>
@@ -2200,20 +2360,20 @@ Probability = 0.1 <br>
 P(message received correctly?) <br>
 Let X = # of bits flipped <br>
 X~Bin(4, 0.1) <br>
-P(X=0) =<script type="math/tex" id="MathJax-Element-1172">{4 \choose 0}0.1^00.9^4 = 0.656</script></p>
+P(X=0) =<script type="math/tex" id="MathJax-Element-77">{4 \choose 0}0.1^00.9^4 = 0.656</script></p>
 
 <p>Now add 3 “parity bits” to the message which allows the receiver to detect and fix up to 1 error. <br>
 Let Y = # bits flipped ~Bin(7, 0.1) <br>
 P(Y=0) + P(Y=1) are both ok. <br>
-<script type="math/tex" id="MathJax-Element-1173">= {7 \choose 0}0.1^00.9^7 + {7 \choose 1}0.1^10.9^6= 0.85</script></p>
+<script type="math/tex" id="MathJax-Element-78">= {7 \choose 0}0.1^00.9^7 + {7 \choose 1}0.1^10.9^6= 0.85</script></p>
 
 
 
 <h3 id="bin-approx-to-hyp">Bin approx to Hyp.</h3>
 
 <p>(ie. n &lt;&lt; N) then it doesn’t make a big difference to the probabilities if you sample with or without replacement. If we did it with replacement the number of S’s we get <br>
-X~Bin(n,p=<script type="math/tex" id="MathJax-Element-1174">\frac{r}{N}</script>) <br>
-So when N is large and n is small, we can use a Bin(n, <script type="math/tex" id="MathJax-Element-1175">\frac{r}{N}</script>) to approximate a Hyp(N,r,m). (when <script type="math/tex" id="MathJax-Element-1176">\frac{n}{N}</script> is less than 0.05)</p>
+X~Bin(n,p=<script type="math/tex" id="MathJax-Element-79">\frac{r}{N}</script>) <br>
+So when N is large and n is small, we can use a Bin(n, <script type="math/tex" id="MathJax-Element-80">\frac{r}{N}</script>) to approximate a Hyp(N,r,m). (when <script type="math/tex" id="MathJax-Element-81">\frac{n}{N}</script> is less than 0.05)</p>
 
 
 
@@ -2245,12 +2405,12 @@ So when N is large and n is small, we can use a Bin(n, <script type="math/tex" i
 </tbody></table>
 
 
-<p>We write <script type="math/tex" id="MathJax-Element-1177">X\sim NB(k,p)</script> <br>
-range <script type="math/tex" id="MathJax-Element-1178">\{0,1,2, ...\}</script></p>
+<p>We write <script type="math/tex" id="MathJax-Element-82">X\sim NB(k,p)</script> <br>
+range <script type="math/tex" id="MathJax-Element-83">\{0,1,2, ...\}</script></p>
 
 
 
-<p><script type="math/tex; mode=display" id="MathJax-Element-1179">\begin{equation}
+<p><script type="math/tex; mode=display" id="MathJax-Element-84">\begin{equation}
 \begin{split}
 pf \ \ \ f(x) & = P(X=x) \\
 & = P(x \ \ \text{F's befpre the kth S}) \\
@@ -2261,17 +2421,17 @@ pf \ \ \ f(x) & = P(X=x) \\
 \end{split}
 \end{equation}</script></p>
 
-<p>We can show that <script type="math/tex" id="MathJax-Element-1180">\Sigma^{\infty}_{x=0}f(x) = 1</script> <br>
-But there is no closed form expression for <script type="math/tex" id="MathJax-Element-1181">F(x)=\Sigma^{x}_{y=0}f(y)</script></p>
+<p>We can show that <script type="math/tex" id="MathJax-Element-85">\Sigma^{\infty}_{x=0}f(x) = 1</script> <br>
+But there is no closed form expression for <script type="math/tex" id="MathJax-Element-86">F(x)=\Sigma^{x}_{y=0}f(y)</script></p>
 
 <blockquote>
   <p>Example: <br>
   A startup is looking for 5 investors. Each investor will independently say yes with probability 0.2. Founders will ask investors one at a time until they get 5 yes. Let X=total # of investors asked. Find f(x) and f(10). <br>
-  <script type="math/tex" id="MathJax-Element-1182">X \not\sim NB</script> <br>
+  <script type="math/tex" id="MathJax-Element-87">X \not\sim NB</script> <br>
   Let Y = # who say no (Y+5=X) <br>
-  <script type="math/tex" id="MathJax-Element-1183">Y \sim NB(5, 0.2)</script> <br>
+  <script type="math/tex" id="MathJax-Element-88">Y \sim NB(5, 0.2)</script> <br>
   So <br>
-  <script type="math/tex; mode=display" id="MathJax-Element-1184">\begin{equation}
+  <script type="math/tex; mode=display" id="MathJax-Element-89">\begin{equation}
 \begin{split}
 f(x) & = P(X=x) \\ &= P(Y= x-5) \\ & ={x-5+5-1 \choose 5-1} {0.2}^5 0.8^{x-5} \\
 & = {x-1 \choose 4}0.2^50.8^{x-5} \ \text{for x=5,6,7,...} \\
@@ -2292,7 +2452,7 @@ range: {0, 1, 2, …}</p>
 
 
 
-<p><script type="math/tex; mode=display" id="MathJax-Element-1626">\begin{equation}
+<p><script type="math/tex; mode=display" id="MathJax-Element-90">\begin{equation}
 \begin{split}
 pf \ \ \ f(x) & = P(X=x) \\
 & = P(x \ \ \text{F's, then 1 S}) \\
@@ -2300,8 +2460,8 @@ pf \ \ \ f(x) & = P(X=x) \\
 \end{split}
 \end{equation}</script> <br>
 no orderings to worry about since it’s just FFFF….FS (x F’s) <br>
-Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\infty f(x) =1</script> using infinite geometric series formula <br>
-<script type="math/tex" id="MathJax-Element-1628">F(x) = P(X \leq x) = 1 - P(X \leq x+1) \\= 1 - (p(1-p)^{x+1} + p(1-p)^{x+2} + p(1-p)^{x+3} + ...)</script></p>
+Easy to show <script type="math/tex" id="MathJax-Element-91">\Sigma_{x=0}^\infty f(x) =1</script> using infinite geometric series formula <br>
+<script type="math/tex" id="MathJax-Element-92">F(x) = P(X \leq x) = 1 - P(X \leq x+1) \\= 1 - (p(1-p)^{x+1} + p(1-p)^{x+2} + p(1-p)^{x+3} + ...)</script></p>
 
 <table>
 <thead>
@@ -2317,12 +2477,12 @@ Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\inf
 </thead>
 <tbody><tr>
   <td>pf f(x)</td>
-  <td><script type="math/tex" id="MathJax-Element-1629">\frac{1}{b-a+1}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1630">\frac{{r \choose x} {N-r \choose n-x}}{{N \choose n}}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1631">{n \choose x}p^x(1-p)^{n-x}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1632">{x + k -1 \choose k-1}p^k(1-p)^x</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1633">(1-p)^xp</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1634">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-93">\frac{1}{b-a+1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-94">\frac{{r \choose x} {N-r \choose n-x}}{{N \choose n}}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-95">{n \choose x}p^x(1-p)^{n-x}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-96">{x + k -1 \choose k-1}p^k(1-p)^x</script></td>
+  <td><script type="math/tex" id="MathJax-Element-97">(1-p)^xp</script></td>
+  <td><script type="math/tex" id="MathJax-Element-98">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script></td>
 </tr>
 <tr>
   <td>range</td>
@@ -2335,20 +2495,20 @@ Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\inf
 </tr>
 <tr>
   <td>cdf F(x)</td>
-  <td><script type="math/tex" id="MathJax-Element-1635">\frac{x-a+1}{b-a+1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-99">\frac{x-a+1}{b-a+1}</script></td>
   <td>no closed form</td>
   <td>no</td>
   <td>no</td>
-  <td><script type="math/tex" id="MathJax-Element-1636">1-(1-p)^{x+1}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1637">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script></td>
+  <td><script type="math/tex" id="MathJax-Element-100">1-(1-p)^{x+1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-101">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script></td>
 </tr>
 <tr>
   <td>when to use?</td>
-  <td><script type="math/tex" id="MathJax-Element-1638">- \text{fixed # values} \\ - \text{equally likely}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1639">- \text{w/o replacement} \\ - \text{know # S in a subset}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1640">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-1641"> -\text{know # trials} \\</script> - counting # S</td>
-  <td><script type="math/tex" id="MathJax-Element-1642">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-1643">- \text{ know # S's $\\$} \\ -\text{"before" "until" "waiting for"}</script></td>
-  <td><script type="math/tex" id="MathJax-Element-1644">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-1645">- \text{same but k=1}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-102">- \text{fixed # values} \\ - \text{equally likely}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-103">- \text{w/o replacement} \\ - \text{know # S in a subset}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-104">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-105"> -\text{know # trials} \\</script> - counting # S</td>
+  <td><script type="math/tex" id="MathJax-Element-106">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-107">- \text{ know # S's $\\$} \\ -\text{"before" "until" "waiting for"}</script></td>
+  <td><script type="math/tex" id="MathJax-Element-108">- \text{Bernoulli trials - indep, S or F, P(S)} \\</script> <script type="math/tex" id="MathJax-Element-109">- \text{same but k=1}</script></td>
   <td>Bin with large n, small p (approx)</td>
 </tr>
 </tbody></table>
@@ -2357,6 +2517,8 @@ Easy to show <script type="math/tex" id="MathJax-Element-1627">\Sigma_{x=0}^\inf
 <p>f(x) <br>
 When to use? = Bin with large n, small p (approx) <br>
 range 0,1,2,…</p>
+
+
 
 <h2 id="lecture-15">Lecture - 15</h2>
 
@@ -2370,13 +2532,13 @@ range 0,1,2,…</p>
 
 <h3 id="poisson-rv-57">Poisson rv (5.7)</h3>
 
-<p>We say X has a Poisson distribution with parameter <script type="math/tex" id="MathJax-Element-1203">\mu</script> (<script type="math/tex" id="MathJax-Element-1204">X\sim Poi(\mu))</script> if <script type="math/tex" id="MathJax-Element-1205">f(x) = \frac{e^{-\mu}\mu^x}{x!}</script> for <script type="math/tex" id="MathJax-Element-1206">x=0,1,2,...</script> <br>
-Easy to show <script type="math/tex" id="MathJax-Element-1207">\Sigma_{x=0}^{\infty}f(x)=1</script> since <script type="math/tex" id="MathJax-Element-1208">e^\mu=\Sigma_{x=0}^{\infty} \frac{{\mu}^x}{x!}</script> <br>
-The Poisson is a limiting case of the Binomial when n-&gt;<script type="math/tex" id="MathJax-Element-1209">\infty</script> and p-&gt;0 such that the product np remains constant  <br>
-<script type="math/tex" id="MathJax-Element-1210">f(x) = {n \choose x}p^x (1-p)^{n-x}</script> <br>
-Let np = <script type="math/tex" id="MathJax-Element-1211">\mu</script> <br>
+<p>We say X has a Poisson distribution with parameter <script type="math/tex" id="MathJax-Element-110">\mu</script> (<script type="math/tex" id="MathJax-Element-111">X\sim Poi(\mu))</script> if <script type="math/tex" id="MathJax-Element-112">f(x) = \frac{e^{-\mu}\mu^x}{x!}</script> for <script type="math/tex" id="MathJax-Element-113">x=0,1,2,...</script> <br>
+Easy to show <script type="math/tex" id="MathJax-Element-114">\Sigma_{x=0}^{\infty}f(x)=1</script> since <script type="math/tex" id="MathJax-Element-115">e^\mu=\Sigma_{x=0}^{\infty} \frac{{\mu}^x}{x!}</script> <br>
+The Poisson is a limiting case of the Binomial when n-&gt;<script type="math/tex" id="MathJax-Element-116">\infty</script> and p-&gt;0 such that the product np remains constant  <br>
+<script type="math/tex" id="MathJax-Element-117">f(x) = {n \choose x}p^x (1-p)^{n-x}</script> <br>
+Let np = <script type="math/tex" id="MathJax-Element-118">\mu</script> <br>
 then,  <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1212">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-119">\begin{equation}
 \begin{split}
 p &=\frac{\mu}{n} \\
  &= \frac{n(n-1)...(n-x+1)}{x!}\frac{\mu}{n}^x(1-\frac{\mu}{n})^{n-x} \\
@@ -2386,7 +2548,7 @@ p &=\frac{\mu}{n} \\
 &=\frac{e^{-\mu}\mu^x}{x!} \text{ which is } Poi(\mu=np)
 \end{split}
 \end{equation}</script> <br>
-So if we have a Bin(n,p) with large n and small p, we can approx if with a Poisson rv with parameter <script type="math/tex" id="MathJax-Element-1213">\mu = np</script>. Guideline: <script type="math/tex" id="MathJax-Element-1214">n\geq40</script> and <script type="math/tex" id="MathJax-Element-1215">p\leq 0.05</script> works well!</p>
+So if we have a Bin(n,p) with large n and small p, we can approx if with a Poisson rv with parameter <script type="math/tex" id="MathJax-Element-120">\mu = np</script>. Guideline: <script type="math/tex" id="MathJax-Element-121">n\geq40</script> and <script type="math/tex" id="MathJax-Element-122">p\leq 0.05</script> works well!</p>
 
 <blockquote>
   <p>Example: <br>
@@ -2394,9 +2556,9 @@ So if we have a Bin(n,p) with large n and small p, we can approx if with a Poiss
 </blockquote>
 
 <p>X= # winning <br>
-<script type="math/tex" id="MathJax-Element-1216">X \sim Bin(100,\frac{1}{9})</script> <br>
+<script type="math/tex" id="MathJax-Element-123">X \sim Bin(100,\frac{1}{9})</script> <br>
 So: <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1217">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-124">\begin{equation}
 \begin{split}
 P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 & = {100 \choose 0} \frac{1}{9}^0\frac{8}{9}^100 + {100 \choose 1} \frac{1}{9}^1\frac{8}{9}^99 + ... + \text{tedious calc} \\
@@ -2404,11 +2566,11 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 \end{split}
 \end{equation}</script></p>
 
-<p>Try Poisson approx <script type="math/tex" id="MathJax-Element-1218">\mu = 100*\frac{1}{9} = 11.111</script> <br>
-<script type="math/tex" id="MathJax-Element-1219">Y \sim Poi(11.111)</script> <br>
-<script type="math/tex" id="MathJax-Element-1220">P(Y\leq 10) = \frac{e^{-11.1}}{0!}11.1^0+\frac{e^{-11.1}}{1!}11.1^1 + ... + \frac{e^{-11.1}}{11!}11.1^{10} \\= e^{-11.1}(1 + 11.1 + \frac{11.1}{2!}^2 + ... + \frac{11.1}{10!}^10) = 0.447</script></p>
+<p>Try Poisson approx <script type="math/tex" id="MathJax-Element-125">\mu = 100*\frac{1}{9} = 11.111</script> <br>
+<script type="math/tex" id="MathJax-Element-126">Y \sim Poi(11.111)</script> <br>
+<script type="math/tex" id="MathJax-Element-127">P(Y\leq 10) = \frac{e^{-11.1}}{0!}11.1^0+\frac{e^{-11.1}}{1!}11.1^1 + ... + \frac{e^{-11.1}}{11!}11.1^{10} \\= e^{-11.1}(1 + 11.1 + \frac{11.1}{2!}^2 + ... + \frac{11.1}{10!}^10) = 0.447</script></p>
 
-<p>Not a great approx since <script type="math/tex" id="MathJax-Element-1221">p = \frac{1}{9}</script> was a bit too high to be “close to 0”</p>
+<p>Not a great approx since <script type="math/tex" id="MathJax-Element-128">p = \frac{1}{9}</script> was a bit too high to be “close to 0”</p>
 
 <blockquote>
   <p>Clicker question <br>
@@ -2416,7 +2578,7 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
   0.405 -&gt; from bin. 0.407 -&gt; from poisson</p>
 </blockquote>
 
-<p>You can also use Poisson when <script type="math/tex" id="MathJax-Element-1222">p\approx 1</script> by instead modelling the number of F’s instead of S’s.</p>
+<p>You can also use Poisson when <script type="math/tex" id="MathJax-Element-129">p\approx 1</script> by instead modelling the number of F’s instead of S’s.</p>
 
 
 
@@ -2432,8 +2594,8 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 <ol><li>(events occur one at a time)</li>
 <li>Cannot have two or more events at the exact same time</li></ol></li>
 <li>Homogeneity/Uniformity <br>
-<ol><li>(events occur at a constant rate <script type="math/tex" id="MathJax-Element-1223">\lambda</script>)</li>
-<li>Prob of an event occurring in a short time interval (t, t+ <script type="math/tex" id="MathJax-Element-1224">\Delta</script>t) is proportional to <script type="math/tex" id="MathJax-Element-1225">\lambda \Delta t</script></li>
+<ol><li>(events occur at a constant rate <script type="math/tex" id="MathJax-Element-130">\lambda</script>)</li>
+<li>Prob of an event occurring in a short time interval (t, t+ <script type="math/tex" id="MathJax-Element-131">\Delta</script>t) is proportional to <script type="math/tex" id="MathJax-Element-132">\lambda \Delta t</script></li>
 <li>Can’t have periods of higher activity</li></ol></li>
 </ol>
 
@@ -2447,12 +2609,12 @@ P(X\leq 10) & = f(0) + f(1) + ... + f(10) \\
 
 <h2 id="lecture-16">Lecture - 16</h2>
 
-<p>Imagine we observe a Poisson process (with rate <script type="math/tex" id="MathJax-Element-1226">\lambda</script>) for t units of time. <br>
+<p>Imagine we observe a Poisson process (with rate <script type="math/tex" id="MathJax-Element-133">\lambda</script>) for t units of time. <br>
 Let X = # of events that occur. <br>
 X is a discrete rv with no maximum. <br>
 It turns out that: <br>
-X ~ Poi(<script type="math/tex" id="MathJax-Element-1227">\mu</script> = Xt) <br>
-ie. <script type="math/tex" id="MathJax-Element-1228">f(x) = \frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> for x = 0, 1, 2</p>
+X ~ Poi(<script type="math/tex" id="MathJax-Element-134">\mu</script> = Xt) <br>
+ie. <script type="math/tex" id="MathJax-Element-135">f(x) = \frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> for x = 0, 1, 2</p>
 
 <blockquote>
   <p>Proof: See course notes <br>
@@ -2460,7 +2622,7 @@ ie. <script type="math/tex" id="MathJax-Element-1228">f(x) = \frac{e^{-\lambda t
 </blockquote>
 
 <p>| Poisson <br>
-f(x) | <script type="math/tex" id="MathJax-Element-1229">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> | <script type="math/tex" id="MathJax-Element-1230">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script> <br>
+f(x) | <script type="math/tex" id="MathJax-Element-136">\frac{e^{-\lambda t} (\lambda t) ^x}{x!}</script> | <script type="math/tex" id="MathJax-Element-137">F(x) = e^{-\lambda t} (1 + \frac{\lambda t}{1!} +\frac{(\lambda t)^2}{2!} + ... + \frac{(\lambda t)^x}{x!})</script> <br>
 When to use? = Bin with large n, small p (approx) <br>
 range 0,1,2,…</p>
 
@@ -2480,11 +2642,11 @@ If it makes sense to ask how many time the event did not occur</p>
 </blockquote>
 
 <p>Let X = # requests in 1 sec <br>
-X ~ Poi(<script type="math/tex" id="MathJax-Element-1231">\mu = 100 * \frac{1}{60}</script> or <script type="math/tex" id="MathJax-Element-1232">\frac{100}{60} = \frac{5}{3}</script>) <br>
-<script type="math/tex" id="MathJax-Element-1233">P(X=1)=\frac{e^{-\frac{5}{3}}(\frac{5}{3})}{1!} = 0.314</script> <br>
+X ~ Poi(<script type="math/tex" id="MathJax-Element-138">\mu = 100 * \frac{1}{60}</script> or <script type="math/tex" id="MathJax-Element-139">\frac{100}{60} = \frac{5}{3}</script>) <br>
+<script type="math/tex" id="MathJax-Element-140">P(X=1)=\frac{e^{-\frac{5}{3}}(\frac{5}{3})}{1!} = 0.314</script> <br>
 Let Y = # requrests in 1 min <br>
-Y ~ Poi(<script type="math/tex" id="MathJax-Element-1234">\mu = 100*1</script>) <br>
-P(Y=90) = <script type="math/tex" id="MathJax-Element-1235">\frac{e^{-100}100^{90}}{90!} = 0.025</script></p>
+Y ~ Poi(<script type="math/tex" id="MathJax-Element-141">\mu = 100*1</script>) <br>
+P(Y=90) = <script type="math/tex" id="MathJax-Element-142">\frac{e^{-100}100^{90}}{90!} = 0.025</script></p>
 
 
 
@@ -2498,25 +2660,25 @@ P(Y=90) = <script type="math/tex" id="MathJax-Element-1235">\frac{e^{-100}100^{9
 </blockquote>
 
 <p>a) Find the Prob of a “quiet” second.  <br>
-X=# requests in 1 sec. X~Poi(<script type="math/tex" id="MathJax-Element-1236">\frac{5}{3}</script>) <br>
-P(X = 0) = <script type="math/tex" id="MathJax-Element-1237">\frac{e^{-\frac{5}{3}}(\frac{5}{3})^0}{0!} = 0.189</script></p>
+X=# requests in 1 sec. X~Poi(<script type="math/tex" id="MathJax-Element-143">\frac{5}{3}</script>) <br>
+P(X = 0) = <script type="math/tex" id="MathJax-Element-144">\frac{e^{-\frac{5}{3}}(\frac{5}{3})^0}{0!} = 0.189</script></p>
 
 <p>b) Prob of 10 “quiet” seconds in a minute (60 non-overlapping sec) <br>
 Let Y = # “quiet” in 60 sec. <br>
 Y~Bin(60,0.189) <br>
-P(Y=10) = <script type="math/tex" id="MathJax-Element-1238">{60 \choose 10}0.189^{10}0.811^{50} = 0.124</script></p>
+P(Y=10) = <script type="math/tex" id="MathJax-Element-145">{60 \choose 10}0.189^{10}0.811^{50} = 0.124</script></p>
 
 <p>c) Prob of having to wait 30 non-overlapping sec to get 2 “quiet” <br>
 Let Z = # non-quiet sec before 2 “quiet” <br>
 Z ~ NB(2, 0.189) <br>
-P(Z = 28) = <script type="math/tex" id="MathJax-Element-1239">{28 + 2 -1 \choose 28}0.189^2 0.811^{28} = 0.003</script></p>
+P(Z = 28) = <script type="math/tex" id="MathJax-Element-146">{28 + 2 -1 \choose 28}0.189^2 0.811^{28} = 0.003</script></p>
 
 <p>d) Given (c), the prob there is 1 “quiet” sec in the first 15 sec. <br>
 P(1 Q in 15 sec | wait 30 for 2 Q) <br>
-<script type="math/tex" id="MathJax-Element-1240">= \frac{P(\text{1 Q in 15 sec AND wait 30 for 2Q})}{P(\text{wait 30 for 2 Q})}</script> <br>
-<script type="math/tex" id="MathJax-Element-1241">= \frac{P(\text{1 Q in 15 sec})P(\text{wait 15 more to get one more Q)}}{P(\text{wait 30 for 2 Q})}</script> <br>
+<script type="math/tex" id="MathJax-Element-147">= \frac{P(\text{1 Q in 15 sec AND wait 30 for 2Q})}{P(\text{wait 30 for 2 Q})}</script> <br>
+<script type="math/tex" id="MathJax-Element-148">= \frac{P(\text{1 Q in 15 sec})P(\text{wait 15 more to get one more Q)}}{P(\text{wait 30 for 2 Q})}</script> <br>
 Use binomial for 1st prob. Geometric for 2nd. <br>
-<script type="math/tex" id="MathJax-Element-1242">= \frac{({15 \choose 1}0.189^10.811^{14})(0.811^{14}0.189)}{{29 \choose 28}0.189^{2}0.811^{28}}</script></p>
+<script type="math/tex" id="MathJax-Element-149">= \frac{({15 \choose 1}0.189^10.811^{14})(0.811^{14}0.189)}{{29 \choose 28}0.189^{2}0.811^{28}}</script></p>
 
 
 
@@ -2564,7 +2726,7 @@ Use binomial for 1st prob. Geometric for 2nd. <br>
 <p>2. a frequency histogram (different graph here because I was lazy and didn’t want to draw one in ms paint) <br>
 <img src="https://www.mathsisfun.com/data/images/bar-graph-fruit.gif"> <br>
 3. A single number representing the average or sample mean <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1243">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-150">\begin{equation}
 \begin{split}
 \bar x &= \frac{\text{total # kids}}{\text{# families}}\\
 & = \frac{1*10 + 2*14 + 3*10 + 4*1 + 5*2}{37}\\
@@ -2576,8 +2738,8 @@ Use binomial for 1st prob. Geometric for 2nd. <br>
 5. mode - most common/frequent value (in this case, 2)</p>
 
 <p>Expectation of a r.v. (7.2) <br>
-We had the sample mean of the kids be <script type="math/tex" id="MathJax-Element-1244">\bar x</script> <br>
-<script type="math/tex" id="MathJax-Element-1245">\Sigma_{x=1}^{5} (\text{relative frequency of answering x})</script></p>
+We had the sample mean of the kids be <script type="math/tex" id="MathJax-Element-151">\bar x</script> <br>
+<script type="math/tex" id="MathJax-Element-152">\Sigma_{x=1}^{5} (\text{relative frequency of answering x})</script></p>
 
 <p>We can replace the observed relative frequency with a theoretical probability of the r.v. equally x -&gt; theoretical mean</p>
 
@@ -2606,38 +2768,38 @@ We had the sample mean of the kids be <script type="math/tex" id="MathJax-Elemen
 
 
 <p>so the theoretical mean of X is: <br>
-<script type="math/tex" id="MathJax-Element-1246">\Sigma_{x=1}^{5}xf(x) = 1* 0.43 + 2*0.4 + 3*0.12 + 4*0.04 + 5*0.01 = 1.8</script> <br>
+<script type="math/tex" id="MathJax-Element-153">\Sigma_{x=1}^{5}xf(x) = 1* 0.43 + 2*0.4 + 3*0.12 + 4*0.04 + 5*0.01 = 1.8</script> <br>
 and median is 2 since F(2) &gt; 0.5 and F(1) &lt; 0.5 <br>
 and mode is 1</p>
 
 <p>Def: The expected value or expectation or mean of a discrete r.v X is: <br>
-<script type="math/tex" id="MathJax-Element-1247">E[X] = \mu = \Sigma_{\text{all x } \epsilon \text{ range of X}}xf(x)</script></p>
+<script type="math/tex" id="MathJax-Element-154">E[X] = \mu = \Sigma_{\text{all x } \epsilon \text{ range of X}}xf(x)</script></p>
 
 
 
 <h2 id="lecture-18">Lecture 18</h2>
 
 <blockquote>
-  <p>Recall - Expected value (aka mean) of X is <script type="math/tex" id="MathJax-Element-1248">E[X]=\mu=\Sigma_{\text{all  }\epsilon \text{ range of X}}xf(x)</script></p>
+  <p>Recall - Expected value (aka mean) of X is <script type="math/tex" id="MathJax-Element-155">E[X]=\mu=\Sigma_{\text{all  }\epsilon \text{ range of X}}xf(x)</script></p>
 </blockquote>
 
 <p>Can think of it as a weighted average of the values X can take with weights = probabilities or balance point of the histogram of f(x). Often we may be interested in the average value of the function of x. Eg. x = usage on phone. g(X) = cost of that usage.</p>
 
-<p>Def: the expected value of g(X) for a discrete r.v. X is <script type="math/tex" id="MathJax-Element-1249">E[g(X)] = \Sigma_{\text{all  }\epsilon \text{ range of X}}g(x)f(x)</script>  <br>
+<p>Def: the expected value of g(X) for a discrete r.v. X is <script type="math/tex" id="MathJax-Element-156">E[g(X)] = \Sigma_{\text{all  }\epsilon \text{ range of X}}g(x)f(x)</script>  <br>
 weighted average of the g(x) values that can occur. (e.g. g(X) = 1000 + 250x)</p>
 
-<p>What if <script type="math/tex" id="MathJax-Element-1250">g(X) = \frac{2000}{X}</script> ? <br>
-Here, <script type="math/tex" id="MathJax-Element-1251">E[g(X)] \neq g(E[x])</script> because g(x) is <strong>non-linear</strong> function of X. Expectation is a linear operator.</p>
+<p>What if <script type="math/tex" id="MathJax-Element-157">g(X) = \frac{2000}{X}</script> ? <br>
+Here, <script type="math/tex" id="MathJax-Element-158">E[g(X)] \neq g(E[x])</script> because g(x) is <strong>non-linear</strong> function of X. Expectation is a linear operator.</p>
 
 <p>SO ONLY USE IF g(X) IS LINEAR <br>
 Also: <br>
-<script type="math/tex" id="MathJax-Element-1252">E[aX + b] = aE[X] + b</script></p>
+<script type="math/tex" id="MathJax-Element-159">E[aX + b] = aE[X] + b</script></p>
 
 
 
 <h3 id="applications-of-expectation-53">Applications of Expectation (5.3)</h3>
 
-<p>If we have the distribution of X ans we let Y = g(X), we can find E[Y] by either: <script type="math/tex" id="MathJax-Element-1253">E[g(X)] = \Sigma_{\text{all x}}g(x)f(x)</script> or by finding the range and pf of Y and using <script type="math/tex" id="MathJax-Element-1254">\Sigma_{\text{all y}}yf(y)</script></p>
+<p>If we have the distribution of X ans we let Y = g(X), we can find E[Y] by either: <script type="math/tex" id="MathJax-Element-160">E[g(X)] = \Sigma_{\text{all x}}g(x)f(x)</script> or by finding the range and pf of Y and using <script type="math/tex" id="MathJax-Element-161">\Sigma_{\text{all y}}yf(y)</script></p>
 
 <blockquote>
   <p>Example <br>
@@ -2674,7 +2836,7 @@ Let X = 0 (no errors), 1(syntax), 2(logic), 3(both),</p>
 </tbody></table>
 
 
-<p>So <script type="math/tex" id="MathJax-Element-1255">E[g(X)] = \Sigma_{x=0}^{3}g(x)f(x) \\ = 10*0.72 + 12*0.08 + 20*0.18 + 22*0.02 = 12.2</script></p>
+<p>So <script type="math/tex" id="MathJax-Element-162">E[g(X)] = \Sigma_{x=0}^{3}g(x)f(x) \\ = 10*0.72 + 12*0.08 + 20*0.18 + 22*0.02 = 12.2</script></p>
 
 <p>Example: <br>
 A web server has a cache. 20% chance that the request is found in the cache (cache hit) -&gt; 10 ms. If it’s not found (cache miss) then it takes 50(send msg) + 70(lookup) + 50(return answer) ms. Find the expected time with and without the cache. <br>
@@ -2707,7 +2869,7 @@ With: Let X = 0 if found, 1 if not found</p>
 <h2 id="lecture-19">Lecture 19</h2>
 
 <p>Recall: <br>
-<script type="math/tex; mode=display" id="MathJax-Element-1256">\begin{equation}
+<script type="math/tex; mode=display" id="MathJax-Element-163">\begin{equation}
 \begin{split}
 E[g(X)] &= \Sigma_{\text{all x}}g(x)f(x)\\
 E[aX + b] &= aE[X]+b \text{(linear operator)}
@@ -2722,50 +2884,198 @@ E[aX + b] &= aE[X]+b \text{(linear operator)}
 <li>Binomial <br>
 <ul><li>Let X~ Bin(n,i) <br>
 Find E[X]: <br>
-<script type="math/tex" id="MathJax-Element-1290">E[X] = \Sigma_{allx}xf(x) \\ = \Sigma_{x=0}^{n}x{n \choose x}p^x(1-p)^{n-x} \\ = \Sigma_{x=1}^{n}x{n \choose x}p^x(1-p)^{n-x}</script> <br>
+<script type="math/tex" id="MathJax-Element-164">E[X] = \Sigma_{allx}xf(x) \\ = \Sigma_{x=0}^{n}x{n \choose x}p^x(1-p)^{n-x} \\ = \Sigma_{x=1}^{n}x{n \choose x}p^x(1-p)^{n-x}</script> <br>
 since the x=0 term is 0 <br>
-<script type="math/tex" id="MathJax-Element-1291">=\Sigma_{x=1}^{n}x\frac{n!}{x!(n-x)!}p^x(1-p)^{n-x} </script> <br>
-Note: If <script type="math/tex" id="MathJax-Element-1292">x \leq 1</script>, then <script type="math/tex" id="MathJax-Element-1293">x! = x(x-1)!</script> <br>
-<script type="math/tex" id="MathJax-Element-1294">= \Sigma_{x=1}^{n}\frac{n!}{(x-1)!(n-x)!}p^x(1-p)^{n-x}</script> <br>
-<script type="math/tex" id="MathJax-Element-1295">= \Sigma_{x=1}^{n}\frac{n(n-1)!}{(x-1)!((n-1)-(x-1))!}pp^{x-1}(1-p)^{(x-1)-(x-1)}</script> <br>
-<script type="math/tex" id="MathJax-Element-1296">= np\Sigma_{x=1}^{n}{n-1 \choose x-1}p^{x-1}(1-p)^{(n-1)-(x-1)}</script> <br>
-Let <script type="math/tex" id="MathJax-Element-1297">y = x-1</script> <br>
-<script type="math/tex" id="MathJax-Element-1298">np\Sigma_{y=0}^{n-1}{n-1 \choose y}p^y(1-p)^{n-1-y}</script> <br>
+<script type="math/tex" id="MathJax-Element-165">=\Sigma_{x=1}^{n}x\frac{n!}{x!(n-x)!}p^x(1-p)^{n-x} </script> <br>
+Note: If <script type="math/tex" id="MathJax-Element-166">x \leq 1</script>, then <script type="math/tex" id="MathJax-Element-167">x! = x(x-1)!</script> <br>
+<script type="math/tex" id="MathJax-Element-168">= \Sigma_{x=1}^{n}\frac{n!}{(x-1)!(n-x)!}p^x(1-p)^{n-x}</script> <br>
+<script type="math/tex" id="MathJax-Element-169">= \Sigma_{x=1}^{n}\frac{n(n-1)!}{(x-1)!((n-1)-(x-1))!}pp^{x-1}(1-p)^{(x-1)-(x-1)}</script> <br>
+<script type="math/tex" id="MathJax-Element-170">= np\Sigma_{x=1}^{n}{n-1 \choose x-1}p^{x-1}(1-p)^{(n-1)-(x-1)}</script> <br>
+Let <script type="math/tex" id="MathJax-Element-171">y = x-1</script> <br>
+<script type="math/tex" id="MathJax-Element-172">np\Sigma_{y=0}^{n-1}{n-1 \choose y}p^y(1-p)^{n-1-y}</script> <br>
 The summation is just f(y) for Y~Bin(n-1,y) and that = 1 <br>
-<script type="math/tex" id="MathJax-Element-1299">\therefore E[X] = np</script> for X~Bin(n,p) <br>
+<script type="math/tex" id="MathJax-Element-173">\therefore E[X] = np</script> for X~Bin(n,p) <br>
 This makes logical sense because the number of successes is proportional to both the # of trials and the prob of success. So the average # S is the # trials x prob of S.</li></ul></li>
 <li>Poisson <br>
-<ul><li>Let X~Poi(<script type="math/tex" id="MathJax-Element-1300">\mu</script>) (where <script type="math/tex" id="MathJax-Element-1301">\mu</script> comes from <script type="math/tex" id="MathJax-Element-1302">\lambda t</script> or np or given) <br>
+<ul><li>Let X~Poi(<script type="math/tex" id="MathJax-Element-174">\mu</script>) (where <script type="math/tex" id="MathJax-Element-175">\mu</script> comes from <script type="math/tex" id="MathJax-Element-176">\lambda t</script> or np or given) <br>
 Find E[X] <br>
-<script type="math/tex" id="MathJax-Element-1303">E[X] = \Sigma_{x=0}^{\infty}x\frac{e^{-\mu}\mu^x}{x!}</script> <br>
-again the x=0 term is 0 and for <script type="math/tex" id="MathJax-Element-1304">x \leq 1</script>, x! =x(x-1)! <br>
-<script type="math/tex" id="MathJax-Element-1305">= \Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^x}{(x-1)!}</script> <br>
-<script type="math/tex" id="MathJax-Element-1306">= \mu\Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^{x-1}}{(x-1)!}</script> <br>
+<script type="math/tex" id="MathJax-Element-177">E[X] = \Sigma_{x=0}^{\infty}x\frac{e^{-\mu}\mu^x}{x!}</script> <br>
+again the x=0 term is 0 and for <script type="math/tex" id="MathJax-Element-178">x \leq 1</script>, x! =x(x-1)! <br>
+<script type="math/tex" id="MathJax-Element-179">= \Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^x}{(x-1)!}</script> <br>
+<script type="math/tex" id="MathJax-Element-180">= \mu\Sigma_{x=1}^{\infty}\frac{e^{-\mu}\mu^{x-1}}{(x-1)!}</script> <br>
 Let y = x-1 <br>
-<script type="math/tex" id="MathJax-Element-1307">= \mu \Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!}</script> <br>
-that sum is just f(y) for Y~Poi(<script type="math/tex" id="MathJax-Element-1308">\mu</script>) so <script type="math/tex" id="MathJax-Element-1309">\Sigma_{y=1}^{\infty}f(y)=1</script> <br>
-<script type="math/tex" id="MathJax-Element-1310">\therefore E[X] = \mu</script> for X~Poi(<script type="math/tex" id="MathJax-Element-1311">\mu</script>) <br>
-i.e. <script type="math/tex" id="MathJax-Element-1312">\mu</script> is the parameter and the mean. <br>
-This makes sense if <script type="math/tex" id="MathJax-Element-1313">\mu = \lambda t</script> since avg # events in t units of time should be the rate (<script type="math/tex" id="MathJax-Element-1314">\frac{\text{avg # events}}{\text{time unit}}</script>) multiplied by the length of the time interval we observe.</li></ul></li>
+<script type="math/tex" id="MathJax-Element-181">= \mu \Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!}</script> <br>
+that sum is just f(y) for Y~Poi(<script type="math/tex" id="MathJax-Element-182">\mu</script>) so <script type="math/tex" id="MathJax-Element-183">\Sigma_{y=1}^{\infty}f(y)=1</script> <br>
+<script type="math/tex" id="MathJax-Element-184">\therefore E[X] = \mu</script> for X~Poi(<script type="math/tex" id="MathJax-Element-185">\mu</script>) <br>
+i.e. <script type="math/tex" id="MathJax-Element-186">\mu</script> is the parameter and the mean. <br>
+This makes sense if <script type="math/tex" id="MathJax-Element-187">\mu = \lambda t</script> since avg # events in t units of time should be the rate (<script type="math/tex" id="MathJax-Element-188">\frac{\text{avg # events}}{\text{time unit}}</script>) multiplied by the length of the time interval we observe.</li></ul></li>
 <li>Similarly: <br>
-<ol><li>X~NB(k,p) , <script type="math/tex" id="MathJax-Element-1315">E[X] = \frac{k(1-p)}{p}</script></li>
-<li>X~Hyp(N,r,n) , <script type="math/tex" id="MathJax-Element-1316">E[X] = \frac{nr}{N}</script></li>
-<li>X~DU[a,b] , <script type="math/tex" id="MathJax-Element-1317">E[X] = \frac{a+b}{2}</script> <br>
-these results can be proven from first principles (<script type="math/tex" id="MathJax-Element-1318">\Sigma_{\text{all x}}xf(x)</script>) but there are other easier ways to show them</li></ol></li>
+<ol><li>X~NB(k,p) , <script type="math/tex" id="MathJax-Element-189">E[X] = \frac{k(1-p)}{p}</script></li>
+<li>X~Hyp(N,r,n) , <script type="math/tex" id="MathJax-Element-190">E[X] = \frac{nr}{N}</script></li>
+<li>X~DU[a,b] , <script type="math/tex" id="MathJax-Element-191">E[X] = \frac{a+b}{2}</script> <br>
+these results can be proven from first principles (<script type="math/tex" id="MathJax-Element-192">\Sigma_{\text{all x}}xf(x)</script>) but there are other easier ways to show them</li></ol></li>
 </ol>
 
 <p>The mean of X, E[X] tells us where the distribution is centered, on average. But the practice we also care about how widely spread out the distribution is around that mean. <br>
 E.g. determining the number of servers for an online system. need to know spread. <br>
 How to measure? <br>
-<script type="math/tex" id="MathJax-Element-1319">E[X-\mu] = 0 </script> (not helpful!) <br>
-<script type="math/tex" id="MathJax-Element-1320">E[|X-\mu|]</script> - average absolute distance from mean</p>
+<script type="math/tex" id="MathJax-Element-193">E[X-\mu] = 0 </script> (not helpful!) <br>
+<script type="math/tex" id="MathJax-Element-194">E[|X-\mu|]</script> - average absolute distance from mean</p>
 
 <ul>
 <li>need cases to evaluate</li>
-<li>point of non-differentiabililty at <script type="math/tex" id="MathJax-Element-1321">\mu</script></li>
+<li>point of non-differentiabililty at <script type="math/tex" id="MathJax-Element-195">\mu</script></li>
 </ul>
 
 <p>So we use: <br>
-<script type="math/tex" id="MathJax-Element-1322">E[(X-\mu)^2]</script> - average squared distance from mean</p></body>
+<script type="math/tex" id="MathJax-Element-196">E[(X-\mu)^2]</script> - average squared distance from mean</p>
+
+
+
+<h2 id="lecture-20">Lecture 20</h2>
+
+<blockquote>
+  <p>Def: Variance of a r.v. X is <script type="math/tex" id="MathJax-Element-197">Var(X)= \sigma^2 = E[(X-\mu)^2]</script> <br>
+  Weighted average squared, distance from mean. If X is discrete, <script type="math/tex" id="MathJax-Element-198">Var(X) = \Sigma_{\text{all x}}(x-\mu)^2f(x)</script></p>
+</blockquote>
+
+<p>Calc form of variance: <br>
+<script type="math/tex; mode=display" id="MathJax-Element-199">\begin{equation}
+\begin{split}
+Var(X) &= E[(X-\mu)^2] \\
+&= E[X^2 - 2\mu X + \mu^2] \\
+&= E[X^2] - 2\mu E[X] + \mu^2 \text{ by linearity} \\
+&= E[X^2] - 2\mu^2 + \mu^2 \text{ since }E[X] = \mu \\
+&= E[X^2] - \mu^2 \\
+&= E[X^2] - E[X]^2
+\end{split}
+\end{equation}</script> <br>
+Where <script type="math/tex" id="MathJax-Element-200">E[X^2] = \Sigma_{\text{all x}}xf(x)</script></p>
+
+<p>Example: <br>
+X has pf</p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>10</th>
+  <th>12</th>
+  <th>20</th>
+  <th>22</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>0.72</td>
+  <td>0.08</td>
+  <td>0.18</td>
+  <td>0.62</td>
+</tr>
+</tbody></table>
+
+
+<p>We found <script type="math/tex" id="MathJax-Element-201">E[X] = 12.2</script> min <br>
+Now <script type="math/tex" id="MathJax-Element-202">E[X^2] = 10^2 *0.72 + 12^2*0.08 + 20^2*0.18 + 22^2*0.02 = 165.2</script> <br>
+<script type="math/tex" id="MathJax-Element-203">\therefore Var(X) = 165.2 - 12.2^2 = 16.36 \text{ min}^2</script></p>
+
+<blockquote>
+  <p>Note that variance is measured in units squared rather than the original units of X. Taking the square root of the variance makes more sense.</p>
+</blockquote>
+
+<p><strong>Defn</strong>: the standard deviation of X is <script type="math/tex" id="MathJax-Element-204">SD(X) = \sigma = \sqrt{Var(X)}</script></p>
+
+<p>In our example, <script type="math/tex" id="MathJax-Element-205">SD(X) = \sqrt{16.36} = 4.04</script> min <br>
+Remember, Var(X) will always be non-negative because it’s a weighted average of <script type="math/tex" id="MathJax-Element-206">(x-\mu)^2</script> values <script type="math/tex" id="MathJax-Element-207">\geq 0</script> <br>
+So SD(X) will also be <script type="math/tex" id="MathJax-Element-208">\geq 0</script> and a Real number</p>
+
+
+
+<h3 id="mean-var-of-a-linear-fn-of-x">Mean + Var of a linear f’n of X</h3>
+
+<p><script type="math/tex" id="MathJax-Element-209">Y=aX+b</script> <br>
+<script type="math/tex" id="MathJax-Element-210">E[Y] = aE[X] + b</script> by linearity of expectations <br>
+<script type="math/tex; mode=display" id="MathJax-Element-211">\begin{equation}
+\begin{split}
+Var(Y) &= E[(Y - E[Y])^2] \\
+& = E[(aX + b - (aE[X] + b))^2] \\
+&= E[a^2(X-E[X])^2] \\
+&= a^2Var(X)
+\end{split}
+\end{equation}</script></p>
+
+<blockquote>
+  <p>Note: b does not affect the variance since shifting the distribution doesn’t affect the spread. We increase all the distances by a factor of <script type="math/tex" id="MathJax-Element-212">a</script> so the squared distances increase by <script type="math/tex" id="MathJax-Element-213">a^2</script></p>
+</blockquote>
+
+<p>Finally, <br>
+<script type="math/tex" id="MathJax-Element-214">SD(Y) = \sqrt{Var{Y}} \\ = \sqrt{a^2Var(X)} \\ =|a|SD(x)</script></p>
+
+<p>Example <br>
+Suppose X has pf</p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>0</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+  <th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>0.1</td>
+  <td>0.1</td>
+  <td>0.1</td>
+  <td>0.5</td>
+  <td>0.2</td>
+</tr>
+<tr>
+  <td>y</td>
+  <td>1</td>
+  <td>3</td>
+  <td>5</td>
+  <td>7</td>
+  <td>9</td>
+</tr>
+</tbody></table>
+
+
+<p>Let <script type="math/tex" id="MathJax-Element-215">Y = 2X + 1</script> <br>
+<script type="math/tex" id="MathJax-Element-216">E[X] = 2.6</script> <br>
+<script type="math/tex" id="MathJax-Element-217">E[X^2] = 8.2</script>  <br>
+<script type="math/tex" id="MathJax-Element-218">E[Y] = 6.2</script>  <br>
+<script type="math/tex" id="MathJax-Element-219">E[Y^2] = 44.2</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-220">Var(X) = E[X^2] - E[X] = 1.44</script> <br>
+<script type="math/tex" id="MathJax-Element-221">Var(Y) = E[Y^2] - E[Y] = 5.76</script></p>
+
+<p>But! We can calculate the Var(Y) in a different way! <br>
+Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> and <script type="math/tex" id="MathJax-Element-223">Var(Y) = 2^2Var(X)</script></p>
+
+
+
+<h3 id="variances-of-named-distributions">Variances of named distributions</h3>
+
+<p></p><ol> <br>
+<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br>
+<ul><li><script type="math/tex" id="MathJax-Element-226">Var(X) = E[X^2] - E[X]</script> <br>
+<script type="math/tex" id="MathJax-Element-227">= E[X(X-1) + X] - E[X]^2</script> <br>
+<script type="math/tex" id="MathJax-Element-228">= E[X(X-1)] +E[X] - E[X]^2</script></li>
+<li>Why? </li>
+<li><script type="math/tex" id="MathJax-Element-229">E[X(X-1)] = \Sigma_{x=0}^{\infty}x(x-1)\frac{e^{-\mu}\mu^x}{x(x-1)(x-2)!} \\=\mu^2\Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!} = ty = x-2</script></li>
+<li>So <script type="math/tex" id="MathJax-Element-230">Var(X) = \mu^2 + \mu - \mu^2 = \mu</script> <br>
+In the Poisson, <script type="math/tex" id="MathJax-Element-231">\mu</script> is the mean and the variance!  <br>
+<strong>^ the Poisson variance is a good exam question</strong></li></ul></li>
+<li>Binomial - <script type="math/tex" id="MathJax-Element-232">E[X] = np</script> ,  <script type="math/tex" id="MathJax-Element-233">E[X(X-1)] = n(n-1)p^2</script> <br>
+<ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br></li></ul></li></ol><p></p>
+
+<blockquote>
+  <p>Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty
+  </p>
+</blockquote></body>
 </html>
 -->
