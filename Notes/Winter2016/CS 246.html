@@ -121,6 +121,12 @@
 <li><a href="#destructor-revisited">Destructor Revisited</a></li>
 </ul>
 </li>
+<li><a href="#lecture-13-1">Lecture 13</a><ul>
+<li><a href="#pure-virtual-methods-abstract-classes">Pure Virtual Methods + Abstract Classes</a></li>
+<li><a href="#templates">Templates</a></li>
+<li><a href="#the-standard-template-library-stl">The Standard Template Library (STL)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -359,7 +365,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-316">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-273">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -552,9 +558,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-317"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-274"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-318">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-275">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -655,7 +661,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-319">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-276">1 appear in file </script>2?</p>
 
 
 
@@ -723,7 +729,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-320">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-277">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -929,7 +935,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-321">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-278">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -1445,7 +1451,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-322">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-279">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -2588,14 +2594,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-323">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-280">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-324">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-281">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -2803,8 +2809,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-325">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-326">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-282">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-283">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -3107,14 +3113,12 @@ No. Even subclasses can’t see them!</p>
 - a Comic is a Book <br>
 - protected: #</p>
 
-<p><img src="amyqiu.me/Notes/TextComic.png"></p>
+<p><img src="http://amyqiu.me/Notes/TextComic.png"></p>
 
 <p>Method isItHeavy - when is a book heavy? <br>
 - for ordinary Books - &gt; 200 pgs <br>
 - for Text - &gt; 500 pages <br>
 - for Comics - &gt; 30 pages</p>
-
-
 
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
     ...
@@ -3153,11 +3157,11 @@ Comic c{<span class="hljs-string">"A big comic"</span>, <span class="hljs-string
 <p>Q: Is b heavy? <br>
 Which isItHeavy runs: Book::isItHeavy, or Comic:isItHeavy ? <br>
 A: NO - b is not heavy. Book::isItHeavy runs. <br>
-Why? <br>
-<img src="amyqiu.me/Notes/ComicvsBook.png"> <br>
-Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
+Why?</p>
 
+<p><img src="http://amyqiu.me/Notes/ComcvsBook.png"></p>
 
+<p>Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
 
 <pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{...};
 <span class="hljs-comment">//tries to fit a Comic object where there is only space for a Book object. What happens? - slicing occurs - c++ makes comic fit by chopping off bits. Hero field is chopped off so comic is coerced into a Book.</span></code></pre>
@@ -3275,7 +3279,237 @@ If a subclass is NOT meant to have subclasses, declare it <code>final</code>:</p
 
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Y final: <span class="hljs-keyword">public</span> X{
     ...
-};</code></pre></body>
+};</code></pre>
+
+
+
+<h2 id="lecture-13-1">Lecture 13</h2>
+
+
+
+<h3 id="pure-virtual-methods-abstract-classes">Pure Virtual Methods + Abstract Classes</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Student{
+    <span class="hljs-keyword">protected</span>:
+        <span class="hljs-keyword">int</span> numCourses;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span> fees();
+};</code></pre>
+
+<p>2 Kinds of Student: Regular + Co-op</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Regular: <span class="hljs-keyword">public</span> Student{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> fees() override; <span class="hljs-comment">//reg student fees</span>
+};
+
+<span class="hljs-keyword">class</span> Coop: <span class="hljs-keyword">public</span> Student{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> fees() override; <span class="hljs-comment">//coop student fees</span>
+};</code></pre>
+
+<p>What should we put for Student fees? <br>
+Not sure - every student should be regular or co-op</p>
+
+<p>Can explicitly give NO implementation to Student::fees()</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Student{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span> fees()=<span class="hljs-number">0</span>; <span class="hljs-comment">//this syntactically tells that this method has no implementation(***). no, 1,2,3 ... etc doesn't work. Called a pure virtual method</span>
+}</code></pre>
+
+<p>A class with pure virtual methods cannot be instantiated.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student s; X</code></pre>
+
+<p>-called an <code>abstract class</code> <br>
+Purpose of an abstract class is to organize subclasses.</p>
+
+<p>Subclasses of an abstract class are also abstract unless they implement the pure virtual methods. <br>
+If a class is not abstract, then it is <strong>concrete</strong></p>
+
+<dl>
+<dt>UML</dt>
+<dd>Virtual + pure methods: italics <br>
+Abstract classes: class name in italics <br>
+Static - underline</dd>
+</dl>
+
+
+
+<h3 id="templates">Templates</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node;
+    Node *theList;
+    ...
+}
+<span class="hljs-keyword">struct</span> List::Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    ...
+}</code></pre>
+
+<p>What if you want to store something else? <br>
+Whole new class? <br>
+OR a <strong>template</strong> : A class parameterized by a <strong>type</strong></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">class</span> Stack{
+    <span class="hljs-keyword">int</span> size;
+    <span class="hljs-keyword">int</span> cap;
+    T *contents;
+    <span class="hljs-keyword">public</span>:
+        Stack(){...}
+        <span class="hljs-keyword">void</span> push(T x){...}
+        T top(){...}
+        <span class="hljs-keyword">void</span> pop(){...}
+};</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node{
+        T data;
+        Node *next;
+    };
+    Node *theList;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator{
+            Node *p;
+            <span class="hljs-keyword">explicit</span> Iterator(Node *p):p{p}{}
+            <span class="hljs-keyword">public</span>:
+                T &amp;<span class="hljs-keyword">operator</span>*(){<span class="hljs-keyword">return</span> p-&gt;data;}
+                ...
+        };
+        ...
+        T ith(<span class="hljs-keyword">int</span> i){...};
+        <span class="hljs-keyword">void</span> addToFront(T n){...}
+};
+<span class="hljs-comment">//Client:</span>
+List &lt;<span class="hljs-keyword">int</span>&gt; l1;
+List&lt;List&lt;<span class="hljs-keyword">int</span>&gt;&gt; l2;
+l1.addToFront(<span class="hljs-number">3</span>);
+l2.addToFront(l1);
+
+<span class="hljs-keyword">for</span>(List&lt;<span class="hljs-keyword">int</span>&gt;::Iterator it=l1.begin();it!=l1.end();++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; endl;
+}</code></pre>
+
+<p>or indeed:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> n:l1){
+    <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+}</code></pre>
+
+
+
+<h3 id="the-standard-template-library-stl">The Standard Template Library (STL)</h3>
+
+<p>Large # of useful templates: <br>
+Eg: dynamic-length arrays : <strong>vectors</strong></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include&lt;vector&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">4</span>,<span class="hljs-number">5</span>}; <span class="hljs-comment">// [4, 5]</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;</span> v1(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">// [5, 5, 5, 5]</span>
+<span class="hljs-comment">//oh no!</span>
+
+v.emplace-back(<span class="hljs-number">6</span>);
+vemplace.back(<span class="hljs-number">7</span>); <span class="hljs-comment">//4,5,6,7</span></code></pre>
+
+<p>Looping:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;v.size();++i){
+    <span class="hljs-built_in">cout</span> &lt;&lt;v[i]&lt;&lt;endl;
+}
+
+<span class="hljs-comment">//CAN REPLACE vector&lt;int&gt;::reverse.iterator WITH AUTO FOR ALL OCCURRENCES</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span>::iterator it=v.begin();it!=v.end();++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt;endl;
+}
+<span class="hljs-comment">//OR</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> n:v){
+    <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+}
+
+<span class="hljs-comment">//To iterate in revers:</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span>::reverse.iterator it=v.rbegin(); it!=v.rend(); ++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; endl;
+}
+v.pop.back() <span class="hljs-comment">//remove last element</span></code></pre>
+
+<p>use iterators to remove from inside a vector</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">auto</span> it = v.erase(v.begin()); <span class="hljs-comment">//erases the first element</span>
+<span class="hljs-keyword">auto</span> it = v.erase(v.begin()+<span class="hljs-number">3</span>); <span class="hljs-comment">//erases item 3</span>
+<span class="hljs-keyword">auto</span> it = v.erase(it); <span class="hljs-comment">//erases item pointed at by it. returns an iterator to item past the item just removed.</span>
+<span class="hljs-keyword">auto</span> it = v.erase(v.end()-<span class="hljs-number">1</span>);
+v[i] <span class="hljs-comment">//- returns ith element of v; it's unchecked so if you go out of bounds.</span>
+<span class="hljs-comment">// it's undefined behaviour. </span>
+v.at(i) <span class="hljs-comment">//- checked version of v[i] . What happens when you go out of bounds?</span></code></pre>
+
+<p>What should happen?</p>
+
+<dl>
+<dt>Problem</dt>
+<dd>Vector’s code can detect the error, but doesn’t know what to do about it. <br>
+Client can respond, but can’t detect the error.</dd>
+
+<dt>C solution</dt>
+<dd>functions return a status code, or set the global variable errno <br>
+Leads to awkward programming. Lots of if statements <br>
+Encourages programming to ignore error checks</dd>
+
+<dt>C++</dt>
+<dd>When an arror condition arises, the function raises an exception <br>
+What happens? By default, execution stops</dd>
+</dl>
+
+<p>But we can write handlers to catch ex’ns + deal with them. <br>
+<code>vector&lt;T&gt;::at</code> raises the exn <code>std::out_of_range</code> when it fails <br>
+We can handle it as follows:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;stdexcept&gt;</span>
+...
+<span class="hljs-keyword">try</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; v.at(<span class="hljs-number">1000</span>) &lt;&lt;endl; <span class="hljs-comment">//out of range</span>
+}
+<span class="hljs-keyword">catch</span>(out_of_range r){
+    <span class="hljs-built_in">cerr</span> &lt;&lt;<span class="hljs-string">"Range error "</span> &lt;&lt; r.what() &lt;&lt;endl;
+}</code></pre>
+
+<p>From midterma</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">int</span> y{x};
+y+x;
+<span class="hljs-built_in">cin</span> &lt;&lt; x;
+<span class="hljs-comment">//here, {x}, {x, x}, {x, y}, {cin, x, cin&lt;&lt;x} are lvalues.</span>
+<span class="hljs-comment">// y+x is rvalue;</span></code></pre></body>
 </html>
 
 <!--
@@ -3398,6 +3632,12 @@ If a subclass is NOT meant to have subclasses, declare it <code>final</code>:</p
 <li><a href="#destructor-revisited">Destructor Revisited</a></li>
 </ul>
 </li>
+<li><a href="#lecture-13-1">Lecture 13</a><ul>
+<li><a href="#pure-virtual-methods-abstract-classes">Pure Virtual Methods + Abstract Classes</a></li>
+<li><a href="#templates">Templates</a></li>
+<li><a href="#the-standard-template-library-stl">The Standard Template Library (STL)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3636,7 +3876,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-316">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-273">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -3829,9 +4069,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-317"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-274"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-318">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-275">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -3932,7 +4172,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-319">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-276">1 appear in file </script>2?</p>
 
 
 
@@ -4000,7 +4240,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-320">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-277">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -4206,7 +4446,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-321">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-278">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -4722,7 +4962,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-322">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-279">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -5865,14 +6105,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-323">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-280">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-324">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-281">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -6080,8 +6320,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-325">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-326">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-282">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-283">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -6384,14 +6624,12 @@ No. Even subclasses can’t see them!</p>
 - a Comic is a Book <br>
 - protected: #</p>
 
-<p><img src="amyqiu.me/Notes/TextComic.png"></p>
+<p><img src="http://amyqiu.me/Notes/TextComic.png"></p>
 
 <p>Method isItHeavy - when is a book heavy? <br>
 - for ordinary Books - &gt; 200 pgs <br>
 - for Text - &gt; 500 pages <br>
 - for Comics - &gt; 30 pages</p>
-
-
 
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
     ...
@@ -6430,11 +6668,11 @@ Comic c{<span class="hljs-string">"A big comic"</span>, <span class="hljs-string
 <p>Q: Is b heavy? <br>
 Which isItHeavy runs: Book::isItHeavy, or Comic:isItHeavy ? <br>
 A: NO - b is not heavy. Book::isItHeavy runs. <br>
-Why? <br>
-<img src="amyqiu.me/Notes/ComicvsBook.png"> <br>
-Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
+Why?</p>
 
+<p><img src="http://amyqiu.me/Notes/ComcvsBook.png"></p>
 
+<p>Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
 
 <pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{...};
 <span class="hljs-comment">//tries to fit a Comic object where there is only space for a Book object. What happens? - slicing occurs - c++ makes comic fit by chopping off bits. Hero field is chopped off so comic is coerced into a Book.</span></code></pre>
@@ -6552,6 +6790,236 @@ If a subclass is NOT meant to have subclasses, declare it <code>final</code>:</p
 
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Y final: <span class="hljs-keyword">public</span> X{
     ...
-};</code></pre></body>
+};</code></pre>
+
+
+
+<h2 id="lecture-13-1">Lecture 13</h2>
+
+
+
+<h3 id="pure-virtual-methods-abstract-classes">Pure Virtual Methods + Abstract Classes</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Student{
+    <span class="hljs-keyword">protected</span>:
+        <span class="hljs-keyword">int</span> numCourses;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span> fees();
+};</code></pre>
+
+<p>2 Kinds of Student: Regular + Co-op</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Regular: <span class="hljs-keyword">public</span> Student{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> fees() override; <span class="hljs-comment">//reg student fees</span>
+};
+
+<span class="hljs-keyword">class</span> Coop: <span class="hljs-keyword">public</span> Student{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> fees() override; <span class="hljs-comment">//coop student fees</span>
+};</code></pre>
+
+<p>What should we put for Student fees? <br>
+Not sure - every student should be regular or co-op</p>
+
+<p>Can explicitly give NO implementation to Student::fees()</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Student{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span> fees()=<span class="hljs-number">0</span>; <span class="hljs-comment">//this syntactically tells that this method has no implementation(***). no, 1,2,3 ... etc doesn't work. Called a pure virtual method</span>
+}</code></pre>
+
+<p>A class with pure virtual methods cannot be instantiated.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student s; X</code></pre>
+
+<p>-called an <code>abstract class</code> <br>
+Purpose of an abstract class is to organize subclasses.</p>
+
+<p>Subclasses of an abstract class are also abstract unless they implement the pure virtual methods. <br>
+If a class is not abstract, then it is <strong>concrete</strong></p>
+
+<dl>
+<dt>UML</dt>
+<dd>Virtual + pure methods: italics <br>
+Abstract classes: class name in italics <br>
+Static - underline</dd>
+</dl>
+
+
+
+<h3 id="templates">Templates</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node;
+    Node *theList;
+    ...
+}
+<span class="hljs-keyword">struct</span> List::Node{
+    <span class="hljs-keyword">int</span> data;
+    Node *next;
+    ...
+}</code></pre>
+
+<p>What if you want to store something else? <br>
+Whole new class? <br>
+OR a <strong>template</strong> : A class parameterized by a <strong>type</strong></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">class</span> Stack{
+    <span class="hljs-keyword">int</span> size;
+    <span class="hljs-keyword">int</span> cap;
+    T *contents;
+    <span class="hljs-keyword">public</span>:
+        Stack(){...}
+        <span class="hljs-keyword">void</span> push(T x){...}
+        T top(){...}
+        <span class="hljs-keyword">void</span> pop(){...}
+};</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node{
+        T data;
+        Node *next;
+    };
+    Node *theList;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator{
+            Node *p;
+            <span class="hljs-keyword">explicit</span> Iterator(Node *p):p{p}{}
+            <span class="hljs-keyword">public</span>:
+                T &amp;<span class="hljs-keyword">operator</span>*(){<span class="hljs-keyword">return</span> p-&gt;data;}
+                ...
+        };
+        ...
+        T ith(<span class="hljs-keyword">int</span> i){...};
+        <span class="hljs-keyword">void</span> addToFront(T n){...}
+};
+<span class="hljs-comment">//Client:</span>
+List &lt;<span class="hljs-keyword">int</span>&gt; l1;
+List&lt;List&lt;<span class="hljs-keyword">int</span>&gt;&gt; l2;
+l1.addToFront(<span class="hljs-number">3</span>);
+l2.addToFront(l1);
+
+<span class="hljs-keyword">for</span>(List&lt;<span class="hljs-keyword">int</span>&gt;::Iterator it=l1.begin();it!=l1.end();++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; endl;
+}</code></pre>
+
+<p>or indeed:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> n:l1){
+    <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+}</code></pre>
+
+
+
+<h3 id="the-standard-template-library-stl">The Standard Template Library (STL)</h3>
+
+<p>Large # of useful templates: <br>
+Eg: dynamic-length arrays : <strong>vectors</strong></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include&lt;vector&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">4</span>,<span class="hljs-number">5</span>}; <span class="hljs-comment">// [4, 5]</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;</span> v1(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">// [5, 5, 5, 5]</span>
+<span class="hljs-comment">//oh no!</span>
+
+v.emplace-back(<span class="hljs-number">6</span>);
+vemplace.back(<span class="hljs-number">7</span>); <span class="hljs-comment">//4,5,6,7</span></code></pre>
+
+<p>Looping:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;v.size();++i){
+    <span class="hljs-built_in">cout</span> &lt;&lt;v[i]&lt;&lt;endl;
+}
+
+<span class="hljs-comment">//CAN REPLACE vector&lt;int&gt;::reverse.iterator WITH AUTO FOR ALL OCCURRENCES</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span>::iterator it=v.begin();it!=v.end();++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt;endl;
+}
+<span class="hljs-comment">//OR</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> n:v){
+    <span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;
+}
+
+<span class="hljs-comment">//To iterate in revers:</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span>::reverse.iterator it=v.rbegin(); it!=v.rend(); ++it){
+    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; endl;
+}
+v.pop.back() <span class="hljs-comment">//remove last element</span></code></pre>
+
+<p>use iterators to remove from inside a vector</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">auto</span> it = v.erase(v.begin()); <span class="hljs-comment">//erases the first element</span>
+<span class="hljs-keyword">auto</span> it = v.erase(v.begin()+<span class="hljs-number">3</span>); <span class="hljs-comment">//erases item 3</span>
+<span class="hljs-keyword">auto</span> it = v.erase(it); <span class="hljs-comment">//erases item pointed at by it. returns an iterator to item past the item just removed.</span>
+<span class="hljs-keyword">auto</span> it = v.erase(v.end()-<span class="hljs-number">1</span>);
+v[i] <span class="hljs-comment">//- returns ith element of v; it's unchecked so if you go out of bounds.</span>
+<span class="hljs-comment">// it's undefined behaviour. </span>
+v.at(i) <span class="hljs-comment">//- checked version of v[i] . What happens when you go out of bounds?</span></code></pre>
+
+<p>What should happen?</p>
+
+<dl>
+<dt>Problem</dt>
+<dd>Vector’s code can detect the error, but doesn’t know what to do about it. <br>
+Client can respond, but can’t detect the error.</dd>
+
+<dt>C solution</dt>
+<dd>functions return a status code, or set the global variable errno <br>
+Leads to awkward programming. Lots of if statements <br>
+Encourages programming to ignore error checks</dd>
+
+<dt>C++</dt>
+<dd>When an arror condition arises, the function raises an exception <br>
+What happens? By default, execution stops</dd>
+</dl>
+
+<p>But we can write handlers to catch ex’ns + deal with them. <br>
+<code>vector&lt;T&gt;::at</code> raises the exn <code>std::out_of_range</code> when it fails <br>
+We can handle it as follows:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;stdexcept&gt;</span>
+...
+<span class="hljs-keyword">try</span>{
+    <span class="hljs-built_in">cout</span> &lt;&lt; v.at(<span class="hljs-number">1000</span>) &lt;&lt;endl; <span class="hljs-comment">//out of range</span>
+}
+<span class="hljs-keyword">catch</span>(out_of_range r){
+    <span class="hljs-built_in">cerr</span> &lt;&lt;<span class="hljs-string">"Range error "</span> &lt;&lt; r.what() &lt;&lt;endl;
+}</code></pre>
+
+<p>From midterma</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">int</span> y{x};
+y+x;
+<span class="hljs-built_in">cin</span> &lt;&lt; x;
+<span class="hljs-comment">//here, {x}, {x, x}, {x, y}, {cin, x, cin&lt;&lt;x} are lvalues.</span>
+<span class="hljs-comment">// y+x is rvalue;</span></code></pre></body>
 </html>
 -->

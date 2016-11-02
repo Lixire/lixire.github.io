@@ -112,6 +112,7 @@
 <li><a href="#variances-of-named-distributions">Variances of named distributions</a></li>
 </ul>
 </li>
+<li><a href="#lecture-22">Lecture 22</a></li>
 </ul>
 </li>
 </ul>
@@ -1522,7 +1523,8 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 <h3 id="variances-of-named-distributions">Variances of named distributions</h3>
 
 <p></p><ol> <br>
-<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br>
+<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br></li></ol><p></p>
+
 <ul><li><script type="math/tex" id="MathJax-Element-226">Var(X) = E[X^2] - E[X]</script> <br>
 <script type="math/tex" id="MathJax-Element-227">= E[X(X-1) + X] - E[X]^2</script> <br>
 <script type="math/tex" id="MathJax-Element-228">= E[X(X-1)] +E[X] - E[X]^2</script></li>
@@ -1530,14 +1532,99 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 <li><script type="math/tex" id="MathJax-Element-229">E[X(X-1)] = \Sigma_{x=0}^{\infty}x(x-1)\frac{e^{-\mu}\mu^x}{x(x-1)(x-2)!} \\=\mu^2\Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!} = ty = x-2</script></li>
 <li>So <script type="math/tex" id="MathJax-Element-230">Var(X) = \mu^2 + \mu - \mu^2 = \mu</script> <br>
 In the Poisson, <script type="math/tex" id="MathJax-Element-231">\mu</script> is the mean and the variance!  <br>
-<strong>^ the Poisson variance is a good exam question</strong></li></ul></li>
+<strong>^ the Poisson variance is a good exam question</strong></li></ul>
 <li>Binomial - <script type="math/tex" id="MathJax-Element-232">E[X] = np</script> ,  <script type="math/tex" id="MathJax-Element-233">E[X(X-1)] = n(n-1)p^2</script> <br>
-<ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br></li></ul></li></ol><p></p>
+<ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br>
+
 
 <blockquote>
-  <p>Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty
-  </p>
-</blockquote></body>
+  Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty</blockquote></li></ul></li>
+  
+  
+
+
+<h2 id="lecture-22">Lecture 22</h2>
+
+
+
+<blockquote>
+  <p>Recall: continuous rv. has uncountable range for any x, P(X=x) = 0 <br>
+  Properties of F(x) <br>
+  Probability density function f(x) <br>
+  expectation + variance, percentiles <br>
+  transformations</p>
+</blockquote>
+
+<script type="math/tex" id="MathJax-Element-237">P(a < X \leq b) = F(b) - F(a)</script>
+<script type="math/tex" id="MathJax-Element-238">P(a \leq X \leq b)</script> is the same <script type="math/tex" id="MathJax-Element-239">P(X=a) =0</script>
+so are <script type="math/tex" id="MathJax-Element-240">P(a \leq X < b)</script> and <script type="math/tex" id="MathJax-Element-241">P(a < X < b)</script>
+
+cdf <script type="math/tex" id="MathJax-Element-242">F(x) = P(X \leq x) = P(X < x)</script>
+Claim: 
+F(x) is continuous for a cts rv X
+Proof
+<script type="math/tex" id="MathJax-Element-243">lim_{\epsilon \rightarrow 0} (F(x) - F(x-\epsilon))</script>
+<script type="math/tex" id="MathJax-Element-244"> = lim_{\epsilon \rightarrow 0} P(x-\epsilon < X\leq x)</script>
+<script type="math/tex" id="MathJax-Element-245">= P(X = x)</script>
+<script type="math/tex" id="MathJax-Element-246">= 0</script>
+<script type="math/tex" id="MathJax-Element-247">lim_{\epsilon \rightarrow 0^+}F(x-\epsilon) = F(x) </script> ie F(x) is left cts
+similarly F(x) is right cts
+
+So F(x) is everywhere continuous (not necessarily everywhere differentiaible)
+As before, its non-decreasing
+<script type="math/tex" id="MathJax-Element-248">lim_{x \rightarrow -\infty} F(x) = 0</script>
+<script type="math/tex" id="MathJax-Element-249">lim_{x \rightarrow \infty} F(x) = 0</script>
+<img src="http://amyqiu.me/Notes/chartFx.png">
+
+We also want to know how X behaves locally
+Def: The probability density function (pdf) f(x) for a continuous r. v. X is f(x) = F’(x) (where the derivative exist)
+It represents a relative likelihood of X being “near” the value x
+
+Properties of f(x)
+
+<ul>
+<li>F(x) is the area under the curve f(x) below <br>
+<ul><li>ie <script type="math/tex" id="MathJax-Element-250">F(x) = \int_{-\infty}^x f(u)du</script> <br>
+<img src="http://amyqiu.me/Notes/chartderivativefx.png"></li></ul></li>
+<li><script type="math/tex" id="MathJax-Element-251">P(a < X \leq b) = \int_{a}^{b}f(x)dx</script> <br>
+<ul><li>ie area under f(x) between a and 1. <br>
+<script type="math/tex" id="MathJax-Element-252">= F(b) - F(a)</script> <br>
+<img src="http://amyqiu.me/Notes/aminusb.png"></li></ul></li>
+<li><script type="math/tex" id="MathJax-Element-253">\int_{-\infty}^{\infty}f(x)dx = F(+\infty) - F(- \infty) = 1 - 0 = 1</script> <br>
+<ul><li>ie total area under entire f(x) curve is 1.</li></ul></li>
+<li>f<script type="math/tex" id="MathJax-Element-254">(x) \geq 0</script> <br>
+<ul><li>because F(x) is non-decreasing its derivative is non-negative.</li></ul></li>
+</ul>
+
+<blockquote>
+  <p>Note: f(x) is NOT a probability!</p>
+</blockquote>
+
+<p>Imagine <script type="math/tex" id="MathJax-Element-255">P(x < X \leq x + \epsilon)</script> <br>
+<script type="math/tex" id="MathJax-Element-256">= \int_{x}^{x+\epsilon} f(u)du</script> <br>
+<script type="math/tex" id="MathJax-Element-257">\approx</script>  area of rectangle <br>
+<script type="math/tex" id="MathJax-Element-258">= \epsilon f(x)</script> <br>
+<img src="http://amyqiu.me/Notes/xplusep.png"></p>
+
+<p>So f(x) can be thought of as a multiplier for an interval with <script type="math/tex" id="MathJax-Element-259">\epsilon</script> that tells us the approx prob that X is within an interval of <script type="math/tex" id="MathJax-Element-260">\epsilon</script> near the value x. <br>
+<script type="math/tex" id="MathJax-Element-261">\epsilon f(x) \approx P(x < X \leq x+\epsilon)</script> <br>
+for a small interval <script type="math/tex" id="MathJax-Element-262">\epsilon</script></p>
+
+<p>Expectation <br>
+Def: The mean of a cts rv X is <script type="math/tex" id="MathJax-Element-263">\int_{-\infty}^{\infty}xf(x)dx</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-264">E[X] = \int_{\text{all x } \epsilon \text{ range}}xf(x)dx</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-265">Var(x) = E[X^2] - E[X]^2</script> <br>
+<script type="math/tex" id="MathJax-Element-266">where E[X^2] = \int_{\text{all x } \epsilon \text{ range}}x^2f(x)dx</script></p>
+
+<p>Def: The pth percentile of X is the value <script type="math/tex" id="MathJax-Element-267">x_p</script> such that: <br>
+<script type="math/tex" id="MathJax-Element-268">P(X \leq /< x_p) = p</script> <br>
+eg. <script type="math/tex" id="MathJax-Element-269">x_{0.5}</script> is the median</p>
+
+<p>Find <script type="math/tex" id="MathJax-Element-270">x_{0.5}</script> for the previous example <br>
+<script type="math/tex" id="MathJax-Element-271">P(X\leq x_{0.5}) = 0.5</script> <br>
+<script type="math/tex" id="MathJax-Element-272">F(x_{0.5}) = 0.5 \\  \therefore (x_{0.5})^2 = 0.5 \\ \therefore x_{0.5} = 0.707</script></p></body>
 </html>
 
 <!--
@@ -1651,6 +1738,7 @@ In the Poisson, <script type="math/tex" id="MathJax-Element-231">\mu</script> is
 <li><a href="#variances-of-named-distributions">Variances of named distributions</a></li>
 </ul>
 </li>
+<li><a href="#lecture-22">Lecture 22</a></li>
 </ul>
 </li>
 </ul>
@@ -3061,7 +3149,8 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 <h3 id="variances-of-named-distributions">Variances of named distributions</h3>
 
 <p></p><ol> <br>
-<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br>
+<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br></li></ol><p></p>
+
 <ul><li><script type="math/tex" id="MathJax-Element-226">Var(X) = E[X^2] - E[X]</script> <br>
 <script type="math/tex" id="MathJax-Element-227">= E[X(X-1) + X] - E[X]^2</script> <br>
 <script type="math/tex" id="MathJax-Element-228">= E[X(X-1)] +E[X] - E[X]^2</script></li>
@@ -3069,13 +3158,98 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 <li><script type="math/tex" id="MathJax-Element-229">E[X(X-1)] = \Sigma_{x=0}^{\infty}x(x-1)\frac{e^{-\mu}\mu^x}{x(x-1)(x-2)!} \\=\mu^2\Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!} = ty = x-2</script></li>
 <li>So <script type="math/tex" id="MathJax-Element-230">Var(X) = \mu^2 + \mu - \mu^2 = \mu</script> <br>
 In the Poisson, <script type="math/tex" id="MathJax-Element-231">\mu</script> is the mean and the variance!  <br>
-<strong>^ the Poisson variance is a good exam question</strong></li></ul></li>
+<strong>^ the Poisson variance is a good exam question</strong></li></ul>
 <li>Binomial - <script type="math/tex" id="MathJax-Element-232">E[X] = np</script> ,  <script type="math/tex" id="MathJax-Element-233">E[X(X-1)] = n(n-1)p^2</script> <br>
-<ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br></li></ul></li></ol><p></p>
+<ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br>
+
 
 <blockquote>
-  <p>Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty
-  </p>
-</blockquote></body>
+  Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty</blockquote></li></ul></li>
+  
+  
+
+
+<h2 id="lecture-22">Lecture 22</h2>
+
+
+
+<blockquote>
+  <p>Recall: continuous rv. has uncountable range for any x, P(X=x) = 0 <br>
+  Properties of F(x) <br>
+  Probability density function f(x) <br>
+  expectation + variance, percentiles <br>
+  transformations</p>
+</blockquote>
+
+<script type="math/tex" id="MathJax-Element-237">P(a < X \leq b) = F(b) - F(a)</script>
+<script type="math/tex" id="MathJax-Element-238">P(a \leq X \leq b)</script> is the same <script type="math/tex" id="MathJax-Element-239">P(X=a) =0</script>
+so are <script type="math/tex" id="MathJax-Element-240">P(a \leq X < b)</script> and <script type="math/tex" id="MathJax-Element-241">P(a < X < b)</script>
+
+cdf <script type="math/tex" id="MathJax-Element-242">F(x) = P(X \leq x) = P(X < x)</script>
+Claim: 
+F(x) is continuous for a cts rv X
+Proof
+<script type="math/tex" id="MathJax-Element-243">lim_{\epsilon \rightarrow 0} (F(x) - F(x-\epsilon))</script>
+<script type="math/tex" id="MathJax-Element-244"> = lim_{\epsilon \rightarrow 0} P(x-\epsilon < X\leq x)</script>
+<script type="math/tex" id="MathJax-Element-245">= P(X = x)</script>
+<script type="math/tex" id="MathJax-Element-246">= 0</script>
+<script type="math/tex" id="MathJax-Element-247">lim_{\epsilon \rightarrow 0^+}F(x-\epsilon) = F(x) </script> ie F(x) is left cts
+similarly F(x) is right cts
+
+So F(x) is everywhere continuous (not necessarily everywhere differentiaible)
+As before, its non-decreasing
+<script type="math/tex" id="MathJax-Element-248">lim_{x \rightarrow -\infty} F(x) = 0</script>
+<script type="math/tex" id="MathJax-Element-249">lim_{x \rightarrow \infty} F(x) = 0</script>
+<img src="http://amyqiu.me/Notes/chartFx.png">
+
+We also want to know how X behaves locally
+Def: The probability density function (pdf) f(x) for a continuous r. v. X is f(x) = F’(x) (where the derivative exist)
+It represents a relative likelihood of X being “near” the value x
+
+Properties of f(x)
+
+<ul>
+<li>F(x) is the area under the curve f(x) below <br>
+<ul><li>ie <script type="math/tex" id="MathJax-Element-250">F(x) = \int_{-\infty}^x f(u)du</script> <br>
+<img src="http://amyqiu.me/Notes/chartderivativefx.png"></li></ul></li>
+<li><script type="math/tex" id="MathJax-Element-251">P(a < X \leq b) = \int_{a}^{b}f(x)dx</script> <br>
+<ul><li>ie area under f(x) between a and 1. <br>
+<script type="math/tex" id="MathJax-Element-252">= F(b) - F(a)</script> <br>
+<img src="http://amyqiu.me/Notes/aminusb.png"></li></ul></li>
+<li><script type="math/tex" id="MathJax-Element-253">\int_{-\infty}^{\infty}f(x)dx = F(+\infty) - F(- \infty) = 1 - 0 = 1</script> <br>
+<ul><li>ie total area under entire f(x) curve is 1.</li></ul></li>
+<li>f<script type="math/tex" id="MathJax-Element-254">(x) \geq 0</script> <br>
+<ul><li>because F(x) is non-decreasing its derivative is non-negative.</li></ul></li>
+</ul>
+
+<blockquote>
+  <p>Note: f(x) is NOT a probability!</p>
+</blockquote>
+
+<p>Imagine <script type="math/tex" id="MathJax-Element-255">P(x < X \leq x + \epsilon)</script> <br>
+<script type="math/tex" id="MathJax-Element-256">= \int_{x}^{x+\epsilon} f(u)du</script> <br>
+<script type="math/tex" id="MathJax-Element-257">\approx</script>  area of rectangle <br>
+<script type="math/tex" id="MathJax-Element-258">= \epsilon f(x)</script> <br>
+<img src="http://amyqiu.me/Notes/xplusep.png"></p>
+
+<p>So f(x) can be thought of as a multiplier for an interval with <script type="math/tex" id="MathJax-Element-259">\epsilon</script> that tells us the approx prob that X is within an interval of <script type="math/tex" id="MathJax-Element-260">\epsilon</script> near the value x. <br>
+<script type="math/tex" id="MathJax-Element-261">\epsilon f(x) \approx P(x < X \leq x+\epsilon)</script> <br>
+for a small interval <script type="math/tex" id="MathJax-Element-262">\epsilon</script></p>
+
+<p>Expectation <br>
+Def: The mean of a cts rv X is <script type="math/tex" id="MathJax-Element-263">\int_{-\infty}^{\infty}xf(x)dx</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-264">E[X] = \int_{\text{all x } \epsilon \text{ range}}xf(x)dx</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-265">Var(x) = E[X^2] - E[X]^2</script> <br>
+<script type="math/tex" id="MathJax-Element-266">where E[X^2] = \int_{\text{all x } \epsilon \text{ range}}x^2f(x)dx</script></p>
+
+<p>Def: The pth percentile of X is the value <script type="math/tex" id="MathJax-Element-267">x_p</script> such that: <br>
+<script type="math/tex" id="MathJax-Element-268">P(X \leq /< x_p) = p</script> <br>
+eg. <script type="math/tex" id="MathJax-Element-269">x_{0.5}</script> is the median</p>
+
+<p>Find <script type="math/tex" id="MathJax-Element-270">x_{0.5}</script> for the previous example <br>
+<script type="math/tex" id="MathJax-Element-271">P(X\leq x_{0.5}) = 0.5</script> <br>
+<script type="math/tex" id="MathJax-Element-272">F(x_{0.5}) = 0.5 \\  \therefore (x_{0.5})^2 = 0.5 \\ \therefore x_{0.5} = 0.707</script></p></body>
 </html>
 -->
