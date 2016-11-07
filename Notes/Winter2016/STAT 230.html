@@ -113,6 +113,16 @@
 </ul>
 </li>
 <li><a href="#lecture-22">Lecture 22</a></li>
+<li><a href="#stat-230-tutorial-2-problems-section-102">Stat 230 Tutorial 2 Problems - Section 102</a></li>
+<li><a href="#lecture-23">Lecture 23</a><ul>
+<li><a href="#82-continuous-uniform-rv">8.2 Continuous Uniform rv</a></li>
+<li><a href="#change-of-variable-81">Change of Variable (8.1)</a></li>
+</ul>
+</li>
+<li><a href="#lecture-25">Lecture 25</a><ul>
+<li><a href="#83-exponential-rv">8.3 Exponential rv</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1522,9 +1532,8 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 
 <h3 id="variances-of-named-distributions">Variances of named distributions</h3>
 
-<p></p><ol> <br>
-<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br></li></ol><p></p>
-
+<ol>
+<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br>
 <ul><li><script type="math/tex" id="MathJax-Element-226">Var(X) = E[X^2] - E[X]</script> <br>
 <script type="math/tex" id="MathJax-Element-227">= E[X(X-1) + X] - E[X]^2</script> <br>
 <script type="math/tex" id="MathJax-Element-228">= E[X(X-1)] +E[X] - E[X]^2</script></li>
@@ -1532,14 +1541,14 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 <li><script type="math/tex" id="MathJax-Element-229">E[X(X-1)] = \Sigma_{x=0}^{\infty}x(x-1)\frac{e^{-\mu}\mu^x}{x(x-1)(x-2)!} \\=\mu^2\Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!} = ty = x-2</script></li>
 <li>So <script type="math/tex" id="MathJax-Element-230">Var(X) = \mu^2 + \mu - \mu^2 = \mu</script> <br>
 In the Poisson, <script type="math/tex" id="MathJax-Element-231">\mu</script> is the mean and the variance!  <br>
-<strong>^ the Poisson variance is a good exam question</strong></li></ul>
+<strong>^ the Poisson variance is a good exam question</strong></li></ul></li>
 <li>Binomial - <script type="math/tex" id="MathJax-Element-232">E[X] = np</script> ,  <script type="math/tex" id="MathJax-Element-233">E[X(X-1)] = n(n-1)p^2</script> <br>
 <ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br>
 
 
 <blockquote>
   Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty</blockquote></li></ul></li>
-  
+  </ol>
   
 
 
@@ -1596,35 +1605,432 @@ Properties of f(x)
 <ul><li>because F(x) is non-decreasing its derivative is non-negative.</li></ul></li>
 </ul>
 
+
 <blockquote>
   <p>Note: f(x) is NOT a probability!</p>
 </blockquote>
 
-<p>Imagine <script type="math/tex" id="MathJax-Element-255">P(x < X \leq x + \epsilon)</script> <br>
-<script type="math/tex" id="MathJax-Element-256">= \int_{x}^{x+\epsilon} f(u)du</script> <br>
-<script type="math/tex" id="MathJax-Element-257">\approx</script>  area of rectangle <br>
-<script type="math/tex" id="MathJax-Element-258">= \epsilon f(x)</script> <br>
-<img src="http://amyqiu.me/Notes/xplusep.png"></p>
+Imagine <script type="math/tex" id="MathJax-Element-255">P(x < X \leq x + \epsilon)</script>
+<script type="math/tex" id="MathJax-Element-256">= \int_{x}^{x+\epsilon} f(u)du</script>
+<script type="math/tex" id="MathJax-Element-257">\approx</script>  area of rectangle
+<script type="math/tex" id="MathJax-Element-258">= \epsilon f(x)</script>
+<img src="http://amyqiu.me/Notes/xplusep.png">
 
-<p>So f(x) can be thought of as a multiplier for an interval with <script type="math/tex" id="MathJax-Element-259">\epsilon</script> that tells us the approx prob that X is within an interval of <script type="math/tex" id="MathJax-Element-260">\epsilon</script> near the value x. <br>
-<script type="math/tex" id="MathJax-Element-261">\epsilon f(x) \approx P(x < X \leq x+\epsilon)</script> <br>
-for a small interval <script type="math/tex" id="MathJax-Element-262">\epsilon</script></p>
+So f(x) can be thought of as a multiplier for an interval with <script type="math/tex" id="MathJax-Element-259">\epsilon</script> that tells us the approx prob that X is within an interval of <script type="math/tex" id="MathJax-Element-260">\epsilon</script> near the value x.
+<script type="math/tex" id="MathJax-Element-261">\epsilon f(x) \approx P(x < X \leq x+\epsilon)</script>
+for a small interval <script type="math/tex" id="MathJax-Element-262">\epsilon</script>
 
-<p>Expectation <br>
-Def: The mean of a cts rv X is <script type="math/tex" id="MathJax-Element-263">\int_{-\infty}^{\infty}xf(x)dx</script></p>
+Expectation
+Def: The mean of a cts rv X is <script type="math/tex" id="MathJax-Element-263">\int_{-\infty}^{\infty}xf(x)dx</script>
 
-<p><script type="math/tex" id="MathJax-Element-264">E[X] = \int_{\text{all x } \epsilon \text{ range}}xf(x)dx</script></p>
+<script type="math/tex" id="MathJax-Element-264">E[X] = \int_{\text{all x } \epsilon \text{ range}}xf(x)dx</script>
 
-<p><script type="math/tex" id="MathJax-Element-265">Var(x) = E[X^2] - E[X]^2</script> <br>
-<script type="math/tex" id="MathJax-Element-266">where E[X^2] = \int_{\text{all x } \epsilon \text{ range}}x^2f(x)dx</script></p>
+<script type="math/tex" id="MathJax-Element-265">Var(x) = E[X^2] - E[X]^2</script>
+<script type="math/tex" id="MathJax-Element-266">where E[X^2] = \int_{\text{all x } \epsilon \text{ range}}x^2f(x)dx</script>
 
-<p>Def: The pth percentile of X is the value <script type="math/tex" id="MathJax-Element-267">x_p</script> such that: <br>
-<script type="math/tex" id="MathJax-Element-268">P(X \leq /< x_p) = p</script> <br>
-eg. <script type="math/tex" id="MathJax-Element-269">x_{0.5}</script> is the median</p>
+Def: The pth percentile of X is the value <script type="math/tex" id="MathJax-Element-267">x_p</script> such that:
+<script type="math/tex" id="MathJax-Element-268">P(X \leq /< x_p) = p</script>
+eg. <script type="math/tex" id="MathJax-Element-269">x_{0.5}</script> is the median
 
-<p>Find <script type="math/tex" id="MathJax-Element-270">x_{0.5}</script> for the previous example <br>
-<script type="math/tex" id="MathJax-Element-271">P(X\leq x_{0.5}) = 0.5</script> <br>
-<script type="math/tex" id="MathJax-Element-272">F(x_{0.5}) = 0.5 \\  \therefore (x_{0.5})^2 = 0.5 \\ \therefore x_{0.5} = 0.707</script></p></body>
+Find <script type="math/tex" id="MathJax-Element-270">x_{0.5}</script> for the previous example
+<script type="math/tex" id="MathJax-Element-271">P(X\leq x_{0.5}) = 0.5</script>
+<script type="math/tex" id="MathJax-Element-272">F(x_{0.5}) = 0.5 \\  \therefore (x_{0.5})^2 = 0.5 \\ \therefore x_{0.5} = 0.707</script>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="stat-230-tutorial-2-problems-section-102">Stat 230 Tutorial 2 Problems - Section 102</h2>
+
+<ol>
+<li>Friends add you to Facebook according to a Poisson process with rate <script type="math/tex" id="MathJax-Element-273">\lambda</script> per day <br>
+a. On any given day, the probability that nobody adds you is 0.1353. Find <script type="math/tex" id="MathJax-Element-274">\lambda</script> <br>
+b. Given that 5 friends added you in 3 days, what is the probability that 2 of them were on the first day? <br>
+c. A bad day is when 1 or fewer friends add you. Show that the probability of a bad day is 0.41. Calculate.  Use the rounded value in the rest. <br>
+d. What is the probability of having 2 bad days in a week? <br>
+e. What is the prob of having to wait at least 5 days (total) to have one bad day?</li>
+</ol>
+
+<p>a) Let X = # who add in 1 day <br>
+X~ Poi(<script type="math/tex" id="MathJax-Element-275">\lambda</script>) <br>
+We know P(X=0) = 0.1353 <br>
+But <script type="math/tex" id="MathJax-Element-276">P(X = 0) = \frac{e^{-\lambda}\lambda^0}{0!} = e^{-\lambda}</script> <br>
+Equating and solving, <script type="math/tex" id="MathJax-Element-277">\lambda = -ln(0.1353) = 2</script></p>
+
+<p>b) <script type="math/tex" id="MathJax-Element-278">\frac{\text{P(2 in 1 day AND 5 in 3 days)}}{P(5 in 3 days)} \\= \frac{\text{P(2 in 1 day)P(3 in next 2 days)}}{\text{P(5 in 3 days)}}</script> <br>
+<script type="math/tex" id="MathJax-Element-279">= \frac{\frac{e^{-2}2^2}{2!}*\frac{e^{-4}4^3}{3!}}{\frac{e^{-6}6^5}{5!}}</script> <br>
+<script type="math/tex" id="MathJax-Element-280">= {5 \choose 2}{\frac{2}{6}}^2\frac{4}{6}^3 = 0.329</script> looks like binomial. We could have at the beginning, used binomial and have gotten the same result.</p>
+
+<p>c) <script type="math/tex" id="MathJax-Element-281">P(bad) = P(X \leq 1) = P(X=0) + P(X=1)</script> <br>
+<script type="math/tex" id="MathJax-Element-282">= \frac{e^{-2}2^0}{0!}+\frac{e^{-2}2^1}{1!} = 0.406</script></p>
+
+<p>d) Y = # bad days out of 7 <br>
+Y~Bin(7,0.41) <br>
+<script type="math/tex" id="MathJax-Element-283">P(Y=2) = {7 \choose 2}0.41^20.59^5</script></p>
+
+<p>e) Let Z = # good before first bad <br>
+Z ~ Geo(0.41) <br>
+<script type="math/tex" id="MathJax-Element-284">P(Z \geq 4) = 1 - 0.41 - 0.41*0.59 - 0.41*0.59^2 - 0.41*0.59^3 = 0.121</script></p>
+
+<ol>
+<li>Suppose X ~ Geometric(p) <br>
+a) Find the probability that X is an odd number <br>
+b) Find the probability that X is divisible by 3. What about divisible by k? <br>
+c) Find the probability function of the random variable R, where R is the remainder when X is divided by 4. What about the remainder when divided by m? <br>
+d) show that the mean of X is (1-p)/p and provide a logical explination for the relationship between the mean and the size of p.</li>
+</ol>
+
+<p>a) <script type="math/tex" id="MathJax-Element-285">P(X=1) + P(X=3) + P(X=5) + ... = p(1-p) + p(1-p)^3 + p(1-p)^5 + ... </script> <br>
+<script type="math/tex" id="MathJax-Element-286">= \frac{p(1-p)}{1-(1-p)^2}</script></p>
+
+<p>b) <script type="math/tex" id="MathJax-Element-287">P(X=0) + P(X=3)+P(X=6)+ ... = p + p(1-p)^3 + p(1-p)^6</script> <br>
+<script type="math/tex" id="MathJax-Element-288">=\frac{p}{1-(1-p)^3}</script>  <br>
+general <script type="math/tex" id="MathJax-Element-289">\frac{p}{1-(1-p)^k}</script></p>
+
+<p>c) range of R: {0, 1, 2, 3} <br>
+<script type="math/tex" id="MathJax-Element-290">P(R=0) = \frac{p}{1-(1-p)^4}</script> from before <br>
+<script type="math/tex" id="MathJax-Element-291">P(R=1) = P(X=1) + P(X=5) + P(X=9) + ... = \frac{p(1-p)}{1- (1-p)^4}</script> <br>
+Similarly, <script type="math/tex" id="MathJax-Element-292">P(R=2) = \frac{p(1-p)^2}{1-(1-p)^4}</script>and <script type="math/tex" id="MathJax-Element-293">P(R=3) = \frac{p(1-p)^3}{1-(1-p)^4}</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-294">f(r) = P(R=r) = \frac{p(1-p)^r}{1-(1-p)^4}</script></p>
+
+<p>d) we know <script type="math/tex" id="MathJax-Element-295">\frac{a}{1-r} = \Sigma_{n=0}^{\infty}ar^n</script> <br>
+take d/dr of bs <br>
+<script type="math/tex" id="MathJax-Element-296">\frac{a}{(1-r)^2} = a\Sigma_{n=1}^{\infty}nr^{n-1} (*)</script> <br>
+Now <script type="math/tex" id="MathJax-Element-297">E[X] = \Sigma_{allx} xf(x) = \Sigma_{x=0}^{\infty}xp(1-p)^x</script> <br>
+<script type="math/tex" id="MathJax-Element-298">= p(1-p) \Sigma_{x=1}^{\infty}x(1-p)^{x-1} (*)= \frac{p(1-p)}{p^2} = \frac{1-p}{p}</script></p>
+
+<p>Why? <script type="math/tex" id="MathJax-Element-299">p =  \frac{1}{6} , \ E[X] = \frac{\frac{5}{6}}{\frac{1}{6}} = 5</script> <br>
+<script type="math/tex" id="MathJax-Element-300">p =  \frac{1}{100} , \ E[X] = \frac{\frac{99}{100}}{\frac{1}{100}} = 99</script> <br>
+Waiting time is inversely proportional to the prob of success.</p>
+
+<ol>
+<li>According to the clicker data collected in our class, the probability function X = the number of courses you are taking is:</li>
+</ol>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>3</th>
+  <th>4</th>
+  <th>5</th>
+  <th>6</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>0.02</td>
+  <td>0.13</td>
+  <td>0.75</td>
+  <td>0.1</td>
+</tr>
+</tbody></table>
+
+
+<p>suppose the hours of schoolwork you have each week are 20sqrtx and your stress level is 2X^2 <br>
+a) Find the expected schoolwork hours and the expected stress level of a random student. <br>
+b) Find the variance of these quantities</p>
+
+<p>a) Let Y = <script type="math/tex" id="MathJax-Element-301">20\sqrt x, \ z=2X^2</script></p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>f(x)</th>
+  <th>y</th>
+  <th>z</th>
+  <th>y^2</th>
+  <th>z^2</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>3</td>
+  <td>0.02</td>
+  <td>34.64</td>
+  <td>18</td>
+  <td>1200</td>
+  <td>324</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>0.13</td>
+  <td>40</td>
+  <td>32</td>
+  <td>1600</td>
+  <td>1024</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>0.75</td>
+  <td></td>
+  <td>50</td>
+  <td>2000</td>
+  <td>…</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>0.1</td>
+  <td></td>
+  <td>72</td>
+  <td>2400</td>
+  <td>…</td>
+</tr>
+</tbody></table>
+
+
+<p><script type="math/tex" id="MathJax-Element-302">E[Y] = \Sigma 20\sqrt xf(x) = 44.33</script> <br>
+<script type="math/tex" id="MathJax-Element-303">E[Z] = \Sigma 2x^2 f(x) = 49.22</script> <br>
+<script type="math/tex" id="MathJax-Element-304">E[Y^2] = 1972</script> -&gt; Var(Y) = 6.60 <br>
+<script type="math/tex" id="MathJax-Element-305">E[Z^2] = 2533</script> -&gt; Var(Z) = 110.31</p>
+
+<ol>
+<li>The download speed of a decent connection, X (measured in units of 10MBps) has prob density function (pdf)</li>
+</ol>
+
+<p>f(x) = ksqrtx for 0 &lt; x &lt; 1 <br>
+f(x) = k/2 (3-x) for 1 &lt; x &lt; 3 <br>
+f(x) = 0 otherwise <br>
+see learn</p>
+
+<p>a) we need <script type="math/tex" id="MathJax-Element-306">\int_{-\infty}^{\infty}f(x)dx = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-307">= 0 + \int_{0}^{1}k\sqrt x dx + \int_1^3 \frac{k}{2} (3-x) dx + 0</script> <br>
+<script type="math/tex" id="MathJax-Element-308"> = k \frac{2}{3} x^{\frac{3}{2}} |_0^1 +\frac{k}{2}(3x - \frac{x^2}{2} )| _1^3</script> <br>
+<script type="math/tex" id="MathJax-Element-309">= \frac{2}{3}k + \frac{k}{2}(\frac{9}{2}-\frac{3}{2})</script> <br>
+<script type="math/tex" id="MathJax-Element-310">= \frac{5}{3}k</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-311">K = \frac{3}{5} = 0.6</script></p>
+
+
+
+<h2 id="lecture-23">Lecture 23</h2>
+
+<blockquote>
+  <p>recall: cdf, pdf, mean, percentiles of cts X <br>
+  Uniform distribution (8.2) <br>
+  transformations / change of variable (8.1) <br>
+  SWAG: computer -generated random numbers</p>
+</blockquote>
+
+<p>Example: <br>
+A cont rv X has pdf f(x) = <script type="math/tex" id="MathJax-Element-312">c^2</script> for 0 &lt; x &lt; 2 and 0 otherwise <br>
+Find c:</p>
+
+<p>f(x) = F’(x) <br>
+<script type="math/tex" id="MathJax-Element-313">\int f(x)fx = 1</script> <br>
+all x <br>
+<script type="math/tex" id="MathJax-Element-314">F(x) = \int_{-\infty}^\infty f(u)du</script> <br>
+<script type="math/tex" id="MathJax-Element-315">E[X] = \int_{\text{all x}}xf(x)dx</script></p>
+
+<p><img src="http://amyqiu.me/Notes/pdf.png"></p>
+
+<p><script type="math/tex" id="MathJax-Element-316">f(x) = cx^2 , 0 < x< 2 </script> <br>
+<script type="math/tex" id="MathJax-Element-317">\int_0^2cx^2dx = \frac{cx^3}{3}|^2_0 = c\frac{8}{3} = 1</script> <br>
+so <script type="math/tex" id="MathJax-Element-318">c = \frac{3}{8}</script></p>
+
+<p><img src="http://amyqiu.me/Notes/pdf2.png"></p>
+
+<p><script type="math/tex" id="MathJax-Element-319">F(x) = \int_0^x \frac{3}{8}u^2 du</script> <br>
+<script type="math/tex" id="MathJax-Element-320">= \frac{3}{8}\frac{u^3}{3}|^x_0 = \frac{x^3}{8}</script> <br>
+So F(x) = 0 if x &lt; 0 <br>
+<script type="math/tex" id="MathJax-Element-321">F(x) = x^3/8  \ \ if\ \ 0 \leq x \leq 2</script> <br>
+F(x) = 1 x &gt; 2</p>
+
+<p>Find P(X&gt;1) <br>
+<script type="math/tex" id="MathJax-Element-322">P(X> 1) = 1 - P(X \geq 1) = 1 - \frac{1}{8}</script></p>
+
+<p>Find E[X] <br>
+E[X] = <script type="math/tex" id="MathJax-Element-323">\int_0^2x\frac{3}{8}x^2dx = \frac{3}{8}\frac{x^4}{4}|_0^2=\frac{3}{2}</script></p>
+
+
+
+<h3 id="82-continuous-uniform-rv">8.2 Continuous Uniform rv</h3>
+
+<p>Def: If a cts rv X takes values on (a,b), a &lt; b <script type="math/tex" id="MathJax-Element-324">\epsilon</script> R st all subintervals of fixed length are equally likely. We say X~U(a,b). The endpoints a and b can be included or excluded, it doesn’t matter.</p>
+
+<p>Find f(x) = c (a constant)</p>
+
+<p>but we need <script type="math/tex" id="MathJax-Element-325">\int_a^b f(x)dx = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-326">\therefore cx|_b^a = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-327">\therefore c(b-a) = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-328">\therefore c = \frac{1}{b-a}</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-329">F(x) = \int_a^xf(u)du</script> <br>
+<script type="math/tex" id="MathJax-Element-330">= \int_a^x\frac{1}{b-a}du</script> <br>
+<script type="math/tex" id="MathJax-Element-331">= \frac{u}{b-a}|_a^x = \frac{x-a}{b-a}</script> <br>
+Sp F(x) = 0 for x &lt; a <br>
+<script type="math/tex" id="MathJax-Element-332">F(x) = \frac{x-a}{b-a} for a \leq x \leq b</script> <br>
+F(x) = 1 for x &gt; b</p>
+
+<p>So F(x) is not diff at a,b.</p>
+
+<p><script type="math/tex" id="MathJax-Element-333">E[X] = \int_a^b x\frac{1}{b-a}dx</script> <br>
+<script type="math/tex" id="MathJax-Element-334">=\frac{x^2}{2(b-a)}|^b_a = \frac{b^2-a^2}{2(b-a)} = \frac{a+b}{2}</script> <br>
+(average of end points)</p>
+
+<p>Similarly Var(X) = <script type="math/tex" id="MathJax-Element-335">\frac{(b-a)^2}{12}</script> (proof as exercise. Maybe on final :^))</p>
+
+<p>Makes sense that it’s proportional to the square of the range.</p>
+
+<p>Special case:  <br>
+a=0, b=U~U(0,1) <br>
+<script type="math/tex" id="MathJax-Element-336">f(u) = 1 \ \ if \ \ 0 \leq u \leq1</script> <br>
+<script type="math/tex" id="MathJax-Element-337">f(u) = 0</script> otherwise</p>
+
+
+
+<h3 id="change-of-variable-81">Change of Variable (8.1)</h3>
+
+<p>If we have the distribution X but we want <script type="math/tex" id="MathJax-Element-338">Y=h(X)</script> we can find the cdf/pdf of Y by changing the variable in 3 steps.</p>
+
+<ol>
+<li>write the cdf of Y, <script type="math/tex" id="MathJax-Element-339">P(Y \leq y)</script> in terms of an expression using the cdf of X</li>
+<li>Use the cdf of X to evaluate it and if we desired, differentiate to get the pdf</li>
+<li>Find the range of Y (will depend on h and the range of X)</li>
+</ol>
+
+<p>Example: <br>
+Let X=# a spinner lands on between 0 and 4. <br>
+X~U(0,4) <br>
+Let <script type="math/tex" id="MathJax-Element-340">Y = \frac{1}{x}</script> and find <script type="math/tex" id="MathJax-Element-341">f_y(g)</script></p>
+
+<p>Step 1: <script type="math/tex" id="MathJax-Element-342">F_y(y) = P(Y \leq y)</script> <br>
+<script type="math/tex" id="MathJax-Element-343">= P (\frac{1}{x}\leq y)</script> <br>
+<script type="math/tex" id="MathJax-Element-344">= P(x > \frac{1}{y})</script> <br>
+<script type="math/tex" id="MathJax-Element-345">= 1 - F_x(\frac{1}{y})</script></p>
+
+<p>Step 2: We know <script type="math/tex" id="MathJax-Element-346">F_x(x) =0</script> for <script type="math/tex" id="MathJax-Element-347">x<0</script> <br>
+<script type="math/tex" id="MathJax-Element-348">F_x(x)= \frac{x}{4}</script> for <script type="math/tex" id="MathJax-Element-349">0 \leq x \leq 4</script> <br>
+<script type="math/tex" id="MathJax-Element-350">F_x(x) = 1</script> for <script type="math/tex" id="MathJax-Element-351">x > 4</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-352">F_y(y) = 1 - \frac{\frac{1}{y}}{4}</script> <br>
+<script type="math/tex" id="MathJax-Element-353">= 1 - \frac{1}{4y}</script> <br>
+and <script type="math/tex" id="MathJax-Element-354">f_y(y) = F'_y(y) = -\frac{1}{4}(-\frac{1}{-y^2}) = \frac{1}{4y^2}</script></p>
+
+<p>Step 3: range of Y: <script type="math/tex" id="MathJax-Element-355">y \epsilon (\frac{1}{4} , \infty)</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-356">f_y(y) = \frac{1}{4y^2}</script> for <script type="math/tex" id="MathJax-Element-357">y > \frac{1}{4}</script> <br>
+<script type="math/tex" id="MathJax-Element-358">f_y(y) = 0 </script> otherwise</p>
+
+<blockquote>
+  <p>Note: if h(X) is invertible (1-1) we can differentiate after step 1 using the chain rule.</p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-359">f_y(y) = \frac{d}{dy}F_y(y)</script> <br>
+<script type="math/tex" id="MathJax-Element-360"> = \frac{d}{dy}(1 - F_x(\frac{1}{y}))</script> <br>
+<script type="math/tex" id="MathJax-Element-361">= - F'_x(\frac{1}{y})\frac{d}{dy}(\frac{1}{y})</script> <br>
+<script type="math/tex" id="MathJax-Element-362">-f_x(\frac{1}{y})(-\frac{1}{y^2}) = \frac{1}{4}*\frac{1}{y^2} = \frac{1}{4y^2}</script></p>
+
+
+
+<h2 id="lecture-25">Lecture 25</h2>
+
+
+
+<h3 id="83-exponential-rv">8.3 Exponential rv</h3>
+
+<blockquote>
+  <p>def: The exponential distribution is a cts rv defined for all positive Real numbers. It represents the waiting time between events in a Poisson process.</p>
+</blockquote>
+
+<p>Find cdf of X=time until next event in P.p w rate <script type="math/tex" id="MathJax-Element-7647">\lambda</script>. <br>
+ F(x) = P(X<script type="math/tex" id="MathJax-Element-7648">\leq</script>x) = 1 - P(X&gt;x) = 1 - P(next event occurs more than x time from now) <br>
+ = 1 - P(0 events in (0,x)) <br>
+but # events in (0,x) in a P.p is Poi(<script type="math/tex" id="MathJax-Element-7649">\lambda</script>x) <br>
+= 1 - <script type="math/tex" id="MathJax-Element-7650">\frac{e^{-\lambda x}(\lambda x)^0}{0!} = 1 - e^{-\lambda x} = F(x)</script></p>
+
+<p>Thus f(x) = <script type="math/tex" id="MathJax-Element-7651">\lambda e^{-\lambda x}</script> for x &gt; 0</p>
+
+<p>Alternate parameterization <br>
+<script type="math/tex" id="MathJax-Element-7652">f(x) = \frac{1}{\theta}e^{\frac{-x}{\theta}}</script> for x &gt; 0. <br>
+<script type="math/tex" id="MathJax-Element-7653">F(x) = 1 - e^{frac{-x}{\theta}}</script> (<script type="math/tex" id="MathJax-Element-7654">\theta = \frac{1}{\lambda}</script>) <br>
+We say X~exp<script type="math/tex" id="MathJax-Element-7655">(\theta)</script> <br>
+<img src="http://amyqiu.me/Notes/alt1.png"> <br>
+<img src="http://amyqiu.me/Notes/alt2.png"></p>
+
+<p>E[X] = <script type="math/tex" id="MathJax-Element-7656">\int_0^\infty x\frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script> <br>
+use integration by parts OR we can use a trick called a Gamma function <br>
+Def: <script type="math/tex" id="MathJax-Element-7657">\Gamma (\alpha) = \int_0^\infty x^{\alpha - 1} e^{-x}dx</script> <br>
+Properties: </p>
+
+<ol>
+<li><p>If <script type="math/tex" id="MathJax-Element-7658">\alpha > 1</script>,  <script type="math/tex" id="MathJax-Element-7659">\Gamma (\alpha) =(\alpha - 1)* \Gamma(\alpha -1)</script> <br>
+If <script type="math/tex" id="MathJax-Element-7660">\alpha = 1</script>, <script type="math/tex" id="MathJax-Element-7661">\Gamma(\alpha) = 1</script></p></li>
+<li><p>If <script type="math/tex" id="MathJax-Element-7662">\alpha</script> is an integer <script type="math/tex" id="MathJax-Element-7663">\geq 1</script>, <br>
+<script type="math/tex" id="MathJax-Element-7664">\Gamma(\alpha) = (\alpha - 1)!</script></p></li>
+<li><p><script type="math/tex" id="MathJax-Element-7665">\Gamma(\frac{1}{2}) = \sqrt \pi</script></p></li>
+</ol>
+
+<p>So <script type="math/tex" id="MathJax-Element-7666">E[X] = \int_0^\infty x \frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script></p>
+
+<p>substitution: <br>
+Let <script type="math/tex" id="MathJax-Element-7667">y = \frac{x}{\theta}</script> <br>
+<script type="math/tex" id="MathJax-Element-7668">x = y \theta</script> <br>
+<script type="math/tex" id="MathJax-Element-7669">dx = \theta dy</script></p>
+
+<p>So: <script type="math/tex" id="MathJax-Element-7670">E[X] = \int_0^\infty x \frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script> <br>
+<script type="math/tex" id="MathJax-Element-7671">= \int_0^\infty y \theta \frac{1}{\theta}e^{-y} \theta dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7672">=\theta \int_0^\infty y^{-1}e^{-y}dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7673">=\theta \Gamma(2) = \theta(2 - 1)! = \theta = E[X]</script></p>
+
+<p>Remember <script type="math/tex" id="MathJax-Element-7674">\lambda</script> - rate of events in poisson process. <br>
+<script type="math/tex" id="MathJax-Element-7675">\theta</script> - average waiting time between events <br>
+So it makes sense that they are inversely related <br>
+<script type="math/tex" id="MathJax-Element-7676">\lambda = \frac{1}{\theta}</script>,  <script type="math/tex" id="MathJax-Element-7677">\theta = \frac{1}{\lambda}</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-7678">Var(X) = E[X^2] - E[x]^2</script> <br>
+<script type="math/tex" id="MathJax-Element-7679">E[X^2] = \int_0^\infty x^2 \frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script> <br>
+<script type="math/tex" id="MathJax-Element-7680">Let y = \frac{x}{\theta}</script> <br>
+<script type="math/tex" id="MathJax-Element-7681">x = \theta y</script> <br>
+<script type="math/tex" id="MathJax-Element-7682">dx = \theta dy</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-7683">=\int_0^\infty \theta^2y^2\frac{1}{\theta}e^{-y}\theta dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7684">= \theta^2 \int_0^{\infty}y^{3-1} e^{-y}dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7685">=\theta^2\Gamma(3) = \theta^2(3-1)! = 2 \theta^2</script> <br>
+So Var(X) = <script type="math/tex" id="MathJax-Element-7686">2 \theta ^2 - (\theta^2)=\theta^2</script></p>
+
+<p>i.e. <script type="math/tex" id="MathJax-Element-7687">SD(X) = \theta</script> <br>
+For Poisson, nean = variance = parameter <script type="math/tex" id="MathJax-Element-7688">\mu</script>. <br>
+For exponential mean = sd = parameter <script type="math/tex" id="MathJax-Element-7689">\theta</script></p>
+
+<p>Example: <br>
+Requests arrive to a server with an exp. distribution of wait times. 50% of the time, the wait is at best 15 sec. <br>
+a) Find avg time between requests <br>
+Let X = time between requests~exp<script type="math/tex" id="MathJax-Element-7690">(\theta)</script> <br>
+We know P(X &gt; 15) = 0.5 <br>
+So 1 - F(15) = 0.5 <br>
+So <script type="math/tex" id="MathJax-Element-7691">1 - (1 - e^{-\frac{15}{\theta}})= 0.5</script> <br>
+So <script type="math/tex" id="MathJax-Element-7692">\theta = \frac{-15}{ln(0.5)} = 21.64</script></p>
+
+<p>b) If a request has just come in, find the prob. another one comes in within 5 sec. <br>
+P(X &lt; 5) = F(5) = <script type="math/tex" id="MathJax-Element-7693">1 - e^{-\frac{5}{21.64}} = 0.206</script> <br>
+Could also do with Poisson rv.</p>
+
+<p>The memoryless property <br>
+Example: <br>
+Suppose buses arrive according to a Poisson process with rate 5/hr. <br>
+Find P(wait &gt; 15 mins) <br>
+t = min <br>
+<script type="math/tex" id="MathJax-Element-7694">\lambda = \frac{5}{60}= \frac{1}{12}</script> <br>
+<script type="math/tex" id="MathJax-Element-7695">\theta = 12</script></p>
+
+<p>X = waiting time ~exp(12) <br>
+P(X &gt; 15) = 1 - (1 - <script type="math/tex" id="MathJax-Element-7696">e^{-\frac{15}{12}}) = e^{-\frac{15}{12}} = 0.2865</script></p>
+
+<p>C) given you’ve already waiting 6 min, find prob you wait &gt; 15 more min. <br>
+i.e. P(X &gt; 21 | X &gt; 6) <br>
+<script type="math/tex" id="MathJax-Element-7697">=\frac{\text{P(X > 31 and X > 6)}}{\text{P(X>6)}}</script> <br>
+<script type="math/tex" id="MathJax-Element-7698">=\frac{\text{P(X>21)}}{\text{P(X>6)}}</script> <br>
+<script type="math/tex" id="MathJax-Element-7699">= \frac{1 - (1 - e^{-\frac{21}{12}})}{1 - (1 - e^{-\frac{6}{12}})}</script> <br>
+<script type="math/tex" id="MathJax-Element-7700"> = e^{-\frac{15}{12}} = 0.2865</script> <br>
+Waiting already done affect change future wait time</p></body>
 </html>
 
 <!--
@@ -1739,6 +2145,16 @@ eg. <script type="math/tex" id="MathJax-Element-269">x_{0.5}</script> is the med
 </ul>
 </li>
 <li><a href="#lecture-22">Lecture 22</a></li>
+<li><a href="#stat-230-tutorial-2-problems-section-102">Stat 230 Tutorial 2 Problems - Section 102</a></li>
+<li><a href="#lecture-23">Lecture 23</a><ul>
+<li><a href="#82-continuous-uniform-rv">8.2 Continuous Uniform rv</a></li>
+<li><a href="#change-of-variable-81">Change of Variable (8.1)</a></li>
+</ul>
+</li>
+<li><a href="#lecture-25">Lecture 25</a><ul>
+<li><a href="#83-exponential-rv">8.3 Exponential rv</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3148,9 +3564,8 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 
 <h3 id="variances-of-named-distributions">Variances of named distributions</h3>
 
-<p></p><ol> <br>
-<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br></li></ol><p></p>
-
+<ol>
+<li>Poissson - X~Poi(<script type="math/tex" id="MathJax-Element-224">\mu</script>) , <script type="math/tex" id="MathJax-Element-225">E[X] = \mu</script> <br>
 <ul><li><script type="math/tex" id="MathJax-Element-226">Var(X) = E[X^2] - E[X]</script> <br>
 <script type="math/tex" id="MathJax-Element-227">= E[X(X-1) + X] - E[X]^2</script> <br>
 <script type="math/tex" id="MathJax-Element-228">= E[X(X-1)] +E[X] - E[X]^2</script></li>
@@ -3158,14 +3573,14 @@ Verify <script type="math/tex" id="MathJax-Element-222">E[Y] = 2E[X]+1</script> 
 <li><script type="math/tex" id="MathJax-Element-229">E[X(X-1)] = \Sigma_{x=0}^{\infty}x(x-1)\frac{e^{-\mu}\mu^x}{x(x-1)(x-2)!} \\=\mu^2\Sigma_{y=0}^{\infty}\frac{e^{-\mu}\mu^y}{y!} = ty = x-2</script></li>
 <li>So <script type="math/tex" id="MathJax-Element-230">Var(X) = \mu^2 + \mu - \mu^2 = \mu</script> <br>
 In the Poisson, <script type="math/tex" id="MathJax-Element-231">\mu</script> is the mean and the variance!  <br>
-<strong>^ the Poisson variance is a good exam question</strong></li></ul>
+<strong>^ the Poisson variance is a good exam question</strong></li></ul></li>
 <li>Binomial - <script type="math/tex" id="MathJax-Element-232">E[X] = np</script> ,  <script type="math/tex" id="MathJax-Element-233">E[X(X-1)] = n(n-1)p^2</script> <br>
 <ul><li><script type="math/tex" id="MathJax-Element-234">\therefore Var(X) = n(n-1)p^2 + np - (np)^2 = np(1-p)</script> <br>
 
 
 <blockquote>
   Note: Var is smaller than mean when <script type="math/tex" id="MathJax-Element-235">p \approx 0</script> or <script type="math/tex" id="MathJax-Element-236">p \approx 1</script> the variance is small since there’s less uncertainty</blockquote></li></ul></li>
-  
+  </ol>
   
 
 
@@ -3222,34 +3637,431 @@ Properties of f(x)
 <ul><li>because F(x) is non-decreasing its derivative is non-negative.</li></ul></li>
 </ul>
 
+
 <blockquote>
   <p>Note: f(x) is NOT a probability!</p>
 </blockquote>
 
-<p>Imagine <script type="math/tex" id="MathJax-Element-255">P(x < X \leq x + \epsilon)</script> <br>
-<script type="math/tex" id="MathJax-Element-256">= \int_{x}^{x+\epsilon} f(u)du</script> <br>
-<script type="math/tex" id="MathJax-Element-257">\approx</script>  area of rectangle <br>
-<script type="math/tex" id="MathJax-Element-258">= \epsilon f(x)</script> <br>
-<img src="http://amyqiu.me/Notes/xplusep.png"></p>
+Imagine <script type="math/tex" id="MathJax-Element-255">P(x < X \leq x + \epsilon)</script>
+<script type="math/tex" id="MathJax-Element-256">= \int_{x}^{x+\epsilon} f(u)du</script>
+<script type="math/tex" id="MathJax-Element-257">\approx</script>  area of rectangle
+<script type="math/tex" id="MathJax-Element-258">= \epsilon f(x)</script>
+<img src="http://amyqiu.me/Notes/xplusep.png">
 
-<p>So f(x) can be thought of as a multiplier for an interval with <script type="math/tex" id="MathJax-Element-259">\epsilon</script> that tells us the approx prob that X is within an interval of <script type="math/tex" id="MathJax-Element-260">\epsilon</script> near the value x. <br>
-<script type="math/tex" id="MathJax-Element-261">\epsilon f(x) \approx P(x < X \leq x+\epsilon)</script> <br>
-for a small interval <script type="math/tex" id="MathJax-Element-262">\epsilon</script></p>
+So f(x) can be thought of as a multiplier for an interval with <script type="math/tex" id="MathJax-Element-259">\epsilon</script> that tells us the approx prob that X is within an interval of <script type="math/tex" id="MathJax-Element-260">\epsilon</script> near the value x.
+<script type="math/tex" id="MathJax-Element-261">\epsilon f(x) \approx P(x < X \leq x+\epsilon)</script>
+for a small interval <script type="math/tex" id="MathJax-Element-262">\epsilon</script>
 
-<p>Expectation <br>
-Def: The mean of a cts rv X is <script type="math/tex" id="MathJax-Element-263">\int_{-\infty}^{\infty}xf(x)dx</script></p>
+Expectation
+Def: The mean of a cts rv X is <script type="math/tex" id="MathJax-Element-263">\int_{-\infty}^{\infty}xf(x)dx</script>
 
-<p><script type="math/tex" id="MathJax-Element-264">E[X] = \int_{\text{all x } \epsilon \text{ range}}xf(x)dx</script></p>
+<script type="math/tex" id="MathJax-Element-264">E[X] = \int_{\text{all x } \epsilon \text{ range}}xf(x)dx</script>
 
-<p><script type="math/tex" id="MathJax-Element-265">Var(x) = E[X^2] - E[X]^2</script> <br>
-<script type="math/tex" id="MathJax-Element-266">where E[X^2] = \int_{\text{all x } \epsilon \text{ range}}x^2f(x)dx</script></p>
+<script type="math/tex" id="MathJax-Element-265">Var(x) = E[X^2] - E[X]^2</script>
+<script type="math/tex" id="MathJax-Element-266">where E[X^2] = \int_{\text{all x } \epsilon \text{ range}}x^2f(x)dx</script>
 
-<p>Def: The pth percentile of X is the value <script type="math/tex" id="MathJax-Element-267">x_p</script> such that: <br>
-<script type="math/tex" id="MathJax-Element-268">P(X \leq /< x_p) = p</script> <br>
-eg. <script type="math/tex" id="MathJax-Element-269">x_{0.5}</script> is the median</p>
+Def: The pth percentile of X is the value <script type="math/tex" id="MathJax-Element-267">x_p</script> such that:
+<script type="math/tex" id="MathJax-Element-268">P(X \leq /< x_p) = p</script>
+eg. <script type="math/tex" id="MathJax-Element-269">x_{0.5}</script> is the median
 
-<p>Find <script type="math/tex" id="MathJax-Element-270">x_{0.5}</script> for the previous example <br>
-<script type="math/tex" id="MathJax-Element-271">P(X\leq x_{0.5}) = 0.5</script> <br>
-<script type="math/tex" id="MathJax-Element-272">F(x_{0.5}) = 0.5 \\  \therefore (x_{0.5})^2 = 0.5 \\ \therefore x_{0.5} = 0.707</script></p></body>
+Find <script type="math/tex" id="MathJax-Element-270">x_{0.5}</script> for the previous example
+<script type="math/tex" id="MathJax-Element-271">P(X\leq x_{0.5}) = 0.5</script>
+<script type="math/tex" id="MathJax-Element-272">F(x_{0.5}) = 0.5 \\  \therefore (x_{0.5})^2 = 0.5 \\ \therefore x_{0.5} = 0.707</script>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="stat-230-tutorial-2-problems-section-102">Stat 230 Tutorial 2 Problems - Section 102</h2>
+
+<ol>
+<li>Friends add you to Facebook according to a Poisson process with rate <script type="math/tex" id="MathJax-Element-273">\lambda</script> per day <br>
+a. On any given day, the probability that nobody adds you is 0.1353. Find <script type="math/tex" id="MathJax-Element-274">\lambda</script> <br>
+b. Given that 5 friends added you in 3 days, what is the probability that 2 of them were on the first day? <br>
+c. A bad day is when 1 or fewer friends add you. Show that the probability of a bad day is 0.41. Calculate.  Use the rounded value in the rest. <br>
+d. What is the probability of having 2 bad days in a week? <br>
+e. What is the prob of having to wait at least 5 days (total) to have one bad day?</li>
+</ol>
+
+<p>a) Let X = # who add in 1 day <br>
+X~ Poi(<script type="math/tex" id="MathJax-Element-275">\lambda</script>) <br>
+We know P(X=0) = 0.1353 <br>
+But <script type="math/tex" id="MathJax-Element-276">P(X = 0) = \frac{e^{-\lambda}\lambda^0}{0!} = e^{-\lambda}</script> <br>
+Equating and solving, <script type="math/tex" id="MathJax-Element-277">\lambda = -ln(0.1353) = 2</script></p>
+
+<p>b) <script type="math/tex" id="MathJax-Element-278">\frac{\text{P(2 in 1 day AND 5 in 3 days)}}{P(5 in 3 days)} \\= \frac{\text{P(2 in 1 day)P(3 in next 2 days)}}{\text{P(5 in 3 days)}}</script> <br>
+<script type="math/tex" id="MathJax-Element-279">= \frac{\frac{e^{-2}2^2}{2!}*\frac{e^{-4}4^3}{3!}}{\frac{e^{-6}6^5}{5!}}</script> <br>
+<script type="math/tex" id="MathJax-Element-280">= {5 \choose 2}{\frac{2}{6}}^2\frac{4}{6}^3 = 0.329</script> looks like binomial. We could have at the beginning, used binomial and have gotten the same result.</p>
+
+<p>c) <script type="math/tex" id="MathJax-Element-281">P(bad) = P(X \leq 1) = P(X=0) + P(X=1)</script> <br>
+<script type="math/tex" id="MathJax-Element-282">= \frac{e^{-2}2^0}{0!}+\frac{e^{-2}2^1}{1!} = 0.406</script></p>
+
+<p>d) Y = # bad days out of 7 <br>
+Y~Bin(7,0.41) <br>
+<script type="math/tex" id="MathJax-Element-283">P(Y=2) = {7 \choose 2}0.41^20.59^5</script></p>
+
+<p>e) Let Z = # good before first bad <br>
+Z ~ Geo(0.41) <br>
+<script type="math/tex" id="MathJax-Element-284">P(Z \geq 4) = 1 - 0.41 - 0.41*0.59 - 0.41*0.59^2 - 0.41*0.59^3 = 0.121</script></p>
+
+<ol>
+<li>Suppose X ~ Geometric(p) <br>
+a) Find the probability that X is an odd number <br>
+b) Find the probability that X is divisible by 3. What about divisible by k? <br>
+c) Find the probability function of the random variable R, where R is the remainder when X is divided by 4. What about the remainder when divided by m? <br>
+d) show that the mean of X is (1-p)/p and provide a logical explination for the relationship between the mean and the size of p.</li>
+</ol>
+
+<p>a) <script type="math/tex" id="MathJax-Element-285">P(X=1) + P(X=3) + P(X=5) + ... = p(1-p) + p(1-p)^3 + p(1-p)^5 + ... </script> <br>
+<script type="math/tex" id="MathJax-Element-286">= \frac{p(1-p)}{1-(1-p)^2}</script></p>
+
+<p>b) <script type="math/tex" id="MathJax-Element-287">P(X=0) + P(X=3)+P(X=6)+ ... = p + p(1-p)^3 + p(1-p)^6</script> <br>
+<script type="math/tex" id="MathJax-Element-288">=\frac{p}{1-(1-p)^3}</script>  <br>
+general <script type="math/tex" id="MathJax-Element-289">\frac{p}{1-(1-p)^k}</script></p>
+
+<p>c) range of R: {0, 1, 2, 3} <br>
+<script type="math/tex" id="MathJax-Element-290">P(R=0) = \frac{p}{1-(1-p)^4}</script> from before <br>
+<script type="math/tex" id="MathJax-Element-291">P(R=1) = P(X=1) + P(X=5) + P(X=9) + ... = \frac{p(1-p)}{1- (1-p)^4}</script> <br>
+Similarly, <script type="math/tex" id="MathJax-Element-292">P(R=2) = \frac{p(1-p)^2}{1-(1-p)^4}</script>and <script type="math/tex" id="MathJax-Element-293">P(R=3) = \frac{p(1-p)^3}{1-(1-p)^4}</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-294">f(r) = P(R=r) = \frac{p(1-p)^r}{1-(1-p)^4}</script></p>
+
+<p>d) we know <script type="math/tex" id="MathJax-Element-295">\frac{a}{1-r} = \Sigma_{n=0}^{\infty}ar^n</script> <br>
+take d/dr of bs <br>
+<script type="math/tex" id="MathJax-Element-296">\frac{a}{(1-r)^2} = a\Sigma_{n=1}^{\infty}nr^{n-1} (*)</script> <br>
+Now <script type="math/tex" id="MathJax-Element-297">E[X] = \Sigma_{allx} xf(x) = \Sigma_{x=0}^{\infty}xp(1-p)^x</script> <br>
+<script type="math/tex" id="MathJax-Element-298">= p(1-p) \Sigma_{x=1}^{\infty}x(1-p)^{x-1} (*)= \frac{p(1-p)}{p^2} = \frac{1-p}{p}</script></p>
+
+<p>Why? <script type="math/tex" id="MathJax-Element-299">p =  \frac{1}{6} , \ E[X] = \frac{\frac{5}{6}}{\frac{1}{6}} = 5</script> <br>
+<script type="math/tex" id="MathJax-Element-300">p =  \frac{1}{100} , \ E[X] = \frac{\frac{99}{100}}{\frac{1}{100}} = 99</script> <br>
+Waiting time is inversely proportional to the prob of success.</p>
+
+<ol>
+<li>According to the clicker data collected in our class, the probability function X = the number of courses you are taking is:</li>
+</ol>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>3</th>
+  <th>4</th>
+  <th>5</th>
+  <th>6</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>f(x)</td>
+  <td>0.02</td>
+  <td>0.13</td>
+  <td>0.75</td>
+  <td>0.1</td>
+</tr>
+</tbody></table>
+
+
+<p>suppose the hours of schoolwork you have each week are 20sqrtx and your stress level is 2X^2 <br>
+a) Find the expected schoolwork hours and the expected stress level of a random student. <br>
+b) Find the variance of these quantities</p>
+
+<p>a) Let Y = <script type="math/tex" id="MathJax-Element-301">20\sqrt x, \ z=2X^2</script></p>
+
+<table>
+<thead>
+<tr>
+  <th>x</th>
+  <th>f(x)</th>
+  <th>y</th>
+  <th>z</th>
+  <th>y^2</th>
+  <th>z^2</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>3</td>
+  <td>0.02</td>
+  <td>34.64</td>
+  <td>18</td>
+  <td>1200</td>
+  <td>324</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>0.13</td>
+  <td>40</td>
+  <td>32</td>
+  <td>1600</td>
+  <td>1024</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>0.75</td>
+  <td></td>
+  <td>50</td>
+  <td>2000</td>
+  <td>…</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>0.1</td>
+  <td></td>
+  <td>72</td>
+  <td>2400</td>
+  <td>…</td>
+</tr>
+</tbody></table>
+
+
+<p><script type="math/tex" id="MathJax-Element-302">E[Y] = \Sigma 20\sqrt xf(x) = 44.33</script> <br>
+<script type="math/tex" id="MathJax-Element-303">E[Z] = \Sigma 2x^2 f(x) = 49.22</script> <br>
+<script type="math/tex" id="MathJax-Element-304">E[Y^2] = 1972</script> -&gt; Var(Y) = 6.60 <br>
+<script type="math/tex" id="MathJax-Element-305">E[Z^2] = 2533</script> -&gt; Var(Z) = 110.31</p>
+
+<ol>
+<li>The download speed of a decent connection, X (measured in units of 10MBps) has prob density function (pdf)</li>
+</ol>
+
+<p>f(x) = ksqrtx for 0 &lt; x &lt; 1 <br>
+f(x) = k/2 (3-x) for 1 &lt; x &lt; 3 <br>
+f(x) = 0 otherwise <br>
+see learn</p>
+
+<p>a) we need <script type="math/tex" id="MathJax-Element-306">\int_{-\infty}^{\infty}f(x)dx = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-307">= 0 + \int_{0}^{1}k\sqrt x dx + \int_1^3 \frac{k}{2} (3-x) dx + 0</script> <br>
+<script type="math/tex" id="MathJax-Element-308"> = k \frac{2}{3} x^{\frac{3}{2}} |_0^1 +\frac{k}{2}(3x - \frac{x^2}{2} )| _1^3</script> <br>
+<script type="math/tex" id="MathJax-Element-309">= \frac{2}{3}k + \frac{k}{2}(\frac{9}{2}-\frac{3}{2})</script> <br>
+<script type="math/tex" id="MathJax-Element-310">= \frac{5}{3}k</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-311">K = \frac{3}{5} = 0.6</script></p>
+
+
+
+<h2 id="lecture-23">Lecture 23</h2>
+
+<blockquote>
+  <p>recall: cdf, pdf, mean, percentiles of cts X <br>
+  Uniform distribution (8.2) <br>
+  transformations / change of variable (8.1) <br>
+  SWAG: computer -generated random numbers</p>
+</blockquote>
+
+<p>Example: <br>
+A cont rv X has pdf f(x) = <script type="math/tex" id="MathJax-Element-312">c^2</script> for 0 &lt; x &lt; 2 and 0 otherwise <br>
+Find c:</p>
+
+<p>f(x) = F’(x) <br>
+<script type="math/tex" id="MathJax-Element-313">\int f(x)fx = 1</script> <br>
+all x <br>
+<script type="math/tex" id="MathJax-Element-314">F(x) = \int_{-\infty}^\infty f(u)du</script> <br>
+<script type="math/tex" id="MathJax-Element-315">E[X] = \int_{\text{all x}}xf(x)dx</script></p>
+
+<p><img src="http://amyqiu.me/Notes/pdf.png"></p>
+
+<p><script type="math/tex" id="MathJax-Element-316">f(x) = cx^2 , 0 < x< 2 </script> <br>
+<script type="math/tex" id="MathJax-Element-317">\int_0^2cx^2dx = \frac{cx^3}{3}|^2_0 = c\frac{8}{3} = 1</script> <br>
+so <script type="math/tex" id="MathJax-Element-318">c = \frac{3}{8}</script></p>
+
+<p><img src="http://amyqiu.me/Notes/pdf2.png"></p>
+
+<p><script type="math/tex" id="MathJax-Element-319">F(x) = \int_0^x \frac{3}{8}u^2 du</script> <br>
+<script type="math/tex" id="MathJax-Element-320">= \frac{3}{8}\frac{u^3}{3}|^x_0 = \frac{x^3}{8}</script> <br>
+So F(x) = 0 if x &lt; 0 <br>
+<script type="math/tex" id="MathJax-Element-321">F(x) = x^3/8  \ \ if\ \ 0 \leq x \leq 2</script> <br>
+F(x) = 1 x &gt; 2</p>
+
+<p>Find P(X&gt;1) <br>
+<script type="math/tex" id="MathJax-Element-322">P(X> 1) = 1 - P(X \geq 1) = 1 - \frac{1}{8}</script></p>
+
+<p>Find E[X] <br>
+E[X] = <script type="math/tex" id="MathJax-Element-323">\int_0^2x\frac{3}{8}x^2dx = \frac{3}{8}\frac{x^4}{4}|_0^2=\frac{3}{2}</script></p>
+
+
+
+<h3 id="82-continuous-uniform-rv">8.2 Continuous Uniform rv</h3>
+
+<p>Def: If a cts rv X takes values on (a,b), a &lt; b <script type="math/tex" id="MathJax-Element-324">\epsilon</script> R st all subintervals of fixed length are equally likely. We say X~U(a,b). The endpoints a and b can be included or excluded, it doesn’t matter.</p>
+
+<p>Find f(x) = c (a constant)</p>
+
+<p>but we need <script type="math/tex" id="MathJax-Element-325">\int_a^b f(x)dx = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-326">\therefore cx|_b^a = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-327">\therefore c(b-a) = 1</script> <br>
+<script type="math/tex" id="MathJax-Element-328">\therefore c = \frac{1}{b-a}</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-329">F(x) = \int_a^xf(u)du</script> <br>
+<script type="math/tex" id="MathJax-Element-330">= \int_a^x\frac{1}{b-a}du</script> <br>
+<script type="math/tex" id="MathJax-Element-331">= \frac{u}{b-a}|_a^x = \frac{x-a}{b-a}</script> <br>
+Sp F(x) = 0 for x &lt; a <br>
+<script type="math/tex" id="MathJax-Element-332">F(x) = \frac{x-a}{b-a} for a \leq x \leq b</script> <br>
+F(x) = 1 for x &gt; b</p>
+
+<p>So F(x) is not diff at a,b.</p>
+
+<p><script type="math/tex" id="MathJax-Element-333">E[X] = \int_a^b x\frac{1}{b-a}dx</script> <br>
+<script type="math/tex" id="MathJax-Element-334">=\frac{x^2}{2(b-a)}|^b_a = \frac{b^2-a^2}{2(b-a)} = \frac{a+b}{2}</script> <br>
+(average of end points)</p>
+
+<p>Similarly Var(X) = <script type="math/tex" id="MathJax-Element-335">\frac{(b-a)^2}{12}</script> (proof as exercise. Maybe on final :^))</p>
+
+<p>Makes sense that it’s proportional to the square of the range.</p>
+
+<p>Special case:  <br>
+a=0, b=U~U(0,1) <br>
+<script type="math/tex" id="MathJax-Element-336">f(u) = 1 \ \ if \ \ 0 \leq u \leq1</script> <br>
+<script type="math/tex" id="MathJax-Element-337">f(u) = 0</script> otherwise</p>
+
+
+
+<h3 id="change-of-variable-81">Change of Variable (8.1)</h3>
+
+<p>If we have the distribution X but we want <script type="math/tex" id="MathJax-Element-338">Y=h(X)</script> we can find the cdf/pdf of Y by changing the variable in 3 steps.</p>
+
+<ol>
+<li>write the cdf of Y, <script type="math/tex" id="MathJax-Element-339">P(Y \leq y)</script> in terms of an expression using the cdf of X</li>
+<li>Use the cdf of X to evaluate it and if we desired, differentiate to get the pdf</li>
+<li>Find the range of Y (will depend on h and the range of X)</li>
+</ol>
+
+<p>Example: <br>
+Let X=# a spinner lands on between 0 and 4. <br>
+X~U(0,4) <br>
+Let <script type="math/tex" id="MathJax-Element-340">Y = \frac{1}{x}</script> and find <script type="math/tex" id="MathJax-Element-341">f_y(g)</script></p>
+
+<p>Step 1: <script type="math/tex" id="MathJax-Element-342">F_y(y) = P(Y \leq y)</script> <br>
+<script type="math/tex" id="MathJax-Element-343">= P (\frac{1}{x}\leq y)</script> <br>
+<script type="math/tex" id="MathJax-Element-344">= P(x > \frac{1}{y})</script> <br>
+<script type="math/tex" id="MathJax-Element-345">= 1 - F_x(\frac{1}{y})</script></p>
+
+<p>Step 2: We know <script type="math/tex" id="MathJax-Element-346">F_x(x) =0</script> for <script type="math/tex" id="MathJax-Element-347">x<0</script> <br>
+<script type="math/tex" id="MathJax-Element-348">F_x(x)= \frac{x}{4}</script> for <script type="math/tex" id="MathJax-Element-349">0 \leq x \leq 4</script> <br>
+<script type="math/tex" id="MathJax-Element-350">F_x(x) = 1</script> for <script type="math/tex" id="MathJax-Element-351">x > 4</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-352">F_y(y) = 1 - \frac{\frac{1}{y}}{4}</script> <br>
+<script type="math/tex" id="MathJax-Element-353">= 1 - \frac{1}{4y}</script> <br>
+and <script type="math/tex" id="MathJax-Element-354">f_y(y) = F'_y(y) = -\frac{1}{4}(-\frac{1}{-y^2}) = \frac{1}{4y^2}</script></p>
+
+<p>Step 3: range of Y: <script type="math/tex" id="MathJax-Element-355">y \epsilon (\frac{1}{4} , \infty)</script></p>
+
+<p>So <script type="math/tex" id="MathJax-Element-356">f_y(y) = \frac{1}{4y^2}</script> for <script type="math/tex" id="MathJax-Element-357">y > \frac{1}{4}</script> <br>
+<script type="math/tex" id="MathJax-Element-358">f_y(y) = 0 </script> otherwise</p>
+
+<blockquote>
+  <p>Note: if h(X) is invertible (1-1) we can differentiate after step 1 using the chain rule.</p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-359">f_y(y) = \frac{d}{dy}F_y(y)</script> <br>
+<script type="math/tex" id="MathJax-Element-360"> = \frac{d}{dy}(1 - F_x(\frac{1}{y}))</script> <br>
+<script type="math/tex" id="MathJax-Element-361">= - F'_x(\frac{1}{y})\frac{d}{dy}(\frac{1}{y})</script> <br>
+<script type="math/tex" id="MathJax-Element-362">-f_x(\frac{1}{y})(-\frac{1}{y^2}) = \frac{1}{4}*\frac{1}{y^2} = \frac{1}{4y^2}</script></p>
+
+
+
+<h2 id="lecture-25">Lecture 25</h2>
+
+
+
+<h3 id="83-exponential-rv">8.3 Exponential rv</h3>
+
+<blockquote>
+  <p>def: The exponential distribution is a cts rv defined for all positive Real numbers. It represents the waiting time between events in a Poisson process.</p>
+</blockquote>
+
+<p>Find cdf of X=time until next event in P.p w rate <script type="math/tex" id="MathJax-Element-7647">\lambda</script>. <br>
+ F(x) = P(X<script type="math/tex" id="MathJax-Element-7648">\leq</script>x) = 1 - P(X&gt;x) = 1 - P(next event occurs more than x time from now) <br>
+ = 1 - P(0 events in (0,x)) <br>
+but # events in (0,x) in a P.p is Poi(<script type="math/tex" id="MathJax-Element-7649">\lambda</script>x) <br>
+= 1 - <script type="math/tex" id="MathJax-Element-7650">\frac{e^{-\lambda x}(\lambda x)^0}{0!} = 1 - e^{-\lambda x} = F(x)</script></p>
+
+<p>Thus f(x) = <script type="math/tex" id="MathJax-Element-7651">\lambda e^{-\lambda x}</script> for x &gt; 0</p>
+
+<p>Alternate parameterization <br>
+<script type="math/tex" id="MathJax-Element-7652">f(x) = \frac{1}{\theta}e^{\frac{-x}{\theta}}</script> for x &gt; 0. <br>
+<script type="math/tex" id="MathJax-Element-7653">F(x) = 1 - e^{frac{-x}{\theta}}</script> (<script type="math/tex" id="MathJax-Element-7654">\theta = \frac{1}{\lambda}</script>) <br>
+We say X~exp<script type="math/tex" id="MathJax-Element-7655">(\theta)</script> <br>
+<img src="http://amyqiu.me/Notes/alt1.png"> <br>
+<img src="http://amyqiu.me/Notes/alt2.png"></p>
+
+<p>E[X] = <script type="math/tex" id="MathJax-Element-7656">\int_0^\infty x\frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script> <br>
+use integration by parts OR we can use a trick called a Gamma function <br>
+Def: <script type="math/tex" id="MathJax-Element-7657">\Gamma (\alpha) = \int_0^\infty x^{\alpha - 1} e^{-x}dx</script> <br>
+Properties: </p>
+
+<ol>
+<li><p>If <script type="math/tex" id="MathJax-Element-7658">\alpha > 1</script>,  <script type="math/tex" id="MathJax-Element-7659">\Gamma (\alpha) =(\alpha - 1)* \Gamma(\alpha -1)</script> <br>
+If <script type="math/tex" id="MathJax-Element-7660">\alpha = 1</script>, <script type="math/tex" id="MathJax-Element-7661">\Gamma(\alpha) = 1</script></p></li>
+<li><p>If <script type="math/tex" id="MathJax-Element-7662">\alpha</script> is an integer <script type="math/tex" id="MathJax-Element-7663">\geq 1</script>, <br>
+<script type="math/tex" id="MathJax-Element-7664">\Gamma(\alpha) = (\alpha - 1)!</script></p></li>
+<li><p><script type="math/tex" id="MathJax-Element-7665">\Gamma(\frac{1}{2}) = \sqrt \pi</script></p></li>
+</ol>
+
+<p>So <script type="math/tex" id="MathJax-Element-7666">E[X] = \int_0^\infty x \frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script></p>
+
+<p>substitution: <br>
+Let <script type="math/tex" id="MathJax-Element-7667">y = \frac{x}{\theta}</script> <br>
+<script type="math/tex" id="MathJax-Element-7668">x = y \theta</script> <br>
+<script type="math/tex" id="MathJax-Element-7669">dx = \theta dy</script></p>
+
+<p>So: <script type="math/tex" id="MathJax-Element-7670">E[X] = \int_0^\infty x \frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script> <br>
+<script type="math/tex" id="MathJax-Element-7671">= \int_0^\infty y \theta \frac{1}{\theta}e^{-y} \theta dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7672">=\theta \int_0^\infty y^{-1}e^{-y}dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7673">=\theta \Gamma(2) = \theta(2 - 1)! = \theta = E[X]</script></p>
+
+<p>Remember <script type="math/tex" id="MathJax-Element-7674">\lambda</script> - rate of events in poisson process. <br>
+<script type="math/tex" id="MathJax-Element-7675">\theta</script> - average waiting time between events <br>
+So it makes sense that they are inversely related <br>
+<script type="math/tex" id="MathJax-Element-7676">\lambda = \frac{1}{\theta}</script>,  <script type="math/tex" id="MathJax-Element-7677">\theta = \frac{1}{\lambda}</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-7678">Var(X) = E[X^2] - E[x]^2</script> <br>
+<script type="math/tex" id="MathJax-Element-7679">E[X^2] = \int_0^\infty x^2 \frac{1}{\theta}e^{-\frac{x}{\theta}}dx</script> <br>
+<script type="math/tex" id="MathJax-Element-7680">Let y = \frac{x}{\theta}</script> <br>
+<script type="math/tex" id="MathJax-Element-7681">x = \theta y</script> <br>
+<script type="math/tex" id="MathJax-Element-7682">dx = \theta dy</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-7683">=\int_0^\infty \theta^2y^2\frac{1}{\theta}e^{-y}\theta dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7684">= \theta^2 \int_0^{\infty}y^{3-1} e^{-y}dy</script> <br>
+<script type="math/tex" id="MathJax-Element-7685">=\theta^2\Gamma(3) = \theta^2(3-1)! = 2 \theta^2</script> <br>
+So Var(X) = <script type="math/tex" id="MathJax-Element-7686">2 \theta ^2 - (\theta^2)=\theta^2</script></p>
+
+<p>i.e. <script type="math/tex" id="MathJax-Element-7687">SD(X) = \theta</script> <br>
+For Poisson, nean = variance = parameter <script type="math/tex" id="MathJax-Element-7688">\mu</script>. <br>
+For exponential mean = sd = parameter <script type="math/tex" id="MathJax-Element-7689">\theta</script></p>
+
+<p>Example: <br>
+Requests arrive to a server with an exp. distribution of wait times. 50% of the time, the wait is at best 15 sec. <br>
+a) Find avg time between requests <br>
+Let X = time between requests~exp<script type="math/tex" id="MathJax-Element-7690">(\theta)</script> <br>
+We know P(X &gt; 15) = 0.5 <br>
+So 1 - F(15) = 0.5 <br>
+So <script type="math/tex" id="MathJax-Element-7691">1 - (1 - e^{-\frac{15}{\theta}})= 0.5</script> <br>
+So <script type="math/tex" id="MathJax-Element-7692">\theta = \frac{-15}{ln(0.5)} = 21.64</script></p>
+
+<p>b) If a request has just come in, find the prob. another one comes in within 5 sec. <br>
+P(X &lt; 5) = F(5) = <script type="math/tex" id="MathJax-Element-7693">1 - e^{-\frac{5}{21.64}} = 0.206</script> <br>
+Could also do with Poisson rv.</p>
+
+<p>The memoryless property <br>
+Example: <br>
+Suppose buses arrive according to a Poisson process with rate 5/hr. <br>
+Find P(wait &gt; 15 mins) <br>
+t = min <br>
+<script type="math/tex" id="MathJax-Element-7694">\lambda = \frac{5}{60}= \frac{1}{12}</script> <br>
+<script type="math/tex" id="MathJax-Element-7695">\theta = 12</script></p>
+
+<p>X = waiting time ~exp(12) <br>
+P(X &gt; 15) = 1 - (1 - <script type="math/tex" id="MathJax-Element-7696">e^{-\frac{15}{12}}) = e^{-\frac{15}{12}} = 0.2865</script></p>
+
+<p>C) given you’ve already waiting 6 min, find prob you wait &gt; 15 more min. <br>
+i.e. P(X &gt; 21 | X &gt; 6) <br>
+<script type="math/tex" id="MathJax-Element-7697">=\frac{\text{P(X > 31 and X > 6)}}{\text{P(X>6)}}</script> <br>
+<script type="math/tex" id="MathJax-Element-7698">=\frac{\text{P(X>21)}}{\text{P(X>6)}}</script> <br>
+<script type="math/tex" id="MathJax-Element-7699">= \frac{1 - (1 - e^{-\frac{21}{12}})}{1 - (1 - e^{-\frac{6}{12}})}</script> <br>
+<script type="math/tex" id="MathJax-Element-7700"> = e^{-\frac{15}{12}} = 0.2865</script> <br>
+Waiting already done affect change future wait time</p></body>
 </html>
 -->
