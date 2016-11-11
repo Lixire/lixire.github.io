@@ -127,6 +127,22 @@
 <li><a href="#the-standard-template-library-stl">The Standard Template Library (STL)</a></li>
 </ul>
 </li>
+<li><a href="#lecture-14-1">Lecture 14</a><ul>
+<li><a href="#design-patterns-ctd">Design Patterns Ct’d</a></li>
+<li><a href="#observer-pattern">Observer Pattern</a></li>
+</ul>
+</li>
+<li><a href="#lecture-15">Lecture 15</a><ul>
+<li><a href="#decorator-pattern">Decorator Pattern</a></li>
+<li><a href="#inheritance-and-copymove">Inheritance and Copy/Move</a></li>
+</ul>
+</li>
+<li><a href="#lecture-16">Lecture 16</a><ul>
+<li><a href="#factory-method-pattern">Factory Method Pattern</a></li>
+<li><a href="#template-method-pattern">Template Method Pattern</a></li>
+<li><a href="#stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -365,7 +381,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-273">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-5929">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -558,9 +574,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-274"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-5930"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-275">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-5931">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -661,7 +677,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-276">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-5932">1 appear in file </script>2?</p>
 
 
 
@@ -729,7 +745,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-277">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-5933">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -935,7 +951,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-278">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-5934">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -1451,7 +1467,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-279">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-5935">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -2594,14 +2610,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-280">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-5936">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-281">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-5937">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -2809,8 +2825,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-282">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-283">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-5938">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-5939">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -3120,6 +3136,8 @@ No. Even subclasses can’t see them!</p>
 - for Text - &gt; 500 pages <br>
 - for Comics - &gt; 30 pages</p>
 
+
+
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
     ...
     <span class="hljs-keyword">protected</span>:
@@ -3162,6 +3180,8 @@ Why?</p>
 <p><img src="http://amyqiu.me/Notes/ComcvsBook.png"></p>
 
 <p>Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
+
+
 
 <pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{...};
 <span class="hljs-comment">//tries to fit a Comic object where there is only space for a Book object. What happens? - slicing occurs - c++ makes comic fit by chopping off bits. Hero field is chopped off so comic is coerced into a Book.</span></code></pre>
@@ -3500,7 +3520,7 @@ We can handle it as follows:</p>
     <span class="hljs-built_in">cerr</span> &lt;&lt;<span class="hljs-string">"Range error "</span> &lt;&lt; r.what() &lt;&lt;endl;
 }</code></pre>
 
-<p>From midterma</p>
+<p>From midterm</p>
 
 
 
@@ -3509,7 +3529,644 @@ We can handle it as follows:</p>
 y+x;
 <span class="hljs-built_in">cin</span> &lt;&lt; x;
 <span class="hljs-comment">//here, {x}, {x, x}, {x, y}, {cin, x, cin&lt;&lt;x} are lvalues.</span>
-<span class="hljs-comment">// y+x is rvalue;</span></code></pre></body>
+<span class="hljs-comment">// y+x is rvalue;</span></code></pre>
+
+
+
+<h2 id="lecture-14-1">Lecture 14</h2>
+
+<p>Now consider:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-keyword">throw</span> out_of_range{<span class="hljs-string">"f"</span>}; <span class="hljs-comment">//raise an exception. "f" is displayed in .what()</span>
+}
+
+<span class="hljs-keyword">void</span> g() {f();}
+<span class="hljs-keyword">void</span> h() {g();}
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">try</span>{
+        h();
+    }
+    <span class="hljs-keyword">catch</span> (out_of_range r){...}
+}</code></pre>
+
+<dl>
+<dt>What happens:</dt>
+<dd>main calls h <br>
+h calls g <br>
+g calls f <br>
+f throws out_of_range <br>
+g has no handler for out_of_range <br>
+- control goes back through the call chain (unwinds the stack) until a handler is found <br>
+- control goes all the way back to main and main handles the exception <br>
+- if no handler in the entire call chain, program terminates</dd>
+</dl>
+
+<p>What is out_of_range? - A class.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">throw</span> out_of_range{<span class="hljs-string">"f"</span>} <span class="hljs-comment">//ctor call, create an out_of_range object and throw it</span></code></pre>
+
+<p>A handler can do part of the recovery job - execute some corrective code + raise another exn:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">try</span>{...}
+<span class="hljs-keyword">catch</span>(SomeErrorType s){
+    ...
+    <span class="hljs-keyword">throw</span> SomeOtherError{<span class="hljs-string">"..."</span>};
+}</code></pre>
+
+<p>or throw the same ex’n</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">try</span>{...}
+<span class="hljs-keyword">catch</span>(SomeErrorType s){
+    ...
+    <span class="hljs-keyword">throw</span>;
+}</code></pre>
+
+<p><code>throw;</code> vs <code>throw s;</code></p>
+
+<p><strong>throw s;</strong> <br>
+Throw s; -&gt; s may be a subtype of SomeErrorType. throws a new exn of type SomeErrorType</p>
+
+
+
+<div class="flow-chart"><svg height="138" version="1.1" width="133.609375" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.109375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj9" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="127.609375" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,4,4)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SpecialErrorType</tspan></text><rect x="0" y="0" width="117.828125" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,8.8906,97)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,8.8906,97)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SomeErrorType</tspan></text><path fill="none" stroke="#000000" d="M67.8046875,43C67.8046875,43,67.8046875,82.65409994125366,67.8046875,94.00043908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj9)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<p><strong>throw;</strong> <br>
+actual type of s is retained</p>
+
+<p>A handler can act as a catch-all:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">try</span>{...}
+<span class="hljs-keyword">catch</span>(...){ <span class="hljs-comment">//here, we LITERALLY PUT "..." to catch ALL exceptions</span>
+    ...
+}</code></pre>
+
+<p>You can throw anything you want - don’t have to throw objects</p>
+
+<p>Define your own exception classes (or use appropriate existing ones) for your errors:</p>
+
+<p>eg.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> BadInput{};
+<span class="hljs-keyword">try</span>{
+    <span class="hljs-keyword">int</span> n;
+    <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span> &gt;&gt; n)) <span class="hljs-keyword">throw</span> BadInput{};
+}
+<span class="hljs-keyword">catch</span>(BadInput &amp;s){ <span class="hljs-comment">//in general: catch by reference</span>
+    <span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">"input not well-formed"</span> &lt;&lt;endl;
+}</code></pre>
+
+<dl>
+<dt>Some standard exceptions</dt>
+<dd>length_error : attempt to resize strings/vectors that are too long</dd>
+
+<dd>bad_alloc : new fails</dd>
+</dl>
+
+<p>Much more on exns later</p>
+
+
+
+<h3 id="design-patterns-ctd">Design Patterns Ct’d</h3>
+
+<p>Guiding Principle: Program to the interface, not the implementation</p>
+
+<ul>
+<li>abstract base class to define the interface.</li>
+<li>work with pointers or references to abstract base classes + call their methods.</li>
+<li>concrete subclasses can be swapped in and out</li>
+<li>abstraction over a variety of behaviours</li>
+</ul>
+
+<p>eg. Iterator Pattern</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> AbstractIterator{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span>&amp;<span class="hljs-keyword">operator</span>*()=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> AbstractIterator &amp;<span class="hljs-keyword">operator</span>++()=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>!=(<span class="hljs-keyword">const</span> AbstractIterator &amp;other)=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> ~AbstractIterator();
+};
+
+<span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node;
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator: <span class="hljs-keyword">public</span> AbstractIterator{
+            ...
+        };
+    ...
+};
+
+<span class="hljs-keyword">class</span> Set{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator: <span class="hljs-keyword">public</span> AbstractIterator{
+            ...
+        };
+    ...
+};</code></pre>
+
+<p>Then you can write code that operates over Iterators:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> foreach(AbstractIterator start, AbstractIterator end, <span class="hljs-keyword">void</span>(*f)(<span class="hljs-keyword">int</span>)){
+    <span class="hljs-keyword">while</span>(start!=end){
+        f(*start);
+        ++start;
+    } <span class="hljs-comment">//-works over Lists and Sets.</span>
+}</code></pre>
+
+
+
+<h3 id="observer-pattern">Observer Pattern</h3>
+
+<dl>
+<dt>Publish -subscribe mode 1.</dt>
+<dd>One class: publisher/subject - generates data</dd>
+
+<dd>One or more subscriber/observer classes - receive data and react to it</dd>
+</dl>
+
+<p>Eg: Publisher = spreadsheet cells. Observers = graphs. When cells change, graphs update.</p>
+
+<p>Can have many different observer objects. <br>
+- subject should not need to know all the details.</p>
+
+<p>Observer pattern: <br>
+<img src="http://amyqiu.me/Notes/observerpattern.png"></p>
+
+<p>Sequence of method calls:</p>
+
+<ol>
+<li>Subject’s state is updated</li>
+<li>Subject::notifyObservers() -calls each observer’s notify</li>
+<li>Each observer calls ConcretSubject::getState tp query the state and react accordingly.</li>
+</ol>
+
+<p>Example: Horse races <br>
+Subject - publishes winners <br>
+Observers - individual bettors </p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Subject{
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;Observer *&gt;</span> observers;
+    <span class="hljs-keyword">public</span>:
+        Subject();
+        <span class="hljs-keyword">bool</span> attach(Observer *o){observers.emplace.back(o);}
+        <span class="hljs-keyword">void</span> detach(Observer *o){observers.remove(o);}
+        <span class="hljs-keyword">void</span> notifyObservers(){
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;ob:observers) ob-&gt;notify();
+        }
+        <span class="hljs-keyword">virtual</span> ~Subject()=<span class="hljs-number">0</span>;
+};
+<span class="hljs-comment">//IMPORTANT</span>
+Subject::~Subject(){}
+<span class="hljs-comment">/*
+virtual destructor must ALWAYS be implemented, even if it is pure virtual.
+*/</span></code></pre>
+
+
+
+<h2 id="lecture-15">Lecture 15</h2>
+
+<p><img src="http://amyqiu.me/Notes/a1.png"></p>
+
+<p>From last class</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Subject{
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;Observer *&gt;</span> observers;
+    <span class="hljs-keyword">public</span>:
+        Subject();
+        <span class="hljs-keyword">bool</span> attach(Observer *o){observers.emplace.back(o);}
+        <span class="hljs-keyword">void</span> detach(Observer *o){observers.remove(o);}
+        <span class="hljs-keyword">void</span> notifyObservers(){
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;ob:observers) ob-&gt;notify();
+        }
+        <span class="hljs-keyword">virtual</span> ~Subject()=<span class="hljs-number">0</span>;
+};
+Subject::~Subject(){}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Observer{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> notify()=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> ~Observer();
+};
+
+Observer::~Observer(){}
+
+<span class="hljs-keyword">class</span> Horserace: <span class="hljs-keyword">public</span> Subject{
+    ifstream in; <span class="hljs-comment">//source of data</span>
+    <span class="hljs-built_in">string</span> lastwinner;
+    <span class="hljs-keyword">public</span>:
+        HorseRace(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;source): in{source}{}
+        <span class="hljs-keyword">bool</span> runRace(); <span class="hljs-comment">//set lastwinner. Returns false if no winners left</span>
+        <span class="hljs-built_in">string</span> getState() {<span class="hljs-keyword">return</span> lastwinner;}
+};
+
+<span class="hljs-keyword">class</span> Bettor: <span class="hljs-keyword">public</span> Observer{
+    HorseRace *subject;
+    <span class="hljs-built_in">string</span> name, myHorse;
+    <span class="hljs-keyword">public</span>:
+        Bettor(...)...{
+            subject-&gt;attach(<span class="hljs-keyword">this</span>);
+        }
+        ~Bettor(){subject-&gt;detach(<span class="hljs-keyword">this</span>);}
+        <span class="hljs-keyword">void</span> notify(){
+            <span class="hljs-built_in">string</span> winner = subject-&gt;getState();
+            <span class="hljs-keyword">if</span>(winner == myHorse){
+                <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Yay!"</span> &lt;&lt; endl;
+            }
+            <span class="hljs-keyword">else</span>{
+                <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Double or nothing"</span> &lt;&lt; endl;
+            }
+        }
+};
+<span class="hljs-comment">//main.cc</span>
+
+HorseRace hr;
+Bettor Larry(&amp;hr, <span class="hljs-string">"Larry"</span>, <span class="hljs-string">"RunsLikeACow"</span>);
+...
+<span class="hljs-keyword">while</span>(hr.runRace()){
+    hr.notifyObservers();
+}</code></pre>
+
+
+
+<h3 id="decorator-pattern">Decorator Pattern</h3>
+
+<p>Want to enhance an object at run-time-add functionality/features <br>
+E.g. Windowing system: -start with a basic window. -add scrollbar. -add menu. <br>
+Want to choose these enhancements at runtime. <br>
+<img src="http://amyqiu.me/Notes/a2.png"></p>
+
+<dl>
+<dt>Class Component</dt>
+<dd>defines the interface</dd>
+
+<dd>operations your objects will provide</dd>
+
+<dt>Concrete Component</dt>
+<dd>implements the interface</dd>
+
+<dt>Decorators</dt>
+<dd>all inherit from Decorator, which inherits from component</dd>
+</dl>
+
+<p>Therefore, Every Decorator IS a component, AND every Decorator HAS a component</p>
+
+<p>E.g. Window with scrollbar is a kind of window, and has a pointer to the underlying plain window</p>
+
+<p>Window with scrollbar + menu IS a window, has a ptr to window w/ scrollbar, which has a ptr to a plain window.</p>
+
+<p>All inherit from Abstract Window class, so window methods can be used polymorphically on all of them.</p>
+
+<p>E.g Pizza <br>
+<img src="http://amyqiu.me/Notes/a3,png"></p>
+
+<p>Basic Pizza is crust and sauce</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Pizza{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">float</span> price()<span class="hljs-keyword">const</span>=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> <span class="hljs-built_in">string</span> desc()<span class="hljs-keyword">const</span>=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span>~Pizza();
+};
+
+<span class="hljs-keyword">class</span> CrustAndSauce:<span class="hljs-keyword">public</span> Pizza{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">float</span> price() <span class="hljs-keyword">const</span> override{<span class="hljs-keyword">return</span> <span class="hljs-number">5.99</span>;}
+        <span class="hljs-built_in">string</span> desc() <span class="hljs-keyword">const</span> override{<span class="hljs-keyword">return</span> <span class="hljs-string">"Pizza"</span>;}
+};
+
+<span class="hljs-keyword">class</span> Decorator: <span class="hljs-keyword">public</span> Pizza{
+    <span class="hljs-keyword">protected</span>:
+        Pizza *component;
+    <span class="hljs-keyword">public</span>:
+        Decorator(Pizza *p): component{p}{}
+        <span class="hljs-keyword">virtual</span> ~Decorator{<span class="hljs-keyword">delete</span> component;} <span class="hljs-comment">//what happens in delete component here is the whole pizza is thrown away. Uh, this is the choice we made to keep things simple</span>
+};
+
+<span class="hljs-keyword">class</span> StuffedCrust: <span class="hljs-keyword">public</span> Decorator{
+    <span class="hljs-keyword">public</span>:
+        StuffedCrust(Pizza *p): Decorator {p}{}
+        <span class="hljs-keyword">float</span> price() <span class="hljs-keyword">const</span> override{
+            <span class="hljs-keyword">return</span> component-&gt;price() + <span class="hljs-number">2.69</span>;
+        }
+        <span class="hljs-built_in">string</span> desc() <span class="hljs-keyword">const</span> override{
+            <span class="hljs-keyword">return</span> component-&gt;desc() + <span class="hljs-string">" with stuffed crust"</span>;
+        }
+};</code></pre>
+
+<p>Use:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Pizza *p1= <span class="hljs-keyword">new</span> CrustAndSauce;
+p1 = <span class="hljs-keyword">new</span> Topping (<span class="hljs-string">"Cheese"</span>, p1);
+p1 = <span class="hljs-keyword">new</span> Topping(<span class="hljs-string">"Jelly Beans"</span>, p1);
+p1 = <span class="hljs-keyword">new</span> StuffedCrust(p1);
+<span class="hljs-built_in">cout</span> &lt;&lt; p1-&gt;desc() &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; p1-&gt;price();
+<span class="hljs-keyword">delete</span> p1;</code></pre>
+
+
+
+<h3 id="inheritance-and-copymove">Inheritance and Copy/Move</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-comment">//Defines copy/move ctor, copy/move operator=</span>
+};
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-comment">//does not define copy/move operations</span>
+};
+Text t{<span class="hljs-string">"Algorithms"</span>, <span class="hljs-string">"CLRS"</span>, <span class="hljs-string">"500"</span>, <span class="hljs-string">"CS"</span>};
+Text t2=t; <span class="hljs-comment">//No copy ctor in Text - what happens?</span></code></pre>
+
+<p>-calls Book’s copy ctor <br>
+-then goes field-by-field (ie default behaviour) for Text part <br>
+-same for other operations</p>
+
+<p>To write your own operations:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Text::Text(<span class="hljs-keyword">const</span> Text &amp;other): Book{other},topic{other.topic}{}
+Text &amp;Text::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Text &amp;other){
+    Book::<span class="hljs-keyword">operator</span>=(&amp;other);
+    topic=other.topic;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+}
+
+<span class="hljs-comment">//other points at an rvalue, but IS ITSELF an lvalue</span>
+Text::Text(Text &amp;&amp;other):Book{other}, topic{other.topic}{}
+<span class="hljs-comment">//HERE, Book{other} is a copy ctor because other is an lvalue. It exists and has a name within this function</span>
+
+<span class="hljs-comment">//Better but still not correct: move treats other as an rvalue.</span>
+Text::Text(Text &amp;&amp;other):Book{<span class="hljs-built_in">std</span>::move(other)}, topic{other.topic}{}
+<span class="hljs-comment">//HERE, other.topic is ALSO an lvalue.</span>
+
+<span class="hljs-comment">//Final:</span>
+Text::Text(Text &amp;&amp;other):Book{<span class="hljs-built_in">std</span>::move(other)}, topic{<span class="hljs-built_in">std</span>::move(other.topic)}{}
+
+Text&amp;Text::<span class="hljs-keyword">operator</span>=(Text &amp;&amp;other){
+    Book::<span class="hljs-keyword">operator</span>=(<span class="hljs-built_in">std</span>::move(other));
+    topic=<span class="hljs-built_in">std</span>::move(other.topic);
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+}</code></pre>
+
+<blockquote>
+  <p>Note: Even though other “points” at an rvalue, other itself is an lvalue (so is other.topic). <br>
+  std::move(x) forces an lvalue x to be treated as an rvaluem so that “move” versions of the operations run. What we did above is equivalent to DEFAULT behaviour</p>
+</blockquote>
+
+
+
+<h2 id="lecture-16">Lecture 16</h2>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Text t1 {...}, t2{...};
+Book *pb1=&amp;t1, *pb2=&amp;t2;</code></pre>
+
+<p>What if we do *pb1 = *pb2; <br>
+Partial assignment - copies only the Book part. <br>
+- only Book::operator= ran.</p>
+
+<p>How can we fix this? Try making operator= virtual.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> Book &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Book &amp;other){...}
+};
+
+<span class="hljs-keyword">class</span> Text:<span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Text &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Text &amp;other) override {...}
+        <span class="hljs-comment">//this WONT WORK. Parameters don't match</span>
+};
+
+<span class="hljs-comment">//better</span>
+<span class="hljs-keyword">class</span> Text:<span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Text &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Book &amp;other) override {...}
+        <span class="hljs-comment">//Note: Different return types OK. (as long as you return a subtype by reference) but the parameter types must be the same or it's not an override and won't compile.</span>
+};</code></pre>
+
+<p>Params not matching =&gt; violates is-a <br>
+<script type="math/tex" id="MathJax-Element-5940">\therefore</script> Assignment of a book object to a text variable would be allowed</p>
+
+<p>Allowed:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Text t{...};
+Book b{...};
+Text *pt=&amp;t;
+Book *pb=&amp;b;
+*pt=*pb; <span class="hljs-comment">//- uses a Book to assign a Text BAD (but it compiles).</span>
+
+<span class="hljs-comment">//Also</span>
+Comic c{...};
+Comic *pc=&amp;c;
+*pt=*pc; <span class="hljs-comment">// REALLY BAD, but compiles</span></code></pre>
+
+<p>If operator= is non-virtual. -partial assignment through base class ptrs. <br>
+If it is virtual, then the compiler allows mixed assignment</p>
+
+<p>Recommendation - All superclasses should be ABSTRACT</p>
+
+<p>Rewrite Book hierarchy: <br>
+<img src="http://amyqiu.me/Notes/a4.png"></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> AbstractBook{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">protected</span>: <span class="hljs-comment">//prevents assignments through base class  ptrs from compiling but still makes the implementation available to subclasses.</span>
+        AbstractBook &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> AbstractBook &amp;other);
+    <span class="hljs-keyword">public</span>:
+        AbstractBook(...);
+        <span class="hljs-keyword">virtual</span> ~AbstractBook()=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> NormalBook: <span class="hljs-keyword">public</span> AbstractBook{
+    <span class="hljs-keyword">public</span>:
+        NormalBook(...);
+        ~NormalBook();
+        NormalBook &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> NormalBook &amp;other){
+            AbstractBook::<span class="hljs-keyword">operator</span>=(other);
+            <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        }
+};
+<span class="hljs-comment">//other classes - exercise</span></code></pre>
+
+<p>-Operator= is not virtual therefore no mixed assignment</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">NormalBook n1{...}, n1{...}
+Abstract *pa1 = &amp;n1, *pa2=&amp;n2;
+*pa1 = *pa2 <span class="hljs-comment">//won't compile. AbstractBook::operator= here is protected so client can't call it. No partial assignment</span></code></pre>
+
+
+
+<h3 id="factory-method-pattern">Factory Method Pattern</h3>
+
+<p>-Write a video game with two kinds of enemies: turtles and bullets <br>
+- system randomly sends turtles and bullets, but bullets become more frequent closer to the end <br>
+UML <br>
+<img src="http://amyqiu.me/Notes/a5.png"></p>
+
+<p>Never know exactly which enemy comes next, so can’t call turtle/bullet ctors directly. <br>
+Instead, put a <code>factory method</code> in level that creates enemies.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Level{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> Enemy *createEnemy()=<span class="hljs-number">0</span>;
+        ...
+};
+
+<span class="hljs-keyword">class</span> NormalLevel: <span class="hljs-keyword">public</span> Level{
+    <span class="hljs-keyword">public</span>:
+        Enemy *createEnemy() override{
+            <span class="hljs-comment">//create mostly turtles</span>
+        }
+};
+
+<span class="hljs-keyword">class</span> castle: <span class="hljs-keyword">public</span> Level{
+    <span class="hljs-keyword">public</span>:
+        Enemy *createEnemy() override{
+            <span class="hljs-comment">//mostly bullets</span>
+        }
+};
+
+Level *l = <span class="hljs-keyword">new</span> NormalLevel;
+Enemy *e = l-&gt;createEnemy();</code></pre>
+
+
+
+<h3 id="template-method-pattern">Template Method Pattern</h3>
+
+<p>Want subclasses to override superclass behaviour, but some aspects must stay the same.</p>
+
+<p>E.g. There are red turtles + green turtles</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Turtle{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> draw(){
+            drawHead();
+            drawShell();
+            drawFeet();
+        }
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">void</span> drawHead();
+        <span class="hljs-keyword">void</span> drawFeet();
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> drawShell()=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> RedTurtle:<span class="hljs-keyword">public</span> Turtle{
+    <span class="hljs-keyword">void</span> drawShell()override{<span class="hljs-comment">/*draw red shell */</span>}
+};
+
+<span class="hljs-keyword">class</span> GreenTurtle: <span class="hljs-keyword">public</span> Turtle{
+    <span class="hljs-keyword">void</span> drawShell()override{<span class="hljs-comment">/*draw green shell */</span>}
+};</code></pre>
+
+<p>subclasses can’t change what it means to draw a turtle (ie. head, then shell, then feet) <br>
+but CAN change the way the shell is drawn</p>
+
+<p>Extension: The Non-Virtual Interface (NVI) idiom. <br>
+A public virtual method is really two things:</p>
+
+<ul>
+<li>an interface to the client <br>
+-indicates provided behaviour, with pre/post conditions</li>
+<li><p>an interface to subclasses <br>
+-a”hook” to insert specialized behaviour <br>
+Hard to separate these ideas if they are tied to the same f’n</p></li>
+<li><p>What if you later want to separate the customizale behaviour into 2 f’ns with some unchanging code inbetween, while still providing clients the same interface?</p></li>
+<li>how could you make sure overriding f’ns conform to the pre/post conditions</li>
+</ul>
+
+<p>The NVI idiom says: </p>
+
+<ul>
+<li>All public methods should be non-virtual. </li>
+<li>All virtual methods should be private or AT LEAST protected.</li>
+<li>except the dtor</li>
+</ul>
+
+<p>Example:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> DigitalMedia{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> play()=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-comment">//instead, do this:</span>
+<span class="hljs-keyword">class</span> DigitalMedia{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> play(){doPlay();} <span class="hljs-comment">//can add before/after code. eg check copyright before. Update play count after.</span>
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> doPlay()=<span class="hljs-number">0</span>;
+};</code></pre>
+
+<p>Extends Template Method <br>
+-put every virtual method inside a template method</p>
+
+
+
+<h3 id="stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</h3>
+
+<p>E.g. “arrays” that map string to int</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;map&gt;</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">map</span> &lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;</span>m;
+m[<span class="hljs-string">"abc"</span>] = <span class="hljs-number">1</span>;
+m[<span class="hljs-string">"def"</span>] = <span class="hljs-number">4</span>;
+<span class="hljs-built_in">cout</span> &lt;&lt; m[<span class="hljs-string">"ghi"</span>] &lt;&lt; endl; <span class="hljs-comment">//if key is not present, it is inserted and the value is default constructed (for ints, 0)</span>
+m.erase(<span class="hljs-string">"abc"</span>);
+<span class="hljs-keyword">if</span>(m.count(<span class="hljs-string">"def"</span>)) ... <span class="hljs-comment">//0 if found, 1 if not found</span></code></pre></body>
 </html>
 
 <!--
@@ -3638,6 +4295,22 @@ y+x;
 <li><a href="#the-standard-template-library-stl">The Standard Template Library (STL)</a></li>
 </ul>
 </li>
+<li><a href="#lecture-14-1">Lecture 14</a><ul>
+<li><a href="#design-patterns-ctd">Design Patterns Ct’d</a></li>
+<li><a href="#observer-pattern">Observer Pattern</a></li>
+</ul>
+</li>
+<li><a href="#lecture-15">Lecture 15</a><ul>
+<li><a href="#decorator-pattern">Decorator Pattern</a></li>
+<li><a href="#inheritance-and-copymove">Inheritance and Copy/Move</a></li>
+</ul>
+</li>
+<li><a href="#lecture-16">Lecture 16</a><ul>
+<li><a href="#factory-method-pattern">Factory Method Pattern</a></li>
+<li><a href="#template-method-pattern">Template Method Pattern</a></li>
+<li><a href="#stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3876,7 +4549,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-273">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-5929">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -4069,9 +4742,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-274"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-5930"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-275">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-5931">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -4172,7 +4845,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-276">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-5932">1 appear in file </script>2?</p>
 
 
 
@@ -4240,7 +4913,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-277">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-5933">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -4446,7 +5119,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-278">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-5934">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -4962,7 +5635,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-279">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-5935">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -6105,14 +6778,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-280">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-5936">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-281">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-5937">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -6320,8 +6993,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-282">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-283">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-5938">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-5939">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -6631,6 +7304,8 @@ No. Even subclasses can’t see them!</p>
 - for Text - &gt; 500 pages <br>
 - for Comics - &gt; 30 pages</p>
 
+
+
 <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
     ...
     <span class="hljs-keyword">protected</span>:
@@ -6673,6 +7348,8 @@ Why?</p>
 <p><img src="http://amyqiu.me/Notes/ComcvsBook.png"></p>
 
 <p>Since I’ve allocated only enough space for a Book and Comic is bigger, I must treat b as a book no matter what.</p>
+
+
 
 <pre class="prettyprint"><code class="language-cpp hljs ">Book b = Comic{...};
 <span class="hljs-comment">//tries to fit a Comic object where there is only space for a Book object. What happens? - slicing occurs - c++ makes comic fit by chopping off bits. Hero field is chopped off so comic is coerced into a Book.</span></code></pre>
@@ -7011,7 +7688,7 @@ We can handle it as follows:</p>
     <span class="hljs-built_in">cerr</span> &lt;&lt;<span class="hljs-string">"Range error "</span> &lt;&lt; r.what() &lt;&lt;endl;
 }</code></pre>
 
-<p>From midterma</p>
+<p>From midterm</p>
 
 
 
@@ -7020,6 +7697,643 @@ We can handle it as follows:</p>
 y+x;
 <span class="hljs-built_in">cin</span> &lt;&lt; x;
 <span class="hljs-comment">//here, {x}, {x, x}, {x, y}, {cin, x, cin&lt;&lt;x} are lvalues.</span>
-<span class="hljs-comment">// y+x is rvalue;</span></code></pre></body>
+<span class="hljs-comment">// y+x is rvalue;</span></code></pre>
+
+
+
+<h2 id="lecture-14-1">Lecture 14</h2>
+
+<p>Now consider:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-keyword">throw</span> out_of_range{<span class="hljs-string">"f"</span>}; <span class="hljs-comment">//raise an exception. "f" is displayed in .what()</span>
+}
+
+<span class="hljs-keyword">void</span> g() {f();}
+<span class="hljs-keyword">void</span> h() {g();}
+<span class="hljs-keyword">int</span> main(){
+    <span class="hljs-keyword">try</span>{
+        h();
+    }
+    <span class="hljs-keyword">catch</span> (out_of_range r){...}
+}</code></pre>
+
+<dl>
+<dt>What happens:</dt>
+<dd>main calls h <br>
+h calls g <br>
+g calls f <br>
+f throws out_of_range <br>
+g has no handler for out_of_range <br>
+- control goes back through the call chain (unwinds the stack) until a handler is found <br>
+- control goes all the way back to main and main handles the exception <br>
+- if no handler in the entire call chain, program terminates</dd>
+</dl>
+
+<p>What is out_of_range? - A class.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">throw</span> out_of_range{<span class="hljs-string">"f"</span>} <span class="hljs-comment">//ctor call, create an out_of_range object and throw it</span></code></pre>
+
+<p>A handler can do part of the recovery job - execute some corrective code + raise another exn:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">try</span>{...}
+<span class="hljs-keyword">catch</span>(SomeErrorType s){
+    ...
+    <span class="hljs-keyword">throw</span> SomeOtherError{<span class="hljs-string">"..."</span>};
+}</code></pre>
+
+<p>or throw the same ex’n</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">try</span>{...}
+<span class="hljs-keyword">catch</span>(SomeErrorType s){
+    ...
+    <span class="hljs-keyword">throw</span>;
+}</code></pre>
+
+<p><code>throw;</code> vs <code>throw s;</code></p>
+
+<p><strong>throw s;</strong> <br>
+Throw s; -&gt; s may be a subtype of SomeErrorType. throws a new exn of type SomeErrorType</p>
+
+
+
+<div class="flow-chart"><svg height="138" version="1.1" width="133.609375" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.109375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj9" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="127.609375" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,4,4)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SpecialErrorType</tspan></text><rect x="0" y="0" width="117.828125" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,8.8906,97)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,8.8906,97)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SomeErrorType</tspan></text><path fill="none" stroke="#000000" d="M67.8046875,43C67.8046875,43,67.8046875,82.65409994125366,67.8046875,94.00043908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj9)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<p><strong>throw;</strong> <br>
+actual type of s is retained</p>
+
+<p>A handler can act as a catch-all:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">try</span>{...}
+<span class="hljs-keyword">catch</span>(...){ <span class="hljs-comment">//here, we LITERALLY PUT "..." to catch ALL exceptions</span>
+    ...
+}</code></pre>
+
+<p>You can throw anything you want - don’t have to throw objects</p>
+
+<p>Define your own exception classes (or use appropriate existing ones) for your errors:</p>
+
+<p>eg.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> BadInput{};
+<span class="hljs-keyword">try</span>{
+    <span class="hljs-keyword">int</span> n;
+    <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">cin</span> &gt;&gt; n)) <span class="hljs-keyword">throw</span> BadInput{};
+}
+<span class="hljs-keyword">catch</span>(BadInput &amp;s){ <span class="hljs-comment">//in general: catch by reference</span>
+    <span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">"input not well-formed"</span> &lt;&lt;endl;
+}</code></pre>
+
+<dl>
+<dt>Some standard exceptions</dt>
+<dd>length_error : attempt to resize strings/vectors that are too long</dd>
+
+<dd>bad_alloc : new fails</dd>
+</dl>
+
+<p>Much more on exns later</p>
+
+
+
+<h3 id="design-patterns-ctd">Design Patterns Ct’d</h3>
+
+<p>Guiding Principle: Program to the interface, not the implementation</p>
+
+<ul>
+<li>abstract base class to define the interface.</li>
+<li>work with pointers or references to abstract base classes + call their methods.</li>
+<li>concrete subclasses can be swapped in and out</li>
+<li>abstraction over a variety of behaviours</li>
+</ul>
+
+<p>eg. Iterator Pattern</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> AbstractIterator{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span>&amp;<span class="hljs-keyword">operator</span>*()=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> AbstractIterator &amp;<span class="hljs-keyword">operator</span>++()=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>!=(<span class="hljs-keyword">const</span> AbstractIterator &amp;other)=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> ~AbstractIterator();
+};
+
+<span class="hljs-keyword">class</span> List{
+    <span class="hljs-keyword">struct</span> Node;
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator: <span class="hljs-keyword">public</span> AbstractIterator{
+            ...
+        };
+    ...
+};
+
+<span class="hljs-keyword">class</span> Set{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">class</span> Iterator: <span class="hljs-keyword">public</span> AbstractIterator{
+            ...
+        };
+    ...
+};</code></pre>
+
+<p>Then you can write code that operates over Iterators:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> foreach(AbstractIterator start, AbstractIterator end, <span class="hljs-keyword">void</span>(*f)(<span class="hljs-keyword">int</span>)){
+    <span class="hljs-keyword">while</span>(start!=end){
+        f(*start);
+        ++start;
+    } <span class="hljs-comment">//-works over Lists and Sets.</span>
+}</code></pre>
+
+
+
+<h3 id="observer-pattern">Observer Pattern</h3>
+
+<dl>
+<dt>Publish -subscribe mode 1.</dt>
+<dd>One class: publisher/subject - generates data</dd>
+
+<dd>One or more subscriber/observer classes - receive data and react to it</dd>
+</dl>
+
+<p>Eg: Publisher = spreadsheet cells. Observers = graphs. When cells change, graphs update.</p>
+
+<p>Can have many different observer objects. <br>
+- subject should not need to know all the details.</p>
+
+<p>Observer pattern: <br>
+<img src="http://amyqiu.me/Notes/observerpattern.png"></p>
+
+<p>Sequence of method calls:</p>
+
+<ol>
+<li>Subject’s state is updated</li>
+<li>Subject::notifyObservers() -calls each observer’s notify</li>
+<li>Each observer calls ConcretSubject::getState tp query the state and react accordingly.</li>
+</ol>
+
+<p>Example: Horse races <br>
+Subject - publishes winners <br>
+Observers - individual bettors </p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Subject{
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;Observer *&gt;</span> observers;
+    <span class="hljs-keyword">public</span>:
+        Subject();
+        <span class="hljs-keyword">bool</span> attach(Observer *o){observers.emplace.back(o);}
+        <span class="hljs-keyword">void</span> detach(Observer *o){observers.remove(o);}
+        <span class="hljs-keyword">void</span> notifyObservers(){
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;ob:observers) ob-&gt;notify();
+        }
+        <span class="hljs-keyword">virtual</span> ~Subject()=<span class="hljs-number">0</span>;
+};
+<span class="hljs-comment">//IMPORTANT</span>
+Subject::~Subject(){}
+<span class="hljs-comment">/*
+virtual destructor must ALWAYS be implemented, even if it is pure virtual.
+*/</span></code></pre>
+
+
+
+<h2 id="lecture-15">Lecture 15</h2>
+
+<p><img src="http://amyqiu.me/Notes/a1.png"></p>
+
+<p>From last class</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Subject{
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;Observer *&gt;</span> observers;
+    <span class="hljs-keyword">public</span>:
+        Subject();
+        <span class="hljs-keyword">bool</span> attach(Observer *o){observers.emplace.back(o);}
+        <span class="hljs-keyword">void</span> detach(Observer *o){observers.remove(o);}
+        <span class="hljs-keyword">void</span> notifyObservers(){
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;ob:observers) ob-&gt;notify();
+        }
+        <span class="hljs-keyword">virtual</span> ~Subject()=<span class="hljs-number">0</span>;
+};
+Subject::~Subject(){}</code></pre>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Observer{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> notify()=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> ~Observer();
+};
+
+Observer::~Observer(){}
+
+<span class="hljs-keyword">class</span> Horserace: <span class="hljs-keyword">public</span> Subject{
+    ifstream in; <span class="hljs-comment">//source of data</span>
+    <span class="hljs-built_in">string</span> lastwinner;
+    <span class="hljs-keyword">public</span>:
+        HorseRace(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;source): in{source}{}
+        <span class="hljs-keyword">bool</span> runRace(); <span class="hljs-comment">//set lastwinner. Returns false if no winners left</span>
+        <span class="hljs-built_in">string</span> getState() {<span class="hljs-keyword">return</span> lastwinner;}
+};
+
+<span class="hljs-keyword">class</span> Bettor: <span class="hljs-keyword">public</span> Observer{
+    HorseRace *subject;
+    <span class="hljs-built_in">string</span> name, myHorse;
+    <span class="hljs-keyword">public</span>:
+        Bettor(...)...{
+            subject-&gt;attach(<span class="hljs-keyword">this</span>);
+        }
+        ~Bettor(){subject-&gt;detach(<span class="hljs-keyword">this</span>);}
+        <span class="hljs-keyword">void</span> notify(){
+            <span class="hljs-built_in">string</span> winner = subject-&gt;getState();
+            <span class="hljs-keyword">if</span>(winner == myHorse){
+                <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Yay!"</span> &lt;&lt; endl;
+            }
+            <span class="hljs-keyword">else</span>{
+                <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Double or nothing"</span> &lt;&lt; endl;
+            }
+        }
+};
+<span class="hljs-comment">//main.cc</span>
+
+HorseRace hr;
+Bettor Larry(&amp;hr, <span class="hljs-string">"Larry"</span>, <span class="hljs-string">"RunsLikeACow"</span>);
+...
+<span class="hljs-keyword">while</span>(hr.runRace()){
+    hr.notifyObservers();
+}</code></pre>
+
+
+
+<h3 id="decorator-pattern">Decorator Pattern</h3>
+
+<p>Want to enhance an object at run-time-add functionality/features <br>
+E.g. Windowing system: -start with a basic window. -add scrollbar. -add menu. <br>
+Want to choose these enhancements at runtime. <br>
+<img src="http://amyqiu.me/Notes/a2.png"></p>
+
+<dl>
+<dt>Class Component</dt>
+<dd>defines the interface</dd>
+
+<dd>operations your objects will provide</dd>
+
+<dt>Concrete Component</dt>
+<dd>implements the interface</dd>
+
+<dt>Decorators</dt>
+<dd>all inherit from Decorator, which inherits from component</dd>
+</dl>
+
+<p>Therefore, Every Decorator IS a component, AND every Decorator HAS a component</p>
+
+<p>E.g. Window with scrollbar is a kind of window, and has a pointer to the underlying plain window</p>
+
+<p>Window with scrollbar + menu IS a window, has a ptr to window w/ scrollbar, which has a ptr to a plain window.</p>
+
+<p>All inherit from Abstract Window class, so window methods can be used polymorphically on all of them.</p>
+
+<p>E.g Pizza <br>
+<img src="http://amyqiu.me/Notes/a3,png"></p>
+
+<p>Basic Pizza is crust and sauce</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Pizza{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">float</span> price()<span class="hljs-keyword">const</span>=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span> <span class="hljs-built_in">string</span> desc()<span class="hljs-keyword">const</span>=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">virtual</span>~Pizza();
+};
+
+<span class="hljs-keyword">class</span> CrustAndSauce:<span class="hljs-keyword">public</span> Pizza{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">float</span> price() <span class="hljs-keyword">const</span> override{<span class="hljs-keyword">return</span> <span class="hljs-number">5.99</span>;}
+        <span class="hljs-built_in">string</span> desc() <span class="hljs-keyword">const</span> override{<span class="hljs-keyword">return</span> <span class="hljs-string">"Pizza"</span>;}
+};
+
+<span class="hljs-keyword">class</span> Decorator: <span class="hljs-keyword">public</span> Pizza{
+    <span class="hljs-keyword">protected</span>:
+        Pizza *component;
+    <span class="hljs-keyword">public</span>:
+        Decorator(Pizza *p): component{p}{}
+        <span class="hljs-keyword">virtual</span> ~Decorator{<span class="hljs-keyword">delete</span> component;} <span class="hljs-comment">//what happens in delete component here is the whole pizza is thrown away. Uh, this is the choice we made to keep things simple</span>
+};
+
+<span class="hljs-keyword">class</span> StuffedCrust: <span class="hljs-keyword">public</span> Decorator{
+    <span class="hljs-keyword">public</span>:
+        StuffedCrust(Pizza *p): Decorator {p}{}
+        <span class="hljs-keyword">float</span> price() <span class="hljs-keyword">const</span> override{
+            <span class="hljs-keyword">return</span> component-&gt;price() + <span class="hljs-number">2.69</span>;
+        }
+        <span class="hljs-built_in">string</span> desc() <span class="hljs-keyword">const</span> override{
+            <span class="hljs-keyword">return</span> component-&gt;desc() + <span class="hljs-string">" with stuffed crust"</span>;
+        }
+};</code></pre>
+
+<p>Use:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Pizza *p1= <span class="hljs-keyword">new</span> CrustAndSauce;
+p1 = <span class="hljs-keyword">new</span> Topping (<span class="hljs-string">"Cheese"</span>, p1);
+p1 = <span class="hljs-keyword">new</span> Topping(<span class="hljs-string">"Jelly Beans"</span>, p1);
+p1 = <span class="hljs-keyword">new</span> StuffedCrust(p1);
+<span class="hljs-built_in">cout</span> &lt;&lt; p1-&gt;desc() &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; p1-&gt;price();
+<span class="hljs-keyword">delete</span> p1;</code></pre>
+
+
+
+<h3 id="inheritance-and-copymove">Inheritance and Copy/Move</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-comment">//Defines copy/move ctor, copy/move operator=</span>
+};
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-comment">//does not define copy/move operations</span>
+};
+Text t{<span class="hljs-string">"Algorithms"</span>, <span class="hljs-string">"CLRS"</span>, <span class="hljs-string">"500"</span>, <span class="hljs-string">"CS"</span>};
+Text t2=t; <span class="hljs-comment">//No copy ctor in Text - what happens?</span></code></pre>
+
+<p>-calls Book’s copy ctor <br>
+-then goes field-by-field (ie default behaviour) for Text part <br>
+-same for other operations</p>
+
+<p>To write your own operations:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Text::Text(<span class="hljs-keyword">const</span> Text &amp;other): Book{other},topic{other.topic}{}
+Text &amp;Text::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Text &amp;other){
+    Book::<span class="hljs-keyword">operator</span>=(&amp;other);
+    topic=other.topic;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+}
+
+<span class="hljs-comment">//other points at an rvalue, but IS ITSELF an lvalue</span>
+Text::Text(Text &amp;&amp;other):Book{other}, topic{other.topic}{}
+<span class="hljs-comment">//HERE, Book{other} is a copy ctor because other is an lvalue. It exists and has a name within this function</span>
+
+<span class="hljs-comment">//Better but still not correct: move treats other as an rvalue.</span>
+Text::Text(Text &amp;&amp;other):Book{<span class="hljs-built_in">std</span>::move(other)}, topic{other.topic}{}
+<span class="hljs-comment">//HERE, other.topic is ALSO an lvalue.</span>
+
+<span class="hljs-comment">//Final:</span>
+Text::Text(Text &amp;&amp;other):Book{<span class="hljs-built_in">std</span>::move(other)}, topic{<span class="hljs-built_in">std</span>::move(other.topic)}{}
+
+Text&amp;Text::<span class="hljs-keyword">operator</span>=(Text &amp;&amp;other){
+    Book::<span class="hljs-keyword">operator</span>=(<span class="hljs-built_in">std</span>::move(other));
+    topic=<span class="hljs-built_in">std</span>::move(other.topic);
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+}</code></pre>
+
+<blockquote>
+  <p>Note: Even though other “points” at an rvalue, other itself is an lvalue (so is other.topic). <br>
+  std::move(x) forces an lvalue x to be treated as an rvaluem so that “move” versions of the operations run. What we did above is equivalent to DEFAULT behaviour</p>
+</blockquote>
+
+
+
+<h2 id="lecture-16">Lecture 16</h2>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Text t1 {...}, t2{...};
+Book *pb1=&amp;t1, *pb2=&amp;t2;</code></pre>
+
+<p>What if we do *pb1 = *pb2; <br>
+Partial assignment - copies only the Book part. <br>
+- only Book::operator= ran.</p>
+
+<p>How can we fix this? Try making operator= virtual.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> Book &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Book &amp;other){...}
+};
+
+<span class="hljs-keyword">class</span> Text:<span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Text &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Text &amp;other) override {...}
+        <span class="hljs-comment">//this WONT WORK. Parameters don't match</span>
+};
+
+<span class="hljs-comment">//better</span>
+<span class="hljs-keyword">class</span> Text:<span class="hljs-keyword">public</span> Book{
+    ...
+    <span class="hljs-keyword">public</span>:
+        Text &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> Book &amp;other) override {...}
+        <span class="hljs-comment">//Note: Different return types OK. (as long as you return a subtype by reference) but the parameter types must be the same or it's not an override and won't compile.</span>
+};</code></pre>
+
+<p>Params not matching =&gt; violates is-a <br>
+<script type="math/tex" id="MathJax-Element-5940">\therefore</script> Assignment of a book object to a text variable would be allowed</p>
+
+<p>Allowed:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Text t{...};
+Book b{...};
+Text *pt=&amp;t;
+Book *pb=&amp;b;
+*pt=*pb; <span class="hljs-comment">//- uses a Book to assign a Text BAD (but it compiles).</span>
+
+<span class="hljs-comment">//Also</span>
+Comic c{...};
+Comic *pc=&amp;c;
+*pt=*pc; <span class="hljs-comment">// REALLY BAD, but compiles</span></code></pre>
+
+<p>If operator= is non-virtual. -partial assignment through base class ptrs. <br>
+If it is virtual, then the compiler allows mixed assignment</p>
+
+<p>Recommendation - All superclasses should be ABSTRACT</p>
+
+<p>Rewrite Book hierarchy: <br>
+<img src="http://amyqiu.me/Notes/a4.png"></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> AbstractBook{
+    <span class="hljs-built_in">string</span> title, author;
+    <span class="hljs-keyword">int</span> numPages;
+    <span class="hljs-keyword">protected</span>: <span class="hljs-comment">//prevents assignments through base class  ptrs from compiling but still makes the implementation available to subclasses.</span>
+        AbstractBook &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> AbstractBook &amp;other);
+    <span class="hljs-keyword">public</span>:
+        AbstractBook(...);
+        <span class="hljs-keyword">virtual</span> ~AbstractBook()=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> NormalBook: <span class="hljs-keyword">public</span> AbstractBook{
+    <span class="hljs-keyword">public</span>:
+        NormalBook(...);
+        ~NormalBook();
+        NormalBook &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> NormalBook &amp;other){
+            AbstractBook::<span class="hljs-keyword">operator</span>=(other);
+            <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        }
+};
+<span class="hljs-comment">//other classes - exercise</span></code></pre>
+
+<p>-Operator= is not virtual therefore no mixed assignment</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">NormalBook n1{...}, n1{...}
+Abstract *pa1 = &amp;n1, *pa2=&amp;n2;
+*pa1 = *pa2 <span class="hljs-comment">//won't compile. AbstractBook::operator= here is protected so client can't call it. No partial assignment</span></code></pre>
+
+
+
+<h3 id="factory-method-pattern">Factory Method Pattern</h3>
+
+<p>-Write a video game with two kinds of enemies: turtles and bullets <br>
+- system randomly sends turtles and bullets, but bullets become more frequent closer to the end <br>
+UML <br>
+<img src="http://amyqiu.me/Notes/a5.png"></p>
+
+<p>Never know exactly which enemy comes next, so can’t call turtle/bullet ctors directly. <br>
+Instead, put a <code>factory method</code> in level that creates enemies.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Level{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> Enemy *createEnemy()=<span class="hljs-number">0</span>;
+        ...
+};
+
+<span class="hljs-keyword">class</span> NormalLevel: <span class="hljs-keyword">public</span> Level{
+    <span class="hljs-keyword">public</span>:
+        Enemy *createEnemy() override{
+            <span class="hljs-comment">//create mostly turtles</span>
+        }
+};
+
+<span class="hljs-keyword">class</span> castle: <span class="hljs-keyword">public</span> Level{
+    <span class="hljs-keyword">public</span>:
+        Enemy *createEnemy() override{
+            <span class="hljs-comment">//mostly bullets</span>
+        }
+};
+
+Level *l = <span class="hljs-keyword">new</span> NormalLevel;
+Enemy *e = l-&gt;createEnemy();</code></pre>
+
+
+
+<h3 id="template-method-pattern">Template Method Pattern</h3>
+
+<p>Want subclasses to override superclass behaviour, but some aspects must stay the same.</p>
+
+<p>E.g. There are red turtles + green turtles</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Turtle{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> draw(){
+            drawHead();
+            drawShell();
+            drawFeet();
+        }
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">void</span> drawHead();
+        <span class="hljs-keyword">void</span> drawFeet();
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> drawShell()=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> RedTurtle:<span class="hljs-keyword">public</span> Turtle{
+    <span class="hljs-keyword">void</span> drawShell()override{<span class="hljs-comment">/*draw red shell */</span>}
+};
+
+<span class="hljs-keyword">class</span> GreenTurtle: <span class="hljs-keyword">public</span> Turtle{
+    <span class="hljs-keyword">void</span> drawShell()override{<span class="hljs-comment">/*draw green shell */</span>}
+};</code></pre>
+
+<p>subclasses can’t change what it means to draw a turtle (ie. head, then shell, then feet) <br>
+but CAN change the way the shell is drawn</p>
+
+<p>Extension: The Non-Virtual Interface (NVI) idiom. <br>
+A public virtual method is really two things:</p>
+
+<ul>
+<li>an interface to the client <br>
+-indicates provided behaviour, with pre/post conditions</li>
+<li><p>an interface to subclasses <br>
+-a”hook” to insert specialized behaviour <br>
+Hard to separate these ideas if they are tied to the same f’n</p></li>
+<li><p>What if you later want to separate the customizale behaviour into 2 f’ns with some unchanging code inbetween, while still providing clients the same interface?</p></li>
+<li>how could you make sure overriding f’ns conform to the pre/post conditions</li>
+</ul>
+
+<p>The NVI idiom says: </p>
+
+<ul>
+<li>All public methods should be non-virtual. </li>
+<li>All virtual methods should be private or AT LEAST protected.</li>
+<li>except the dtor</li>
+</ul>
+
+<p>Example:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> DigitalMedia{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> play()=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-comment">//instead, do this:</span>
+<span class="hljs-keyword">class</span> DigitalMedia{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> play(){doPlay();} <span class="hljs-comment">//can add before/after code. eg check copyright before. Update play count after.</span>
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> doPlay()=<span class="hljs-number">0</span>;
+};</code></pre>
+
+<p>Extends Template Method <br>
+-put every virtual method inside a template method</p>
+
+
+
+<h3 id="stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</h3>
+
+<p>E.g. “arrays” that map string to int</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;map&gt;</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">map</span> &lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;</span>m;
+m[<span class="hljs-string">"abc"</span>] = <span class="hljs-number">1</span>;
+m[<span class="hljs-string">"def"</span>] = <span class="hljs-number">4</span>;
+<span class="hljs-built_in">cout</span> &lt;&lt; m[<span class="hljs-string">"ghi"</span>] &lt;&lt; endl; <span class="hljs-comment">//if key is not present, it is inserted and the value is default constructed (for ints, 0)</span>
+m.erase(<span class="hljs-string">"abc"</span>);
+<span class="hljs-keyword">if</span>(m.count(<span class="hljs-string">"def"</span>)) ... <span class="hljs-comment">//0 if found, 1 if not found</span></code></pre></body>
 </html>
 -->
