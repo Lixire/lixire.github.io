@@ -16,7 +16,7 @@
 </head>
 <body><h1 id="stat-230-probability">STAT 230 - Probability</h1>
 
-<p><div class="toc"><div class="toc">
+<p><div class="toc">
 <ul>
 <li><a href="#stat-230-probability">STAT 230 - Probability</a><ul>
 <li><a href="#lecture-1">Lecture - 1</a><ul>
@@ -128,10 +128,17 @@
 </ul>
 </li>
 <li><a href="#lecture-26">Lecture 26</a></li>
+<li><a href="#lecture-27">Lecture 27</a><ul>
+<li><a href="#ch-9-discrete-multivariate-rvs">Ch 9 Discrete Multivariate RVs</a></li>
+</ul>
+</li>
+<li><a href="#lecture-28">Lecture 28</a><ul>
+<li><a href="#functions-of-multiple-rvs">Functions of multiple rvs</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+</ul>
 </div>
 </p>
 
@@ -2065,34 +2072,34 @@ P(X &gt; t + s | X &gt; t) = P(X &gt; s)</p>
 - logs of stock returns <br>
 - measurement errors</p>
 
-<p>Def: We say X has a Normal Distribution X~N(<script type="math/tex" id="MathJax-Element-458">\mu, \sigma ^2</script>) if its pdf is: <br>
-<script type="math/tex" id="MathJax-Element-459">f(x) = \frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{x-\mu}{\sigma}^2}</script> <br>
+<p>Def: We say X has a Normal Distribution X~N(<script type="math/tex" id="MathJax-Element-434">\mu, \sigma ^2</script>) if its pdf is: <br>
+<script type="math/tex" id="MathJax-Element-435">f(x) = \frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{x-\mu}{\sigma}^2}</script> <br>
 for all Real x</p>
 
 <p>What does it look life? <br>
--symmetric around <script type="math/tex" id="MathJax-Element-460">\mu</script> <br>
+-symmetric around <script type="math/tex" id="MathJax-Element-436">\mu</script> <br>
 -both lefts and right “tails” go to 0 quickly <br>
-- highest when x = <script type="math/tex" id="MathJax-Element-461">\mu</script> <br>
+- highest when x = <script type="math/tex" id="MathJax-Element-437">\mu</script> <br>
 - area under curve = 1</p>
 
 <p><img src="http://amyqiu.me/Notes/b1.png"></p>
 
-<p>We can show <script type="math/tex" id="MathJax-Element-462">\int_{-\infty}^{\infty}f(x)fx = 1</script> using a change of variable and the gamma function trick and <script type="math/tex" id="MathJax-Element-463">E[X]= \int_{-\infty}^{\infty}xf(x)dx = \mu</script> also the median and mode are <script type="math/tex" id="MathJax-Element-464">\mu</script> <br>
-And <script type="math/tex" id="MathJax-Element-465">Var(X) = \sigma^2</script> (proof again in uses gamma f’n)</p>
+<p>We can show <script type="math/tex" id="MathJax-Element-438">\int_{-\infty}^{\infty}f(x)fx = 1</script> using a change of variable and the gamma function trick and <script type="math/tex" id="MathJax-Element-439">E[X]= \int_{-\infty}^{\infty}xf(x)dx = \mu</script> also the median and mode are <script type="math/tex" id="MathJax-Element-440">\mu</script> <br>
+And <script type="math/tex" id="MathJax-Element-441">Var(X) = \sigma^2</script> (proof again in uses gamma f’n)</p>
 
-<p>the cdf <script type="math/tex" id="MathJax-Element-466">F(x) = \int_{-\infty}^{\infty}f(x)du = \int_{-\infty}^{\infty}\frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{u-\mu}{\sigma}^2}du</script></p>
+<p>the cdf <script type="math/tex" id="MathJax-Element-442">F(x) = \int_{-\infty}^{\infty}f(x)du = \int_{-\infty}^{\infty}\frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{u-\mu}{\sigma}^2}du</script></p>
 
 <p>We cannot evaluate the integral! numerical methods are needed. <br>
-Note: the Normal distribution is also called the Gausian X~N(<script type="math/tex" id="MathJax-Element-467">\mu</script>,<script type="math/tex" id="MathJax-Element-468">\sigma^2</script>) = X~G(<script type="math/tex" id="MathJax-Element-469">\mu</script>,<script type="math/tex" id="MathJax-Element-470">\sigma</script>) &lt;- where <script type="math/tex" id="MathJax-Element-471">\sigma</script> is SD</p>
+Note: the Normal distribution is also called the Gausian X~N(<script type="math/tex" id="MathJax-Element-443">\mu</script>,<script type="math/tex" id="MathJax-Element-444">\sigma^2</script>) = X~G(<script type="math/tex" id="MathJax-Element-445">\mu</script>,<script type="math/tex" id="MathJax-Element-446">\sigma</script>) &lt;- where <script type="math/tex" id="MathJax-Element-447">\sigma</script> is SD</p>
 
 <p>Standard Normal rv (special case) <br>
-Let <script type="math/tex" id="MathJax-Element-472">\mu = 0</script> , <script type="math/tex" id="MathJax-Element-473">\sigma^2 = 1</script> <br>
+Let <script type="math/tex" id="MathJax-Element-448">\mu = 0</script> , <script type="math/tex" id="MathJax-Element-449">\sigma^2 = 1</script> <br>
 Z~N(0, 1) <br>
-<script type="math/tex" id="MathJax-Element-474">f(z) = \frac{1}{\sqrt{2 \pi}}e^{\frac{-1}{2}z^2} = \Phi (z)</script> standard Normal pdf for <script type="math/tex" id="MathJax-Element-475">-\infty < z < \infty</script></p>
+<script type="math/tex" id="MathJax-Element-450">f(z) = \frac{1}{\sqrt{2 \pi}}e^{\frac{-1}{2}z^2} = \Phi (z)</script> standard Normal pdf for <script type="math/tex" id="MathJax-Element-451">-\infty < z < \infty</script></p>
 
 <p>The standard Normal cdf <br>
-<script type="math/tex" id="MathJax-Element-476">F(z) = \Phi(z) = \int_{-\infty}^{\infty}\Phi(u)du</script> <br>
-still cannot be integrated analytically but tables of values of <script type="math/tex" id="MathJax-Element-477">\Phi(z)</script> are readily available.</p>
+<script type="math/tex" id="MathJax-Element-452">F(z) = \Phi(z) = \int_{-\infty}^{\infty}\Phi(u)du</script> <br>
+still cannot be integrated analytically but tables of values of <script type="math/tex" id="MathJax-Element-453">\Phi(z)</script> are readily available.</p>
 
 <p>Using N(0,1) tables <br>
 row -&gt; ones column and first decimal place <br>
@@ -2111,9 +2118,9 @@ Let R = voltage received = 2 + Z where Z~N(0,1) is the noise <br>
 P(error | 0 sent) R = -2 + Z <br>
 P(R &gt; 0.5) = P(Z &gt; 2.5) = 1 - P(Z &lt; 2.5) = 1 - 0.99379 = 0.00621</p>
 
-<p>Finding percentiles of N(0,1) <script type="math/tex" id="MathJax-Element-478">z_p</script> is the value such that F(<script type="math/tex" id="MathJax-Element-479">z_p</script>) = p</p>
+<p>Finding percentiles of N(0,1) <script type="math/tex" id="MathJax-Element-454">z_p</script> is the value such that F(<script type="math/tex" id="MathJax-Element-455">z_p</script>) = p</p>
 
-<p>F(<script type="math/tex" id="MathJax-Element-480">z_p</script>) = p connot be solved analytically so we use the F(z) table. Say we want <script type="math/tex" id="MathJax-Element-481">z_{0.95}</script></p>
+<p>F(<script type="math/tex" id="MathJax-Element-456">z_p</script>) = p connot be solved analytically so we use the F(z) table. Say we want <script type="math/tex" id="MathJax-Element-457">z_{0.95}</script></p>
 
 
 
@@ -2122,31 +2129,31 @@ P(R &gt; 0.5) = P(Z &gt; 2.5) = 1 - P(Z &lt; 2.5) = 1 - 0.99379 = 0.00621</p>
 <blockquote>
   <p>Recall: Normal Dist, probabilities + percentiles of N(0,1) <br>
   Transforming a Normal variable <br>
-  Probabilities + percentiles of N(<script type="math/tex" id="MathJax-Element-5903">\mu</script>,<script type="math/tex" id="MathJax-Element-5904">\sigma^2</script>) <br>
-  Also Recall: X~N(<script type="math/tex" id="MathJax-Element-5905">\mu</script>,<script type="math/tex" id="MathJax-Element-5906">\sigma^2</script>) <br>
-  <script type="math/tex" id="MathJax-Element-5907">f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2} (\frac{x- \mu}{\sigma})^2}</script> <br>
+  Probabilities + percentiles of N(<script type="math/tex" id="MathJax-Element-458">\mu</script>,<script type="math/tex" id="MathJax-Element-459">\sigma^2</script>) <br>
+  Also Recall: X~N(<script type="math/tex" id="MathJax-Element-460">\mu</script>,<script type="math/tex" id="MathJax-Element-461">\sigma^2</script>) <br>
+  <script type="math/tex" id="MathJax-Element-462">f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2} (\frac{x- \mu}{\sigma})^2}</script> <br>
   Standard Normal Z~N(0,1) <br>
-  F(z) =P(Z <script type="math/tex" id="MathJax-Element-5908">\leq</script> z) in tables (use symmetry for negative values)</p>
+  F(z) =P(Z <script type="math/tex" id="MathJax-Element-463">\leq</script> z) in tables (use symmetry for negative values)</p>
 </blockquote>
 
 <p>Also finding percentiles of N(0,1) <br>
 -can look for p in the main table and find the row + column closest <br>
-P(Z <script type="math/tex" id="MathJax-Element-5909">\leq z_p</script>)=p <br>
+P(Z <script type="math/tex" id="MathJax-Element-464">\leq z_p</script>)=p <br>
 -or can look up in the reverse Normal table (at the bottom)</p>
 
 <p>Example: <br>
 Find c such that <br>
-<script type="math/tex" id="MathJax-Element-5910">P(|z| < c) = 0.8</script> <br>
+<script type="math/tex" id="MathJax-Element-465">P(|z| < c) = 0.8</script> <br>
 Since Normal Dist is symmetric, we look for c -&gt; covers 90% (because the area outside the graph will be 20% / 2) <br>
 So c is the 90th percentile of N(0,1) <br>
 looking it up, c = 1.2816 <br>
-In practice we want to find <script type="math/tex" id="MathJax-Element-5911">N(\mu, \sigma^2)</script> information, not just N(0,1)</p>
+In practice we want to find <script type="math/tex" id="MathJax-Element-466">N(\mu, \sigma^2)</script> information, not just N(0,1)</p>
 
-<p>Suppose X~N(<script type="math/tex" id="MathJax-Element-5912">\mu</script>, <script type="math/tex" id="MathJax-Element-5913">\sigma^2</script>) <br>
-Let <script type="math/tex" id="MathJax-Element-5914">Z = \frac{X-\mu}{\sigma}</script> (a linear function of X) <br>
+<p>Suppose X~N(<script type="math/tex" id="MathJax-Element-467">\mu</script>, <script type="math/tex" id="MathJax-Element-468">\sigma^2</script>) <br>
+Let <script type="math/tex" id="MathJax-Element-469">Z = \frac{X-\mu}{\sigma}</script> (a linear function of X) <br>
 Claim Z~N(0,1) <br>
-Proof <script type="math/tex" id="MathJax-Element-5915">F_z(z) = P(Z \leq z)</script> <br>
-<script type="math/tex; mode=display" id="MathJax-Element-5916">\begin{equation}
+Proof <script type="math/tex" id="MathJax-Element-470">F_z(z) = P(Z \leq z)</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-471">\begin{equation}
 \begin{split}
 F_z(z) &= P(Z \leq z)\\
 &=P(\frac{X-\mu}{\sigma} \leq z)\\
@@ -2165,25 +2172,144 @@ f_z(z) &= \frac{d}{dz}F_z(z)\\
 \end{equation}</script> <br>
 Which is the pdf of a N(0,1) rv <br>
 Examples <br>
-Heights of adult men are N(68, <script type="math/tex" id="MathJax-Element-5917">2.4^2</script>). Find prob of a person being at least 77 in. <br>
+Heights of adult men are N(68, <script type="math/tex" id="MathJax-Element-472">2.4^2</script>). Find prob of a person being at least 77 in. <br>
 Let X = height of a random person from this population <br>
-P(X &lt; 77) = P(<script type="math/tex" id="MathJax-Element-5918">\frac{X-69}{2.4}</script> &gt; <script type="math/tex" id="MathJax-Element-5919">\frac{77 - 69}{2.4}</script>) <br>
-<script type="math/tex" id="MathJax-Element-5920">= P(Z > 3.33) = 1- P(Z \leq 3.33)=0.00043</script></p>
+P(X &lt; 77) = P(<script type="math/tex" id="MathJax-Element-473">\frac{X-69}{2.4}</script> &gt; <script type="math/tex" id="MathJax-Element-474">\frac{77 - 69}{2.4}</script>) <br>
+<script type="math/tex" id="MathJax-Element-475">= P(Z > 3.33) = 1- P(Z \leq 3.33)=0.00043</script></p>
 
 <p>Example 2 <br>
-Scores on the SAT reading test follow a N(504, <script type="math/tex" id="MathJax-Element-5921">111^2</script>). What score is required to be in the top 10%? <br>
+Scores on the SAT reading test follow a N(504, <script type="math/tex" id="MathJax-Element-476">111^2</script>). What score is required to be in the top 10%? <br>
 Find s st <br>
-<script type="math/tex" id="MathJax-Element-5922">P(X > s) = 0.1</script> <br>
-<script type="math/tex" id="MathJax-Element-5923">P(X \leq s) = 0.9</script> <br>
-<script type="math/tex" id="MathJax-Element-5924">P(\frac{X-504}{111} \leq \frac{s - 504}{111}) = 0.9</script> <br>
-<script type="math/tex" id="MathJax-Element-5925">P(Z < \frac{s- 504}{111}) = 0.9</script> <br>
+<script type="math/tex" id="MathJax-Element-477">P(X > s) = 0.1</script> <br>
+<script type="math/tex" id="MathJax-Element-478">P(X \leq s) = 0.9</script> <br>
+<script type="math/tex" id="MathJax-Element-479">P(\frac{X-504}{111} \leq \frac{s - 504}{111}) = 0.9</script> <br>
+<script type="math/tex" id="MathJax-Element-480">P(Z < \frac{s- 504}{111}) = 0.9</script> <br>
 So set <br>
-<script type="math/tex" id="MathJax-Element-5926">\frac{s-504}{111} = 1.2816</script> <br>
-<script type="math/tex" id="MathJax-Element-5927">s = 1.2816*111 + 504</script> <br>
-<script type="math/tex" id="MathJax-Element-5928">= 646.2 \approx 650</script></p>
+<script type="math/tex" id="MathJax-Element-481">\frac{s-504}{111} = 1.2816</script> <br>
+<script type="math/tex" id="MathJax-Element-482">s = 1.2816*111 + 504</script> <br>
+<script type="math/tex" id="MathJax-Element-483">= 646.2 \approx 650</script></p>
 
-<p>AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH MAAAATTHHHHHHH <br>
-- Nat 2016</p></body>
+<p>In general, if X~N(<script type="math/tex" id="MathJax-Element-484">\mu</script>,<script type="math/tex" id="MathJax-Element-485">\sigma^2</script>) <br>
+the <script type="math/tex" id="MathJax-Element-486">p^{th}</script> percentile of X is <script type="math/tex" id="MathJax-Element-487">x_p = \sigma z_p + \mu</script> <br>
+<script type="math/tex" id="MathJax-Element-488">p^{th}</script> percentile of Z~N(0,1).</p>
+
+
+
+<h2 id="lecture-27">Lecture 27</h2>
+
+
+
+<h3 id="ch-9-discrete-multivariate-rvs">Ch 9 Discrete Multivariate RVs</h3>
+
+<p>We have models (both discrete and continuous) for a single random quantity <br>
+But we are often interested in two or more rvs at the same time.</p>
+
+<p>Eg. returns on two stocks X and Y  <br>
+heights and weights <br>
+in a board game, # of a suit and # of a rank <br>
+treatment vs recovery <br>
+runtime vs algorithm used <br>
+In this course we’ll focus on the discrete case, but the continuous case is similar</p>
+
+<blockquote>
+  <p>Def: <br>
+  For two discrete rvs X and Y, the joint pf is f(x,y)=P(X=x , Y=y) <br>
+  i.e. the prob that X takes the value x AND Y takes the value y at the same time. Defined where x <script type="math/tex" id="MathJax-Element-489">\epsilon</script> range of X and y <script type="math/tex" id="MathJax-Element-490">\epsilon</script> Y. In general, the joint pf of <script type="math/tex" id="MathJax-Element-491">X_1</script>, … , <script type="math/tex" id="MathJax-Element-492">X_n</script> is f(<script type="math/tex" id="MathJax-Element-493">x_1</script>,…<script type="math/tex" id="MathJax-Element-494">x_n</script>) = P(<script type="math/tex" id="MathJax-Element-495">X_1 = x</script>, … , <script type="math/tex" id="MathJax-Element-496">X_n=n</script>)</p>
+</blockquote>
+
+<p>Similarly, to the single var case, f(x,y) can be displayed as a table or as a function of x and y. <br>
+Example: <br>
+Experiment: toss a fair coin 3 times <br>
+Let X = # heads <br>
+Y = 1 if heads , 0 otherwise <br>
+find f(x,y)</p>
+
+<table>
+<thead>
+<tr>
+  <th>f(x,y)</th>
+  <th>0</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>0</td>
+  <td><script type="math/tex" id="MathJax-Element-497">\frac 1 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-498">\frac 2 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-499">\frac 1 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-500">0</script></td>
+</tr>
+<tr>
+  <td>1</td>
+  <td><script type="math/tex" id="MathJax-Element-501">0</script></td>
+  <td><script type="math/tex" id="MathJax-Element-502">\frac 1 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-503">\frac 2 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-504">\frac 1 8</script></td>
+</tr>
+</tbody></table>
+
+
+<p>Note: </p>
+
+<ol>
+<li>f(x,y) <script type="math/tex" id="MathJax-Element-505">\geq</script> 0 <script type="math/tex" id="MathJax-Element-506">\forall x,y</script></li>
+<li><script type="math/tex" id="MathJax-Element-507">\Sigma_x \Sigma_y f(x,y) =1</script> <br>
+why? 1 -&gt; it’s a probability, 2-&gt; X and Y must take one of their values, but no double counting or missing</li>
+</ol>
+
+<p>what if we only want info about X? <br>
+e.g.  <br>
+P(X=0) = P(X=0, Y=0) + P(X=0, Y=1) = f(0,0) + f(0,1) = <script type="math/tex" id="MathJax-Element-508">\frac 1 8</script> <br>
+etc</p>
+
+<p>We get the pf of X by summing over the values of Y. <br>
+Similarly we could find the pf of Y by summing over the values of X.</p>
+
+<blockquote>
+  <p>Def: The marginal pf of X is <script type="math/tex" id="MathJax-Element-509">f_x(x) = P(X=x) = \Sigma_{ally}f(x,y)</script> and the marginal pf of Y is <script type="math/tex" id="MathJax-Element-510">f_y(y) = P(Y=y) = \Sigma_{allx}f(x,y)</script></p>
+</blockquote>
+
+<p>Note: <script type="math/tex" id="MathJax-Element-511">f_x(x)</script> and <script type="math/tex" id="MathJax-Element-512">f_y(y)</script> will automatically satisfy the conditions for a pf <br>
+In general for X1 ,… , Xn , then the marginal pf of X1 is: <br>
+<script type="math/tex" id="MathJax-Element-513">f_{x_1}(x_1) = \Sigma_{allx_2} ... \Sigma_{allx_n}f(x_1, x_2 , ..., x_n)</script> <br>
+Recall: two events A and B are independent iff P(AB) = P(A)P(B). We extend this idea to rvs. <br>
+Def: Two discrete rvs X and Y are independent iff <script type="math/tex" id="MathJax-Element-514">f(x,y) = f_x(x)f_y(y)</script> for all possible pairs (x,y) <br>
+Note: to show dependence, it suffices to find one pair (x,y) where this doesn’t hold to show Independence, check all pairs.</p>
+
+<p>In general, X1,…Xn are independent of each other iff f(x1, …, xn) = <script type="math/tex" id="MathJax-Element-515">f_{x_1}(x_1) ...f_{x_n} (x_n)</script> for all n-tuples</p>
+
+<p>In our example, f(0,1) = 0. but fx(0)fy(1) = 1/16 != 0 <br>
+therefore X and Y are not dependent</p>
+
+<p>A quick way to check for dependence is to find 0’s in the table <br>
+In other words, if the range is not a rectangle, formally a Cartesian product, the we know that the variables are dependent.</p>
+
+
+
+<h2 id="lecture-28">Lecture 28</h2>
+
+<p>Remember conditional probability <br>
+<script type="math/tex" id="MathJax-Element-516">P(A|B) =\frac{P(AB)}{P(B)}</script> <br>
+We can extend to rvs</p>
+
+<p>Def: The conditional pf of X given Y=y is: <br>
+<script type="math/tex" id="MathJax-Element-517">f(x|y)=P(X=x|P(Y=y)) = \frac{f(x,y)}{f_y(y)}</script> <br>
+Similarly <script type="math/tex" id="MathJax-Element-518">f(y|x) = \frac{f(x,y)}{f_x(x)}</script></p>
+
+
+
+<h3 id="functions-of-multiple-rvs">Functions of multiple rvs</h3>
+
+<p>We may often be interested in the sum of X and Y or any function of any number of rvs. <br>
+eg. T = X + Y, U = 2(Y-X) <br>
+We can find the pf of the new rv based on the joint pf as follows:</p>
+
+<ol>
+<li>find the range of T by calculating the value of t for each pair (x,y)</li>
+<li>P(T=t) = <script type="math/tex" id="MathJax-Element-519">\Sigma_{all (x,y) where T=t}\Sigma f(x,y)</script></li>
+</ol></body>
 </html>
 
 <!--
@@ -2201,7 +2327,7 @@ So set <br>
 </head>
 <body><h1 id="stat-230-probability">STAT 230 - Probability</h1>
 
-<p><div class="toc"><div class="toc">
+<p><div class="toc">
 <ul>
 <li><a href="#stat-230-probability">STAT 230 - Probability</a><ul>
 <li><a href="#lecture-1">Lecture - 1</a><ul>
@@ -2313,10 +2439,17 @@ So set <br>
 </ul>
 </li>
 <li><a href="#lecture-26">Lecture 26</a></li>
+<li><a href="#lecture-27">Lecture 27</a><ul>
+<li><a href="#ch-9-discrete-multivariate-rvs">Ch 9 Discrete Multivariate RVs</a></li>
+</ul>
+</li>
+<li><a href="#lecture-28">Lecture 28</a><ul>
+<li><a href="#functions-of-multiple-rvs">Functions of multiple rvs</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+</ul>
 </div>
 </p>
 
@@ -4250,34 +4383,34 @@ P(X &gt; t + s | X &gt; t) = P(X &gt; s)</p>
 - logs of stock returns <br>
 - measurement errors</p>
 
-<p>Def: We say X has a Normal Distribution X~N(<script type="math/tex" id="MathJax-Element-458">\mu, \sigma ^2</script>) if its pdf is: <br>
-<script type="math/tex" id="MathJax-Element-459">f(x) = \frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{x-\mu}{\sigma}^2}</script> <br>
+<p>Def: We say X has a Normal Distribution X~N(<script type="math/tex" id="MathJax-Element-434">\mu, \sigma ^2</script>) if its pdf is: <br>
+<script type="math/tex" id="MathJax-Element-435">f(x) = \frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{x-\mu}{\sigma}^2}</script> <br>
 for all Real x</p>
 
 <p>What does it look life? <br>
--symmetric around <script type="math/tex" id="MathJax-Element-460">\mu</script> <br>
+-symmetric around <script type="math/tex" id="MathJax-Element-436">\mu</script> <br>
 -both lefts and right “tails” go to 0 quickly <br>
-- highest when x = <script type="math/tex" id="MathJax-Element-461">\mu</script> <br>
+- highest when x = <script type="math/tex" id="MathJax-Element-437">\mu</script> <br>
 - area under curve = 1</p>
 
 <p><img src="http://amyqiu.me/Notes/b1.png"></p>
 
-<p>We can show <script type="math/tex" id="MathJax-Element-462">\int_{-\infty}^{\infty}f(x)fx = 1</script> using a change of variable and the gamma function trick and <script type="math/tex" id="MathJax-Element-463">E[X]= \int_{-\infty}^{\infty}xf(x)dx = \mu</script> also the median and mode are <script type="math/tex" id="MathJax-Element-464">\mu</script> <br>
-And <script type="math/tex" id="MathJax-Element-465">Var(X) = \sigma^2</script> (proof again in uses gamma f’n)</p>
+<p>We can show <script type="math/tex" id="MathJax-Element-438">\int_{-\infty}^{\infty}f(x)fx = 1</script> using a change of variable and the gamma function trick and <script type="math/tex" id="MathJax-Element-439">E[X]= \int_{-\infty}^{\infty}xf(x)dx = \mu</script> also the median and mode are <script type="math/tex" id="MathJax-Element-440">\mu</script> <br>
+And <script type="math/tex" id="MathJax-Element-441">Var(X) = \sigma^2</script> (proof again in uses gamma f’n)</p>
 
-<p>the cdf <script type="math/tex" id="MathJax-Element-466">F(x) = \int_{-\infty}^{\infty}f(x)du = \int_{-\infty}^{\infty}\frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{u-\mu}{\sigma}^2}du</script></p>
+<p>the cdf <script type="math/tex" id="MathJax-Element-442">F(x) = \int_{-\infty}^{\infty}f(x)du = \int_{-\infty}^{\infty}\frac{1}{\sqrt{2 \pi \sigma}}e^{\frac{-1}{2}\frac{u-\mu}{\sigma}^2}du</script></p>
 
 <p>We cannot evaluate the integral! numerical methods are needed. <br>
-Note: the Normal distribution is also called the Gausian X~N(<script type="math/tex" id="MathJax-Element-467">\mu</script>,<script type="math/tex" id="MathJax-Element-468">\sigma^2</script>) = X~G(<script type="math/tex" id="MathJax-Element-469">\mu</script>,<script type="math/tex" id="MathJax-Element-470">\sigma</script>) &lt;- where <script type="math/tex" id="MathJax-Element-471">\sigma</script> is SD</p>
+Note: the Normal distribution is also called the Gausian X~N(<script type="math/tex" id="MathJax-Element-443">\mu</script>,<script type="math/tex" id="MathJax-Element-444">\sigma^2</script>) = X~G(<script type="math/tex" id="MathJax-Element-445">\mu</script>,<script type="math/tex" id="MathJax-Element-446">\sigma</script>) &lt;- where <script type="math/tex" id="MathJax-Element-447">\sigma</script> is SD</p>
 
 <p>Standard Normal rv (special case) <br>
-Let <script type="math/tex" id="MathJax-Element-472">\mu = 0</script> , <script type="math/tex" id="MathJax-Element-473">\sigma^2 = 1</script> <br>
+Let <script type="math/tex" id="MathJax-Element-448">\mu = 0</script> , <script type="math/tex" id="MathJax-Element-449">\sigma^2 = 1</script> <br>
 Z~N(0, 1) <br>
-<script type="math/tex" id="MathJax-Element-474">f(z) = \frac{1}{\sqrt{2 \pi}}e^{\frac{-1}{2}z^2} = \Phi (z)</script> standard Normal pdf for <script type="math/tex" id="MathJax-Element-475">-\infty < z < \infty</script></p>
+<script type="math/tex" id="MathJax-Element-450">f(z) = \frac{1}{\sqrt{2 \pi}}e^{\frac{-1}{2}z^2} = \Phi (z)</script> standard Normal pdf for <script type="math/tex" id="MathJax-Element-451">-\infty < z < \infty</script></p>
 
 <p>The standard Normal cdf <br>
-<script type="math/tex" id="MathJax-Element-476">F(z) = \Phi(z) = \int_{-\infty}^{\infty}\Phi(u)du</script> <br>
-still cannot be integrated analytically but tables of values of <script type="math/tex" id="MathJax-Element-477">\Phi(z)</script> are readily available.</p>
+<script type="math/tex" id="MathJax-Element-452">F(z) = \Phi(z) = \int_{-\infty}^{\infty}\Phi(u)du</script> <br>
+still cannot be integrated analytically but tables of values of <script type="math/tex" id="MathJax-Element-453">\Phi(z)</script> are readily available.</p>
 
 <p>Using N(0,1) tables <br>
 row -&gt; ones column and first decimal place <br>
@@ -4296,9 +4429,9 @@ Let R = voltage received = 2 + Z where Z~N(0,1) is the noise <br>
 P(error | 0 sent) R = -2 + Z <br>
 P(R &gt; 0.5) = P(Z &gt; 2.5) = 1 - P(Z &lt; 2.5) = 1 - 0.99379 = 0.00621</p>
 
-<p>Finding percentiles of N(0,1) <script type="math/tex" id="MathJax-Element-478">z_p</script> is the value such that F(<script type="math/tex" id="MathJax-Element-479">z_p</script>) = p</p>
+<p>Finding percentiles of N(0,1) <script type="math/tex" id="MathJax-Element-454">z_p</script> is the value such that F(<script type="math/tex" id="MathJax-Element-455">z_p</script>) = p</p>
 
-<p>F(<script type="math/tex" id="MathJax-Element-480">z_p</script>) = p connot be solved analytically so we use the F(z) table. Say we want <script type="math/tex" id="MathJax-Element-481">z_{0.95}</script></p>
+<p>F(<script type="math/tex" id="MathJax-Element-456">z_p</script>) = p connot be solved analytically so we use the F(z) table. Say we want <script type="math/tex" id="MathJax-Element-457">z_{0.95}</script></p>
 
 
 
@@ -4307,31 +4440,31 @@ P(R &gt; 0.5) = P(Z &gt; 2.5) = 1 - P(Z &lt; 2.5) = 1 - 0.99379 = 0.00621</p>
 <blockquote>
   <p>Recall: Normal Dist, probabilities + percentiles of N(0,1) <br>
   Transforming a Normal variable <br>
-  Probabilities + percentiles of N(<script type="math/tex" id="MathJax-Element-5903">\mu</script>,<script type="math/tex" id="MathJax-Element-5904">\sigma^2</script>) <br>
-  Also Recall: X~N(<script type="math/tex" id="MathJax-Element-5905">\mu</script>,<script type="math/tex" id="MathJax-Element-5906">\sigma^2</script>) <br>
-  <script type="math/tex" id="MathJax-Element-5907">f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2} (\frac{x- \mu}{\sigma})^2}</script> <br>
+  Probabilities + percentiles of N(<script type="math/tex" id="MathJax-Element-458">\mu</script>,<script type="math/tex" id="MathJax-Element-459">\sigma^2</script>) <br>
+  Also Recall: X~N(<script type="math/tex" id="MathJax-Element-460">\mu</script>,<script type="math/tex" id="MathJax-Element-461">\sigma^2</script>) <br>
+  <script type="math/tex" id="MathJax-Element-462">f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2} (\frac{x- \mu}{\sigma})^2}</script> <br>
   Standard Normal Z~N(0,1) <br>
-  F(z) =P(Z <script type="math/tex" id="MathJax-Element-5908">\leq</script> z) in tables (use symmetry for negative values)</p>
+  F(z) =P(Z <script type="math/tex" id="MathJax-Element-463">\leq</script> z) in tables (use symmetry for negative values)</p>
 </blockquote>
 
 <p>Also finding percentiles of N(0,1) <br>
 -can look for p in the main table and find the row + column closest <br>
-P(Z <script type="math/tex" id="MathJax-Element-5909">\leq z_p</script>)=p <br>
+P(Z <script type="math/tex" id="MathJax-Element-464">\leq z_p</script>)=p <br>
 -or can look up in the reverse Normal table (at the bottom)</p>
 
 <p>Example: <br>
 Find c such that <br>
-<script type="math/tex" id="MathJax-Element-5910">P(|z| < c) = 0.8</script> <br>
+<script type="math/tex" id="MathJax-Element-465">P(|z| < c) = 0.8</script> <br>
 Since Normal Dist is symmetric, we look for c -&gt; covers 90% (because the area outside the graph will be 20% / 2) <br>
 So c is the 90th percentile of N(0,1) <br>
 looking it up, c = 1.2816 <br>
-In practice we want to find <script type="math/tex" id="MathJax-Element-5911">N(\mu, \sigma^2)</script> information, not just N(0,1)</p>
+In practice we want to find <script type="math/tex" id="MathJax-Element-466">N(\mu, \sigma^2)</script> information, not just N(0,1)</p>
 
-<p>Suppose X~N(<script type="math/tex" id="MathJax-Element-5912">\mu</script>, <script type="math/tex" id="MathJax-Element-5913">\sigma^2</script>) <br>
-Let <script type="math/tex" id="MathJax-Element-5914">Z = \frac{X-\mu}{\sigma}</script> (a linear function of X) <br>
+<p>Suppose X~N(<script type="math/tex" id="MathJax-Element-467">\mu</script>, <script type="math/tex" id="MathJax-Element-468">\sigma^2</script>) <br>
+Let <script type="math/tex" id="MathJax-Element-469">Z = \frac{X-\mu}{\sigma}</script> (a linear function of X) <br>
 Claim Z~N(0,1) <br>
-Proof <script type="math/tex" id="MathJax-Element-5915">F_z(z) = P(Z \leq z)</script> <br>
-<script type="math/tex; mode=display" id="MathJax-Element-5916">\begin{equation}
+Proof <script type="math/tex" id="MathJax-Element-470">F_z(z) = P(Z \leq z)</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-471">\begin{equation}
 \begin{split}
 F_z(z) &= P(Z \leq z)\\
 &=P(\frac{X-\mu}{\sigma} \leq z)\\
@@ -4350,24 +4483,143 @@ f_z(z) &= \frac{d}{dz}F_z(z)\\
 \end{equation}</script> <br>
 Which is the pdf of a N(0,1) rv <br>
 Examples <br>
-Heights of adult men are N(68, <script type="math/tex" id="MathJax-Element-5917">2.4^2</script>). Find prob of a person being at least 77 in. <br>
+Heights of adult men are N(68, <script type="math/tex" id="MathJax-Element-472">2.4^2</script>). Find prob of a person being at least 77 in. <br>
 Let X = height of a random person from this population <br>
-P(X &lt; 77) = P(<script type="math/tex" id="MathJax-Element-5918">\frac{X-69}{2.4}</script> &gt; <script type="math/tex" id="MathJax-Element-5919">\frac{77 - 69}{2.4}</script>) <br>
-<script type="math/tex" id="MathJax-Element-5920">= P(Z > 3.33) = 1- P(Z \leq 3.33)=0.00043</script></p>
+P(X &lt; 77) = P(<script type="math/tex" id="MathJax-Element-473">\frac{X-69}{2.4}</script> &gt; <script type="math/tex" id="MathJax-Element-474">\frac{77 - 69}{2.4}</script>) <br>
+<script type="math/tex" id="MathJax-Element-475">= P(Z > 3.33) = 1- P(Z \leq 3.33)=0.00043</script></p>
 
 <p>Example 2 <br>
-Scores on the SAT reading test follow a N(504, <script type="math/tex" id="MathJax-Element-5921">111^2</script>). What score is required to be in the top 10%? <br>
+Scores on the SAT reading test follow a N(504, <script type="math/tex" id="MathJax-Element-476">111^2</script>). What score is required to be in the top 10%? <br>
 Find s st <br>
-<script type="math/tex" id="MathJax-Element-5922">P(X > s) = 0.1</script> <br>
-<script type="math/tex" id="MathJax-Element-5923">P(X \leq s) = 0.9</script> <br>
-<script type="math/tex" id="MathJax-Element-5924">P(\frac{X-504}{111} \leq \frac{s - 504}{111}) = 0.9</script> <br>
-<script type="math/tex" id="MathJax-Element-5925">P(Z < \frac{s- 504}{111}) = 0.9</script> <br>
+<script type="math/tex" id="MathJax-Element-477">P(X > s) = 0.1</script> <br>
+<script type="math/tex" id="MathJax-Element-478">P(X \leq s) = 0.9</script> <br>
+<script type="math/tex" id="MathJax-Element-479">P(\frac{X-504}{111} \leq \frac{s - 504}{111}) = 0.9</script> <br>
+<script type="math/tex" id="MathJax-Element-480">P(Z < \frac{s- 504}{111}) = 0.9</script> <br>
 So set <br>
-<script type="math/tex" id="MathJax-Element-5926">\frac{s-504}{111} = 1.2816</script> <br>
-<script type="math/tex" id="MathJax-Element-5927">s = 1.2816*111 + 504</script> <br>
-<script type="math/tex" id="MathJax-Element-5928">= 646.2 \approx 650</script></p>
+<script type="math/tex" id="MathJax-Element-481">\frac{s-504}{111} = 1.2816</script> <br>
+<script type="math/tex" id="MathJax-Element-482">s = 1.2816*111 + 504</script> <br>
+<script type="math/tex" id="MathJax-Element-483">= 646.2 \approx 650</script></p>
 
-<p>AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH MAAAATTHHHHHHH <br>
-- Nat 2016</p></body>
+<p>In general, if X~N(<script type="math/tex" id="MathJax-Element-484">\mu</script>,<script type="math/tex" id="MathJax-Element-485">\sigma^2</script>) <br>
+the <script type="math/tex" id="MathJax-Element-486">p^{th}</script> percentile of X is <script type="math/tex" id="MathJax-Element-487">x_p = \sigma z_p + \mu</script> <br>
+<script type="math/tex" id="MathJax-Element-488">p^{th}</script> percentile of Z~N(0,1).</p>
+
+
+
+<h2 id="lecture-27">Lecture 27</h2>
+
+
+
+<h3 id="ch-9-discrete-multivariate-rvs">Ch 9 Discrete Multivariate RVs</h3>
+
+<p>We have models (both discrete and continuous) for a single random quantity <br>
+But we are often interested in two or more rvs at the same time.</p>
+
+<p>Eg. returns on two stocks X and Y  <br>
+heights and weights <br>
+in a board game, # of a suit and # of a rank <br>
+treatment vs recovery <br>
+runtime vs algorithm used <br>
+In this course we’ll focus on the discrete case, but the continuous case is similar</p>
+
+<blockquote>
+  <p>Def: <br>
+  For two discrete rvs X and Y, the joint pf is f(x,y)=P(X=x , Y=y) <br>
+  i.e. the prob that X takes the value x AND Y takes the value y at the same time. Defined where x <script type="math/tex" id="MathJax-Element-489">\epsilon</script> range of X and y <script type="math/tex" id="MathJax-Element-490">\epsilon</script> Y. In general, the joint pf of <script type="math/tex" id="MathJax-Element-491">X_1</script>, … , <script type="math/tex" id="MathJax-Element-492">X_n</script> is f(<script type="math/tex" id="MathJax-Element-493">x_1</script>,…<script type="math/tex" id="MathJax-Element-494">x_n</script>) = P(<script type="math/tex" id="MathJax-Element-495">X_1 = x</script>, … , <script type="math/tex" id="MathJax-Element-496">X_n=n</script>)</p>
+</blockquote>
+
+<p>Similarly, to the single var case, f(x,y) can be displayed as a table or as a function of x and y. <br>
+Example: <br>
+Experiment: toss a fair coin 3 times <br>
+Let X = # heads <br>
+Y = 1 if heads , 0 otherwise <br>
+find f(x,y)</p>
+
+<table>
+<thead>
+<tr>
+  <th>f(x,y)</th>
+  <th>0</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>0</td>
+  <td><script type="math/tex" id="MathJax-Element-497">\frac 1 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-498">\frac 2 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-499">\frac 1 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-500">0</script></td>
+</tr>
+<tr>
+  <td>1</td>
+  <td><script type="math/tex" id="MathJax-Element-501">0</script></td>
+  <td><script type="math/tex" id="MathJax-Element-502">\frac 1 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-503">\frac 2 8</script></td>
+  <td><script type="math/tex" id="MathJax-Element-504">\frac 1 8</script></td>
+</tr>
+</tbody></table>
+
+
+<p>Note: </p>
+
+<ol>
+<li>f(x,y) <script type="math/tex" id="MathJax-Element-505">\geq</script> 0 <script type="math/tex" id="MathJax-Element-506">\forall x,y</script></li>
+<li><script type="math/tex" id="MathJax-Element-507">\Sigma_x \Sigma_y f(x,y) =1</script> <br>
+why? 1 -&gt; it’s a probability, 2-&gt; X and Y must take one of their values, but no double counting or missing</li>
+</ol>
+
+<p>what if we only want info about X? <br>
+e.g.  <br>
+P(X=0) = P(X=0, Y=0) + P(X=0, Y=1) = f(0,0) + f(0,1) = <script type="math/tex" id="MathJax-Element-508">\frac 1 8</script> <br>
+etc</p>
+
+<p>We get the pf of X by summing over the values of Y. <br>
+Similarly we could find the pf of Y by summing over the values of X.</p>
+
+<blockquote>
+  <p>Def: The marginal pf of X is <script type="math/tex" id="MathJax-Element-509">f_x(x) = P(X=x) = \Sigma_{ally}f(x,y)</script> and the marginal pf of Y is <script type="math/tex" id="MathJax-Element-510">f_y(y) = P(Y=y) = \Sigma_{allx}f(x,y)</script></p>
+</blockquote>
+
+<p>Note: <script type="math/tex" id="MathJax-Element-511">f_x(x)</script> and <script type="math/tex" id="MathJax-Element-512">f_y(y)</script> will automatically satisfy the conditions for a pf <br>
+In general for X1 ,… , Xn , then the marginal pf of X1 is: <br>
+<script type="math/tex" id="MathJax-Element-513">f_{x_1}(x_1) = \Sigma_{allx_2} ... \Sigma_{allx_n}f(x_1, x_2 , ..., x_n)</script> <br>
+Recall: two events A and B are independent iff P(AB) = P(A)P(B). We extend this idea to rvs. <br>
+Def: Two discrete rvs X and Y are independent iff <script type="math/tex" id="MathJax-Element-514">f(x,y) = f_x(x)f_y(y)</script> for all possible pairs (x,y) <br>
+Note: to show dependence, it suffices to find one pair (x,y) where this doesn’t hold to show Independence, check all pairs.</p>
+
+<p>In general, X1,…Xn are independent of each other iff f(x1, …, xn) = <script type="math/tex" id="MathJax-Element-515">f_{x_1}(x_1) ...f_{x_n} (x_n)</script> for all n-tuples</p>
+
+<p>In our example, f(0,1) = 0. but fx(0)fy(1) = 1/16 != 0 <br>
+therefore X and Y are not dependent</p>
+
+<p>A quick way to check for dependence is to find 0’s in the table <br>
+In other words, if the range is not a rectangle, formally a Cartesian product, the we know that the variables are dependent.</p>
+
+
+
+<h2 id="lecture-28">Lecture 28</h2>
+
+<p>Remember conditional probability <br>
+<script type="math/tex" id="MathJax-Element-516">P(A|B) =\frac{P(AB)}{P(B)}</script> <br>
+We can extend to rvs</p>
+
+<p>Def: The conditional pf of X given Y=y is: <br>
+<script type="math/tex" id="MathJax-Element-517">f(x|y)=P(X=x|P(Y=y)) = \frac{f(x,y)}{f_y(y)}</script> <br>
+Similarly <script type="math/tex" id="MathJax-Element-518">f(y|x) = \frac{f(x,y)}{f_x(x)}</script></p>
+
+
+
+<h3 id="functions-of-multiple-rvs">Functions of multiple rvs</h3>
+
+<p>We may often be interested in the sum of X and Y or any function of any number of rvs. <br>
+eg. T = X + Y, U = 2(Y-X) <br>
+We can find the pf of the new rv based on the joint pf as follows:</p>
+
+<ol>
+<li>find the range of T by calculating the value of t for each pair (x,y)</li>
+<li>P(T=t) = <script type="math/tex" id="MathJax-Element-519">\Sigma_{all (x,y) where T=t}\Sigma f(x,y)</script></li>
+</ol></body>
 </html>
 -->

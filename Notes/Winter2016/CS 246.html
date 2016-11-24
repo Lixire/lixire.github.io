@@ -143,6 +143,24 @@
 <li><a href="#stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</a></li>
 </ul>
 </li>
+<li><a href="#lecture-17">Lecture 17</a><ul>
+<li><a href="#visitor-pattern">Visitor Pattern</a></li>
+<li><a href="#pimpl-idiom-pointer-to-implementation">Pimpl idiom (“Pointer to implementation”)</a></li>
+</ul>
+</li>
+<li><a href="#lecture">Lecture</a><ul>
+<li><a href="#measures-of-design-quality">Measures of Design Quality</a></li>
+<li><a href="#decoupling-the-interface-mvc">Decoupling the Interface (MVC)</a></li>
+<li><a href="#single-responsibility-principle">Single Responsibility Principle</a></li>
+<li><a href="#pattern-model-view-controller-mvc">Pattern: Model-View-Controller (MVC)</a></li>
+<li><a href="#exception-safety">Exception Safety</a></li>
+<li><a href="#c-idiom-raii-resource-acquisition-is-initialization-might-appear-on-final-exam-what-does-it-stand-for">C++ idiom : RAII - Resource Acquisition Is Initialization (**Might appear on final exam. What does it stand for?)</a></li>
+</ul>
+</li>
+<li><a href="#lecture-19">Lecture 19</a><ul>
+<li><a href="#exn-safety-the-stl-vectors">Exn Safety + the STL: vectors</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -381,7 +399,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-5929">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-1">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -574,9 +592,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-5930"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-2"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-5931">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-3">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -677,7 +695,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-5932">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-4">1 appear in file </script>2?</p>
 
 
 
@@ -745,7 +763,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-5933">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-5">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -951,7 +969,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-5934">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-6">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -1467,7 +1485,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-5935">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-7">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -2610,14 +2628,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-5936">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-8">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-5937">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-9">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -2825,8 +2843,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-5938">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-5939">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-10">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-11">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -3597,7 +3615,7 @@ Throw s; -&gt; s may be a subtype of SomeErrorType. throws a new exn of type Som
 
 
 
-<div class="flow-chart"><svg height="138" version="1.1" width="133.609375" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.109375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj9" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="127.609375" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,4,4)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SpecialErrorType</tspan></text><rect x="0" y="0" width="117.828125" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,8.8906,97)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,8.8906,97)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SomeErrorType</tspan></text><path fill="none" stroke="#000000" d="M67.8046875,43C67.8046875,43,67.8046875,82.65409994125366,67.8046875,94.00043908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj9)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+<div class="flow-chart"><svg height="133" version="1.1" width="141.046875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.109375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj4" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="135.046875" height="36.5" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,4,4)"></rect><text x="10" y="18.25" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.25">SpecialErrorType</tspan></text><rect x="0" y="0" width="125.03125" height="36.5" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,9.0078,94.5)"></rect><text x="10" y="18.25" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,9.0078,94.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.25">SomeErrorType</tspan></text><path fill="none" stroke="#000000" d="M71.5234375,40.5C71.5234375,40.5,71.5234375,80.15409994125366,71.5234375,91.50043908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj4)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
 
 <p><strong>throw;</strong> <br>
 actual type of s is retained</p>
@@ -3842,7 +3860,7 @@ Want to choose these enhancements at runtime. <br>
 <p>All inherit from Abstract Window class, so window methods can be used polymorphically on all of them.</p>
 
 <p>E.g Pizza <br>
-<img src="http://amyqiu.me/Notes/a3,png"></p>
+<img src="http://amyqiu.me/Notes/a3.png"></p>
 
 <p>Basic Pizza is crust and sauce</p>
 
@@ -3984,7 +4002,7 @@ Partial assignment - copies only the Book part. <br>
 };</code></pre>
 
 <p>Params not matching =&gt; violates is-a <br>
-<script type="math/tex" id="MathJax-Element-5940">\therefore</script> Assignment of a book object to a text variable would be allowed</p>
+<script type="math/tex" id="MathJax-Element-12">\therefore</script> Assignment of a book object to a text variable would be allowed</p>
 
 <p>Allowed:</p>
 
@@ -4166,7 +4184,621 @@ m[<span class="hljs-string">"abc"</span>] = <span class="hljs-number">1</span>;
 m[<span class="hljs-string">"def"</span>] = <span class="hljs-number">4</span>;
 <span class="hljs-built_in">cout</span> &lt;&lt; m[<span class="hljs-string">"ghi"</span>] &lt;&lt; endl; <span class="hljs-comment">//if key is not present, it is inserted and the value is default constructed (for ints, 0)</span>
 m.erase(<span class="hljs-string">"abc"</span>);
-<span class="hljs-keyword">if</span>(m.count(<span class="hljs-string">"def"</span>)) ... <span class="hljs-comment">//0 if found, 1 if not found</span></code></pre></body>
+<span class="hljs-keyword">if</span>(m.count(<span class="hljs-string">"def"</span>)) ... <span class="hljs-comment">//0 if found, 1 if not found</span></code></pre>
+
+
+
+<h2 id="lecture-17">Lecture 17</h2>
+
+<p>Recall: <code>&lt;map&gt;</code> <br>
+<code>map&lt;string, int&gt; m;</code> <br>
+Iterating over a map: sorted key order</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;p:m){
+    <span class="hljs-built_in">cout</span> &lt;&lt; p.first &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; p.second &lt;&lt; endl;
+}</code></pre>
+
+<p>p’s type is <code>std::pair&lt;string,int&gt;&amp;</code> (<code>&lt;utility&gt;</code>)</p>
+
+
+
+<h3 id="visitor-pattern">Visitor Pattern</h3>
+
+<p>For implementation, <strong>double dispatch</strong> <br>
+e.g <br>
+<img> <br>
+-effect depends on type of Enemy and type of weapon <br>
+Want something like: virtual void(Enemy, Weapon)::strike(); which is impossible <br>
+If we put this method in Enemy - choose based on enemy but not on the weapon. <br>
+If we put it in weapon - choose based on weapon but not enemy.</p>
+
+<p>To get dispatch based on both (double dispatch): <br>
+-combine overriding with overloading</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Enemy{
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> beStruckBy(Weapon &amp;w)=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> Turtle: <span class="hljs-keyword">public</span> Enemy{
+    <span class="hljs-keyword">void</span> beStruckBy(Weapon &amp;w) override{
+        w.strike(*<span class="hljs-keyword">this</span>);
+    }
+};
+<span class="hljs-keyword">class</span> Bullet:<span class="hljs-keyword">public</span> Enemy{
+    <span class="hljs-keyword">void</span> beStruckBy(Weapon &amp;w) override{
+        w.Strike(*<span class="hljs-keyword">this</span>);
+    }
+};
+
+<span class="hljs-keyword">class</span> Weapon{
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> strike(Turtle &amp;t)=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> strike(Bullet &amp;b)=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> Stick: <span class="hljs-keyword">public</span> Weapon{
+    <span class="hljs-keyword">void</span> strike(Turtle &amp;t) override{
+        <span class="hljs-comment">//strike Turtle with stick</span>
+    }
+    <span class="hljs-keyword">void</span> strike(Bullet &amp;b) override{
+        <span class="hljs-comment">//bullet with stick</span>
+    }
+};
+
+Enemy* e = <span class="hljs-keyword">new</span> Bullet{...};
+Weapon*w = <span class="hljs-keyword">new</span> Rock{...};
+
+e-&gt;beStruckBy(*w); <span class="hljs-comment">//what happens?</span>
+<span class="hljs-comment">//virtual mthd of Enemy. Bullet::beStruckBy calls Weapon::strike</span>
+<span class="hljs-comment">//chosen at compile-time - virtual</span>
+<span class="hljs-comment">//resolves to Rock::Strike(Bullet &amp;) </span></code></pre>
+
+<p>Visitor can be used to add functionality to existing classes, without changing or recompiling the classes themselves</p>
+
+<p>Eg. add a visitor to the Book hierarchy:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> accept(BookVisitor &amp;v){v.visit(*<span class="hljs-keyword">this</span>);}
+};
+
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> accept(Book Visitor &amp;v) override{
+            v.visit(*<span class="hljs-keyword">this</span>);
+        }
+};
+
+<span class="hljs-keyword">class</span> BookVisitor{
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> visit(Book &amp;b) = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> visit(Text&amp;b) = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> visit(Comic &amp;b) = <span class="hljs-number">0</span>;
+};</code></pre>
+
+<p>Application: <br>
+Track how many of each type of book we have: <br>
+Books - by author <br>
+Texts - by topic <br>
+Comics - by hero <br>
+Use a <code>map &lt;string, int&gt;</code> <br>
+Could add virtual updateMap (…) to each class or write a visitor</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Catalogue: <span class="hljs-keyword">public</span> BookVisitor{
+    <span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;</span> theCatalogue;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">int</span>&gt;</span> getCatalogue(){<span class="hljs-keyword">return</span> theCatalogue;}
+        <span class="hljs-keyword">void</span> visit(Book &amp;b) override{
+            ++theCatalogue[b.getAuthor()];
+        };
+        <span class="hljs-keyword">void</span> visit(Text &amp;b) override{
+            ++theCatalogue[b.getTopic()];
+        };
+        <span class="hljs-keyword">void</span> visit(Comic &amp;b) override{
+            ++theCatalogue[b.getHero()];
+        };
+};</code></pre>
+
+<p>but it won’t compile! why?</p>
+
+<p>main -&gt; includes book - includes Book Visitor -&gt; inclodes both Text and Book <br>
+-circular include dependency <br>
+Text doesn’t know what Book is <br>
+How many of these includes are really needed?</p>
+
+<p>Compilation Dependencies - include vs forward declare</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Consider <span class="hljs-keyword">class</span> A{...};
+<span class="hljs-comment">//B needs #includes A</span>
+<span class="hljs-keyword">class</span> B: <span class="hljs-keyword">public</span> A{
+...
+};
+<span class="hljs-comment">//C needs #include A</span>
+<span class="hljs-keyword">class</span> C{A my A;};
+<span class="hljs-comment">//D doesn't need to know how big A is therefore doesn't need #include</span>
+<span class="hljs-comment">//can get away with just `class A`;</span>
+<span class="hljs-keyword">class</span> D{A *myAp;};
+<span class="hljs-comment">//E needs #include A</span>
+<span class="hljs-keyword">class</span> E{
+    A f(A x)
+};</code></pre>
+
+<p>Don’t introduce unnecessary compilation dependencies with unneeded includes <br>
+When A changes - only A,B,C need recompilation <br>
+Now, in the implementations of D,E;</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//d.cc</span>
+<span class="hljs-preprocessor">#include "A.h"</span>
+<span class="hljs-keyword">void</span> D::f(){
+    myAp-&gt;someMethod(); <span class="hljs-comment">//Need to know about class A here</span>
+}</code></pre>
+
+<p>Do the #include in the .cc file instead of the .h file. (will never get an include cycle because .cc is never included) where possible.</p>
+
+<p>Now consider the XWindow class</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> XWindow{
+    <span class="hljs-comment">//this is private data here. Yet we must look at it. Do we know what it means? Do we care?</span>
+    Display *d;
+    Window w;
+    <span class="hljs-keyword">int</span> s;
+    GC gc;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> colours[<span class="hljs-number">10</span>];
+    <span class="hljs-keyword">public</span>:
+        ...
+};</code></pre>
+
+<p>If we add or change a private member, all clients must recompile. May be better to hide these details away.</p>
+
+<p>Sol’n:</p>
+
+
+
+<h3 id="pimpl-idiom-pointer-to-implementation">Pimpl idiom (“Pointer to implementation”)</h3>
+
+<p>Create a second class XWindowImpl:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//XWindowImpl.h</span>
+<span class="hljs-preprocessor">#include &lt;X11/Xlib.h&gt;</span>
+<span class="hljs-keyword">struct</span> XWindowImpl{
+    Display *d;
+    window w;
+    <span class="hljs-keyword">int</span> s;
+    GC gc;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> colours[<span class="hljs-number">10</span>];
+};
+
+<span class="hljs-comment">//Window.h</span>
+<span class="hljs-comment">//No need to include Xlib.h. Forward declare the impl. class</span>
+<span class="hljs-keyword">class</span> XWindowImpl;
+<span class="hljs-keyword">class</span> XWindow{
+    XWindowImpl *pImpl;
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-comment">//no change</span>
+};</code></pre>
+
+<p>No compilation dependency on XWindowImpl. Clients also don’t depend on XWindowImpl.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Window.cc</span>
+<span class="hljs-preprocessor">#include "window.h"</span>
+<span class="hljs-preprocessor">#include "XWindowImpl.h"</span>
+XWindow::XWindow(...): pImpl{newXWindowImpl{...}}{}</code></pre>
+
+<p>Other methods: replace fields d,w,s, etc. <br>
+with pImpl-&gt;d, pImpl-&gt;w etc</p>
+
+<p>If all private fields are in XWindowImpl, then only window.cc needs recompiling if they change.</p>
+
+<p>Generalization - Several possible window implementations <br>
+e.g. XWindows YWindows - Then Impl struct could be a superclass <br>
+<img src="http://amyqiu.me/Note/a7.png"></p>
+
+<p>Bridge Pattern</p>
+
+
+
+<h2 id="lecture">Lecture</h2>
+
+
+
+<h3 id="measures-of-design-quality">Measures of Design Quality</h3>
+
+<ul>
+<li>coupling + cohesion</li>
+</ul>
+
+<dl>
+<dt>coupling</dt>
+<dd>the degree to which distinct program modules depend on each other</dd>
+
+<dd>below: low to high coupling examples and degree.</dd>
+
+<dd><strong>low</strong>: modules interact via function calls with basic params/results (lowest)</dd>
+
+<dd><ul>
+modules pass arrays/structs back + forth <br>
+modules affect each other’s control flow (medium) <br>
+modules share global data
+</ul></dd>
+
+<dd><strong>high</strong>: modules have access to each other’s implementation (friends) (highest)</dd>
+
+<dt>cohesion</dt>
+<dd>how closely elements of a module are related to each other</dd>
+
+<dd><strong>low</strong>: arbitrary grouping of unrelated elements (eg <code>&lt;utility&gt;</code>)</dd>
+
+<dd><ul>
+elements share a common theme, otherwise unrelated - perhaps share some bas code  eg, <code>&lt;algorithm&gt;</code> <br>
+elements manipulate state over the lifetime of an object (eg. open/read/close files) <br>
+elements pass data to eachother
+</ul></dd>
+
+<dd><strong>high</strong>: elements cooperate to perform exactly one task</dd>
+</dl>
+
+<p>High coupling: changes to one module require greater changes to other modules. <br>
+- harder to reuse individual modules <br>
+Low cohesion: poorly organized code. Hard to understand/maintain.</p>
+
+<p>Goal: low coupling, high cohesion</p>
+
+
+
+<h3 id="decoupling-the-interface-mvc">Decoupling the Interface (MVC)</h3>
+
+<p>Your primary program classes should not be printing things <br>
+Eg.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> ChessBoard{
+    ...
+    cou &lt;&lt; <span class="hljs-string">"Your move"</span> &lt;&lt; endl;
+};</code></pre>
+
+<p>Bad design - inhibits code reuse <br>
+What if you want to reuse ChessBoard, but not have it communicate via stdout?</p>
+
+<p>One solution: give the class stream objects where it can send it’s input/output</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> ChessBoard{
+    <span class="hljs-built_in">std</span>::istream &amp;in;
+    <span class="hljs-built_in">std</span>::ostream &amp;out;
+    <span class="hljs-keyword">public</span>:
+        ChessBoard(<span class="hljs-built_in">std</span>::istream &amp;in, <span class="hljs-built_in">std</span>::ostream &amp;out): in{in}, out{out} {...}
+        ...
+        out &lt;&lt; <span class="hljs-string">"Your move"</span> &lt;&lt;endl;
+};</code></pre>
+
+<p>Better - but what if we don’t want to use streams at all? Your chessboard class should not be doing any communication at all.</p>
+
+
+
+<h3 id="single-responsibility-principle">Single Responsibility Principle</h3>
+
+<p>“A class should have only one reason to change.”</p>
+
+<ul>
+<li>game state + communication are TWO reasons</li>
+</ul>
+
+<p>Better - Communicate with the chessboard via params/results</p>
+
+<ul>
+<li>confine user communication to outside the class</li>
+</ul>
+
+<p>Q: Should main do all of the communication and then call chessboard methods? <br>
+A: No - hard to reuse code if it’s in main. Should have a class to manage interaction that is separate from the game state class.</p>
+
+
+
+<h3 id="pattern-model-view-controller-mvc">Pattern: Model-View-Controller (MVC)</h3>
+
+<p>Separate the distinct notions of the data (state), its presentation, and the control of the data. <br>
+Model: the data (game state) <br>
+View: how the model is displayed <br>
+Controller: how the model is manipulated <br>
+<img src="http://amyqiu.me/Notes/a8.png"> <br>
+Model : </p>
+
+<ul>
+<li>can have multiple views (e.g. text + graphics)</li>
+<li>doesn’t need to know their details</li>
+<li>classic observer pattern (or communicate through controller)</li>
+</ul>
+
+<p>Controller </p>
+
+<ul>
+<li>mediates control flow through model + view</li>
+<li>may encapsulate turn-taking, or full game rules</li>
+<li>may fetch input from user (or this could be the view)</li>
+</ul>
+
+<p>By decoupling presentation + control, MVC promotes reuse</p>
+
+
+
+<h3 id="exception-safety">Exception Safety</h3>
+
+<p>Consider:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    MyClass *p = <span class="hljs-keyword">new</span> MyClass;
+    MyClass mc;
+    g();
+    <span class="hljs-keyword">delete</span> p;
+}</code></pre>
+
+<p>No leaks - but what if g raises an exception?  <br>
+What is guaranteed </p>
+
+<ul>
+<li>During stack unwinding, all stack allocated data is cleaned up - dtors run, memory reclaimed</li>
+<li>so mc is cleaned up</li>
+<li>heap-allocated memory is not freed</li>
+</ul>
+
+<p>So if g throws, p is leaked.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    MyClass *p = <span class="hljs-keyword">new</span> MyClass;
+    MyClass mc;
+    <span class="hljs-keyword">try</span> {
+        g();
+    }
+    <span class="hljs-keyword">catch</span>(..){
+        <span class="hljs-keyword">delete</span> p;
+        <span class="hljs-keyword">throw</span>;
+    }
+    <span class="hljs-keyword">delete</span> p;
+}</code></pre>
+
+<p>This is tedious, error-prone and code duplication <br>
+How else can we guarantee that something like <code>delete p</code> will happen no matter how we exit f? (normally or exn?)</p>
+
+<p>In some languages - “finally” clauses that guarantee final actions - not in c++ <br>
+Only thing you can count on in C++ <br>
+- dtors for stack-allocated data will run <br>
+Use stack-allocated data with dtors as much as possible <br>
+Use this guarantee to your advantage</p>
+
+
+
+<h3 id="c-idiom-raii-resource-acquisition-is-initialization-might-appear-on-final-exam-what-does-it-stand-for">C++ idiom : RAII - Resource Acquisition Is Initialization (**Might appear on final exam. What does it stand for?)</h3>
+
+<p>Every resources should be wrapped in a stack-allocated object whose dtor frees it.</p>
+
+<p>E.g. files:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">ifstream f{<span class="hljs-string">"name"</span>}; <span class="hljs-comment">//Acquiring the resource ("name") = initializing the object (f). File is guaranteed to be freed when f is popped from the stack because f's dtor runs.</span></code></pre>
+
+<p>This can be done with dynamic memory</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> <span class="hljs-built_in">std</span>::unique_ptr&lt;T&gt;
+<span class="hljs-comment">//- Takes a T* in the ctor</span>
+<span class="hljs-comment">//- The dtor will delete the ptr.</span></code></pre>
+
+<p>A better f()</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">std</span>::make_unique&lt;MyClass&gt;();
+    <span class="hljs-comment">// instead of auto, could also type, std::unique_ptr&lt;MyClass&gt;</span>
+    <span class="hljs-comment">// ctor arges for myClass in ();</span>
+    MyClass mc;
+    g();
+    <span class="hljs-comment">//no leaks, guaranteed</span>
+};</code></pre>
+
+<p>Get 4/10 bonus marks if your program doesn’t leak and doesn’t call delete</p>
+
+
+
+<h2 id="lecture-19">Lecture 19</h2>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-keyword">auto</span> p=<span class="hljs-built_in">std</span>::make_unique&lt;MyClass&gt;();
+    MyClass mc;
+    g();
+    <span class="hljs-comment">//No leaks</span>
+}</code></pre>
+
+<p>Difficulty:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> c {...};
+unique_ptr&lt;C&gt; p {<span class="hljs-keyword">new</span> C{...}};
+unique_ptr&lt;C&gt; q=p; <span class="hljs-comment">//what happens here? when q/p is popped, may delete something twice :'(. X</span></code></pre>
+
+<p>What happens when a unique_ptr is copied - don’t want to delete the same ptr twice! <br>
+Instead - copying is disabled for unique_ptrs <br>
+They can only be moved.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Sample implementation (repository)</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">class</span> unique_ptr{
+    T *ptr;
+    <span class="hljs-keyword">public</span>:
+        unique_ptr(T *p): ptr{p}{}
+        ~unique_ptr() {<span class="hljs-keyword">delete</span> ptr;}
+        unique_ptr(<span class="hljs-keyword">const</span> unique_ptr&lt;T&gt; &amp;other)=<span class="hljs-keyword">delete</span>;
+        unique_ptr&lt;T&gt; &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> unique_ptr&lt;T&gt; &amp;other)=<span class="hljs-keyword">delete</span>;
+        unique_ptr(unique_ptr&lt;T&gt;&amp;&amp;other):ptr{other.ptr}{other.ptr=<span class="hljs-keyword">nullptr</span>;}
+        unique_ptr&lt;T&gt; &amp;<span class="hljs-keyword">operator</span>=(unique_ptr&lt;T&gt;&amp;&amp;other){
+            <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::swap;
+            swap(ptr, other.ptr);
+            <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        }       
+        T &amp;<span class="hljs-keyword">operator</span>*(){<span class="hljs-keyword">return</span> *ptr;}
+};</code></pre>
+
+<p>If you need to copy ptrs + can’t distinguish an owner - std::shared_ptr</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">{<span class="hljs-keyword">auto</span> p1=<span class="hljs-built_in">std</span>::make_shared&lt;MyClass&gt; ();
+<span class="hljs-keyword">if</span>(...){
+    <span class="hljs-keyword">auto</span> p2=p1;
+} <span class="hljs-comment">//p2 is popped, ptr is not deleted</span>
+}<span class="hljs-comment">//p1 is popped, ptr is deleted</span></code></pre>
+
+<p>Shared ptrs maintain a reference count</p>
+
+<ul>
+<li>count of all shared_ptrs pointing at the same object</li>
+<li>Memory is freed when the ref count hits 0</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-scheme hljs clojure"><span class="hljs-list">(<span class="hljs-title">define</span> l1<span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 1</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 2</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 3</span> empty)</span>)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> l2<span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 4</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">rest</span></span> l1)</span>)</span>)</span></code></pre>
+
+<p>Use shared + unique ptrs as much as possible <br>
+Dramatically fewer opportunities for leaks <br>
+NEVER let the dtor emit an exception <br>
+- if the dtor was executed during stack unwinding while dealing with another exn, you now have TWO active, unhandled exns and the program will abort immediately <br>
+3 levels of exception safety for a f’n f: <br>
+1. Basic guarantee - if an exn occurs, the program will be in a valid state. Nothing leaked, nothing corrupted, class invariants maintained <br>
+2. Strong guarantee - if an exn is raised while executing f, the state of the program will be as it was before f was called. <br>
+3. No-throw guarantee - f will never throw an ex’n and will always accomplish its task.</p>
+
+<p>Example:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> A{...};
+<span class="hljs-keyword">class</span> B{...};
+<span class="hljs-keyword">class</span> C{
+    A a;
+    B b;
+    <span class="hljs-keyword">void</span> f(){
+        a.method1();<span class="hljs-comment">//may throw (strong guarantee)</span>
+        b.method2();<span class="hljs-comment">//may throw (strong guarantee)</span>
+    }
+};</code></pre>
+
+<p>Is C::f exn safe?. <br>
+- if a.method1 throws, nothing has happened yet. OK <br>
+- if b.method2 throws, effects of method1 would have to be undone to offer the strong guarantee. Very hard or impossible if method 1 has non-local side effects. <br>
+- So no, probably not exn safe. <br>
+If A’s method1 and B’s method2 do NOT have non-local side effects, can use COPY + SWAP.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> C{
+    ...
+    <span class="hljs-keyword">void</span> f(){
+        A atemp=a; <span class="hljs-comment">// if these throws, f throws. Original A and B are still intact.</span>
+        B btemp=b;
+        atemp.method1();
+        btemp.method2();
+        a=atemp;
+        b=btemp;
+        <span class="hljs-comment">//If these throw, f throws, but original a + b still intact. HOWEVER, what if copy assignment throws?</span>
+    }
+};</code></pre>
+
+<p>Better if the swap was nothrow. Copying ptrs can’t throw <br>
+Sol’n. Use the pImpl idiom: </p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> CImpl{
+    A a;
+    B b;
+};
+
+<span class="hljs-keyword">class</span> C{
+    unique_ptr&lt;CImpl&gt; pImpl;
+    ...
+    <span class="hljs-keyword">void</span> f(){
+        <span class="hljs-keyword">auto</span> temp = make_unique&lt;CImpl&gt;(*pImpl);
+        temp-&gt;a.method1();
+        temp-&gt;b.method2();
+        <span class="hljs-built_in">std</span>::swap(pImpl. temp); <span class="hljs-comment">//no-throw</span>
+    }
+};</code></pre>
+
+<p>If either A::method1 or B::method2 offer no exn safety guarantee, then neither can f.</p>
+
+
+
+<h3 id="exn-safety-the-stl-vectors">Exn Safety + the STL: vectors</h3>
+
+<p>Vectors - encapsulate a heap-allocated array <br>
+-follow RAII - when a stack-allocated vector goes out of scope, the internal heap-allocated array is freed</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;MyClass&gt;</span> v;
+    ...
+} <span class="hljs-comment">//v goes out of scope - array is freed, MyClass dtor runs on all objects in the vector.</span></code></pre>
+
+<p>But:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> g(){
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;MyClass *&gt;</span> v;
+    ...
+}<span class="hljs-comment">//array is freed but pointers don't have dtors so any objects pointed to by the pointers are not deleted (potential to leak)</span></code></pre>
+
+<ul>
+<li>v doesn’t know whether the pointers in the array own the objs they point at</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> x:v) <span class="hljs-keyword">delete</span> x;</code></pre>
+
+<p>But:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> h(){
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt;</span>&gt; v;
+    ...
+    <span class="hljs-comment">//array is freed, shared_ptr dtors run. So the objs ARE deleted if no other shared ptr points at them. NO explicit deallocation.</span>
+}</code></pre></body>
 </html>
 
 <!--
@@ -4311,6 +4943,24 @@ m.erase(<span class="hljs-string">"abc"</span>);
 <li><a href="#stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</a></li>
 </ul>
 </li>
+<li><a href="#lecture-17">Lecture 17</a><ul>
+<li><a href="#visitor-pattern">Visitor Pattern</a></li>
+<li><a href="#pimpl-idiom-pointer-to-implementation">Pimpl idiom (“Pointer to implementation”)</a></li>
+</ul>
+</li>
+<li><a href="#lecture">Lecture</a><ul>
+<li><a href="#measures-of-design-quality">Measures of Design Quality</a></li>
+<li><a href="#decoupling-the-interface-mvc">Decoupling the Interface (MVC)</a></li>
+<li><a href="#single-responsibility-principle">Single Responsibility Principle</a></li>
+<li><a href="#pattern-model-view-controller-mvc">Pattern: Model-View-Controller (MVC)</a></li>
+<li><a href="#exception-safety">Exception Safety</a></li>
+<li><a href="#c-idiom-raii-resource-acquisition-is-initialization-might-appear-on-final-exam-what-does-it-stand-for">C++ idiom : RAII - Resource Acquisition Is Initialization (**Might appear on final exam. What does it stand for?)</a></li>
+</ul>
+</li>
+<li><a href="#lecture-19">Lecture 19</a><ul>
+<li><a href="#exn-safety-the-stl-vectors">Exn Safety + the STL: vectors</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -4549,7 +5199,7 @@ echo "*" #outputs the same (*)</span></code></pre>
 <span class="hljs-string">"[cC][sS]246"</span></code></pre>
 
 <p>[..] - any one char between [ and ] <br>
-[<script type="math/tex" id="MathJax-Element-5929">\text{^}</script> .. ] - any one char except</p>
+[<script type="math/tex" id="MathJax-Element-1">\text{^}</script> .. ] - any one char except</p>
 
 <p>Add optional space:  <code>"[cC][sS] ?246"</code> <br>
 ? = 0 or 1 of the preceding expression (0 or 1 space in this case) <br>
@@ -4742,9 +5392,9 @@ whoami
 &gt; <span class="hljs-number">1</span></code></pre>
 
 <blockquote>
-  <p>Note: use <script type="math/tex" id="MathJax-Element-5930"> when fetching the value of a var  
+  <p>Note: use <script type="math/tex" id="MathJax-Element-2"> when fetching the value of a var  
   No </script> when setting a var. <br>
-  Good practice: <script type="math/tex" id="MathJax-Element-5931">{x}  
+  Good practice: <script type="math/tex" id="MathJax-Element-3">{x}  
   All vars contain STRINGS. x is the string 1  
   Eg. dir=~cs246  
   echo </script>{dir}</p>
@@ -4845,7 +5495,7 @@ eg. Rename all .cpp files to .cc</p>
   name%cpp is the val of name, without the trailing cpp.</p>
 </blockquote>
 
-<p>How many times does word <script type="math/tex" id="MathJax-Element-5932">1 appear in file </script>2?</p>
+<p>How many times does word <script type="math/tex" id="MathJax-Element-4">1 appear in file </script>2?</p>
 
 
 
@@ -4913,7 +5563,7 @@ answer $(cal <span class="hljs-variable">$1</span> <span class="hljs-variable">$
 <ul><li>not just at the end</li>
 <li>Begins <strong>before</strong> you start coding</li>
 <li>Test suites - expected behaviour <br>
-<script type="math/tex" id="MathJax-Element-5933">\neq</script> debugging - cannot debug without first testing</li></ul></li>
+<script type="math/tex" id="MathJax-Element-5">\neq</script> debugging - cannot debug without first testing</li></ul></li>
 <li>cannot guarantee correctness - cannot prove wrongness</li>
 <li>ideally, developer + tester should be different people</li>
 </ul>
@@ -5119,7 +5769,7 @@ If EOF: <code>cin.eof()</code> and <code>cin.fail()</code> will both be true</p>
 
 <blockquote>
   <p>Note: &gt;&gt; is c’s right bitshift operator. <code>a &gt;&gt; b</code> shifts  a’s bits to the right by b spots. <br>
-  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-5934">10_{\text(binary)}</script> = 2 <br>
+  E.g. 21 &gt;&gt; 3 -&gt; 21 = 10101 shifted 3 =<script type="math/tex" id="MathJax-Element-6">10_{\text(binary)}</script> = 2 <br>
   But when LHS is cin, &gt;&gt; is “get from”</p>
 </blockquote>
 
@@ -5635,7 +6285,7 @@ istream &amp;<span class="hljs-keyword">operator</span>&gt;&gt;(istream &amp;in,
 
 <h3 id="the-preprocessor">The Preprocessor</h3>
 
-<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-5935">\text{_____}</script> = preprocessor directive</p>
+<p>Transforms the program before the compiler sees it. #<script type="math/tex" id="MathJax-Element-7">\text{_____}</script> = preprocessor directive</p>
 
 <p>eg.<code>#include</code> <br>
 Including old C headers - new naming convention <br>
@@ -6778,14 +7428,14 @@ list.h</p>
 }</code></pre>
 
 <p>Only List can create/manipulate Node objects <br>
-<script type="math/tex" id="MathJax-Element-5936">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
+<script type="math/tex" id="MathJax-Element-8">\therefore</script> Can guarantee the invariant that next is either nullptr or allocated by new.</p>
 
 <p>pause</p>
 
 <hr>
 
 <p>But - Now we can’t traverse the list from front node to node, as would a linked list.  <br>
-Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-5937">O(n^2)</script> time. <br>
+Repeatedly calling ith - <script type="math/tex" id="MathJax-Element-9">O(n^2)</script> time. <br>
 But we can’t expose the nodes, or we lose encapsulation</p>
 
 
@@ -6993,8 +7643,8 @@ etc</code></pre>
 
 <p>What does myprogram depend on? <br>
 - Recursively build these, if necessary <br>
-iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-5938">\therefore</script> rebuilt iter.o <br>
-- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-5939">\therefore</script> rebuild myprogram <br>
+iter.cc changes: - now newer than iter.o (by last modified date). <script type="math/tex" id="MathJax-Element-10">\therefore</script> rebuilt iter.o <br>
+- now iter.o newer than myprogram. <script type="math/tex" id="MathJax-Element-11">\therefore</script> rebuild myprogram <br>
 - To do a full rebuild, make clean, make</p>
 
 <p>Generalize with variables</p>
@@ -7765,7 +8415,7 @@ Throw s; -&gt; s may be a subtype of SomeErrorType. throws a new exn of type Som
 
 
 
-<div class="flow-chart"><svg height="138" version="1.1" width="133.609375" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.109375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj9" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="127.609375" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,4,4)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SpecialErrorType</tspan></text><rect x="0" y="0" width="117.828125" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,8.8906,97)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,8.8906,97)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">SomeErrorType</tspan></text><path fill="none" stroke="#000000" d="M67.8046875,43C67.8046875,43,67.8046875,82.65409994125366,67.8046875,94.00043908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj9)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+<div class="flow-chart"><svg height="133" version="1.1" width="141.046875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.109375px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock33-obj4" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="0" y="0" width="135.046875" height="36.5" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,4,4)"></rect><text x="10" y="18.25" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,4)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.25">SpecialErrorType</tspan></text><rect x="0" y="0" width="125.03125" height="36.5" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,9.0078,94.5)"></rect><text x="10" y="18.25" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,9.0078,94.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.25">SomeErrorType</tspan></text><path fill="none" stroke="#000000" d="M71.5234375,40.5C71.5234375,40.5,71.5234375,80.15409994125366,71.5234375,91.50043908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj4)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
 
 <p><strong>throw;</strong> <br>
 actual type of s is retained</p>
@@ -8010,7 +8660,7 @@ Want to choose these enhancements at runtime. <br>
 <p>All inherit from Abstract Window class, so window methods can be used polymorphically on all of them.</p>
 
 <p>E.g Pizza <br>
-<img src="http://amyqiu.me/Notes/a3,png"></p>
+<img src="http://amyqiu.me/Notes/a3.png"></p>
 
 <p>Basic Pizza is crust and sauce</p>
 
@@ -8152,7 +8802,7 @@ Partial assignment - copies only the Book part. <br>
 };</code></pre>
 
 <p>Params not matching =&gt; violates is-a <br>
-<script type="math/tex" id="MathJax-Element-5940">\therefore</script> Assignment of a book object to a text variable would be allowed</p>
+<script type="math/tex" id="MathJax-Element-12">\therefore</script> Assignment of a book object to a text variable would be allowed</p>
 
 <p>Allowed:</p>
 
@@ -8334,6 +8984,620 @@ m[<span class="hljs-string">"abc"</span>] = <span class="hljs-number">1</span>;
 m[<span class="hljs-string">"def"</span>] = <span class="hljs-number">4</span>;
 <span class="hljs-built_in">cout</span> &lt;&lt; m[<span class="hljs-string">"ghi"</span>] &lt;&lt; endl; <span class="hljs-comment">//if key is not present, it is inserted and the value is default constructed (for ints, 0)</span>
 m.erase(<span class="hljs-string">"abc"</span>);
-<span class="hljs-keyword">if</span>(m.count(<span class="hljs-string">"def"</span>)) ... <span class="hljs-comment">//0 if found, 1 if not found</span></code></pre></body>
+<span class="hljs-keyword">if</span>(m.count(<span class="hljs-string">"def"</span>)) ... <span class="hljs-comment">//0 if found, 1 if not found</span></code></pre>
+
+
+
+<h2 id="lecture-17">Lecture 17</h2>
+
+<p>Recall: <code>&lt;map&gt;</code> <br>
+<code>map&lt;string, int&gt; m;</code> <br>
+Iterating over a map: sorted key order</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;p:m){
+    <span class="hljs-built_in">cout</span> &lt;&lt; p.first &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; p.second &lt;&lt; endl;
+}</code></pre>
+
+<p>p’s type is <code>std::pair&lt;string,int&gt;&amp;</code> (<code>&lt;utility&gt;</code>)</p>
+
+
+
+<h3 id="visitor-pattern">Visitor Pattern</h3>
+
+<p>For implementation, <strong>double dispatch</strong> <br>
+e.g <br>
+<img> <br>
+-effect depends on type of Enemy and type of weapon <br>
+Want something like: virtual void(Enemy, Weapon)::strike(); which is impossible <br>
+If we put this method in Enemy - choose based on enemy but not on the weapon. <br>
+If we put it in weapon - choose based on weapon but not enemy.</p>
+
+<p>To get dispatch based on both (double dispatch): <br>
+-combine overriding with overloading</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Enemy{
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> beStruckBy(Weapon &amp;w)=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> Turtle: <span class="hljs-keyword">public</span> Enemy{
+    <span class="hljs-keyword">void</span> beStruckBy(Weapon &amp;w) override{
+        w.strike(*<span class="hljs-keyword">this</span>);
+    }
+};
+<span class="hljs-keyword">class</span> Bullet:<span class="hljs-keyword">public</span> Enemy{
+    <span class="hljs-keyword">void</span> beStruckBy(Weapon &amp;w) override{
+        w.Strike(*<span class="hljs-keyword">this</span>);
+    }
+};
+
+<span class="hljs-keyword">class</span> Weapon{
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> strike(Turtle &amp;t)=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> strike(Bullet &amp;b)=<span class="hljs-number">0</span>;
+};
+
+<span class="hljs-keyword">class</span> Stick: <span class="hljs-keyword">public</span> Weapon{
+    <span class="hljs-keyword">void</span> strike(Turtle &amp;t) override{
+        <span class="hljs-comment">//strike Turtle with stick</span>
+    }
+    <span class="hljs-keyword">void</span> strike(Bullet &amp;b) override{
+        <span class="hljs-comment">//bullet with stick</span>
+    }
+};
+
+Enemy* e = <span class="hljs-keyword">new</span> Bullet{...};
+Weapon*w = <span class="hljs-keyword">new</span> Rock{...};
+
+e-&gt;beStruckBy(*w); <span class="hljs-comment">//what happens?</span>
+<span class="hljs-comment">//virtual mthd of Enemy. Bullet::beStruckBy calls Weapon::strike</span>
+<span class="hljs-comment">//chosen at compile-time - virtual</span>
+<span class="hljs-comment">//resolves to Rock::Strike(Bullet &amp;) </span></code></pre>
+
+<p>Visitor can be used to add functionality to existing classes, without changing or recompiling the classes themselves</p>
+
+<p>Eg. add a visitor to the Book hierarchy:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Book{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> accept(BookVisitor &amp;v){v.visit(*<span class="hljs-keyword">this</span>);}
+};
+
+<span class="hljs-keyword">class</span> Text: <span class="hljs-keyword">public</span> Book{
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">void</span> accept(Book Visitor &amp;v) override{
+            v.visit(*<span class="hljs-keyword">this</span>);
+        }
+};
+
+<span class="hljs-keyword">class</span> BookVisitor{
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> visit(Book &amp;b) = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> visit(Text&amp;b) = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> visit(Comic &amp;b) = <span class="hljs-number">0</span>;
+};</code></pre>
+
+<p>Application: <br>
+Track how many of each type of book we have: <br>
+Books - by author <br>
+Texts - by topic <br>
+Comics - by hero <br>
+Use a <code>map &lt;string, int&gt;</code> <br>
+Could add virtual updateMap (…) to each class or write a visitor</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> Catalogue: <span class="hljs-keyword">public</span> BookVisitor{
+    <span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;</span> theCatalogue;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">int</span>&gt;</span> getCatalogue(){<span class="hljs-keyword">return</span> theCatalogue;}
+        <span class="hljs-keyword">void</span> visit(Book &amp;b) override{
+            ++theCatalogue[b.getAuthor()];
+        };
+        <span class="hljs-keyword">void</span> visit(Text &amp;b) override{
+            ++theCatalogue[b.getTopic()];
+        };
+        <span class="hljs-keyword">void</span> visit(Comic &amp;b) override{
+            ++theCatalogue[b.getHero()];
+        };
+};</code></pre>
+
+<p>but it won’t compile! why?</p>
+
+<p>main -&gt; includes book - includes Book Visitor -&gt; inclodes both Text and Book <br>
+-circular include dependency <br>
+Text doesn’t know what Book is <br>
+How many of these includes are really needed?</p>
+
+<p>Compilation Dependencies - include vs forward declare</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Consider <span class="hljs-keyword">class</span> A{...};
+<span class="hljs-comment">//B needs #includes A</span>
+<span class="hljs-keyword">class</span> B: <span class="hljs-keyword">public</span> A{
+...
+};
+<span class="hljs-comment">//C needs #include A</span>
+<span class="hljs-keyword">class</span> C{A my A;};
+<span class="hljs-comment">//D doesn't need to know how big A is therefore doesn't need #include</span>
+<span class="hljs-comment">//can get away with just `class A`;</span>
+<span class="hljs-keyword">class</span> D{A *myAp;};
+<span class="hljs-comment">//E needs #include A</span>
+<span class="hljs-keyword">class</span> E{
+    A f(A x)
+};</code></pre>
+
+<p>Don’t introduce unnecessary compilation dependencies with unneeded includes <br>
+When A changes - only A,B,C need recompilation <br>
+Now, in the implementations of D,E;</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//d.cc</span>
+<span class="hljs-preprocessor">#include "A.h"</span>
+<span class="hljs-keyword">void</span> D::f(){
+    myAp-&gt;someMethod(); <span class="hljs-comment">//Need to know about class A here</span>
+}</code></pre>
+
+<p>Do the #include in the .cc file instead of the .h file. (will never get an include cycle because .cc is never included) where possible.</p>
+
+<p>Now consider the XWindow class</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> XWindow{
+    <span class="hljs-comment">//this is private data here. Yet we must look at it. Do we know what it means? Do we care?</span>
+    Display *d;
+    Window w;
+    <span class="hljs-keyword">int</span> s;
+    GC gc;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> colours[<span class="hljs-number">10</span>];
+    <span class="hljs-keyword">public</span>:
+        ...
+};</code></pre>
+
+<p>If we add or change a private member, all clients must recompile. May be better to hide these details away.</p>
+
+<p>Sol’n:</p>
+
+
+
+<h3 id="pimpl-idiom-pointer-to-implementation">Pimpl idiom (“Pointer to implementation”)</h3>
+
+<p>Create a second class XWindowImpl:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//XWindowImpl.h</span>
+<span class="hljs-preprocessor">#include &lt;X11/Xlib.h&gt;</span>
+<span class="hljs-keyword">struct</span> XWindowImpl{
+    Display *d;
+    window w;
+    <span class="hljs-keyword">int</span> s;
+    GC gc;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> colours[<span class="hljs-number">10</span>];
+};
+
+<span class="hljs-comment">//Window.h</span>
+<span class="hljs-comment">//No need to include Xlib.h. Forward declare the impl. class</span>
+<span class="hljs-keyword">class</span> XWindowImpl;
+<span class="hljs-keyword">class</span> XWindow{
+    XWindowImpl *pImpl;
+    <span class="hljs-keyword">public</span>:
+        ...
+        <span class="hljs-comment">//no change</span>
+};</code></pre>
+
+<p>No compilation dependency on XWindowImpl. Clients also don’t depend on XWindowImpl.h</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Window.cc</span>
+<span class="hljs-preprocessor">#include "window.h"</span>
+<span class="hljs-preprocessor">#include "XWindowImpl.h"</span>
+XWindow::XWindow(...): pImpl{newXWindowImpl{...}}{}</code></pre>
+
+<p>Other methods: replace fields d,w,s, etc. <br>
+with pImpl-&gt;d, pImpl-&gt;w etc</p>
+
+<p>If all private fields are in XWindowImpl, then only window.cc needs recompiling if they change.</p>
+
+<p>Generalization - Several possible window implementations <br>
+e.g. XWindows YWindows - Then Impl struct could be a superclass <br>
+<img src="http://amyqiu.me/Note/a7.png"></p>
+
+<p>Bridge Pattern</p>
+
+
+
+<h2 id="lecture">Lecture</h2>
+
+
+
+<h3 id="measures-of-design-quality">Measures of Design Quality</h3>
+
+<ul>
+<li>coupling + cohesion</li>
+</ul>
+
+<dl>
+<dt>coupling</dt>
+<dd>the degree to which distinct program modules depend on each other</dd>
+
+<dd>below: low to high coupling examples and degree.</dd>
+
+<dd><strong>low</strong>: modules interact via function calls with basic params/results (lowest)</dd>
+
+<dd><ul>
+modules pass arrays/structs back + forth <br>
+modules affect each other’s control flow (medium) <br>
+modules share global data
+</ul></dd>
+
+<dd><strong>high</strong>: modules have access to each other’s implementation (friends) (highest)</dd>
+
+<dt>cohesion</dt>
+<dd>how closely elements of a module are related to each other</dd>
+
+<dd><strong>low</strong>: arbitrary grouping of unrelated elements (eg <code>&lt;utility&gt;</code>)</dd>
+
+<dd><ul>
+elements share a common theme, otherwise unrelated - perhaps share some bas code  eg, <code>&lt;algorithm&gt;</code> <br>
+elements manipulate state over the lifetime of an object (eg. open/read/close files) <br>
+elements pass data to eachother
+</ul></dd>
+
+<dd><strong>high</strong>: elements cooperate to perform exactly one task</dd>
+</dl>
+
+<p>High coupling: changes to one module require greater changes to other modules. <br>
+- harder to reuse individual modules <br>
+Low cohesion: poorly organized code. Hard to understand/maintain.</p>
+
+<p>Goal: low coupling, high cohesion</p>
+
+
+
+<h3 id="decoupling-the-interface-mvc">Decoupling the Interface (MVC)</h3>
+
+<p>Your primary program classes should not be printing things <br>
+Eg.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> ChessBoard{
+    ...
+    cou &lt;&lt; <span class="hljs-string">"Your move"</span> &lt;&lt; endl;
+};</code></pre>
+
+<p>Bad design - inhibits code reuse <br>
+What if you want to reuse ChessBoard, but not have it communicate via stdout?</p>
+
+<p>One solution: give the class stream objects where it can send it’s input/output</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> ChessBoard{
+    <span class="hljs-built_in">std</span>::istream &amp;in;
+    <span class="hljs-built_in">std</span>::ostream &amp;out;
+    <span class="hljs-keyword">public</span>:
+        ChessBoard(<span class="hljs-built_in">std</span>::istream &amp;in, <span class="hljs-built_in">std</span>::ostream &amp;out): in{in}, out{out} {...}
+        ...
+        out &lt;&lt; <span class="hljs-string">"Your move"</span> &lt;&lt;endl;
+};</code></pre>
+
+<p>Better - but what if we don’t want to use streams at all? Your chessboard class should not be doing any communication at all.</p>
+
+
+
+<h3 id="single-responsibility-principle">Single Responsibility Principle</h3>
+
+<p>“A class should have only one reason to change.”</p>
+
+<ul>
+<li>game state + communication are TWO reasons</li>
+</ul>
+
+<p>Better - Communicate with the chessboard via params/results</p>
+
+<ul>
+<li>confine user communication to outside the class</li>
+</ul>
+
+<p>Q: Should main do all of the communication and then call chessboard methods? <br>
+A: No - hard to reuse code if it’s in main. Should have a class to manage interaction that is separate from the game state class.</p>
+
+
+
+<h3 id="pattern-model-view-controller-mvc">Pattern: Model-View-Controller (MVC)</h3>
+
+<p>Separate the distinct notions of the data (state), its presentation, and the control of the data. <br>
+Model: the data (game state) <br>
+View: how the model is displayed <br>
+Controller: how the model is manipulated <br>
+<img src="http://amyqiu.me/Notes/a8.png"> <br>
+Model : </p>
+
+<ul>
+<li>can have multiple views (e.g. text + graphics)</li>
+<li>doesn’t need to know their details</li>
+<li>classic observer pattern (or communicate through controller)</li>
+</ul>
+
+<p>Controller </p>
+
+<ul>
+<li>mediates control flow through model + view</li>
+<li>may encapsulate turn-taking, or full game rules</li>
+<li>may fetch input from user (or this could be the view)</li>
+</ul>
+
+<p>By decoupling presentation + control, MVC promotes reuse</p>
+
+
+
+<h3 id="exception-safety">Exception Safety</h3>
+
+<p>Consider:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    MyClass *p = <span class="hljs-keyword">new</span> MyClass;
+    MyClass mc;
+    g();
+    <span class="hljs-keyword">delete</span> p;
+}</code></pre>
+
+<p>No leaks - but what if g raises an exception?  <br>
+What is guaranteed </p>
+
+<ul>
+<li>During stack unwinding, all stack allocated data is cleaned up - dtors run, memory reclaimed</li>
+<li>so mc is cleaned up</li>
+<li>heap-allocated memory is not freed</li>
+</ul>
+
+<p>So if g throws, p is leaked.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    MyClass *p = <span class="hljs-keyword">new</span> MyClass;
+    MyClass mc;
+    <span class="hljs-keyword">try</span> {
+        g();
+    }
+    <span class="hljs-keyword">catch</span>(..){
+        <span class="hljs-keyword">delete</span> p;
+        <span class="hljs-keyword">throw</span>;
+    }
+    <span class="hljs-keyword">delete</span> p;
+}</code></pre>
+
+<p>This is tedious, error-prone and code duplication <br>
+How else can we guarantee that something like <code>delete p</code> will happen no matter how we exit f? (normally or exn?)</p>
+
+<p>In some languages - “finally” clauses that guarantee final actions - not in c++ <br>
+Only thing you can count on in C++ <br>
+- dtors for stack-allocated data will run <br>
+Use stack-allocated data with dtors as much as possible <br>
+Use this guarantee to your advantage</p>
+
+
+
+<h3 id="c-idiom-raii-resource-acquisition-is-initialization-might-appear-on-final-exam-what-does-it-stand-for">C++ idiom : RAII - Resource Acquisition Is Initialization (**Might appear on final exam. What does it stand for?)</h3>
+
+<p>Every resources should be wrapped in a stack-allocated object whose dtor frees it.</p>
+
+<p>E.g. files:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">ifstream f{<span class="hljs-string">"name"</span>}; <span class="hljs-comment">//Acquiring the resource ("name") = initializing the object (f). File is guaranteed to be freed when f is popped from the stack because f's dtor runs.</span></code></pre>
+
+<p>This can be done with dynamic memory</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> <span class="hljs-built_in">std</span>::unique_ptr&lt;T&gt;
+<span class="hljs-comment">//- Takes a T* in the ctor</span>
+<span class="hljs-comment">//- The dtor will delete the ptr.</span></code></pre>
+
+<p>A better f()</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">std</span>::make_unique&lt;MyClass&gt;();
+    <span class="hljs-comment">// instead of auto, could also type, std::unique_ptr&lt;MyClass&gt;</span>
+    <span class="hljs-comment">// ctor arges for myClass in ();</span>
+    MyClass mc;
+    g();
+    <span class="hljs-comment">//no leaks, guaranteed</span>
+};</code></pre>
+
+<p>Get 4/10 bonus marks if your program doesn’t leak and doesn’t call delete</p>
+
+
+
+<h2 id="lecture-19">Lecture 19</h2>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-keyword">auto</span> p=<span class="hljs-built_in">std</span>::make_unique&lt;MyClass&gt;();
+    MyClass mc;
+    g();
+    <span class="hljs-comment">//No leaks</span>
+}</code></pre>
+
+<p>Difficulty:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> c {...};
+unique_ptr&lt;C&gt; p {<span class="hljs-keyword">new</span> C{...}};
+unique_ptr&lt;C&gt; q=p; <span class="hljs-comment">//what happens here? when q/p is popped, may delete something twice :'(. X</span></code></pre>
+
+<p>What happens when a unique_ptr is copied - don’t want to delete the same ptr twice! <br>
+Instead - copying is disabled for unique_ptrs <br>
+They can only be moved.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Sample implementation (repository)</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">class</span> unique_ptr{
+    T *ptr;
+    <span class="hljs-keyword">public</span>:
+        unique_ptr(T *p): ptr{p}{}
+        ~unique_ptr() {<span class="hljs-keyword">delete</span> ptr;}
+        unique_ptr(<span class="hljs-keyword">const</span> unique_ptr&lt;T&gt; &amp;other)=<span class="hljs-keyword">delete</span>;
+        unique_ptr&lt;T&gt; &amp;<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> unique_ptr&lt;T&gt; &amp;other)=<span class="hljs-keyword">delete</span>;
+        unique_ptr(unique_ptr&lt;T&gt;&amp;&amp;other):ptr{other.ptr}{other.ptr=<span class="hljs-keyword">nullptr</span>;}
+        unique_ptr&lt;T&gt; &amp;<span class="hljs-keyword">operator</span>=(unique_ptr&lt;T&gt;&amp;&amp;other){
+            <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::swap;
+            swap(ptr, other.ptr);
+            <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+        }       
+        T &amp;<span class="hljs-keyword">operator</span>*(){<span class="hljs-keyword">return</span> *ptr;}
+};</code></pre>
+
+<p>If you need to copy ptrs + can’t distinguish an owner - std::shared_ptr</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">{<span class="hljs-keyword">auto</span> p1=<span class="hljs-built_in">std</span>::make_shared&lt;MyClass&gt; ();
+<span class="hljs-keyword">if</span>(...){
+    <span class="hljs-keyword">auto</span> p2=p1;
+} <span class="hljs-comment">//p2 is popped, ptr is not deleted</span>
+}<span class="hljs-comment">//p1 is popped, ptr is deleted</span></code></pre>
+
+<p>Shared ptrs maintain a reference count</p>
+
+<ul>
+<li>count of all shared_ptrs pointing at the same object</li>
+<li>Memory is freed when the ref count hits 0</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-scheme hljs clojure"><span class="hljs-list">(<span class="hljs-title">define</span> l1<span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 1</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 2</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 3</span> empty)</span>)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-title">define</span> l2<span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">cons</span></span><span class="hljs-number"> 4</span> <span class="hljs-list">(<span class="hljs-title"><span class="hljs-built_in">rest</span></span> l1)</span>)</span>)</span></code></pre>
+
+<p>Use shared + unique ptrs as much as possible <br>
+Dramatically fewer opportunities for leaks <br>
+NEVER let the dtor emit an exception <br>
+- if the dtor was executed during stack unwinding while dealing with another exn, you now have TWO active, unhandled exns and the program will abort immediately <br>
+3 levels of exception safety for a f’n f: <br>
+1. Basic guarantee - if an exn occurs, the program will be in a valid state. Nothing leaked, nothing corrupted, class invariants maintained <br>
+2. Strong guarantee - if an exn is raised while executing f, the state of the program will be as it was before f was called. <br>
+3. No-throw guarantee - f will never throw an ex’n and will always accomplish its task.</p>
+
+<p>Example:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> A{...};
+<span class="hljs-keyword">class</span> B{...};
+<span class="hljs-keyword">class</span> C{
+    A a;
+    B b;
+    <span class="hljs-keyword">void</span> f(){
+        a.method1();<span class="hljs-comment">//may throw (strong guarantee)</span>
+        b.method2();<span class="hljs-comment">//may throw (strong guarantee)</span>
+    }
+};</code></pre>
+
+<p>Is C::f exn safe?. <br>
+- if a.method1 throws, nothing has happened yet. OK <br>
+- if b.method2 throws, effects of method1 would have to be undone to offer the strong guarantee. Very hard or impossible if method 1 has non-local side effects. <br>
+- So no, probably not exn safe. <br>
+If A’s method1 and B’s method2 do NOT have non-local side effects, can use COPY + SWAP.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> C{
+    ...
+    <span class="hljs-keyword">void</span> f(){
+        A atemp=a; <span class="hljs-comment">// if these throws, f throws. Original A and B are still intact.</span>
+        B btemp=b;
+        atemp.method1();
+        btemp.method2();
+        a=atemp;
+        b=btemp;
+        <span class="hljs-comment">//If these throw, f throws, but original a + b still intact. HOWEVER, what if copy assignment throws?</span>
+    }
+};</code></pre>
+
+<p>Better if the swap was nothrow. Copying ptrs can’t throw <br>
+Sol’n. Use the pImpl idiom: </p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">struct</span> CImpl{
+    A a;
+    B b;
+};
+
+<span class="hljs-keyword">class</span> C{
+    unique_ptr&lt;CImpl&gt; pImpl;
+    ...
+    <span class="hljs-keyword">void</span> f(){
+        <span class="hljs-keyword">auto</span> temp = make_unique&lt;CImpl&gt;(*pImpl);
+        temp-&gt;a.method1();
+        temp-&gt;b.method2();
+        <span class="hljs-built_in">std</span>::swap(pImpl. temp); <span class="hljs-comment">//no-throw</span>
+    }
+};</code></pre>
+
+<p>If either A::method1 or B::method2 offer no exn safety guarantee, then neither can f.</p>
+
+
+
+<h3 id="exn-safety-the-stl-vectors">Exn Safety + the STL: vectors</h3>
+
+<p>Vectors - encapsulate a heap-allocated array <br>
+-follow RAII - when a stack-allocated vector goes out of scope, the internal heap-allocated array is freed</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(){
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;MyClass&gt;</span> v;
+    ...
+} <span class="hljs-comment">//v goes out of scope - array is freed, MyClass dtor runs on all objects in the vector.</span></code></pre>
+
+<p>But:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> g(){
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;MyClass *&gt;</span> v;
+    ...
+}<span class="hljs-comment">//array is freed but pointers don't have dtors so any objects pointed to by the pointers are not deleted (potential to leak)</span></code></pre>
+
+<ul>
+<li>v doesn’t know whether the pointers in the array own the objs they point at</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> x:v) <span class="hljs-keyword">delete</span> x;</code></pre>
+
+<p>But:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> h(){
+    <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt;</span>&gt; v;
+    ...
+    <span class="hljs-comment">//array is freed, shared_ptr dtors run. So the objs ARE deleted if no other shared ptr points at them. NO explicit deallocation.</span>
+}</code></pre></body>
 </html>
 -->
