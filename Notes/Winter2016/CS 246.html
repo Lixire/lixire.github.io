@@ -95,7 +95,7 @@
 <li><a href="#copymove-elision">Copy/Move Elision</a></li>
 </ul>
 </li>
-<li><a href="#lecture-10-1">Lecture - 10</a><ul>
+<li><a href="#lecture-11">Lecture - 11</a><ul>
 <li><a href="#separate-compilation-for-classes">Separate Compilation for Classes</a></li>
 <li><a href="#arrays-of-objects">Arrays of Objects</a></li>
 <li><a href="#const-objects">Const Objects</a></li>
@@ -121,34 +121,34 @@
 <li><a href="#destructor-revisited">Destructor Revisited</a></li>
 </ul>
 </li>
-<li><a href="#lecture-13-1">Lecture 13</a><ul>
+<li><a href="#lecture-15">Lecture 15</a><ul>
 <li><a href="#pure-virtual-methods-abstract-classes">Pure Virtual Methods + Abstract Classes</a></li>
 <li><a href="#templates">Templates</a></li>
 <li><a href="#the-standard-template-library-stl">The Standard Template Library (STL)</a></li>
 </ul>
 </li>
-<li><a href="#lecture-14-1">Lecture 14</a><ul>
+<li><a href="#lecture-16">Lecture 16</a><ul>
 <li><a href="#design-patterns-ctd">Design Patterns Ct’d</a></li>
 <li><a href="#observer-pattern">Observer Pattern</a></li>
 </ul>
 </li>
-<li><a href="#lecture-15">Lecture 15</a><ul>
+<li><a href="#lecture-17">Lecture 17</a><ul>
 <li><a href="#decorator-pattern">Decorator Pattern</a></li>
 <li><a href="#inheritance-and-copymove">Inheritance and Copy/Move</a></li>
 </ul>
 </li>
-<li><a href="#lecture-16">Lecture 16</a><ul>
+<li><a href="#lecture-18">Lecture 18</a><ul>
 <li><a href="#factory-method-pattern">Factory Method Pattern</a></li>
 <li><a href="#template-method-pattern">Template Method Pattern</a></li>
 <li><a href="#stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</a></li>
 </ul>
 </li>
-<li><a href="#lecture-17">Lecture 17</a><ul>
+<li><a href="#lecture-19">Lecture 19</a><ul>
 <li><a href="#visitor-pattern">Visitor Pattern</a></li>
 <li><a href="#pimpl-idiom-pointer-to-implementation">Pimpl idiom (“Pointer to implementation”)</a></li>
 </ul>
 </li>
-<li><a href="#lecture">Lecture</a><ul>
+<li><a href="#lecture-20">Lecture 20</a><ul>
 <li><a href="#measures-of-design-quality">Measures of Design Quality</a></li>
 <li><a href="#decoupling-the-interface-mvc">Decoupling the Interface (MVC)</a></li>
 <li><a href="#single-responsibility-principle">Single Responsibility Principle</a></li>
@@ -157,8 +157,25 @@
 <li><a href="#c-idiom-raii-resource-acquisition-is-initialization-might-appear-on-final-exam-what-does-it-stand-for">C++ idiom : RAII - Resource Acquisition Is Initialization (**Might appear on final exam. What does it stand for?)</a></li>
 </ul>
 </li>
-<li><a href="#lecture-19">Lecture 19</a><ul>
+<li><a href="#lecture-21">Lecture 21</a><ul>
 <li><a href="#exn-safety-the-stl-vectors">Exn Safety + the STL: vectors</a></li>
+</ul>
+</li>
+<li><a href="#lecture-22">Lecture 22</a><ul>
+<li><a href="#exception-safety-the-stl-continued">Exception Safety + the STL continued</a></li>
+<li><a href="#casting">Casting</a><ul>
+<li><a href="#staticcast-sensible-casts">static_cast - “sensible” casts</a></li>
+<li><a href="#reinterpretcast-unsafe-implementation-specific-weird-casts">reinterpret_cast - Unsafe, implementation-specific, “weird” casts.</a></li>
+<li><a href="#constcast-for-converting-between-const-non-const">const_cast - For converting between const + non-const</a></li>
+<li><a href="#dynamiccast-is-it-safe-to-convert-a-book-to-a-text">dynamic_cast - Is it safe to convert a Book * to a Text * ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-23">Lecture 23</a></li>
+<li><a href="#lecture-24">Lecture 24</a><ul>
+<li><a href="#template-functions">Template Functions</a></li>
+<li><a href="#stl-algorithm-library">STL <algorithm> library</algorithm></a></li>
 </ul>
 </li>
 </ul>
@@ -2295,7 +2312,7 @@ Certain operators <strong>must</strong> be members:</p>
 
 
 
-<h2 id="lecture-10-1">Lecture - 10</h2>
+<h2 id="lecture-11">Lecture - 11</h2>
 
 
 
@@ -3321,7 +3338,7 @@ If a subclass is NOT meant to have subclasses, declare it <code>final</code>:</p
 
 
 
-<h2 id="lecture-13-1">Lecture 13</h2>
+<h2 id="lecture-15">Lecture 15</h2>
 
 
 
@@ -3551,7 +3568,7 @@ y+x;
 
 
 
-<h2 id="lecture-14-1">Lecture 14</h2>
+<h2 id="lecture-16">Lecture 16</h2>
 
 <p>Now consider:</p>
 
@@ -3762,7 +3779,7 @@ virtual destructor must ALWAYS be implemented, even if it is pure virtual.
 
 
 
-<h2 id="lecture-15">Lecture 15</h2>
+<h2 id="lecture-17">Lecture 17</h2>
 
 <p><img src="http://amyqiu.me/Notes/a1.png"></p>
 
@@ -3965,7 +3982,7 @@ Text&amp;Text::<span class="hljs-keyword">operator</span>=(Text &amp;&amp;other)
 
 
 
-<h2 id="lecture-16">Lecture 16</h2>
+<h2 id="lecture-18">Lecture 18</h2>
 
 
 
@@ -4188,7 +4205,7 @@ m.erase(<span class="hljs-string">"abc"</span>);
 
 
 
-<h2 id="lecture-17">Lecture 17</h2>
+<h2 id="lecture-19">Lecture 19</h2>
 
 <p>Recall: <code>&lt;map&gt;</code> <br>
 <code>map&lt;string, int&gt; m;</code> <br>
@@ -4414,7 +4431,7 @@ e.g. XWindows YWindows - Then Impl struct could be a superclass <br>
 
 
 
-<h2 id="lecture">Lecture</h2>
+<h2 id="lecture-20">Lecture 20</h2>
 
 
 
@@ -4625,7 +4642,7 @@ Use this guarantee to your advantage</p>
 
 
 
-<h2 id="lecture-19">Lecture 19</h2>
+<h2 id="lecture-21">Lecture 21</h2>
 
 <p>Recall:</p>
 
@@ -4798,7 +4815,397 @@ Sol’n. Use the pImpl idiom: </p>
     <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt;</span>&gt; v;
     ...
     <span class="hljs-comment">//array is freed, shared_ptr dtors run. So the objs ARE deleted if no other shared ptr points at them. NO explicit deallocation.</span>
-}</code></pre></body>
+}</code></pre>
+
+
+
+<h2 id="lecture-22">Lecture 22</h2>
+
+
+
+<h3 id="exception-safety-the-stl-continued">Exception Safety + the STL continued</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;T&gt;</span>::emplace_back</code></pre>
+
+<ul>
+<li>offers the strong guarantee</li>
+<li>if the array is full (ie size = cap) <br>
+<ul><li>allocate new array</li>
+<li>copy objects over (copy ctor) <br>
+<ul><li>if a copy ctor throws: destroy the new array. The old array is still intact. Strong guarantee</li></ul></li>
+<li>delete old array</li></ul></li>
+</ul>
+
+<p>But:</p>
+
+<ul>
+<li>copying is expensive + the old data will be thrown away</li>
+<li>wouldn’t moving the objs be more efficient? <br>
+<ul><li>allocate new array</li>
+<li>move objs over (move ctor). HOWEVER, if move ctor throws, can’t offer the strong guarantee. Original no longer intact.</li>
+<li>delete old array</li></ul></li>
+</ul>
+
+<p>BUT: <br>
+If the move ctor offers the nothrow guarantee, emplace_back will use the move ctor; else it will use the copy ctor, which is slower. So your move ops should provide the no-throw guarantee, and you should indicate that they do:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> MyClass{
+    <span class="hljs-keyword">public</span>:
+        MyClass(MyClass &amp;other) <span class="hljs-keyword">noexcept</span>{...}
+        MyClass &amp;<span class="hljs-keyword">operator</span>=(MyClass &amp;&amp;other) <span class="hljs-keyword">noexcept</span>;
+};</code></pre>
+
+<p>If you know a function will never throw or propagate an exception, declare it noexcept. This facilitates optimization.</p>
+
+<p>At minimum: moves + swaps should be noexcept</p>
+
+
+
+<h3 id="casting">Casting</h3>
+
+<p>In C:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n;
+<span class="hljs-keyword">int</span> *ip=(<span class="hljs-keyword">int</span> *) &amp;n; <span class="hljs-comment">//cast - forces c++ to treat a Node * as an int*</span></code></pre>
+
+<p>C-style casts should be avoided in C++ <br>
+If you must cast, use a C++-style cast:</p>
+
+<p>4 Kinds:</p>
+
+
+
+<h4 id="staticcast-sensible-casts">static_cast - “sensible” casts</h4>
+
+<ul>
+<li>Eg: double-&gt;int: </li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(<span class="hljs-keyword">int</span> i);
+<span class="hljs-keyword">void</span> f(<span class="hljs-keyword">double</span> d);
+f(<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(d));</code></pre>
+
+<ul>
+<li><code>superclass ptr-&gt;subclass ptr</code></li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *b = <span class="hljs-keyword">new</span> Text{...};
+Text *t = <span class="hljs-keyword">static_cast</span>&lt;Text *&gt;(b);</code></pre>
+
+<ul>
+<li>you are taking responsibility that b actually points at a Text. “Trust me.”</li>
+</ul>
+
+
+
+<h4 id="reinterpretcast-unsafe-implementation-specific-weird-casts">reinterpret_cast - Unsafe, implementation-specific, “weird” casts.</h4>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student s;
+Turtle *t = <span class="hljs-keyword">reinterpret_cast</span>&lt;Turtle *&gt; (&amp;s);</code></pre>
+
+
+
+<h4 id="constcast-for-converting-between-const-non-const">const_cast - For converting between const + non-const</h4>
+
+<p>The only C++ cast that can cast away const</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Won't compile if you just call g(p) since g doesn't guarantee p stays the same</span>
+<span class="hljs-keyword">void</span> g(<span class="hljs-keyword">int</span> *p); <span class="hljs-comment">//given to you</span>
+<span class="hljs-keyword">void</span> f(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p){ <span class="hljs-comment">// say you know that g will not modify *p - just not reflected in g's signature</span>
+    ...
+    g(<span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">int</span> *&gt;(p));
+    ...
+}</code></pre>
+
+
+
+<h4 id="dynamiccast-is-it-safe-to-convert-a-book-to-a-text">dynamic_cast - Is it safe to convert a Book * to a Text * ?</h4>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *pb;
+...
+<span class="hljs-keyword">static_cast</span>&lt;Text *&gt; (pb)-&gt;getTopic(); <span class="hljs-comment">//safe? depends</span></code></pre>
+
+<p>Depends on what pb actually points at. Better to do a tentative cast - try it + see if it succeeds.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *pb = ...;
+Text *pt = <span class="hljs-keyword">dynamic_cast</span> &lt;Text *&gt; (pb);</code></pre>
+
+<p>If the cast works (pb REALLY points at a Text, or at a subclass of Text), now pt points at that object. <br>
+If the cast fails - pt will be nullptr</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">if</span>(pt) <span class="hljs-built_in">cout</span> &lt;&lt; pt-&gt;getTopic();
+<span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Not a text"</span>;</code></pre>
+
+<p>Should be using smart ptrs - can we do the same on them? <br>
+Yes - <code>static_pointer_cast</code>, <code>const_pointer_cast</code>, <code>dynamic_pointer_cast</code> <br>
+Cast shared_ptrs to shared_ptrs <br>
+can use dynamic casting to make decisions based on an object’s RTTI(run time type information)</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> whatIsIt(<span class="hljs-built_in">shared_ptr</span>&lt;Book&gt; b){
+    <span class="hljs-keyword">if</span>(dynamic_pointer_cast &lt;Comic&gt;(b)) <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Comic"</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(dynamic_pointer_cast &lt;Text&gt;(b)) <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Text"</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Normal Book"</span>;
+}</code></pre>
+
+<p>Code like this is highly coupled to the book class hierarchy and may indicate bad design. Better - use virtual methods or write a visitor.</p>
+
+<blockquote>
+  <p>Note: dynamic casting only works on classes with at least one virtual method</p>
+</blockquote>
+
+
+
+<h2 id="lecture-23">Lecture 23</h2>
+
+<p></p>
+
+<p>The one I missed. Uhhh refer to pdf.</p>
+
+<h2 id="lecture-24">Lecture 24</h2>
+
+<p><img src="http://amyqiu.me/Notes/a9.png"> <br>
+Distance to base class not always the same!</p>
+
+<ul>
+<li>location of superclass is stored in the vtable</li>
+</ul>
+
+<p>Diagram doesn’t look like A,BmCmD simultaneously - but slices of it do look like A,B,C,D</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">D d;
+A*a = &amp;d;<span class="hljs-comment">//shifts the address</span></code></pre>
+
+<p>Therefore ptr assignment among A,B,C,D changes the address stored in the ptr.</p>
+
+<ul>
+<li>static/const/dynamic cast under multi-inheritance also chang the value of the ptr.</li>
+<li>reinterpret_cast will not</li>
+</ul>
+
+
+
+<h3 id="template-functions">Template Functions</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; T min(T x, T y){
+    <span class="hljs-keyword">return</span> x&lt;y? x: y;
+}
+
+<span class="hljs-keyword">int</span> x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>;
+<span class="hljs-keyword">int</span> z=min(x,y); <span class="hljs-comment">//T=int - Don't need to say min&lt;int&gt; because C++ can infer that T=int from the types of X and Y (Does not apply to template classes)</span></code></pre>
+
+<p>If C++ cannot determine T, you can tell it: <code>min&lt;int&gt;(x,y);</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">char</span> w = min (<span class="hljs-string">'a'</span>,<span class="hljs-string">'c'</span>); <span class="hljs-comment">//T = char</span>
+<span class="hljs-keyword">auto</span> f = min(<span class="hljs-number">1.0</span>,<span class="hljs-number">2.0</span>); <span class="hljs-comment">//T= float</span></code></pre>
+
+<p>for what types T can min be used?</p>
+
+<ul>
+<li>For what types T will the body compile?</li>
+<li>any type for which operator &lt; is defined</li>
+</ul>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> for_each(AbstractIterator start, AbstractIterator finish, <span class="hljs-keyword">int</span>(*f)(<span class="hljs-keyword">int</span>)){
+    <span class="hljs-keyword">while</span>(start!=finish){
+        f(* start);
+        ++start;
+    }
+}</code></pre>
+
+<p>Works as long as AbstractIterator supports !=, *, ++ <br>
+f can be called as a f’n <br>
+Make these template arguments:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Iter, <span class="hljs-keyword">typename</span> Func&gt;
+    <span class="hljs-keyword">void</span> for_each(Iter start, Iter finish, Func f){
+        <span class="hljs-keyword">while</span>(start!= finish){
+            f(*start);
+            ++start;
+        }
+    }</code></pre>
+
+<p>Now Iter can by ANY type supporting !=, *, ++ (including raw pointers)</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(<span class="hljs-keyword">int</span> n){<span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;}
+<span class="hljs-keyword">int</span> a[] = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+for_each(a, a+<span class="hljs-number">5</span>, f); <span class="hljs-comment">//- prints the array</span></code></pre>
+
+
+
+<h3 id="stl-algorithm-library">STL <code>&lt;algorithm&gt;</code> library</h3>
+
+<ul>
+<li>a suite of template functions, many of which work over iterators</li>
+<li>Examples: for_each (as given above)</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Iter, <span class="hljs-keyword">typename</span> T&gt;
+    Iter find(Iter first, Iter last, <span class="hljs-keyword">const</span> T &amp;val){
+        <span class="hljs-comment">// returns iterator to first item in [first, last) matching T.</span>
+        <span class="hljs-comment">//or last, if not found;</span>
+    }</code></pre>
+
+<p>count - like find, but returns # of occurrences of val</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> InIter, <span class="hljs-keyword">typename</span> OutIter&gt;
+    OutIter copy(InIter first, InIter last, OutIter result){
+        <span class="hljs-comment">// copies one container range [first, last)</span>
+        <span class="hljs-comment">//to another, starting at result</span>
+    }
+
+<span class="hljs-comment">// Note: does not allocate new memory</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>};
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> w(<span class="hljs-number">4</span>); <span class="hljs-comment">//space for 4 ints</span>
+copy(v.begin()+<span class="hljs-number">1</span>, v.begin()+<span class="hljs-number">5</span>, w.begin());
+<span class="hljs-comment">//w = {2,3,4,5}</span>
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> InIter, <span class="hljs-keyword">typename</span> OutIter, <span class="hljs-keyword">typename</span> Func&gt;
+    OutIter transform(InIter first, InIter last, OutIter result, Func f){
+        <span class="hljs-keyword">while</span>(first != last){
+            *result = f(*first);
+            ++first;
+            ++result;
+        }
+        <span class="hljs-keyword">return</span> result;
+    }</code></pre>
+
+<p>Eg:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> add1(<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n+<span class="hljs-number">1</span>;}
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">11</span>};
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> w(v.size());
+transform(v.begin(),v.end(),w.begin(), addI);
+<span class="hljs-comment">// w={3,4,6,8,12}</span></code></pre>
+
+<p>How general is this code? <br>
+1. what can we use for Func? <br>
+2. what can we use for InIter/OutIter?</p>
+
+<ol>
+<li>Func: How is f used? f(*first) <br>
+<ul><li>f can be anything that can be called as a f’n</li>
+<li>Can write operator() for objects</li>
+<li>eg: <code>class Plus1{public: int operator()(int n){return n+1;}};</code></li>
+<li><code>Plus1 p;</code></li>
+<li><code>p(4); //produces 5</code></li></ul></li>
+</ol>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">transform(v.begin(), v.end(), w.begin(), Plus1());
+
+<span class="hljs-comment">//Generalize:</span>
+<span class="hljs-keyword">class</span> Plus{
+    <span class="hljs-keyword">int</span> m;
+    <span class="hljs-keyword">public</span>:
+        Plus(<span class="hljs-keyword">int</span> m): m{m}{}
+        <span class="hljs-keyword">int</span> <span class="hljs-keyword">operator</span>()(<span class="hljs-keyword">int</span> n) {<span class="hljs-keyword">return</span> n+m;}
+};
+
+transform(v.begin(), v.end(), w.begin(), Plus{<span class="hljs-number">1</span>});</code></pre>
+
+<p>Plus1, Plus - called function objects <br>
+Advantage of f’n objects - can maintain state</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> IncreasingPlus{
+    <span class="hljs-keyword">int</span> m=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> <span class="hljs-keyword">operator</span>()(<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n+(m++);}
+        <span class="hljs-keyword">void</span> reset() {m=<span class="hljs-number">0</span>;}
+};
+
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v(<span class="hljs-number">5</span>,<span class="hljs-number">0</span>);
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> w(v.size());
+transform(v.begin(), v.end(),w.begin(), IncreasingPlus());
+<span class="hljs-comment">// w = {0, 1, 2, 3, 4}</span></code></pre>
+
+<p>Consider: How many ints in vector v are even?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v {...};
+<span class="hljs-keyword">bool</span> even(<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>;}
+<span class="hljs-keyword">int</span> x=count_if(v.begin(),v.end(), even);</code></pre>
+
+<p>Seems a waste to explicitly create the f’n even. If this were Racket, we’d use lambda. <br>
+Do the same here:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> x=count_if(v.begin(),v.end(),[](<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>;});
+<span class="hljs-keyword">auto</span> even = [](<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>;}
+
+<span class="hljs-keyword">int</span> f(<span class="hljs-keyword">decltype</span>(even)){...} <span class="hljs-comment">//whatever even's type is</span></code></pre>
+
+<p>2 - Iterators - <br>
+Apply the notion of iteration to other data sources. eg. streams</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;iterator&gt;</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;</span>v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+ostream_iterator &lt;<span class="hljs-keyword">int</span>&gt; out {<span class="hljs-built_in">cout</span>, <span class="hljs-string">","</span>};
+copy(v.begin(),v.end(),out); <span class="hljs-comment">//prints 1,2,3,4,5,</span>
+
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span>w;
+copy(v.begin(),v.end(),w.begin()); <span class="hljs-comment">//X won't work. Seg fault</span></code></pre>
+
+<p>Remember - copy doesn’t allocate space in w. It can’t - it doesn’t even know that w’s iterating over a vector!</p>
+
+<p>But what if we had an iterator whose assignment operator inserts a new item?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">copy(v.begin(), v.end(), back_inserter(w));</code></pre>
+
+<p>copies v to w, allocates space if necessary</p>
+
+<p>The end.</p></body>
 </html>
 
 <!--
@@ -4895,7 +5302,7 @@ Sol’n. Use the pImpl idiom: </p>
 <li><a href="#copymove-elision">Copy/Move Elision</a></li>
 </ul>
 </li>
-<li><a href="#lecture-10-1">Lecture - 10</a><ul>
+<li><a href="#lecture-11">Lecture - 11</a><ul>
 <li><a href="#separate-compilation-for-classes">Separate Compilation for Classes</a></li>
 <li><a href="#arrays-of-objects">Arrays of Objects</a></li>
 <li><a href="#const-objects">Const Objects</a></li>
@@ -4921,34 +5328,34 @@ Sol’n. Use the pImpl idiom: </p>
 <li><a href="#destructor-revisited">Destructor Revisited</a></li>
 </ul>
 </li>
-<li><a href="#lecture-13-1">Lecture 13</a><ul>
+<li><a href="#lecture-15">Lecture 15</a><ul>
 <li><a href="#pure-virtual-methods-abstract-classes">Pure Virtual Methods + Abstract Classes</a></li>
 <li><a href="#templates">Templates</a></li>
 <li><a href="#the-standard-template-library-stl">The Standard Template Library (STL)</a></li>
 </ul>
 </li>
-<li><a href="#lecture-14-1">Lecture 14</a><ul>
+<li><a href="#lecture-16">Lecture 16</a><ul>
 <li><a href="#design-patterns-ctd">Design Patterns Ct’d</a></li>
 <li><a href="#observer-pattern">Observer Pattern</a></li>
 </ul>
 </li>
-<li><a href="#lecture-15">Lecture 15</a><ul>
+<li><a href="#lecture-17">Lecture 17</a><ul>
 <li><a href="#decorator-pattern">Decorator Pattern</a></li>
 <li><a href="#inheritance-and-copymove">Inheritance and Copy/Move</a></li>
 </ul>
 </li>
-<li><a href="#lecture-16">Lecture 16</a><ul>
+<li><a href="#lecture-18">Lecture 18</a><ul>
 <li><a href="#factory-method-pattern">Factory Method Pattern</a></li>
 <li><a href="#template-method-pattern">Template Method Pattern</a></li>
 <li><a href="#stl-maps-for-creating-dictionaries">STL Maps - for creating Dictionaries</a></li>
 </ul>
 </li>
-<li><a href="#lecture-17">Lecture 17</a><ul>
+<li><a href="#lecture-19">Lecture 19</a><ul>
 <li><a href="#visitor-pattern">Visitor Pattern</a></li>
 <li><a href="#pimpl-idiom-pointer-to-implementation">Pimpl idiom (“Pointer to implementation”)</a></li>
 </ul>
 </li>
-<li><a href="#lecture">Lecture</a><ul>
+<li><a href="#lecture-20">Lecture 20</a><ul>
 <li><a href="#measures-of-design-quality">Measures of Design Quality</a></li>
 <li><a href="#decoupling-the-interface-mvc">Decoupling the Interface (MVC)</a></li>
 <li><a href="#single-responsibility-principle">Single Responsibility Principle</a></li>
@@ -4957,8 +5364,25 @@ Sol’n. Use the pImpl idiom: </p>
 <li><a href="#c-idiom-raii-resource-acquisition-is-initialization-might-appear-on-final-exam-what-does-it-stand-for">C++ idiom : RAII - Resource Acquisition Is Initialization (**Might appear on final exam. What does it stand for?)</a></li>
 </ul>
 </li>
-<li><a href="#lecture-19">Lecture 19</a><ul>
+<li><a href="#lecture-21">Lecture 21</a><ul>
 <li><a href="#exn-safety-the-stl-vectors">Exn Safety + the STL: vectors</a></li>
+</ul>
+</li>
+<li><a href="#lecture-22">Lecture 22</a><ul>
+<li><a href="#exception-safety-the-stl-continued">Exception Safety + the STL continued</a></li>
+<li><a href="#casting">Casting</a><ul>
+<li><a href="#staticcast-sensible-casts">static_cast - “sensible” casts</a></li>
+<li><a href="#reinterpretcast-unsafe-implementation-specific-weird-casts">reinterpret_cast - Unsafe, implementation-specific, “weird” casts.</a></li>
+<li><a href="#constcast-for-converting-between-const-non-const">const_cast - For converting between const + non-const</a></li>
+<li><a href="#dynamiccast-is-it-safe-to-convert-a-book-to-a-text">dynamic_cast - Is it safe to convert a Book * to a Text * ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-23">Lecture 23</a></li>
+<li><a href="#lecture-24">Lecture 24</a><ul>
+<li><a href="#template-functions">Template Functions</a></li>
+<li><a href="#stl-algorithm-library">STL <algorithm> library</algorithm></a></li>
 </ul>
 </li>
 </ul>
@@ -7095,7 +7519,7 @@ Certain operators <strong>must</strong> be members:</p>
 
 
 
-<h2 id="lecture-10-1">Lecture - 10</h2>
+<h2 id="lecture-11">Lecture - 11</h2>
 
 
 
@@ -8121,7 +8545,7 @@ If a subclass is NOT meant to have subclasses, declare it <code>final</code>:</p
 
 
 
-<h2 id="lecture-13-1">Lecture 13</h2>
+<h2 id="lecture-15">Lecture 15</h2>
 
 
 
@@ -8351,7 +8775,7 @@ y+x;
 
 
 
-<h2 id="lecture-14-1">Lecture 14</h2>
+<h2 id="lecture-16">Lecture 16</h2>
 
 <p>Now consider:</p>
 
@@ -8562,7 +8986,7 @@ virtual destructor must ALWAYS be implemented, even if it is pure virtual.
 
 
 
-<h2 id="lecture-15">Lecture 15</h2>
+<h2 id="lecture-17">Lecture 17</h2>
 
 <p><img src="http://amyqiu.me/Notes/a1.png"></p>
 
@@ -8765,7 +9189,7 @@ Text&amp;Text::<span class="hljs-keyword">operator</span>=(Text &amp;&amp;other)
 
 
 
-<h2 id="lecture-16">Lecture 16</h2>
+<h2 id="lecture-18">Lecture 18</h2>
 
 
 
@@ -8988,7 +9412,7 @@ m.erase(<span class="hljs-string">"abc"</span>);
 
 
 
-<h2 id="lecture-17">Lecture 17</h2>
+<h2 id="lecture-19">Lecture 19</h2>
 
 <p>Recall: <code>&lt;map&gt;</code> <br>
 <code>map&lt;string, int&gt; m;</code> <br>
@@ -9214,7 +9638,7 @@ e.g. XWindows YWindows - Then Impl struct could be a superclass <br>
 
 
 
-<h2 id="lecture">Lecture</h2>
+<h2 id="lecture-20">Lecture 20</h2>
 
 
 
@@ -9425,7 +9849,7 @@ Use this guarantee to your advantage</p>
 
 
 
-<h2 id="lecture-19">Lecture 19</h2>
+<h2 id="lecture-21">Lecture 21</h2>
 
 <p>Recall:</p>
 
@@ -9598,6 +10022,396 @@ Sol’n. Use the pImpl idiom: </p>
     <span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">shared_ptr</span>&lt;MyClass&gt;</span>&gt; v;
     ...
     <span class="hljs-comment">//array is freed, shared_ptr dtors run. So the objs ARE deleted if no other shared ptr points at them. NO explicit deallocation.</span>
-}</code></pre></body>
+}</code></pre>
+
+
+
+<h2 id="lecture-22">Lecture 22</h2>
+
+
+
+<h3 id="exception-safety-the-stl-continued">Exception Safety + the STL continued</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;T&gt;</span>::emplace_back</code></pre>
+
+<ul>
+<li>offers the strong guarantee</li>
+<li>if the array is full (ie size = cap) <br>
+<ul><li>allocate new array</li>
+<li>copy objects over (copy ctor) <br>
+<ul><li>if a copy ctor throws: destroy the new array. The old array is still intact. Strong guarantee</li></ul></li>
+<li>delete old array</li></ul></li>
+</ul>
+
+<p>But:</p>
+
+<ul>
+<li>copying is expensive + the old data will be thrown away</li>
+<li>wouldn’t moving the objs be more efficient? <br>
+<ul><li>allocate new array</li>
+<li>move objs over (move ctor). HOWEVER, if move ctor throws, can’t offer the strong guarantee. Original no longer intact.</li>
+<li>delete old array</li></ul></li>
+</ul>
+
+<p>BUT: <br>
+If the move ctor offers the nothrow guarantee, emplace_back will use the move ctor; else it will use the copy ctor, which is slower. So your move ops should provide the no-throw guarantee, and you should indicate that they do:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> MyClass{
+    <span class="hljs-keyword">public</span>:
+        MyClass(MyClass &amp;other) <span class="hljs-keyword">noexcept</span>{...}
+        MyClass &amp;<span class="hljs-keyword">operator</span>=(MyClass &amp;&amp;other) <span class="hljs-keyword">noexcept</span>;
+};</code></pre>
+
+<p>If you know a function will never throw or propagate an exception, declare it noexcept. This facilitates optimization.</p>
+
+<p>At minimum: moves + swaps should be noexcept</p>
+
+
+
+<h3 id="casting">Casting</h3>
+
+<p>In C:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Node n;
+<span class="hljs-keyword">int</span> *ip=(<span class="hljs-keyword">int</span> *) &amp;n; <span class="hljs-comment">//cast - forces c++ to treat a Node * as an int*</span></code></pre>
+
+<p>C-style casts should be avoided in C++ <br>
+If you must cast, use a C++-style cast:</p>
+
+<p>4 Kinds:</p>
+
+
+
+<h4 id="staticcast-sensible-casts">static_cast - “sensible” casts</h4>
+
+<ul>
+<li>Eg: double-&gt;int: </li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(<span class="hljs-keyword">int</span> i);
+<span class="hljs-keyword">void</span> f(<span class="hljs-keyword">double</span> d);
+f(<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(d));</code></pre>
+
+<ul>
+<li><code>superclass ptr-&gt;subclass ptr</code></li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *b = <span class="hljs-keyword">new</span> Text{...};
+Text *t = <span class="hljs-keyword">static_cast</span>&lt;Text *&gt;(b);</code></pre>
+
+<ul>
+<li>you are taking responsibility that b actually points at a Text. “Trust me.”</li>
+</ul>
+
+
+
+<h4 id="reinterpretcast-unsafe-implementation-specific-weird-casts">reinterpret_cast - Unsafe, implementation-specific, “weird” casts.</h4>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Student s;
+Turtle *t = <span class="hljs-keyword">reinterpret_cast</span>&lt;Turtle *&gt; (&amp;s);</code></pre>
+
+
+
+<h4 id="constcast-for-converting-between-const-non-const">const_cast - For converting between const + non-const</h4>
+
+<p>The only C++ cast that can cast away const</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-comment">//Won't compile if you just call g(p) since g doesn't guarantee p stays the same</span>
+<span class="hljs-keyword">void</span> g(<span class="hljs-keyword">int</span> *p); <span class="hljs-comment">//given to you</span>
+<span class="hljs-keyword">void</span> f(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p){ <span class="hljs-comment">// say you know that g will not modify *p - just not reflected in g's signature</span>
+    ...
+    g(<span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">int</span> *&gt;(p));
+    ...
+}</code></pre>
+
+
+
+<h4 id="dynamiccast-is-it-safe-to-convert-a-book-to-a-text">dynamic_cast - Is it safe to convert a Book * to a Text * ?</h4>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *pb;
+...
+<span class="hljs-keyword">static_cast</span>&lt;Text *&gt; (pb)-&gt;getTopic(); <span class="hljs-comment">//safe? depends</span></code></pre>
+
+<p>Depends on what pb actually points at. Better to do a tentative cast - try it + see if it succeeds.</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">Book *pb = ...;
+Text *pt = <span class="hljs-keyword">dynamic_cast</span> &lt;Text *&gt; (pb);</code></pre>
+
+<p>If the cast works (pb REALLY points at a Text, or at a subclass of Text), now pt points at that object. <br>
+If the cast fails - pt will be nullptr</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">if</span>(pt) <span class="hljs-built_in">cout</span> &lt;&lt; pt-&gt;getTopic();
+<span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Not a text"</span>;</code></pre>
+
+<p>Should be using smart ptrs - can we do the same on them? <br>
+Yes - <code>static_pointer_cast</code>, <code>const_pointer_cast</code>, <code>dynamic_pointer_cast</code> <br>
+Cast shared_ptrs to shared_ptrs <br>
+can use dynamic casting to make decisions based on an object’s RTTI(run time type information)</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> whatIsIt(<span class="hljs-built_in">shared_ptr</span>&lt;Book&gt; b){
+    <span class="hljs-keyword">if</span>(dynamic_pointer_cast &lt;Comic&gt;(b)) <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Comic"</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(dynamic_pointer_cast &lt;Text&gt;(b)) <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Text"</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Normal Book"</span>;
+}</code></pre>
+
+<p>Code like this is highly coupled to the book class hierarchy and may indicate bad design. Better - use virtual methods or write a visitor.</p>
+
+<blockquote>
+  <p>Note: dynamic casting only works on classes with at least one virtual method</p>
+</blockquote>
+
+
+
+<h2 id="lecture-23">Lecture 23</h2>
+
+<p></p>
+
+<p>The one I missed. Uhhh refer to pdf.</p>
+
+<h2 id="lecture-24">Lecture 24</h2>
+
+<p><img src="http://amyqiu.me/Notes/a9.png"> <br>
+Distance to base class not always the same!</p>
+
+<ul>
+<li>location of superclass is stored in the vtable</li>
+</ul>
+
+<p>Diagram doesn’t look like A,BmCmD simultaneously - but slices of it do look like A,B,C,D</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">D d;
+A*a = &amp;d;<span class="hljs-comment">//shifts the address</span></code></pre>
+
+<p>Therefore ptr assignment among A,B,C,D changes the address stored in the ptr.</p>
+
+<ul>
+<li>static/const/dynamic cast under multi-inheritance also chang the value of the ptr.</li>
+<li>reinterpret_cast will not</li>
+</ul>
+
+
+
+<h3 id="template-functions">Template Functions</h3>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; T min(T x, T y){
+    <span class="hljs-keyword">return</span> x&lt;y? x: y;
+}
+
+<span class="hljs-keyword">int</span> x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>;
+<span class="hljs-keyword">int</span> z=min(x,y); <span class="hljs-comment">//T=int - Don't need to say min&lt;int&gt; because C++ can infer that T=int from the types of X and Y (Does not apply to template classes)</span></code></pre>
+
+<p>If C++ cannot determine T, you can tell it: <code>min&lt;int&gt;(x,y);</code></p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">char</span> w = min (<span class="hljs-string">'a'</span>,<span class="hljs-string">'c'</span>); <span class="hljs-comment">//T = char</span>
+<span class="hljs-keyword">auto</span> f = min(<span class="hljs-number">1.0</span>,<span class="hljs-number">2.0</span>); <span class="hljs-comment">//T= float</span></code></pre>
+
+<p>for what types T can min be used?</p>
+
+<ul>
+<li>For what types T will the body compile?</li>
+<li>any type for which operator &lt; is defined</li>
+</ul>
+
+<p>Recall:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> for_each(AbstractIterator start, AbstractIterator finish, <span class="hljs-keyword">int</span>(*f)(<span class="hljs-keyword">int</span>)){
+    <span class="hljs-keyword">while</span>(start!=finish){
+        f(* start);
+        ++start;
+    }
+}</code></pre>
+
+<p>Works as long as AbstractIterator supports !=, *, ++ <br>
+f can be called as a f’n <br>
+Make these template arguments:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Iter, <span class="hljs-keyword">typename</span> Func&gt;
+    <span class="hljs-keyword">void</span> for_each(Iter start, Iter finish, Func f){
+        <span class="hljs-keyword">while</span>(start!= finish){
+            f(*start);
+            ++start;
+        }
+    }</code></pre>
+
+<p>Now Iter can by ANY type supporting !=, *, ++ (including raw pointers)</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">void</span> f(<span class="hljs-keyword">int</span> n){<span class="hljs-built_in">cout</span> &lt;&lt; n &lt;&lt; endl;}
+<span class="hljs-keyword">int</span> a[] = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+for_each(a, a+<span class="hljs-number">5</span>, f); <span class="hljs-comment">//- prints the array</span></code></pre>
+
+
+
+<h3 id="stl-algorithm-library">STL <code>&lt;algorithm&gt;</code> library</h3>
+
+<ul>
+<li>a suite of template functions, many of which work over iterators</li>
+<li>Examples: for_each (as given above)</li>
+</ul>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Iter, <span class="hljs-keyword">typename</span> T&gt;
+    Iter find(Iter first, Iter last, <span class="hljs-keyword">const</span> T &amp;val){
+        <span class="hljs-comment">// returns iterator to first item in [first, last) matching T.</span>
+        <span class="hljs-comment">//or last, if not found;</span>
+    }</code></pre>
+
+<p>count - like find, but returns # of occurrences of val</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> InIter, <span class="hljs-keyword">typename</span> OutIter&gt;
+    OutIter copy(InIter first, InIter last, OutIter result){
+        <span class="hljs-comment">// copies one container range [first, last)</span>
+        <span class="hljs-comment">//to another, starting at result</span>
+    }
+
+<span class="hljs-comment">// Note: does not allocate new memory</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>};
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> w(<span class="hljs-number">4</span>); <span class="hljs-comment">//space for 4 ints</span>
+copy(v.begin()+<span class="hljs-number">1</span>, v.begin()+<span class="hljs-number">5</span>, w.begin());
+<span class="hljs-comment">//w = {2,3,4,5}</span>
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> InIter, <span class="hljs-keyword">typename</span> OutIter, <span class="hljs-keyword">typename</span> Func&gt;
+    OutIter transform(InIter first, InIter last, OutIter result, Func f){
+        <span class="hljs-keyword">while</span>(first != last){
+            *result = f(*first);
+            ++first;
+            ++result;
+        }
+        <span class="hljs-keyword">return</span> result;
+    }</code></pre>
+
+<p>Eg:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> add1(<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n+<span class="hljs-number">1</span>;}
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">11</span>};
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> w(v.size());
+transform(v.begin(),v.end(),w.begin(), addI);
+<span class="hljs-comment">// w={3,4,6,8,12}</span></code></pre>
+
+<p>How general is this code? <br>
+1. what can we use for Func? <br>
+2. what can we use for InIter/OutIter?</p>
+
+<ol>
+<li>Func: How is f used? f(*first) <br>
+<ul><li>f can be anything that can be called as a f’n</li>
+<li>Can write operator() for objects</li>
+<li>eg: <code>class Plus1{public: int operator()(int n){return n+1;}};</code></li>
+<li><code>Plus1 p;</code></li>
+<li><code>p(4); //produces 5</code></li></ul></li>
+</ol>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">transform(v.begin(), v.end(), w.begin(), Plus1());
+
+<span class="hljs-comment">//Generalize:</span>
+<span class="hljs-keyword">class</span> Plus{
+    <span class="hljs-keyword">int</span> m;
+    <span class="hljs-keyword">public</span>:
+        Plus(<span class="hljs-keyword">int</span> m): m{m}{}
+        <span class="hljs-keyword">int</span> <span class="hljs-keyword">operator</span>()(<span class="hljs-keyword">int</span> n) {<span class="hljs-keyword">return</span> n+m;}
+};
+
+transform(v.begin(), v.end(), w.begin(), Plus{<span class="hljs-number">1</span>});</code></pre>
+
+<p>Plus1, Plus - called function objects <br>
+Advantage of f’n objects - can maintain state</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">class</span> IncreasingPlus{
+    <span class="hljs-keyword">int</span> m=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">public</span>:
+        <span class="hljs-keyword">int</span> <span class="hljs-keyword">operator</span>()(<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n+(m++);}
+        <span class="hljs-keyword">void</span> reset() {m=<span class="hljs-number">0</span>;}
+};
+
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v(<span class="hljs-number">5</span>,<span class="hljs-number">0</span>);
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> w(v.size());
+transform(v.begin(), v.end(),w.begin(), IncreasingPlus());
+<span class="hljs-comment">// w = {0, 1, 2, 3, 4}</span></code></pre>
+
+<p>Consider: How many ints in vector v are even?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v {...};
+<span class="hljs-keyword">bool</span> even(<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>;}
+<span class="hljs-keyword">int</span> x=count_if(v.begin(),v.end(), even);</code></pre>
+
+<p>Seems a waste to explicitly create the f’n even. If this were Racket, we’d use lambda. <br>
+Do the same here:</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> x=count_if(v.begin(),v.end(),[](<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>;});
+<span class="hljs-keyword">auto</span> even = [](<span class="hljs-keyword">int</span> n){<span class="hljs-keyword">return</span> n%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>;}
+
+<span class="hljs-keyword">int</span> f(<span class="hljs-keyword">decltype</span>(even)){...} <span class="hljs-comment">//whatever even's type is</span></code></pre>
+
+<p>2 - Iterators - <br>
+Apply the notion of iteration to other data sources. eg. streams</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;iterator&gt;</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;</span>v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+ostream_iterator &lt;<span class="hljs-keyword">int</span>&gt; out {<span class="hljs-built_in">cout</span>, <span class="hljs-string">","</span>};
+copy(v.begin(),v.end(),out); <span class="hljs-comment">//prints 1,2,3,4,5,</span>
+
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> v{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;</span>w;
+copy(v.begin(),v.end(),w.begin()); <span class="hljs-comment">//X won't work. Seg fault</span></code></pre>
+
+<p>Remember - copy doesn’t allocate space in w. It can’t - it doesn’t even know that w’s iterating over a vector!</p>
+
+<p>But what if we had an iterator whose assignment operator inserts a new item?</p>
+
+
+
+<pre class="prettyprint"><code class="language-cpp hljs ">copy(v.begin(), v.end(), back_inserter(w));</code></pre>
+
+<p>copies v to w, allocates space if necessary</p>
+
+<p>The end.</p></body>
 </html>
 -->
