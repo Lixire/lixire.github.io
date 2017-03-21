@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Title5</title>
+<title>CS240 - March 21</title>
 
 <link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
 
@@ -208,12 +208,12 @@ C -&gt; 01 <br>
 <h2 id="huffman-coding">Huffman Coding</h2>
 
 <ul>
-<li>Source alpha is arbitrary (say <script type="math/tex" id="MathJax-Element-1449">\Sigma</script>), coded alpha is {0,1}</li>
+<li>Source alpha is arbitrary (say <script type="math/tex" id="MathJax-Element-1452">\Sigma</script>), coded alpha is {0,1}</li>
 <li>We build a binary trie to store the decoding dict D</li>
-<li>Each char of <script type="math/tex" id="MathJax-Element-1450">\Sigma</script> is a leaf of the trie</li>
+<li>Each char of <script type="math/tex" id="MathJax-Element-1453">\Sigma</script> is a leaf of the trie</li>
 </ul>
 
-<p>Eg: <script type="math/tex" id="MathJax-Element-1451">\Sigma = \{AENOT Space\_\}</script> <br>
+<p>Eg: <script type="math/tex" id="MathJax-Element-1454">\Sigma = \{AENOT Space\_\}</script> <br>
 So char to num: <br>
 A 01 | Space_ 000 <br>
 N 001 | 0 100 <br>
@@ -228,5 +228,39 @@ Char freq: E-1, L-2, O-1, S-4 <br>
 
 <p>|C| = 14, <br>
 |S| = 8 <br>
-So compression ratio is ~ 88%</p></body>
+So compression ratio is ~ 88%</p>
+
+<h2 id="run-length-encoding">Run-Length Encoding</h2>
+
+<p>Observation: 0’s and 1’s in S may be repeated many times in a row (called a “run”)</p>
+
+<p>S is encoded as the first bit of S (either 0 or 1) followed by a sequence of integers indicating run lengths. <br>
+Q: How to encode a run length k in binary?</p>
+
+<p>S = 0000111 -&gt; (1st bit) (encoding of 4) (encoding of 3) … -&gt; <br>
+RLE 1st Attempt:  <br>
+4 -&gt; 100, 3 -&gt; 11. S-&gt; 0 100 11 <br>
+RLE 2nd Attempt:  <br>
+4 -&gt; 000 (same num of 0’s) 100 (binary rep of 4) <br>
+3 -&gt; 00 (same num of 0’s) 11 (binary rep of 3) <br>
+S -&gt; 0 000100 00 11 <br>
+So with this method: <br>
+1 -&gt; 01 <br>
+2 -&gt; 0010 <br>
+3 -&gt; 0011 <br>
+4 -&gt; 000100 <br>
+5 -&gt; 000101 <br>
+6 -&gt; 000110 <br>
+7 -&gt; 000111 <br>
+RLE 3rd Attempt: <br>
+Improvement: All the terms start with a zero, so we can remove it to save a bit everywhere and retain the same information. <br>
+1 -&gt; 1 <br>
+2 -&gt; 010 <br>
+3 -&gt; 011 <br>
+4 -&gt; 00100 <br>
+5 -&gt; 00101 <br>
+6 -&gt; 00110 <br>
+7 -&gt; 00111</p>
+
+<p>S -&gt; 0 00 100 0 11</p></body>
 </html>
