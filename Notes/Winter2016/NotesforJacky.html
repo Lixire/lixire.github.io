@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Title5</title>
+
+<link rel="stylesheet" type="text/css" href="https://www.dropbox.com/s/atz4kqwayz4hlhk/markDown.css?raw=1">
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+</head>
+<body><p><div class="toc">
+<ul>
+<li><a href="#pattern-matching-conclusion">Pattern Matching Conclusion</a></li>
+<li><a href="#compression">Compression</a><ul>
+<li><a href="#types-of-data-compression">Types of Data Compression</a></li>
+<li><a href="#character-encodings">Character Encodings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<h1 id="pattern-matching-conclusion">Pattern Matching Conclusion</h1>
+
+<p>Read the slides. <br>
+<script type="math/tex" id="MathJax-Element-1041">O^{\text{~}}= O</script> up to logarithmic factors</p>
+
+<h1 id="compression">Compression</h1>
+
+<p>Problem: How to store and transmit data?</p>
+
+<dl>
+<dt>Source text</dt>
+<dd>Original data, string of chars S from the source alpha</dd>
+
+<dt>Coded text</dt>
+<dd>encoded data, string of chars C from the coded alpha</dd>
+
+<dt>Encoding</dt>
+<dd>An algo mapping source texts to coded texts</dd>
+
+<dt>Decoding</dt>
+<dd>an algo mapping coded texts back to their original source text</dd>
+</dl>
+
+<blockquote>
+  <p>Note: Source “text” can be any sort of data (not always text!) Usually the coded alpha is just binary {0,1}</p>
+</blockquote>
+
+<p>Judging Encoding Schemes <br>
+Efficiency is always cool. Otherwise we look at:</p>
+
+<ul>
+<li>Processing speed</li>
+<li>Reliablility (eg error-correcting codes)</li>
+<li>Security (eg encryption)</li>
+<li>Size</li>
+</ul>
+
+<p>Encoding schemes that try to minimize |C|, the size of the coded text, perform data compression. We will measure the <strong><em>compression ratio</em></strong>: <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1018">\frac{|C| \log |\Sigma_C|}{|S| \log |\Sigma_S|}</script></p>
+
+<p>Consider: <br>
+<script type="math/tex" id="MathJax-Element-1019">S = 1001...01</script> of length n <br>
+over alphabet <script type="math/tex" id="MathJax-Element-1020">\Sigma_S = \{0,1\}</script> <br>
+<script type="math/tex" id="MathJax-Element-1021">\Sigma_C = \{\text{all words of length n over {0,1}}\}</script> <br>
+-&gt; C is made of 1 character. So <script type="math/tex" id="MathJax-Element-1022">\frac{|C|}{|S|} = \frac{1}{n}</script></p>
+
+<p>Now we look at <script type="math/tex" id="MathJax-Element-1023">\Sigma_S = </script>{0,1} -&gt; <script type="math/tex" id="MathJax-Element-1024">\log |\Sigma_S| = \log 2</script> <br>
+<script type="math/tex" id="MathJax-Element-1025">\Sigma_C = \{\text{all words of size n}\}</script> -&gt; <script type="math/tex" id="MathJax-Element-1026">|\Sigma_C | = 2^n</script> -&gt; <script type="math/tex" id="MathJax-Element-1027">\log | \Sigma_C| = n \log 2</script></p>
+
+<p>Thus, instead, our compression ratio is <script type="math/tex" id="MathJax-Element-1028">\frac{|C| \log |\Sigma_C|}{|S| \log |\Sigma_S|} =1</script></p>
+
+<h2 id="types-of-data-compression">Types of Data Compression</h2>
+
+<p>Logical vs Physical:</p>
+
+<dl>
+<dt>Logical</dt>
+<dd>uses the meaning of data and only applies to a certain domain</dd>
+
+<dt>Physical</dt>
+<dd>only knows the physical bits in the data. Not the meaning.</dd>
+</dl>
+
+<p>Lossy vs Lossless</p>
+
+<dl>
+<dt>Lossy</dt>
+<dd>achives better compression ratios, but decoding is approx. Don’t get exact source S.</dd>
+
+<dt>Lossless</dt>
+<dd>always decodes S exactly</dd>
+</dl>
+
+
+
+<h2 id="character-encodings">Character Encodings</h2>
+
+<p>Fixed Length Codes</p>
+
+<blockquote>
+  <p>ASCII <br>
+  7 bits to encode 129 possible characters <br>
+  Fixed-length code since every key string in D has same length 7 bits</p>
+</blockquote>
+
+<p>Variable Length Codes</p>
+
+<blockquote>
+  <p>UTF-8 encoding of Unicode</p>
+  
+  <table>
+<thead>
+<tr>
+  <th>Char num range</th>
+  <th>UTF-8 Octet sequence</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>0000 0000=0000 007F</td>
+  <td>0xxxxxxx</td>
+</tr>
+<tr>
+  <td>0000 0080-0000 07FF</td>
+  <td>110xxxxx 10xxxxxx</td>
+</tr>
+<tr>
+  <td>0000 0800-0000 FFFF</td>
+  <td>1110xxxx 10xxxxxx 10xxxxxx</td>
+</tr>
+</tbody></table>
+
+  
+  <p>etc</p>
+</blockquote>
+
+
+
+<h2 id="decoding">Decoding</h2>
+
+<p>Want a decoding algo mapping : <script type="math/tex" id="MathJax-Element-1135">\Sigma^*_C \rightarrow \Sigma^*_S</script></p>
+
+<ul>
+<li>Code must be uniquely decodable</li>
+<li>It is helpful if a code is prefix-free (why?) <br>
+Eg: <br>
+A -&gt; 1 <br>
+B -&gt; 0 <br>
+C -&gt; 01 <br>
+01 could be C or BA. Who knows. Code(B) is prefix of Code(C) here.</li>
+<li>A prefix-free code has dict <script type="math/tex" id="MathJax-Element-1136">\Sigma^*_C -> \Sigma_S</script></li>
+<li>Dictionary: <br>
+<ul><li>Might be used and stored explicitly (eg trie) or only implicitly</li>
+<li>Might be agreed in advance (fixed coding)</li>
+<li>stored alongside message (static coding)</li>
+<li>or stored implicitly within the message (adaptive coding)</li></ul></li>
+</ul>
+
+<h2 id="character-frequency">Character Frequency</h2>
+
+<blockquote>
+  <p>Some letters in <script type="math/tex" id="MathJax-Element-1184">\Sigma</script> occur more often than others. So let’s use shorter codes for more frequent characters.</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+  <th>char</th>
+  <th>freq (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>e</td>
+  <td>~12</td>
+</tr>
+<tr>
+  <td>t</td>
+  <td>~9</td>
+</tr>
+<tr>
+  <td>a</td>
+  <td>~8</td>
+</tr>
+<tr>
+  <td>o</td>
+  <td>~7.5</td>
+</tr>
+<tr>
+  <td>i</td>
+  <td>~7</td>
+</tr>
+<tr>
+  <td>n</td>
+  <td>6.75</td>
+</tr>
+<tr>
+  <td>s</td>
+  <td>6.33</td>
+</tr>
+</tbody></table>
+
+
+<p>etc</p>
+
+<h2 id="huffman-coding">Huffman Coding</h2>
+
+<ul>
+<li>Source alpha is arbitrary (say <script type="math/tex" id="MathJax-Element-1449">\Sigma</script>), coded alpha is {0,1}</li>
+<li>We build a binary trie to store the decoding dict D</li>
+<li>Each char of <script type="math/tex" id="MathJax-Element-1450">\Sigma</script> is a leaf of the trie</li>
+</ul>
+
+<p>Eg: <script type="math/tex" id="MathJax-Element-1451">\Sigma = \{AENOT Space\_\}</script> <br>
+So char to num: <br>
+A 01 | Space_ 000 <br>
+N 001 | 0 100 <br>
+T 11 | E 101 <br>
+AN_ANT turns into 01 001 000 01 001 11 <br>
+TO_EAT -&gt; 11 100 000 101 01 11</p>
+
+<p>Building Trie example <br>
+Ex Text: LOSSLESS <br>
+Char freq: E-1, L-2, O-1, S-4 <br>
+<img src="http://amyqiu.me/Notes/cs241a.png"></p>
+
+<p>|C| = 14, <br>
+|S| = 8 <br>
+So compression ratio is ~ 88%</p></body>
+</html>
